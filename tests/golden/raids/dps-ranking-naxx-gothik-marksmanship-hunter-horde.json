@@ -1,0 +1,163 @@
+{
+  "version": 1,
+  "rule": "naxx-gothik-marksmanship-hunter-horde-dps-v1",
+  "scope": {
+    "encounter_id": 51109,
+    "class_id": 3,
+    "category": "Marksmanship",
+    "metric": "dps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/64181902-2006-20261104T151326.zip",
+    "sha256": "107c7bcb85e14bd9b69038141be282a8a5d8bc19e25b2d7f01609122d453349a"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "HVKDMcWGAY3xwn6m-30-20",
+      "purpose": "policy-scope",
+      "report": "HVKDMcWGAY3xwn6m",
+      "fight": 30,
+      "actor": 20,
+      "player": "Charlezx",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51109_Gothik_the_Harvester.json",
+      "page": 1,
+      "row": 11,
+      "owned_actor_ids": [
+        26
+      ],
+      "duration_ms": 296723,
+      "published": "370.939",
+      "totals": {
+        "raw": 110066,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 110066
+      },
+      "residual": "-132897/296723000",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 291,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "aa315d29d3466f1681ef85ad38a9ffd40abbd9f4ae8565d30f41dad5968f8f74",
+            "07d5b7b8ed2d01ee8b947b9ab1cf16465bdfcdce92cf140cdca9bf6a08f38879",
+            "2b086e8ba06d6c6d16ead8c97c1cffda31d3467fbcb371e13daa3c9b338f1ad1",
+            "0c4cf7a51899b2fd668788fb004899b524746183ed2535d6e8a78ecb2fe654e4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ck1Q4WMnVTDxbHaL-28-49",
+      "purpose": "policy-scope",
+      "report": "ck1Q4WMnVTDxbHaL",
+      "fight": 28,
+      "actor": 49,
+      "player": "Zerksy",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51109_Gothik_the_Harvester.json",
+      "page": 1,
+      "row": 24,
+      "owned_actor_ids": [],
+      "duration_ms": 309093,
+      "published": "347.656",
+      "totals": {
+        "raw": 107458,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 107458
+      },
+      "residual": "-4501/38636625",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 50,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "a966dc7c60e75fb34d18a6b579ca56a8ace6bfda5099c2d95cb28dd1930ff575",
+            "7a9f06d42a37bdac22f9a3d3356d733e2ceef0dd95c8237a8e11539c91bdc52d",
+            "c45fdf4174d09a85ad826b5dda147d3afb7826b597fc9f1c107ab808124e9c45",
+            "657e6af81bb5947a4d363cda7500033d53c365776a692bfbf845f14a44bce0ff",
+            "5c00da2ca0a7c6b12c67927b7dc44d2a12eb111783bfcae904847d4b6c6a384b"
+          ]
+        },
+        {
+          "pet": 118,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "a966dc7c60e75fb34d18a6b579ca56a8ace6bfda5099c2d95cb28dd1930ff575",
+            "7a9f06d42a37bdac22f9a3d3356d733e2ceef0dd95c8237a8e11539c91bdc52d",
+            "c45fdf4174d09a85ad826b5dda147d3afb7826b597fc9f1c107ab808124e9c45",
+            "657e6af81bb5947a4d363cda7500033d53c365776a692bfbf845f14a44bce0ff",
+            "5c00da2ca0a7c6b12c67927b7dc44d2a12eb111783bfcae904847d4b6c6a384b"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gGn8FjwxBZA2VCdt-81-47",
+      "purpose": "policy-scope",
+      "report": "gGn8FjwxBZA2VCdt",
+      "fight": 81,
+      "actor": 47,
+      "player": "Labarath",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51109_Gothik_the_Harvester.json",
+      "page": 1,
+      "row": 37,
+      "owned_actor_ids": [
+        125
+      ],
+      "duration_ms": 298575,
+      "published": "336.951",
+      "totals": {
+        "raw": 100605,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 100605
+      },
+      "residual": "-1931/3981000",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 142,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "c2609ebdcea7f7d8ca99b4171e21801dacabba85e5cff7cdf205331b9cd97eab",
+            "3497dc04708013da5c7751f8314c427c23a4f413771b7de259c5e6ee9e6f4619",
+            "a4e0afb97143d0c060235ec12b71ba44ea9ecc4bb27aaa259f9a11d48065f8b7"
+          ]
+        },
+        {
+          "pet": 163,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "c2609ebdcea7f7d8ca99b4171e21801dacabba85e5cff7cdf205331b9cd97eab",
+            "3497dc04708013da5c7751f8314c427c23a4f413771b7de259c5e6ee9e6f4619",
+            "a4e0afb97143d0c060235ec12b71ba44ea9ecc4bb27aaa259f9a11d48065f8b7"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

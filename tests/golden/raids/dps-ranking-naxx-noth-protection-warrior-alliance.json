@@ -1,0 +1,137 @@
+{
+  "version": 1,
+  "rule": "naxx-noth-protection-warrior-alliance-dps-v1",
+  "scope": {
+    "encounter_id": 51117,
+    "class_id": 11,
+    "category": "Protection",
+    "metric": "dps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/75466963-2006-20261111T134356.zip",
+    "sha256": "fb12765c9b6fd67e8cb252b09df71668d12ee793cb22bd20be4afcf2d86b1442"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "FZ49fWzXy6x3NYBn-22-29",
+      "purpose": "policy-scope",
+      "report": "FZ49fWzXy6x3NYBn",
+      "fight": 22,
+      "actor": 29,
+      "player": "Kill",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51117_Noth_the_Plaguebringer.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 36420,
+      "published": "2147.89",
+      "totals": {
+        "raw": 78570,
+        "self": 344,
+        "excluded": 0,
+        "ranked": 78226
+      },
+      "residual": "-769/182100",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 72,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "00c7ed21a9f857be954b6c9bafb65a2605608b2387d07631ceeac32199215b4a"
+          ]
+        },
+        {
+          "pet": 133,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "00c7ed21a9f857be954b6c9bafb65a2605608b2387d07631ceeac32199215b4a"
+          ]
+        },
+        {
+          "pet": 137,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "00c7ed21a9f857be954b6c9bafb65a2605608b2387d07631ceeac32199215b4a"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "M86VFKf2qNHLYm7p-25-34",
+      "purpose": "policy-scope",
+      "report": "M86VFKf2qNHLYm7p",
+      "fight": 25,
+      "actor": 34,
+      "player": "克瑞斯",
+      "realm": "匕首岭",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51117_Noth_the_Plaguebringer.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [
+        64
+      ],
+      "duration_ms": 65083,
+      "published": "2211.28",
+      "totals": {
+        "raw": 143917,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 143917
+      },
+      "residual": "6594/1627075"
+    },
+    {
+      "id": "pmjbavdA9Dg6X4yL-3-16",
+      "purpose": "policy-scope",
+      "report": "pmjbavdA9Dg6X4yL",
+      "fight": 3,
+      "actor": 16,
+      "player": "Aami",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51117_Noth_the_Plaguebringer.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 26252,
+      "published": "2177.51",
+      "totals": {
+        "raw": 57574,
+        "self": 410,
+        "excluded": 0,
+        "ranked": 57164
+      },
+      "residual": "187/656300",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 120,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "a8f85cf4c5ccb62ce5019ced8732137ba3ebe0e593bd6f4e141090524e5d4d53"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

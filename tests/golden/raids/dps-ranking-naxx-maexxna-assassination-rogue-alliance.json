@@ -1,0 +1,158 @@
+{
+  "version": 1,
+  "rule": "naxx-maexxna-assassination-rogue-alliance-dps-v1",
+  "scope": {
+    "encounter_id": 51116,
+    "class_id": 8,
+    "category": "Assassination",
+    "metric": "dps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77022735-2006-20261108T142205.zip",
+    "sha256": "f677e3ee78aeefc0ffe92aba276c7110707df719c2a3d05585a4aa47aa2abbb6"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "4Ar2tfQKcNhqnZ3W-8-49",
+      "purpose": "policy-scope",
+      "report": "4Ar2tfQKcNhqnZ3W",
+      "fight": 8,
+      "actor": 49,
+      "player": "Convicted",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51116_Maexxna.json",
+      "page": 1,
+      "row": 4,
+      "owned_actor_ids": [],
+      "duration_ms": 36369,
+      "published": "2316.42",
+      "totals": {
+        "raw": 84843,
+        "self": 597,
+        "excluded": 0,
+        "ranked": 84246
+      },
+      "residual": "2017/606150",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 148,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "73933c7f60d22055673b3cd9ca3d3b2bda600a2f58fee6cda831a52d309b87f3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "VHrGb79RcLtpj34q-10-54",
+      "purpose": "policy-scope",
+      "report": "VHrGb79RcLtpj34q",
+      "fight": 10,
+      "actor": 54,
+      "player": "Vicon",
+      "realm": "Pagle",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51116_Maexxna.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 32792,
+      "published": "2405.98",
+      "totals": {
+        "raw": 79375,
+        "self": 478,
+        "excluded": 0,
+        "ranked": 78897
+      },
+      "residual": "649/204950",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 72,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "dc44b27a30757e8c2ea1d82104bfee0f360afb05b67b51a563b711b2cae454b5"
+          ]
+        },
+        {
+          "pet": 80,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "dc44b27a30757e8c2ea1d82104bfee0f360afb05b67b51a563b711b2cae454b5"
+          ]
+        },
+        {
+          "pet": 126,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "dc44b27a30757e8c2ea1d82104bfee0f360afb05b67b51a563b711b2cae454b5"
+          ]
+        },
+        {
+          "pet": 201,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "dc44b27a30757e8c2ea1d82104bfee0f360afb05b67b51a563b711b2cae454b5"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tPv4wL76ZpTYrVkQ-25-5",
+      "purpose": "policy-scope",
+      "report": "tPv4wL76ZpTYrVkQ",
+      "fight": 25,
+      "actor": 5,
+      "player": "Rizz",
+      "realm": "Pagle",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51116_Maexxna.json",
+      "page": 1,
+      "row": 5,
+      "owned_actor_ids": [],
+      "duration_ms": 37531,
+      "published": "2314.73",
+      "totals": {
+        "raw": 87301,
+        "self": 427,
+        "excluded": 0,
+        "ranked": 86874
+      },
+      "residual": "-13163/3753100",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 107,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "f1a07a0e4470f78f27174b27e4281979dbdbe2829ad98c86ce8065178089dc1a"
+          ]
+        },
+        {
+          "pet": 108,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "f1a07a0e4470f78f27174b27e4281979dbdbe2829ad98c86ce8065178089dc1a"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

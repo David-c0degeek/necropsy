@@ -1,0 +1,172 @@
+{
+  "version": 1,
+  "rule": "naxx-horsemen-destruction-warlock-alliance-dps-v1",
+  "scope": {
+    "encounter_id": 51121,
+    "class_id": 10,
+    "category": "Destruction",
+    "metric": "dps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77751784-2006-20261109T171544.zip",
+    "sha256": "44aa5ecd2af4f99afc994efb5cc9832d2dc9026370c15b908a5d1f0924f71068"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "267PYWfK4wHNA3ch-50-42",
+      "purpose": "policy-scope",
+      "report": "267PYWfK4wHNA3ch",
+      "fight": 50,
+      "actor": 42,
+      "player": "Sobr",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51121_The_Four_Horsemen.json",
+      "page": 1,
+      "row": 5,
+      "owned_actor_ids": [],
+      "duration_ms": 234880,
+      "published": "697.207",
+      "totals": {
+        "raw": 163760,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 163760
+      },
+      "residual": "31/367000",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 102,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "891e3eff5e206aa1516832c5c3e3c881ed298e5ffa7e3c798553cda07fd6b146",
+            "b044e7df462e28f8a3bfba9cf741c1d050357cd9531b1a2b75f0ded5e81f195d",
+            "d53de3300f2e8d6313850a43de0bbe70a84b97e95588358cfd6c07f38aba393f"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Bdw4FK6tJRPL7Z2m-28-35",
+      "purpose": "policy-scope",
+      "report": "Bdw4FK6tJRPL7Z2m",
+      "fight": 28,
+      "actor": 35,
+      "player": "Coveck",
+      "realm": "Westfall",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51121_The_Four_Horsemen.json",
+      "page": 1,
+      "row": 3,
+      "owned_actor_ids": [],
+      "duration_ms": 111692,
+      "published": "722.675",
+      "totals": {
+        "raw": 81679,
+        "self": 962,
+        "excluded": 0,
+        "ranked": 80717
+      },
+      "residual": "-23/159560",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 9,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "409a4a11dddb1237800abe8b72e7e7e33f2895e08c382cb8f31fab11a8f78e81",
+            "29bfaa575b53fa90866c3db789cf3faf897137b60f898f90814cb2e955aafc2d",
+            "5bc5e2b0718ab3a023baa47380a35c91797c29a45180c18367c7de1c3dce2a80"
+          ]
+        },
+        {
+          "pet": 154,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "409a4a11dddb1237800abe8b72e7e7e33f2895e08c382cb8f31fab11a8f78e81",
+            "29bfaa575b53fa90866c3db789cf3faf897137b60f898f90814cb2e955aafc2d",
+            "5bc5e2b0718ab3a023baa47380a35c91797c29a45180c18367c7de1c3dce2a80"
+          ]
+        },
+        {
+          "pet": 212,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "409a4a11dddb1237800abe8b72e7e7e33f2895e08c382cb8f31fab11a8f78e81",
+            "29bfaa575b53fa90866c3db789cf3faf897137b60f898f90814cb2e955aafc2d",
+            "5bc5e2b0718ab3a023baa47380a35c91797c29a45180c18367c7de1c3dce2a80"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nJkyhH8fX1MwptQW-64-33",
+      "purpose": "policy-scope",
+      "report": "nJkyhH8fX1MwptQW",
+      "fight": 64,
+      "actor": 33,
+      "player": "Voer",
+      "realm": "德姆塞卡尔",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51121_The_Four_Horsemen.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 256613,
+      "published": "753.076",
+      "totals": {
+        "raw": 193249,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 193249
+      },
+      "residual": "-3271/9164750",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 39,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "03f08079b87d01d72f6e9d8627898d3392f9f0fdd77f95c5a390db25af69ef16",
+            "264221a40e62d19c8c94327aa5b3425a20abf941a67b2d2c423bce3758337bc5",
+            "5accd468a5c94f84399568dd7b67c2e0fbcd56f2b02289f90a563679fb9be17f"
+          ]
+        },
+        {
+          "pet": 78,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "03f08079b87d01d72f6e9d8627898d3392f9f0fdd77f95c5a390db25af69ef16",
+            "264221a40e62d19c8c94327aa5b3425a20abf941a67b2d2c423bce3758337bc5",
+            "5accd468a5c94f84399568dd7b67c2e0fbcd56f2b02289f90a563679fb9be17f"
+          ]
+        },
+        {
+          "pet": 106,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "03f08079b87d01d72f6e9d8627898d3392f9f0fdd77f95c5a390db25af69ef16",
+            "264221a40e62d19c8c94327aa5b3425a20abf941a67b2d2c423bce3758337bc5",
+            "5accd468a5c94f84399568dd7b67c2e0fbcd56f2b02289f90a563679fb9be17f"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

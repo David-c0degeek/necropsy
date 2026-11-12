@@ -1,0 +1,115 @@
+{
+  "version": 1,
+  "rule": "naxx-noth-retribution-paladin-alliance-dps-v1",
+  "scope": {
+    "encounter_id": 51117,
+    "class_id": 6,
+    "category": "Retribution",
+    "metric": "dps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/76716431-2006-20261106T042624.zip",
+    "sha256": "3b64e402362774511ae10a81c176e4cacf9aae04b62778dab30dd26a38c67585"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "cMB4JY6gGH1PdjCa-20-21",
+      "purpose": "policy-scope",
+      "report": "cMB4JY6gGH1PdjCa",
+      "fight": 20,
+      "actor": 21,
+      "player": "Craey",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51117_Noth_the_Plaguebringer.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [
+        90
+      ],
+      "duration_ms": 53096,
+      "published": "1247.21",
+      "totals": {
+        "raw": 66881,
+        "self": 659,
+        "excluded": 0,
+        "ranked": 66222
+      },
+      "residual": "1723/663700",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 71,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "c89c82ae0468cd8982c7181f3f4f5c15c077ee312fc79a9ebd942b3d6da81067",
+            "52fbed0cca92e4f6003d4f68c3e1308aa311add3a7aaec665624f20f58a61546"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "qVkYr4w1XgN72nQD-24-1",
+      "purpose": "policy-scope",
+      "report": "qVkYr4w1XgN72nQD",
+      "fight": 24,
+      "actor": 1,
+      "player": "Markofmir",
+      "realm": "Pyrewood Village",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51117_Noth_the_Plaguebringer.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 54126,
+      "published": "1291.32",
+      "totals": {
+        "raw": 69894,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 69894
+      },
+      "residual": "19/75175"
+    },
+    {
+      "id": "yBFnXgVKkL1d38MY-32-14",
+      "purpose": "policy-scope",
+      "report": "yBFnXgVKkL1d38MY",
+      "fight": 32,
+      "actor": 14,
+      "player": "Dungeonman",
+      "realm": "Mankrik",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51117_Noth_the_Plaguebringer.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 43061,
+      "published": "1272.17",
+      "totals": {
+        "raw": 55391,
+        "self": 610,
+        "excluded": 0,
+        "ranked": 54781
+      },
+      "residual": "8763/4306100"
+    }
+  ],
+  "refusals": []
+}

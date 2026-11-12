@@ -1,0 +1,112 @@
+{
+  "version": 1,
+  "rule": "naxx-maexxna-protection-warrior-alliance-dps-v1",
+  "scope": {
+    "encounter_id": 51116,
+    "class_id": 11,
+    "category": "Protection",
+    "metric": "dps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/75466963-2006-20261111T134356.zip",
+    "sha256": "fb12765c9b6fd67e8cb252b09df71668d12ee793cb22bd20be4afcf2d86b1442"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "NQtca47MB9jZfF8L-9-35",
+      "purpose": "policy-scope",
+      "report": "NQtca47MB9jZfF8L",
+      "fight": 9,
+      "actor": 35,
+      "player": "Bangs",
+      "realm": "Pagle",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51116_Maexxna.json",
+      "page": 1,
+      "row": 15,
+      "owned_actor_ids": [],
+      "duration_ms": 33941,
+      "published": "1650.42",
+      "totals": {
+        "raw": 56017,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 56017
+      },
+      "residual": "4739/1697050",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 138,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "de7c9cf849c2540ed2fb2aadd47a575314fcf80ac20fcf0bb2c22d4fcf5cafbe"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "v8xpPT13D7cranAY-10-51",
+      "purpose": "policy-scope",
+      "report": "v8xpPT13D7cranAY",
+      "fight": 10,
+      "actor": 51,
+      "player": "Lixê",
+      "realm": "Pyrewood Village",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51116_Maexxna.json",
+      "page": 1,
+      "row": 5,
+      "owned_actor_ids": [],
+      "duration_ms": 35285,
+      "published": "1771.4",
+      "totals": {
+        "raw": 62915,
+        "self": 411,
+        "excluded": 0,
+        "ranked": 62504
+      },
+      "residual": "151/35285"
+    },
+    {
+      "id": "ybLv2CdHAxVcD4mp-3-19",
+      "purpose": "policy-scope",
+      "report": "ybLv2CdHAxVcD4mp",
+      "fight": 3,
+      "actor": 19,
+      "player": "Ortimus",
+      "realm": "Pagle",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51116_Maexxna.json",
+      "page": 1,
+      "row": 7,
+      "owned_actor_ids": [],
+      "duration_ms": 34219,
+      "published": "1743.04",
+      "totals": {
+        "raw": 60117,
+        "self": 472,
+        "excluded": 0,
+        "ranked": 59645
+      },
+      "residual": "-2144/855475"
+    }
+  ],
+  "refusals": []
+}

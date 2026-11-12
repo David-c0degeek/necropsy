@@ -1,0 +1,123 @@
+{
+  "version": 1,
+  "rule": "naxx-grobbulus-protection-paladin-alliance-dps-v1",
+  "scope": {
+    "encounter_id": 51111,
+    "class_id": 6,
+    "category": "Protection",
+    "metric": "dps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/67666001-2006-20261105T232014.zip",
+    "sha256": "b768ff71aa948c5091eb22eafbc8baa9e3a36165c0304d39d9d48b113ec1b591"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "7z9gfDJC4WLBwqkv-23-6",
+      "purpose": "policy-scope",
+      "report": "7z9gfDJC4WLBwqkv",
+      "fight": 23,
+      "actor": 6,
+      "player": "Amarict",
+      "realm": "Grobbulus",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51111_Grobbulus.json",
+      "page": 1,
+      "row": 3,
+      "owned_actor_ids": [],
+      "duration_ms": 98113,
+      "published": "524.681",
+      "totals": {
+        "raw": 51478,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 51478
+      },
+      "residual": "-26953/98113000",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 103,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "cf9fc943de82d2fa4acd7a5ef62aee6dca77111520ea564e5d1b2cf8130c4bf9",
+            "c3153cbc233f8c904146089df570be3e602416be0acd37f6da613a2420ae2b27"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B9nCMmqF8XgYJy1z-45-3",
+      "purpose": "policy-scope",
+      "report": "B9nCMmqF8XgYJy1z",
+      "fight": 45,
+      "actor": 3,
+      "player": "Ecclesia",
+      "realm": "Mankrik",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51111_Grobbulus.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 61029,
+      "published": "571.45",
+      "totals": {
+        "raw": 34875,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 34875
+      },
+      "residual": "-49/135620"
+    },
+    {
+      "id": "BQWPHYTw9b7cFdM2-23-25",
+      "purpose": "policy-scope",
+      "report": "BQWPHYTw9b7cFdM2",
+      "fight": 23,
+      "actor": 25,
+      "player": "Cisternina",
+      "realm": "Mankrik",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51111_Grobbulus.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 77091,
+      "published": "560.182",
+      "totals": {
+        "raw": 43664,
+        "self": 479,
+        "excluded": 0,
+        "ranked": 43185
+      },
+      "residual": "1573/12848500",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 75,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "02c6ee14cf0c9eb84db54466024a81d632475360055f7f0afae06f711c4e9b61",
+            "e0a8db5ad89752dfee20994e6224f6489c43ed4f57cd65764cad0ce854ebe200"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

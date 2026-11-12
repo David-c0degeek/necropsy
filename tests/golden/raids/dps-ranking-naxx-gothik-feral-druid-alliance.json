@@ -1,0 +1,159 @@
+{
+  "version": 1,
+  "rule": "naxx-gothik-feral-druid-alliance-dps-v1",
+  "scope": {
+    "encounter_id": 51109,
+    "class_id": 2,
+    "category": "Feral",
+    "metric": "dps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261031/75650895-2006-20261029T065847.zip",
+    "sha256": "be76c08559f11ed91b648a7a3aa88970647c7a333552356b6e84049511578633"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "GwdjVpcP327aZDrf-33-24",
+      "purpose": "policy-scope",
+      "report": "GwdjVpcP327aZDrf",
+      "fight": 33,
+      "actor": 24,
+      "player": "Frelseren",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51109_Gothik_the_Harvester.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [
+        185
+      ],
+      "duration_ms": 294407,
+      "published": "362.96",
+      "totals": {
+        "raw": 107019,
+        "self": 161,
+        "excluded": 0,
+        "ranked": 106858
+      },
+      "residual": "882/7360175",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 61,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "da7c48163330fc885b531868becc3749e6867981c57bb8c73c1c11d84db38958",
+            "3cced19d7c361f1df92d4518292abf067722b44a14c588e015fbbbd251a5fae7",
+            "8e066e99cfb48ee9be9b4b6197cf1c5fcaa12c7f01ee22a68b701e443abb0f97",
+            "28a6480afb7957dfde75aed949a1c42037c9ef9e6433051e8b223df93f7aa9b3"
+          ]
+        },
+        {
+          "pet": 131,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "da7c48163330fc885b531868becc3749e6867981c57bb8c73c1c11d84db38958",
+            "3cced19d7c361f1df92d4518292abf067722b44a14c588e015fbbbd251a5fae7",
+            "8e066e99cfb48ee9be9b4b6197cf1c5fcaa12c7f01ee22a68b701e443abb0f97",
+            "28a6480afb7957dfde75aed949a1c42037c9ef9e6433051e8b223df93f7aa9b3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rdk8DqG6QjvCRVFK-37-51",
+      "purpose": "policy-scope",
+      "report": "rdk8DqG6QjvCRVFK",
+      "fight": 37,
+      "actor": 51,
+      "player": "Hélios",
+      "realm": "Golemagg",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51109_Gothik_the_Harvester.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 295362,
+      "published": "319.662",
+      "totals": {
+        "raw": 95418,
+        "self": 1002,
+        "excluded": 0,
+        "ranked": 94416
+      },
+      "residual": "-637/24613500",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 120,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "a8c81eff4f118b23d28386c57f5eb45280482ab5ce8190c8d643bf5fed832a28",
+            "15d89b51067a3fef0adbdb387e02f196218e6e64552da48775ce00c4c74dd246",
+            "40de2734d087203b248c81c80ee3aa84743ad211a58d054299fde5eeedeac62e",
+            "d9d710215691adf70190878042b75b04c8fa0d96fc9e78b13ec57ec3c0736b7b"
+          ]
+        },
+        {
+          "pet": 160,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "a8c81eff4f118b23d28386c57f5eb45280482ab5ce8190c8d643bf5fed832a28",
+            "15d89b51067a3fef0adbdb387e02f196218e6e64552da48775ce00c4c74dd246",
+            "40de2734d087203b248c81c80ee3aa84743ad211a58d054299fde5eeedeac62e",
+            "d9d710215691adf70190878042b75b04c8fa0d96fc9e78b13ec57ec3c0736b7b"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "yMTxpmP7AtXjqRJB-51-18",
+      "purpose": "policy-scope",
+      "report": "yMTxpmP7AtXjqRJB",
+      "fight": 51,
+      "actor": 18,
+      "player": "缺得的德",
+      "realm": "匕首岭",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51109_Gothik_the_Harvester.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 308794,
+      "published": "336.661",
+      "totals": {
+        "raw": 104621,
+        "self": 662,
+        "excluded": 0,
+        "ranked": 103959
+      },
+      "residual": "51583/154397000",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 73,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "7063cee883efb6a1c8ee407fc230a6f82b1f79326c155d65dc65d4cf2d324883",
+            "17528d58715d519b957ad574a347b41e0ca18a5e1eab4859062ead138e0fc333"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

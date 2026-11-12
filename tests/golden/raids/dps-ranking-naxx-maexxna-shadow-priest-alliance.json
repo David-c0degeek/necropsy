@@ -1,0 +1,103 @@
+{
+  "version": 1,
+  "rule": "naxx-maexxna-shadow-priest-alliance-dps-v1",
+  "scope": {
+    "encounter_id": 51116,
+    "class_id": 7,
+    "category": "Shadow",
+    "metric": "dps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77122652-2006-20261107T163813.zip",
+    "sha256": "85f096bcc2951498da23e9d8e3297387fc1bd899217ec963867b977459298585"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "XKFLM6YR29Cmxpnb-13-41",
+      "purpose": "policy-scope",
+      "report": "XKFLM6YR29Cmxpnb",
+      "fight": 13,
+      "actor": 41,
+      "player": "Deyada",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51116_Maexxna.json",
+      "page": 1,
+      "row": 3,
+      "owned_actor_ids": [],
+      "duration_ms": 31241,
+      "published": "844.819",
+      "totals": {
+        "raw": 26393,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 26393
+      },
+      "residual": "9621/31241000"
+    },
+    {
+      "id": "ZL924hN1HAyQCYX7-11-42",
+      "purpose": "policy-scope",
+      "report": "ZL924hN1HAyQCYX7",
+      "fight": 11,
+      "actor": 42,
+      "player": "Kerzon",
+      "realm": "Pagle",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51116_Maexxna.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 35933,
+      "published": "1233.18",
+      "totals": {
+        "raw": 45549,
+        "self": 1237,
+        "excluded": 0,
+        "ranked": 44312
+      },
+      "residual": "7153/1796650"
+    },
+    {
+      "id": "xTChPw3ktgpyXLV6-15-12",
+      "purpose": "policy-scope",
+      "report": "xTChPw3ktgpyXLV6",
+      "fight": 15,
+      "actor": 12,
+      "player": "Solex",
+      "realm": "Pagle",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51116_Maexxna.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 41603,
+      "published": "1121.89",
+      "totals": {
+        "raw": 47120,
+        "self": 446,
+        "excluded": 0,
+        "ranked": 46674
+      },
+      "residual": "1033/4160300"
+    }
+  ],
+  "refusals": []
+}

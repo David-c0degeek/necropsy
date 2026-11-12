@@ -1,0 +1,145 @@
+{
+  "version": 1,
+  "rule": "naxx-noth-marksmanship-hunter-horde-dps-v1",
+  "scope": {
+    "encounter_id": 51117,
+    "class_id": 3,
+    "category": "Marksmanship",
+    "metric": "dps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/64181902-2006-20261104T151326.zip",
+    "sha256": "107c7bcb85e14bd9b69038141be282a8a5d8bc19e25b2d7f01609122d453349a"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "KDQargNtfR4yJnB2-38-38",
+      "purpose": "policy-scope",
+      "report": "KDQargNtfR4yJnB2",
+      "fight": 38,
+      "actor": 38,
+      "player": "Ducati",
+      "realm": "Rattlegore",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51117_Noth_the_Plaguebringer.json",
+      "page": 1,
+      "row": 9,
+      "owned_actor_ids": [
+        70
+      ],
+      "duration_ms": 54342,
+      "published": "1422.58",
+      "totals": {
+        "raw": 77306,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 77306
+      },
+      "residual": "3941/1358550",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 129,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "43793820abe8f3388b4a91384b8899a813ddd01299324588a737a3a587bde297",
+            "7e5514745c02a4fa57c1b4492f7e7ce6dfcad1f6c5df640f8ef85e6edab28dca"
+          ]
+        },
+        {
+          "pet": 227,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "43793820abe8f3388b4a91384b8899a813ddd01299324588a737a3a587bde297",
+            "7e5514745c02a4fa57c1b4492f7e7ce6dfcad1f6c5df640f8ef85e6edab28dca"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "MpgdPBmt76w39ZyG-51-39",
+      "purpose": "policy-scope",
+      "report": "MpgdPBmt76w39ZyG",
+      "fight": 51,
+      "actor": 39,
+      "player": "Timecöp",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51117_Noth_the_Plaguebringer.json",
+      "page": 1,
+      "row": 7,
+      "owned_actor_ids": [
+        40
+      ],
+      "duration_ms": 35997,
+      "published": "1437.06",
+      "totals": {
+        "raw": 51730,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 51730
+      },
+      "residual": "7559/1799850",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 67,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "4a97980ab7ce980c1beabc84687e35850661f8d1bd6d574e34f5aaaf1994fed4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pY1ZkRd2LNCyxjrV-17-43",
+      "purpose": "policy-scope",
+      "report": "pY1ZkRd2LNCyxjrV",
+      "fight": 17,
+      "actor": 43,
+      "player": "Labarath",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51117_Noth_the_Plaguebringer.json",
+      "page": 1,
+      "row": 16,
+      "owned_actor_ids": [
+        44
+      ],
+      "duration_ms": 43727,
+      "published": "1400.81",
+      "totals": {
+        "raw": 61253,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 61253
+      },
+      "residual": "-21887/4372700",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 142,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "aa4edf9df70c7fecff66643847d9a9a051c4d246b44551c6d1d213aff4e4ceee"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

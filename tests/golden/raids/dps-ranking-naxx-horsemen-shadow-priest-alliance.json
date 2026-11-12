@@ -1,0 +1,114 @@
+{
+  "version": 1,
+  "rule": "naxx-horsemen-shadow-priest-alliance-dps-v1",
+  "scope": {
+    "encounter_id": 51121,
+    "class_id": 7,
+    "category": "Shadow",
+    "metric": "dps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77122652-2006-20261107T163813.zip",
+    "sha256": "85f096bcc2951498da23e9d8e3297387fc1bd899217ec963867b977459298585"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "KdMQtgnGAD6Y7q3V-53-29",
+      "purpose": "policy-scope",
+      "report": "KdMQtgnGAD6Y7q3V",
+      "fight": 53,
+      "actor": 29,
+      "player": "Zaera",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51121_The_Four_Horsemen.json",
+      "page": 1,
+      "row": 3,
+      "owned_actor_ids": [],
+      "duration_ms": 177620,
+      "published": "403.203",
+      "totals": {
+        "raw": 72055,
+        "self": 438,
+        "excluded": 0,
+        "ranked": 71617
+      },
+      "residual": "4157/8881000"
+    },
+    {
+      "id": "xqAj4kKmtCD9Wy6F-45-23",
+      "purpose": "policy-scope",
+      "report": "xqAj4kKmtCD9Wy6F",
+      "fight": 45,
+      "actor": 23,
+      "player": "Solex",
+      "realm": "Pagle",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51121_The_Four_Horsemen.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 201144,
+      "published": "472.95",
+      "totals": {
+        "raw": 95998,
+        "self": 867,
+        "excluded": 0,
+        "ranked": 95131
+      },
+      "residual": "-137/502860",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 181,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "3029c576810adb1a32c1414e45ee90bdabc57e67b70277c9b07b5e0f893978ce",
+            "d9a8f3ce6073b46b734453153607d3ca3bc219d340897710adbc0df0307db0d6",
+            "d5578131d8c1fba4b9838a1db82df37fe8141607117c02b0009bd752356971a9"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "y8qL9JYAxmctPRDg-68-12",
+      "purpose": "policy-scope",
+      "report": "y8qL9JYAxmctPRDg",
+      "fight": 68,
+      "actor": 12,
+      "player": "那矮子牧",
+      "realm": "哈霍兰",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51121_The_Four_Horsemen.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 280640,
+      "published": "411.292",
+      "totals": {
+        "raw": 115425,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 115425
+      },
+      "residual": "41/877000"
+    }
+  ],
+  "refusals": []
+}

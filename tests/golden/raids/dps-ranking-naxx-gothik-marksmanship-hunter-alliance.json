@@ -1,0 +1,182 @@
+{
+  "version": 1,
+  "rule": "naxx-gothik-marksmanship-hunter-alliance-dps-v1",
+  "scope": {
+    "encounter_id": 51109,
+    "class_id": 3,
+    "category": "Marksmanship",
+    "metric": "dps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/75928820-2006-20261103T162831.zip",
+    "sha256": "98a2d5a39d3b85dfee8db0b777b1c74cbef11656138baa5b7b892302311050a1"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "RpdgBAVyqt4XLJnZ-39-31",
+      "purpose": "policy-scope",
+      "report": "RpdgBAVyqt4XLJnZ",
+      "fight": 39,
+      "actor": 31,
+      "player": "Alldon",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51109_Gothik_the_Harvester.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [
+        49,
+        162
+      ],
+      "duration_ms": 302608,
+      "published": "442.311",
+      "totals": {
+        "raw": 133847,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 133847
+      },
+      "residual": "9557/18913000",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 61,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "853da3c9fbb440623dc49d4a769376276410ddf7f98ede3f9e71cd7714c15178",
+            "2b71872b3413ca66f15fef27bd80f00f4935b8f676de9b77621828a1da5b6711",
+            "41ae9688739aa1cdd125f0b8e0428dcb204a420bb722cdef15da4fe8104fdbd2",
+            "edad52ab46d706b6af1d764e7a615347cecdf837f5e5fe75f970a578db8314ba"
+          ]
+        },
+        {
+          "pet": 109,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "853da3c9fbb440623dc49d4a769376276410ddf7f98ede3f9e71cd7714c15178",
+            "2b71872b3413ca66f15fef27bd80f00f4935b8f676de9b77621828a1da5b6711",
+            "41ae9688739aa1cdd125f0b8e0428dcb204a420bb722cdef15da4fe8104fdbd2",
+            "edad52ab46d706b6af1d764e7a615347cecdf837f5e5fe75f970a578db8314ba"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cWNK4kJnP1TwHZmh-45-55",
+      "purpose": "policy-scope",
+      "report": "cWNK4kJnP1TwHZmh",
+      "fight": 45,
+      "actor": 55,
+      "player": "Andrenn",
+      "realm": "Mankrik",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51109_Gothik_the_Harvester.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [
+        57
+      ],
+      "duration_ms": 296571,
+      "published": "444.123",
+      "totals": {
+        "raw": 131714,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 131714
+      },
+      "residual": "-203/26961000",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 67,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "b9cedfb3ce46547344edd5e43e44e44921d33feb46010cae9f96dc40bf4d5881",
+            "6f98a50fd2c67be9a2db060c1d5fc983183f93580b4193f85c0c8d6679cb22ba",
+            "2641efa0d714d2613adb77974f53b87f0733bec9119a06b70886815c0ed6e3b9"
+          ]
+        },
+        {
+          "pet": 94,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "b9cedfb3ce46547344edd5e43e44e44921d33feb46010cae9f96dc40bf4d5881",
+            "6f98a50fd2c67be9a2db060c1d5fc983183f93580b4193f85c0c8d6679cb22ba",
+            "2641efa0d714d2613adb77974f53b87f0733bec9119a06b70886815c0ed6e3b9"
+          ]
+        },
+        {
+          "pet": 115,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "b9cedfb3ce46547344edd5e43e44e44921d33feb46010cae9f96dc40bf4d5881",
+            "6f98a50fd2c67be9a2db060c1d5fc983183f93580b4193f85c0c8d6679cb22ba",
+            "2641efa0d714d2613adb77974f53b87f0733bec9119a06b70886815c0ed6e3b9"
+          ]
+        },
+        {
+          "pet": 150,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "b9cedfb3ce46547344edd5e43e44e44921d33feb46010cae9f96dc40bf4d5881",
+            "6f98a50fd2c67be9a2db060c1d5fc983183f93580b4193f85c0c8d6679cb22ba",
+            "2641efa0d714d2613adb77974f53b87f0733bec9119a06b70886815c0ed6e3b9"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nGDVYJ8ZavmdgxBw-15-41",
+      "purpose": "policy-scope",
+      "report": "nGDVYJ8ZavmdgxBw",
+      "fight": 15,
+      "actor": 41,
+      "player": "Eoria",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51109_Gothik_the_Harvester.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [
+        44
+      ],
+      "duration_ms": 300014,
+      "published": "424.447",
+      "totals": {
+        "raw": 127340,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 127340
+      },
+      "residual": "-21129/150007000",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 48,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "83db650fcd644ca50254b736b50c672a81c1c8bd6b7c08ac9d38e75428277c64",
+            "233735d9e9d121af8c0365ee8a024d6c919b0d6e5a338d7c79bcc503af45c584",
+            "2fcc681fd2864a8c3288be3d161cdac7a5368f69156fd88108bb055aa817085d",
+            "be2cf759d794cf7d73b971ab76203de75c21c0b2e676b82da350ed10b2683599"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

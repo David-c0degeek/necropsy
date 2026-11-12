@@ -1,0 +1,149 @@
+{
+  "version": 1,
+  "rule": "naxx-gothik-assassination-rogue-horde-dps-v1",
+  "scope": {
+    "encounter_id": 51109,
+    "class_id": 8,
+    "category": "Assassination",
+    "metric": "dps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/62246596-2006-20261108T183110.zip",
+    "sha256": "fe4586f7b35248d9aac33bd34fee7bae7499e57c9f39a27cd524ff3fd2cd9078"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "1a9MnApWT7G3PZKF-21-10",
+      "purpose": "policy-scope",
+      "report": "1a9MnApWT7G3PZKF",
+      "fight": 21,
+      "actor": 10,
+      "player": "Shankzor",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51109_Gothik_the_Harvester.json",
+      "page": 1,
+      "row": 9,
+      "owned_actor_ids": [],
+      "duration_ms": 301814,
+      "published": "739.177",
+      "totals": {
+        "raw": 223094,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 223094
+      },
+      "residual": "16461/150907000",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 154,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "bee18caba68a5de376641a0ef56dbe0fb149f22927f6ebb93cb1986e0b378ff2",
+            "e5788b1e8af6152e29c2fed4904bfb55b1b55b9896b66601ab22db070e95c460",
+            "ebd485743780a4ad5894e22a2921d37804759b49d0fe847b64f0382ecd4030ae",
+            "cde6604e00ccd3c9fe2bf0accd80d8f542e27a39b82d2e3a7593314318ea497d"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dntwJ7PvqBZ1rFD4-22-21",
+      "purpose": "policy-scope",
+      "report": "dntwJ7PvqBZ1rFD4",
+      "fight": 22,
+      "actor": 21,
+      "player": "Numbskull",
+      "realm": "Fairbanks",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51109_Gothik_the_Harvester.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 299897,
+      "published": "829.948",
+      "totals": {
+        "raw": 249797,
+        "self": 898,
+        "excluded": 0,
+        "ranked": 248899
+      },
+      "residual": "21161/74974250",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 167,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "25535ee5657427c9a36e05232564d2bbdf964a371a26be8333395bc45a73fb8a",
+            "e9fb5da9253fbe5626d7bdba393e020dda05c222a233d9e3d3e5e898019707d8",
+            "45d8e19a9279d906f7258f024f438dab9bce1ebb65e891327ba6a8e76e31756e",
+            "311e4fabf77256b73e92e0ad0d66299f03f984a6ee93ab1dc9c0d27d63b5375e"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nMWghFTBP1vHXbYL-23-46",
+      "purpose": "policy-scope",
+      "report": "nMWghFTBP1vHXbYL",
+      "fight": 23,
+      "actor": 46,
+      "player": "Hallowtide",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51109_Gothik_the_Harvester.json",
+      "page": 1,
+      "row": 15,
+      "owned_actor_ids": [],
+      "duration_ms": 304601,
+      "published": "710.884",
+      "totals": {
+        "raw": 216536,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 216536
+      },
+      "residual": "5679/76150250",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 150,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "fb9291c8a4bdcf2eeb21c899c12bebefe780f79104cf699ecc71cd8d3667484b",
+            "34b1139918827d8b82bb962cdcfacdf0df362ed3b27af5ead579be5a7ec52aab",
+            "6b7aafe85c7d213b5ad6c72d79bd04645e34a15eca36df38151a357325020383",
+            "ffb97d0d0cf2675202591e7db2f56c06258851353a2409fcc16cd4c2614535e1"
+          ]
+        },
+        {
+          "pet": 154,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "fb9291c8a4bdcf2eeb21c899c12bebefe780f79104cf699ecc71cd8d3667484b",
+            "34b1139918827d8b82bb962cdcfacdf0df362ed3b27af5ead579be5a7ec52aab",
+            "6b7aafe85c7d213b5ad6c72d79bd04645e34a15eca36df38151a357325020383",
+            "ffb97d0d0cf2675202591e7db2f56c06258851353a2409fcc16cd4c2614535e1"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

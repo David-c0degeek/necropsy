@@ -1,0 +1,149 @@
+{
+  "version": 1,
+  "rule": "naxx-grobbulus-assassination-rogue-alliance-dps-v1",
+  "scope": {
+    "encounter_id": 51111,
+    "class_id": 8,
+    "category": "Assassination",
+    "metric": "dps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77022735-2006-20261108T142205.zip",
+    "sha256": "f677e3ee78aeefc0ffe92aba276c7110707df719c2a3d05585a4aa47aa2abbb6"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "YV3yqbmjT8x126NJ-16-13",
+      "purpose": "policy-scope",
+      "report": "YV3yqbmjT8x126NJ",
+      "fight": 16,
+      "actor": 13,
+      "player": "Tusqaiprime",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51111_Grobbulus.json",
+      "page": 1,
+      "row": 3,
+      "owned_actor_ids": [],
+      "duration_ms": 63592,
+      "published": "2085.39",
+      "totals": {
+        "raw": 132614,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 132614
+      },
+      "residual": "-1511/794900",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 98,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "628c9a83becc344cba8ef3843655da9b8b8453cf3d89158b300d2ec74d05cba3",
+            "8d4a15c21c58c0a7dc3bbf7bd1fbd9cb376d7c1edc3d79a87869ac12632b50e5"
+          ]
+        },
+        {
+          "pet": 99,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "628c9a83becc344cba8ef3843655da9b8b8453cf3d89158b300d2ec74d05cba3",
+            "8d4a15c21c58c0a7dc3bbf7bd1fbd9cb376d7c1edc3d79a87869ac12632b50e5"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f4yvWzDwdXjpra13-24-5",
+      "purpose": "policy-scope",
+      "report": "f4yvWzDwdXjpra13",
+      "fight": 24,
+      "actor": 5,
+      "player": "Noitaredeef",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51111_Grobbulus.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 70890,
+      "published": "2103.98",
+      "totals": {
+        "raw": 149645,
+        "self": 494,
+        "excluded": 0,
+        "ranked": 149151
+      },
+      "residual": "-237/118150",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 97,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "0fc7c0de1505f39354f2bece1f6f1859fee3f30c9ccce371500c883719069765",
+            "c5cd5d2c02cea42dce3e01cb0e1e015c506a0d84b737f1253b48dc3d12b58b2a"
+          ]
+        },
+        {
+          "pet": 104,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "0fc7c0de1505f39354f2bece1f6f1859fee3f30c9ccce371500c883719069765",
+            "c5cd5d2c02cea42dce3e01cb0e1e015c506a0d84b737f1253b48dc3d12b58b2a"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "qKk3TD6yCZzbgwmc-46-30",
+      "purpose": "policy-scope",
+      "report": "qKk3TD6yCZzbgwmc",
+      "fight": 46,
+      "actor": 30,
+      "player": "Omnipresent",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51111_Grobbulus.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 62852,
+      "published": "2144.63",
+      "totals": {
+        "raw": 134794,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 134794
+      },
+      "residual": "-7119/1571300",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 95,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "de074310fda6e0c1c0e588a063419fe079ab3c65d543c869a8315db8a850d8c2",
+            "87dd7f9a0afe80c01b16973957e140f698cc8b73861efc55e2159ca37592e756"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

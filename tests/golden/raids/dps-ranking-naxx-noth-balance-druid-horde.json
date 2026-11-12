@@ -1,0 +1,122 @@
+{
+  "version": 1,
+  "rule": "naxx-noth-balance-druid-horde-dps-v1",
+  "scope": {
+    "encounter_id": 51117,
+    "class_id": 2,
+    "category": "Balance",
+    "metric": "dps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261031/64347501-2006-20261027T093033.zip",
+    "sha256": "7021b6a180220f5933e700ec5121db16441526d5004d88679d6bf48e98718ab2"
+  },
+  "dispositions": {
+    "n": 5,
+    "k": 3,
+    "r": 2,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "Kj8Tkra1pB9h2zJ6-23-37",
+      "purpose": "policy-scope",
+      "report": "Kj8Tkra1pB9h2zJ6",
+      "fight": 23,
+      "actor": 37,
+      "player": "若曦小小牛",
+      "realm": "湖畔镇",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51117_Noth_the_Plaguebringer.json",
+      "page": 1,
+      "row": 22,
+      "owned_actor_ids": [],
+      "duration_ms": 64697,
+      "published": "714.098",
+      "totals": {
+        "raw": 46200,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 46200
+      },
+      "residual": "847/32348500"
+    },
+    {
+      "id": "cAJ1F7y3QWkzZBPg-54-6",
+      "purpose": "policy-scope",
+      "report": "cAJ1F7y3QWkzZBPg",
+      "fight": 54,
+      "actor": 6,
+      "player": "Crljenac",
+      "realm": "Mirage Raceway",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51117_Noth_the_Plaguebringer.json",
+      "page": 1,
+      "row": 13,
+      "owned_actor_ids": [],
+      "duration_ms": 67065,
+      "published": "805.174",
+      "totals": {
+        "raw": 53999,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 53999
+      },
+      "residual": "569/6706500"
+    },
+    {
+      "id": "gpPMcNJ9knhW61qG-4-51",
+      "purpose": "policy-scope",
+      "report": "gpPMcNJ9knhW61qG",
+      "fight": 4,
+      "actor": 51,
+      "player": "Gimbaswife",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51117_Noth_the_Plaguebringer.json",
+      "page": 1,
+      "row": 14,
+      "owned_actor_ids": [],
+      "duration_ms": 39741,
+      "published": "801.188",
+      "totals": {
+        "raw": 31840,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 31840
+      },
+      "residual": "-3077/9935250"
+    }
+  ],
+  "refusals": [
+    {
+      "report": "XYdhV7QrLPgMAkCT",
+      "fight": 100,
+      "player": "Freshbull",
+      "realm": "Firemaw",
+      "reason": "\"There is no item named 'events/XYdhV7QrLPgMAkCT/fight_100/player_10_Freshbull/pets.json' in the archive\"",
+      "faction": "Horde",
+      "faction_status": "observed"
+    },
+    {
+      "report": "Y1fWqMJgVPxD7yQT",
+      "fight": 47,
+      "player": "Necsta",
+      "realm": "Pyrewood Village",
+      "reason": "\"There is no item named 'events/Y1fWqMJgVPxD7yQT/fight_47/player_35_Necsta/pets.json' in the archive\"",
+      "faction": "Horde",
+      "faction_status": "observed"
+    }
+  ]
+}

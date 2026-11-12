@@ -1,0 +1,137 @@
+{
+  "version": 1,
+  "rule": "naxx-kelthuzad-marksmanship-hunter-alliance-dps-v1",
+  "scope": {
+    "encounter_id": 51114,
+    "class_id": 3,
+    "category": "Marksmanship",
+    "metric": "dps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/75928820-2006-20261103T162831.zip",
+    "sha256": "98a2d5a39d3b85dfee8db0b777b1c74cbef11656138baa5b7b892302311050a1"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "21Ltd7j63RTkgXA9-36-12",
+      "purpose": "policy-scope",
+      "report": "21Ltd7j63RTkgXA9",
+      "fight": 36,
+      "actor": 12,
+      "player": "Snipex",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51114_Kel_Thuzad.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [
+        30
+      ],
+      "duration_ms": 90361,
+      "published": "1320.6",
+      "totals": {
+        "raw": 119331,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 119331
+      },
+      "residual": "1317/451805",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 90,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "b3283dece76bbd0c0bd12e4fb6b6ad4919b60cabe7fcd4f311a0b0aae70b1389",
+            "3dc16f4129ae3f5eb440a11007dd16a622591b600620e12fe4e29890302bc5c2"
+          ]
+        },
+        {
+          "pet": 149,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "b3283dece76bbd0c0bd12e4fb6b6ad4919b60cabe7fcd4f311a0b0aae70b1389",
+            "3dc16f4129ae3f5eb440a11007dd16a622591b600620e12fe4e29890302bc5c2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "9MTF1BJ7NbK6WfcG-37-13",
+      "purpose": "policy-scope",
+      "report": "9MTF1BJ7NbK6WfcG",
+      "fight": 37,
+      "actor": 13,
+      "player": "Clicker",
+      "realm": "Mograine",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51114_Kel_Thuzad.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [
+        40
+      ],
+      "duration_ms": 73980,
+      "published": "1231.83",
+      "totals": {
+        "raw": 91131,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 91131
+      },
+      "residual": "361/123300",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 151,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "b886d41a849f0aeb8f6615284dded41b8a6665ffa39cf60a94c717803db16ff5",
+            "9be52fc69e922ede4e80b6c3cc2a3c79b54f17f05c2842e6a47d6dcae61bffb5"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tZV9LCFPaYhHfjnW-53-1",
+      "purpose": "policy-scope",
+      "report": "tZV9LCFPaYhHfjnW",
+      "fight": 53,
+      "actor": 1,
+      "player": "Arrowman",
+      "realm": "Fairbanks",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51114_Kel_Thuzad.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [
+        39
+      ],
+      "duration_ms": 91666,
+      "published": "1229.06",
+      "totals": {
+        "raw": 112663,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 112663
+      },
+      "residual": "-349/2291650"
+    }
+  ],
+  "refusals": []
+}

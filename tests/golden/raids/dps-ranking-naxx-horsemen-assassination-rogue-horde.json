@@ -1,0 +1,172 @@
+{
+  "version": 1,
+  "rule": "naxx-horsemen-assassination-rogue-horde-dps-v1",
+  "scope": {
+    "encounter_id": 51121,
+    "class_id": 8,
+    "category": "Assassination",
+    "metric": "dps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/62246596-2006-20261108T183110.zip",
+    "sha256": "fe4586f7b35248d9aac33bd34fee7bae7499e57c9f39a27cd524ff3fd2cd9078"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "BpNAWvfh2THzDtxb-21-8",
+      "purpose": "policy-scope",
+      "report": "BpNAWvfh2THzDtxb",
+      "fight": 21,
+      "actor": 8,
+      "player": "Prey",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51121_The_Four_Horsemen.json",
+      "page": 1,
+      "row": 20,
+      "owned_actor_ids": [],
+      "duration_ms": 85829,
+      "published": "1091.59",
+      "totals": {
+        "raw": 94523,
+        "self": 833,
+        "excluded": 0,
+        "ranked": 93690
+      },
+      "residual": "-7811/8582900",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 73,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "ca6cdb88c08820f0adacc5dfba6f51f019266003092b53de92178412f73ef81b",
+            "82ac06ec1355dda6bc3372c7d1f97f35998203bc5d9657e72dbdd59312be7db8",
+            "afb29c87bc8f7af25b4adff1c289defc9e6ddff004dae9afc0add5cedb65f551"
+          ]
+        },
+        {
+          "pet": 74,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "ca6cdb88c08820f0adacc5dfba6f51f019266003092b53de92178412f73ef81b",
+            "82ac06ec1355dda6bc3372c7d1f97f35998203bc5d9657e72dbdd59312be7db8",
+            "afb29c87bc8f7af25b4adff1c289defc9e6ddff004dae9afc0add5cedb65f551"
+          ]
+        },
+        {
+          "pet": 122,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "ca6cdb88c08820f0adacc5dfba6f51f019266003092b53de92178412f73ef81b",
+            "82ac06ec1355dda6bc3372c7d1f97f35998203bc5d9657e72dbdd59312be7db8",
+            "afb29c87bc8f7af25b4adff1c289defc9e6ddff004dae9afc0add5cedb65f551"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "axRzywKXT2hcvPrn-24-50",
+      "purpose": "policy-scope",
+      "report": "axRzywKXT2hcvPrn",
+      "fight": 24,
+      "actor": 50,
+      "player": "Tattoopopo",
+      "realm": "哈霍兰",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51121_The_Four_Horsemen.json",
+      "page": 1,
+      "row": 16,
+      "owned_actor_ids": [],
+      "duration_ms": 103012,
+      "published": "1158.61",
+      "totals": {
+        "raw": 119351,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 119351
+      },
+      "residual": "6667/2575300",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 74,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "d554f53fe5e3aa31ec8fdb5128cd1028d2dcae024574fd8380dac9e0954e41bd",
+            "6085d8d17b7797e071406b75aaa8c89157df6fcca76ec268411562112da3c385",
+            "2d1c3a232bde27398538d0c6e3147380fedb34fbf27339426a4bbfc353c7e956"
+          ]
+        },
+        {
+          "pet": 176,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "d554f53fe5e3aa31ec8fdb5128cd1028d2dcae024574fd8380dac9e0954e41bd",
+            "6085d8d17b7797e071406b75aaa8c89157df6fcca76ec268411562112da3c385",
+            "2d1c3a232bde27398538d0c6e3147380fedb34fbf27339426a4bbfc353c7e956"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gazNjmGZYvc9fCM3-25-14",
+      "purpose": "policy-scope",
+      "report": "gazNjmGZYvc9fCM3",
+      "fight": 25,
+      "actor": 14,
+      "player": "Blindnotdead",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51121_The_Four_Horsemen.json",
+      "page": 1,
+      "row": 23,
+      "owned_actor_ids": [],
+      "duration_ms": 98906,
+      "published": "1078.31",
+      "totals": {
+        "raw": 107099,
+        "self": 448,
+        "excluded": 0,
+        "ranked": 106651
+      },
+      "residual": "-16443/4945300",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 116,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "c6fd07ceb4fd8fa8c6d1d93fafb635faf53accc6dbd87ad8e971b54d0f5b5d0f",
+            "68f4411077104e457e964db235c26fed41f4c050e5e961d96cfbb213efc642c2",
+            "5af778959614095e7716e7541cd8195758e176e8ba7158fc2e9b98bbcb626d80"
+          ]
+        },
+        {
+          "pet": 174,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "c6fd07ceb4fd8fa8c6d1d93fafb635faf53accc6dbd87ad8e971b54d0f5b5d0f",
+            "68f4411077104e457e964db235c26fed41f4c050e5e961d96cfbb213efc642c2",
+            "5af778959614095e7716e7541cd8195758e176e8ba7158fc2e9b98bbcb626d80"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

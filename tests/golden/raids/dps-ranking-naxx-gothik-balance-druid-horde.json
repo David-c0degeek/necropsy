@@ -1,0 +1,155 @@
+{
+  "version": 1,
+  "rule": "naxx-gothik-balance-druid-horde-dps-v1",
+  "scope": {
+    "encounter_id": 51109,
+    "class_id": 2,
+    "category": "Balance",
+    "metric": "dps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261031/64347501-2006-20261027T093033.zip",
+    "sha256": "7021b6a180220f5933e700ec5121db16441526d5004d88679d6bf48e98718ab2"
+  },
+  "dispositions": {
+    "n": 5,
+    "k": 5,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "FpzDdj1CBWX34x9q-37-50",
+      "purpose": "policy-scope",
+      "report": "FpzDdj1CBWX34x9q",
+      "fight": 37,
+      "actor": 50,
+      "player": "Gimbaswife",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51109_Gothik_the_Harvester.json",
+      "page": 1,
+      "row": 13,
+      "owned_actor_ids": [],
+      "duration_ms": 295828,
+      "published": "226.044",
+      "totals": {
+        "raw": 66870,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 66870
+      },
+      "residual": "-9027/18489250"
+    },
+    {
+      "id": "PWp3mfTxFkKVntgN-55-21",
+      "purpose": "policy-scope",
+      "report": "PWp3mfTxFkKVntgN",
+      "fight": 55,
+      "actor": 21,
+      "player": "Neakers",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51109_Gothik_the_Harvester.json",
+      "page": 1,
+      "row": 17,
+      "owned_actor_ids": [],
+      "duration_ms": 310953,
+      "published": "215.068",
+      "totals": {
+        "raw": 67873,
+        "self": 997,
+        "excluded": 0,
+        "ranked": 66876
+      },
+      "residual": "-3317/25912750"
+    },
+    {
+      "id": "TXzhjVNyY3JcvpbA-32-35",
+      "purpose": "policy-scope",
+      "report": "TXzhjVNyY3JcvpbA",
+      "fight": 32,
+      "actor": 35,
+      "player": "Tares",
+      "realm": "Blaumeux",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51109_Gothik_the_Harvester.json",
+      "page": 1,
+      "row": 47,
+      "owned_actor_ids": [],
+      "duration_ms": 314202,
+      "published": "166.336",
+      "totals": {
+        "raw": 52263,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 52263
+      },
+      "residual": "-2164/6545875"
+    },
+    {
+      "id": "cXrHPzk7BxnT68w4-95-5",
+      "purpose": "policy-scope",
+      "report": "cXrHPzk7BxnT68w4",
+      "fight": 95,
+      "actor": 5,
+      "player": "平衡之境",
+      "realm": "哈霍兰",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51109_Gothik_the_Harvester.json",
+      "page": 1,
+      "row": 46,
+      "owned_actor_ids": [],
+      "duration_ms": 300543,
+      "published": "167.417",
+      "totals": {
+        "raw": 50316,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 50316
+      },
+      "residual": "-2477/100181000"
+    },
+    {
+      "id": "zjHFk3Btwg4JphCy-50-9",
+      "purpose": "policy-scope",
+      "report": "zjHFk3Btwg4JphCy",
+      "fight": 50,
+      "actor": 9,
+      "player": "Crljenac",
+      "realm": "Mirage Raceway",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51109_Gothik_the_Harvester.json",
+      "page": 1,
+      "row": 10,
+      "owned_actor_ids": [],
+      "duration_ms": 334712,
+      "published": "233.239",
+      "totals": {
+        "raw": 78931,
+        "self": 863,
+        "excluded": 0,
+        "ranked": 78068
+      },
+      "residual": "13479/41839000"
+    }
+  ],
+  "refusals": []
+}

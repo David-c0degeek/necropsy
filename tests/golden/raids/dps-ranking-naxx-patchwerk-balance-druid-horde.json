@@ -1,0 +1,139 @@
+{
+  "version": 1,
+  "rule": "naxx-patchwerk-balance-druid-horde-dps-v1",
+  "scope": {
+    "encounter_id": 51118,
+    "class_id": 2,
+    "category": "Balance",
+    "metric": "dps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261031/64347501-2006-20261027T093033.zip",
+    "sha256": "7021b6a180220f5933e700ec5121db16441526d5004d88679d6bf48e98718ab2"
+  },
+  "dispositions": {
+    "n": 5,
+    "k": 4,
+    "r": 1,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "QXF4D29LZfBvjaRm-54-6",
+      "purpose": "policy-scope",
+      "report": "QXF4D29LZfBvjaRm",
+      "fight": 54,
+      "actor": 6,
+      "player": "Crljenac",
+      "realm": "Mirage Raceway",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51118_Patchwerk.json",
+      "page": 1,
+      "row": 8,
+      "owned_actor_ids": [],
+      "duration_ms": 154105,
+      "published": "843.062",
+      "totals": {
+        "raw": 130598,
+        "self": 678,
+        "excluded": 0,
+        "ranked": 129920
+      },
+      "residual": "-993/2201500"
+    },
+    {
+      "id": "Y1fWqMJgVPxD7yQT-67-35",
+      "purpose": "policy-scope",
+      "report": "Y1fWqMJgVPxD7yQT",
+      "fight": 67,
+      "actor": 35,
+      "player": "Necsta",
+      "realm": "Pyrewood Village",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51118_Patchwerk.json",
+      "page": 1,
+      "row": 11,
+      "owned_actor_ids": [],
+      "duration_ms": 139805,
+      "published": "815.314",
+      "totals": {
+        "raw": 113985,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 113985
+      },
+      "residual": "2623/13980500"
+    },
+    {
+      "id": "gpPMcNJ9knhW61qG-23-51",
+      "purpose": "policy-scope",
+      "report": "gpPMcNJ9knhW61qG",
+      "fight": 23,
+      "actor": 51,
+      "player": "Gimbaswife",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51118_Patchwerk.json",
+      "page": 1,
+      "row": 12,
+      "owned_actor_ids": [],
+      "duration_ms": 99906,
+      "published": "808.22",
+      "totals": {
+        "raw": 80746,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 80746
+      },
+      "residual": "-683/2497650"
+    },
+    {
+      "id": "qZ8tk1Nw9G2hzPBJ-38-24",
+      "purpose": "policy-scope",
+      "report": "qZ8tk1Nw9G2hzPBJ",
+      "fight": 38,
+      "actor": 24,
+      "player": "Neakers",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51118_Patchwerk.json",
+      "page": 1,
+      "row": 18,
+      "owned_actor_ids": [],
+      "duration_ms": 147457,
+      "published": "790.753",
+      "totals": {
+        "raw": 117623,
+        "self": 1021,
+        "excluded": 0,
+        "ranked": 116602
+      },
+      "residual": "-65121/147457000"
+    }
+  ],
+  "refusals": [
+    {
+      "report": "gqW6zJMbvdt7XCcf",
+      "fight": 39,
+      "player": "Freshbull",
+      "realm": "Firemaw",
+      "reason": "\"There is no item named 'events/gqW6zJMbvdt7XCcf/fight_39/player_44_Freshbull/pets.json' in the archive\"",
+      "faction": "Horde",
+      "faction_status": "observed"
+    }
+  ]
+}

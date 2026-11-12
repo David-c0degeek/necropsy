@@ -1,0 +1,103 @@
+{
+  "version": 1,
+  "rule": "naxx-horsemen-frost-mage-alliance-dps-v1",
+  "scope": {
+    "encounter_id": 51121,
+    "class_id": 4,
+    "category": "Frost",
+    "metric": "dps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/96494133-2006-20261105T033802.zip",
+    "sha256": "6c0c59209ab15336d31b0f5e38e56873b050d9be0d4546bc4cde16039bb1fb71"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "BqXajhMLPc1KbHNy-58-2",
+      "purpose": "policy-scope",
+      "report": "BqXajhMLPc1KbHNy",
+      "fight": 58,
+      "actor": 2,
+      "player": "Sousousoo",
+      "realm": "哈霍兰",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51121_The_Four_Horsemen.json",
+      "page": 1,
+      "row": 8,
+      "owned_actor_ids": [],
+      "duration_ms": 278893,
+      "published": "639.726",
+      "totals": {
+        "raw": 178415,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 178415
+      },
+      "residual": "-51659/139446500"
+    },
+    {
+      "id": "Jjg2c6PXKvQpCtVh-20-28",
+      "purpose": "policy-scope",
+      "report": "Jjg2c6PXKvQpCtVh",
+      "fight": 20,
+      "actor": 28,
+      "player": "Aisle",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51121_The_Four_Horsemen.json",
+      "page": 1,
+      "row": 5,
+      "owned_actor_ids": [],
+      "duration_ms": 212911,
+      "published": "646.838",
+      "totals": {
+        "raw": 137719,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 137719
+      },
+      "residual": "37291/106455500"
+    },
+    {
+      "id": "KHx6r3QqPtLAhDa8-47-19",
+      "purpose": "policy-scope",
+      "report": "KHx6r3QqPtLAhDa8",
+      "fight": 47,
+      "actor": 19,
+      "player": "孟少奶奶",
+      "realm": "匕首岭",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51121_The_Four_Horsemen.json",
+      "page": 1,
+      "row": 10,
+      "owned_actor_ids": [],
+      "duration_ms": 279869,
+      "published": "634.972",
+      "totals": {
+        "raw": 177709,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 177709
+      },
+      "residual": "5333/69967250"
+    }
+  ],
+  "refusals": []
+}

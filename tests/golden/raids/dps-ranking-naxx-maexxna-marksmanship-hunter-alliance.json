@@ -1,0 +1,164 @@
+{
+  "version": 1,
+  "rule": "naxx-maexxna-marksmanship-hunter-alliance-dps-v1",
+  "scope": {
+    "encounter_id": 51116,
+    "class_id": 3,
+    "category": "Marksmanship",
+    "metric": "dps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/75928820-2006-20261103T162831.zip",
+    "sha256": "98a2d5a39d3b85dfee8db0b777b1c74cbef11656138baa5b7b892302311050a1"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "327XdQCMN4fBbkpy-12-50",
+      "purpose": "policy-scope",
+      "report": "327XdQCMN4fBbkpy",
+      "fight": 12,
+      "actor": 50,
+      "player": "Jetrho",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51116_Maexxna.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [
+        51
+      ],
+      "duration_ms": 37360,
+      "published": "1531.18",
+      "totals": {
+        "raw": 57205,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 57205
+      },
+      "residual": "36/11675",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 146,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "6e13ecdd9b863a20fe266d4f6db16338c165300a984b1646c8bd3a7f10081d2f"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aWVBYcx7bXth4Nn9-19-22",
+      "purpose": "policy-scope",
+      "report": "aWVBYcx7bXth4Nn9",
+      "fight": 19,
+      "actor": 22,
+      "player": "Xelown",
+      "realm": "Windseeker",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51116_Maexxna.json",
+      "page": 1,
+      "row": 4,
+      "owned_actor_ids": [
+        35
+      ],
+      "duration_ms": 35735,
+      "published": "1476.48",
+      "totals": {
+        "raw": 52762,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 52762
+      },
+      "residual": "-64/178675",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 49,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "05df8cb31fe912413db77d8e938a9879bb99556da34eadc1b39098347a14efe4"
+          ]
+        },
+        {
+          "pet": 147,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "05df8cb31fe912413db77d8e938a9879bb99556da34eadc1b39098347a14efe4"
+          ]
+        },
+        {
+          "pet": 155,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "05df8cb31fe912413db77d8e938a9879bb99556da34eadc1b39098347a14efe4"
+          ]
+        },
+        {
+          "pet": 201,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "05df8cb31fe912413db77d8e938a9879bb99556da34eadc1b39098347a14efe4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fJXZayKb14jYAqk2-8-30",
+      "purpose": "policy-scope",
+      "report": "fJXZayKb14jYAqk2",
+      "fight": 8,
+      "actor": 30,
+      "player": "Clicker",
+      "realm": "Mograine",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51116_Maexxna.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [
+        41
+      ],
+      "duration_ms": 36108,
+      "published": "1567.8",
+      "totals": {
+        "raw": 56610,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 56610
+      },
+      "residual": "-1/295",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 152,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "93da585bfb374ee883faa2d88f128eb609ef6eea8e42c2dbfd433c753f8f8580"
+          ]
+        },
+        {
+          "pet": 153,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "93da585bfb374ee883faa2d88f128eb609ef6eea8e42c2dbfd433c753f8f8580"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

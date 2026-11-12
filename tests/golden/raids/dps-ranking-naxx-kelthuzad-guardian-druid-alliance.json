@@ -1,0 +1,159 @@
+{
+  "version": 1,
+  "rule": "naxx-kelthuzad-guardian-druid-alliance-dps-v1",
+  "scope": {
+    "encounter_id": 51114,
+    "class_id": 2,
+    "category": "Guardian",
+    "metric": "dps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261031/83306366-2006-20261031T073441.zip",
+    "sha256": "d6ecd3846ba9a27641ce80eb801006d630432348fd0283594d2f805dda7dcb55"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "TvZjghJDpACyzwdW-83-32",
+      "purpose": "policy-scope",
+      "report": "TvZjghJDpACyzwdW",
+      "fight": 83,
+      "actor": 32,
+      "player": "Suncat",
+      "realm": "Ashkandi",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51114_Kel_Thuzad.json",
+      "page": 1,
+      "row": 3,
+      "owned_actor_ids": [],
+      "duration_ms": 149799,
+      "published": "819.625",
+      "totals": {
+        "raw": 122779,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 122779
+      },
+      "residual": "-43/1198392",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 92,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "fa9c46f2a811844d90b731591cceab8eb07c1fb66ab62e1bd66a2b4aa20817e2",
+            "5c154eeae53c2171b36c74472c9af91a5c77dad2fa6c8d7774de4558529ca270",
+            "2e606d70820e58af801273147e1d2f4363e20f14ccd5019b786dc9992c867900"
+          ]
+        },
+        {
+          "pet": 138,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "fa9c46f2a811844d90b731591cceab8eb07c1fb66ab62e1bd66a2b4aa20817e2",
+            "5c154eeae53c2171b36c74472c9af91a5c77dad2fa6c8d7774de4558529ca270",
+            "2e606d70820e58af801273147e1d2f4363e20f14ccd5019b786dc9992c867900"
+          ]
+        },
+        {
+          "pet": 139,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "fa9c46f2a811844d90b731591cceab8eb07c1fb66ab62e1bd66a2b4aa20817e2",
+            "5c154eeae53c2171b36c74472c9af91a5c77dad2fa6c8d7774de4558529ca270",
+            "2e606d70820e58af801273147e1d2f4363e20f14ccd5019b786dc9992c867900"
+          ]
+        },
+        {
+          "pet": 156,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "fa9c46f2a811844d90b731591cceab8eb07c1fb66ab62e1bd66a2b4aa20817e2",
+            "5c154eeae53c2171b36c74472c9af91a5c77dad2fa6c8d7774de4558529ca270",
+            "2e606d70820e58af801273147e1d2f4363e20f14ccd5019b786dc9992c867900"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "XmYCnqGKJjHTWzLf-53-3",
+      "purpose": "policy-scope",
+      "report": "XmYCnqGKJjHTWzLf",
+      "fight": 53,
+      "actor": 3,
+      "player": "Skullfuqqer",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51114_Kel_Thuzad.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 103744,
+      "published": "835.306",
+      "totals": {
+        "raw": 86658,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 86658
+      },
+      "residual": "28/202625",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 51,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "6c17cebfaa1455c6cb716386d17511c74099e040a6f4ebb9f6b7354813eaa463",
+            "e0c94142dea41e7a0ce43a0f12eb0f2eff5a6b1f3ad2bc1cac33af80de1f5c9b"
+          ]
+        },
+        {
+          "pet": 68,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "6c17cebfaa1455c6cb716386d17511c74099e040a6f4ebb9f6b7354813eaa463",
+            "e0c94142dea41e7a0ce43a0f12eb0f2eff5a6b1f3ad2bc1cac33af80de1f5c9b"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "whYNJQ3kcbyV9pqX-32-33",
+      "purpose": "policy-scope",
+      "report": "whYNJQ3kcbyV9pqX",
+      "fight": 32,
+      "actor": 33,
+      "player": "Iol",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51114_Kel_Thuzad.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 122358,
+      "published": "835.597",
+      "totals": {
+        "raw": 103102,
+        "self": 860,
+        "excluded": 0,
+        "ranked": 102242
+      },
+      "residual": "11137/61179000"
+    }
+  ],
+  "refusals": []
+}

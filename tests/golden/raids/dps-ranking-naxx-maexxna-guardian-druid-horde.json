@@ -1,0 +1,142 @@
+{
+  "version": 1,
+  "rule": "naxx-maexxna-guardian-druid-horde-dps-v1",
+  "scope": {
+    "encounter_id": 51116,
+    "class_id": 2,
+    "category": "Guardian",
+    "metric": "dps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/70621233-2006-20261101T123113.zip",
+    "sha256": "2fc02829c6013cb5bac380868754ee7689bc531819d85265d5f84f809bbea947"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "CJdNAfkb2xMrWvhG-11-27",
+      "purpose": "policy-scope",
+      "report": "CJdNAfkb2xMrWvhG",
+      "fight": 11,
+      "actor": 27,
+      "player": "Gartog",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51116_Maexxna.json",
+      "page": 1,
+      "row": 8,
+      "owned_actor_ids": [],
+      "duration_ms": 35970,
+      "published": "770.336",
+      "totals": {
+        "raw": 28282,
+        "self": 573,
+        "excluded": 0,
+        "ranked": 27709
+      },
+      "residual": "16/40875"
+    },
+    {
+      "id": "prKt8aX3Qw4HzFxy-10-43",
+      "purpose": "policy-scope",
+      "report": "prKt8aX3Qw4HzFxy",
+      "fight": 10,
+      "actor": 43,
+      "player": "Bengal",
+      "realm": "Kurinnaxx",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51116_Maexxna.json",
+      "page": 1,
+      "row": 9,
+      "owned_actor_ids": [],
+      "duration_ms": 34151,
+      "published": "737.899",
+      "totals": {
+        "raw": 25636,
+        "self": 436,
+        "excluded": 0,
+        "ranked": 25200
+      },
+      "residual": "11251/34151000",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 106,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "88939a9d452f3e782fbf472f58051da15e24a8bba81dacf40dce6c9db4702baf"
+          ]
+        },
+        {
+          "pet": 166,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "88939a9d452f3e782fbf472f58051da15e24a8bba81dacf40dce6c9db4702baf"
+          ]
+        },
+        {
+          "pet": 168,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "88939a9d452f3e782fbf472f58051da15e24a8bba81dacf40dce6c9db4702baf"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rPzAnD8KXTMqyQfL-10-11",
+      "purpose": "policy-scope",
+      "report": "rPzAnD8KXTMqyQfL",
+      "fight": 10,
+      "actor": 11,
+      "player": "Germanicus",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51116_Maexxna.json",
+      "page": 1,
+      "row": 6,
+      "owned_actor_ids": [],
+      "duration_ms": 32929,
+      "published": "782.654",
+      "totals": {
+        "raw": 26131,
+        "self": 359,
+        "excluded": 0,
+        "ranked": 25772
+      },
+      "residual": "-399/968500",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 195,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "5f9db5bea64b6786423d9a389d598512ee65ec80437b5a33816d31a0574bd758"
+          ]
+        },
+        {
+          "pet": 199,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "5f9db5bea64b6786423d9a389d598512ee65ec80437b5a33816d31a0574bd758"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

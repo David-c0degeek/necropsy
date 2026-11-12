@@ -1,0 +1,168 @@
+{
+  "version": 1,
+  "rule": "naxx-noth-assassination-rogue-horde-dps-v1",
+  "scope": {
+    "encounter_id": 51117,
+    "class_id": 8,
+    "category": "Assassination",
+    "metric": "dps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/62246596-2006-20261108T183110.zip",
+    "sha256": "fe4586f7b35248d9aac33bd34fee7bae7499e57c9f39a27cd524ff3fd2cd9078"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "1XGcgbrmtdN94RMB-6-7",
+      "purpose": "policy-scope",
+      "report": "1XGcgbrmtdN94RMB",
+      "fight": 6,
+      "actor": 7,
+      "player": "Lanfear",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51117_Noth_the_Plaguebringer.json",
+      "page": 1,
+      "row": 7,
+      "owned_actor_ids": [],
+      "duration_ms": 40146,
+      "published": "2339.49",
+      "totals": {
+        "raw": 94143,
+        "self": 222,
+        "excluded": 0,
+        "ranked": 93921
+      },
+      "residual": "-2759/669100",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 104,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "aef8c06779b4510820fe8162d3eec11192a71f58d55ec3e5c1eb1c3140dce371"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "L6NxnkrXzDd81Vpg-9-50",
+      "purpose": "policy-scope",
+      "report": "L6NxnkrXzDd81Vpg",
+      "fight": 9,
+      "actor": 50,
+      "player": "Raserie",
+      "realm": "Kurinnaxx",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51117_Noth_the_Plaguebringer.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 33272,
+      "published": "2488.58",
+      "totals": {
+        "raw": 82800,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 82800
+      },
+      "residual": "-211/207950",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 125,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "43adbe3797f9a9fa21e0d3ad02a9413e100555badf60e871f9a362b884dc95d5"
+          ]
+        },
+        {
+          "pet": 147,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "43adbe3797f9a9fa21e0d3ad02a9413e100555badf60e871f9a362b884dc95d5"
+          ]
+        },
+        {
+          "pet": 181,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "43adbe3797f9a9fa21e0d3ad02a9413e100555badf60e871f9a362b884dc95d5"
+          ]
+        },
+        {
+          "pet": 204,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "43adbe3797f9a9fa21e0d3ad02a9413e100555badf60e871f9a362b884dc95d5"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dP1TvMw32bVpr7Kg-39-32",
+      "purpose": "policy-scope",
+      "report": "dP1TvMw32bVpr7Kg",
+      "fight": 39,
+      "actor": 32,
+      "player": "Machitikos",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51117_Noth_the_Plaguebringer.json",
+      "page": 1,
+      "row": 11,
+      "owned_actor_ids": [],
+      "duration_ms": 50378,
+      "published": "2322.44",
+      "totals": {
+        "raw": 117000,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 117000
+      },
+      "residual": "1471/629725",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 165,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "78be254753fca48c0e2c44d2d0f11b5aba0a2d818c07dd11e82c5383a08181d7",
+            "03d8d35bdd91976d4e8708a9c6bc915758f86aafc9d0bf0471366c2bfb8fc0a5"
+          ]
+        },
+        {
+          "pet": 196,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "78be254753fca48c0e2c44d2d0f11b5aba0a2d818c07dd11e82c5383a08181d7",
+            "03d8d35bdd91976d4e8708a9c6bc915758f86aafc9d0bf0471366c2bfb8fc0a5"
+          ]
+        },
+        {
+          "pet": 267,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "78be254753fca48c0e2c44d2d0f11b5aba0a2d818c07dd11e82c5383a08181d7",
+            "03d8d35bdd91976d4e8708a9c6bc915758f86aafc9d0bf0471366c2bfb8fc0a5"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

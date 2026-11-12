@@ -1,0 +1,117 @@
+{
+  "version": 1,
+  "rule": "naxx-thaddius-feral-druid-alliance-dps-v1",
+  "scope": {
+    "encounter_id": 51120,
+    "class_id": 2,
+    "category": "Feral",
+    "metric": "dps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261031/75650895-2006-20261029T065847.zip",
+    "sha256": "be76c08559f11ed91b648a7a3aa88970647c7a333552356b6e84049511578633"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "B8x3c7QKDpgj9wR4-57-41",
+      "purpose": "policy-scope",
+      "report": "B8x3c7QKDpgj9wR4",
+      "fight": 57,
+      "actor": 41,
+      "player": "Stay",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51120_Thaddius.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 174589,
+      "published": "2077.64",
+      "totals": {
+        "raw": 364774,
+        "self": 2041,
+        "excluded": 0,
+        "ranked": 362733
+      },
+      "residual": "-2249/4364725"
+    },
+    {
+      "id": "vb2AQxLKn7fktGrN-18-44",
+      "purpose": "policy-scope",
+      "report": "vb2AQxLKn7fktGrN",
+      "fight": 18,
+      "actor": 44,
+      "player": "Mckitty",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51120_Thaddius.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [
+        96,
+        97
+      ],
+      "duration_ms": 134777,
+      "published": "2207.83",
+      "totals": {
+        "raw": 301845,
+        "self": 4280,
+        "excluded": 0,
+        "ranked": 297565
+      },
+      "residual": "29609/13477700"
+    },
+    {
+      "id": "vp8zwrhyBbZDnC9X-34-21",
+      "purpose": "policy-scope",
+      "report": "vp8zwrhyBbZDnC9X",
+      "fight": 34,
+      "actor": 21,
+      "player": "Stinkface",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51120_Thaddius.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 159382,
+      "published": "2107.95",
+      "totals": {
+        "raw": 335969,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 335969
+      },
+      "residual": "-2869/1593820",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 80,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "07903703ba9cff07e346e42b3440f5fe3512bc6ec5616c6336b78dabce32d0a6",
+            "dc34eb011c7d2427f6c8abf819b2b28b6bc369309b6fe15dd492998c59b3f71f",
+            "7272a8115f2a23fd3a61223ed47130a2d8d2869c1beff52504fc6565b2c9d99d"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

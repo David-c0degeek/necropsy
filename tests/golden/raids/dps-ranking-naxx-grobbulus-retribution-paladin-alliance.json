@@ -1,0 +1,147 @@
+{
+  "version": 1,
+  "rule": "naxx-grobbulus-retribution-paladin-alliance-dps-v1",
+  "scope": {
+    "encounter_id": 51111,
+    "class_id": 6,
+    "category": "Retribution",
+    "metric": "dps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/76716431-2006-20261106T042624.zip",
+    "sha256": "3b64e402362774511ae10a81c176e4cacf9aae04b62778dab30dd26a38c67585"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "F2r17kGtwaB8fVHQ-23-19",
+      "purpose": "policy-scope",
+      "report": "F2r17kGtwaB8fVHQ",
+      "fight": 23,
+      "actor": 19,
+      "player": "Derillian",
+      "realm": "Pyrewood Village",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51111_Grobbulus.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 57193,
+      "published": "1119.89",
+      "totals": {
+        "raw": 64050,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 64050
+      },
+      "residual": "13123/5719300",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 62,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "e698f8c38a1af871db157088db8d677a9ca0dd3c9bac301dfc26dd5832df9801",
+            "b451d46b49d8eabb23f226baf5abbed98d5db24561c22648f55bb68847adb1a2"
+          ]
+        },
+        {
+          "pet": 74,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "e698f8c38a1af871db157088db8d677a9ca0dd3c9bac301dfc26dd5832df9801",
+            "b451d46b49d8eabb23f226baf5abbed98d5db24561c22648f55bb68847adb1a2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bhNG8jq7vTgzB2Mf-49-35",
+      "purpose": "policy-scope",
+      "report": "bhNG8jq7vTgzB2Mf",
+      "fight": 49,
+      "actor": 35,
+      "player": "Markofmir",
+      "realm": "Pyrewood Village",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51111_Grobbulus.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 73847,
+      "published": "1026.2",
+      "totals": {
+        "raw": 75782,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 75782
+      },
+      "residual": "1043/369235"
+    },
+    {
+      "id": "pntwXcWkD2J8CAML-34-34",
+      "purpose": "policy-scope",
+      "report": "pntwXcWkD2J8CAML",
+      "fight": 34,
+      "actor": 34,
+      "player": "Craey",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51111_Grobbulus.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 67057,
+      "published": "1094.04",
+      "totals": {
+        "raw": 74134,
+        "self": 771,
+        "excluded": 0,
+        "ranked": 73363
+      },
+      "residual": "-1007/1676425",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 67,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "1ca6723dcf95d24dd70b2c6a8f505aed5fe1fb738449850d3561942c413c8bcd",
+            "576e4fde87d3694fb8ffbd96da02187f0b39f15619f185fb7e25980a914d550d"
+          ]
+        },
+        {
+          "pet": 103,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "1ca6723dcf95d24dd70b2c6a8f505aed5fe1fb738449850d3561942c413c8bcd",
+            "576e4fde87d3694fb8ffbd96da02187f0b39f15619f185fb7e25980a914d550d"
+          ]
+        },
+        {
+          "pet": 160,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "1ca6723dcf95d24dd70b2c6a8f505aed5fe1fb738449850d3561942c413c8bcd",
+            "576e4fde87d3694fb8ffbd96da02187f0b39f15619f185fb7e25980a914d550d"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

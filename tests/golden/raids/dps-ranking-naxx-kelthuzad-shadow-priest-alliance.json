@@ -1,0 +1,103 @@
+{
+  "version": 1,
+  "rule": "naxx-kelthuzad-shadow-priest-alliance-dps-v1",
+  "scope": {
+    "encounter_id": 51114,
+    "class_id": 7,
+    "category": "Shadow",
+    "metric": "dps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77122652-2006-20261107T163813.zip",
+    "sha256": "85f096bcc2951498da23e9d8e3297387fc1bd899217ec963867b977459298585"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "dNMwPgVHjB1rtADq-52-19",
+      "purpose": "policy-scope",
+      "report": "dNMwPgVHjB1rtADq",
+      "fight": 52,
+      "actor": 19,
+      "player": "Solex",
+      "realm": "Pagle",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51114_Kel_Thuzad.json",
+      "page": 1,
+      "row": 3,
+      "owned_actor_ids": [],
+      "duration_ms": 141975,
+      "published": "724.036",
+      "totals": {
+        "raw": 103969,
+        "self": 1174,
+        "excluded": 0,
+        "ranked": 102795
+      },
+      "residual": "-37/473250"
+    },
+    {
+      "id": "nC8YRFVyv2dGTZ7K-47-18",
+      "purpose": "policy-scope",
+      "report": "nC8YRFVyv2dGTZ7K",
+      "fight": 47,
+      "actor": 18,
+      "player": "Truhae",
+      "realm": "Mograine",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51114_Kel_Thuzad.json",
+      "page": 1,
+      "row": 4,
+      "owned_actor_ids": [],
+      "duration_ms": 128145,
+      "published": "675.617",
+      "totals": {
+        "raw": 87538,
+        "self": 961,
+        "excluded": 0,
+        "ranked": 86577
+      },
+      "residual": "3969/8543000"
+    },
+    {
+      "id": "tKYRChL71BH94QNk-54-46",
+      "purpose": "policy-scope",
+      "report": "tKYRChL71BH94QNk",
+      "fight": 54,
+      "actor": 46,
+      "player": "Zaera",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51114_Kel_Thuzad.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 127591,
+      "published": "776.269",
+      "totals": {
+        "raw": 100285,
+        "self": 1240,
+        "excluded": 0,
+        "ranked": 99045
+      },
+      "residual": "62021/127591000"
+    }
+  ],
+  "refusals": []
+}

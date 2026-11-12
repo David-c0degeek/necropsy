@@ -1,0 +1,103 @@
+{
+  "version": 1,
+  "rule": "naxx-kelthuzad-shadow-priest-horde-dps-v1",
+  "scope": {
+    "encounter_id": 51114,
+    "class_id": 7,
+    "category": "Shadow",
+    "metric": "dps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/66195792-2006-20261108T070712.zip",
+    "sha256": "05aa6d44d37a8dcbf6a64ccc17060b81f0d42f4abaa4c69a8eba453510c3f6de"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "b81HjKvWzRLt4nap-2-43",
+      "purpose": "policy-scope",
+      "report": "b81HjKvWzRLt4nap",
+      "fight": 2,
+      "actor": 43,
+      "player": "Ywfvniefjioe",
+      "realm": "Pyrewood Village",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51114_Kel_Thuzad.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 125243,
+      "published": "813.283",
+      "totals": {
+        "raw": 102778,
+        "self": 920,
+        "excluded": 0,
+        "ranked": 101858
+      },
+      "residual": "-2769/125243000"
+    },
+    {
+      "id": "h9bjg4rW38BTVyqK-12-4",
+      "purpose": "policy-scope",
+      "report": "h9bjg4rW38BTVyqK",
+      "fight": 12,
+      "actor": 4,
+      "player": "Kach",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51114_Kel_Thuzad.json",
+      "page": 1,
+      "row": 5,
+      "owned_actor_ids": [],
+      "duration_ms": 183222,
+      "published": "603.421",
+      "totals": {
+        "raw": 111493,
+        "self": 933,
+        "excluded": 0,
+        "ranked": 110560
+      },
+      "residual": "-1231/91611000"
+    },
+    {
+      "id": "rpnyKP2zHcCxZRQw-53-13",
+      "purpose": "policy-scope",
+      "report": "rpnyKP2zHcCxZRQw",
+      "fight": 53,
+      "actor": 13,
+      "player": "Dabezd",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51114_Kel_Thuzad.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 136247,
+      "published": "750.028",
+      "totals": {
+        "raw": 102991,
+        "self": 802,
+        "excluded": 0,
+        "ranked": 102189
+      },
+      "residual": "-16229/34061750"
+    }
+  ],
+  "refusals": []
+}

@@ -1,0 +1,136 @@
+{
+  "version": 1,
+  "rule": "naxx-thaddius-retribution-paladin-alliance-dps-v1",
+  "scope": {
+    "encounter_id": 51120,
+    "class_id": 6,
+    "category": "Retribution",
+    "metric": "dps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/76716431-2006-20261106T042624.zip",
+    "sha256": "3b64e402362774511ae10a81c176e4cacf9aae04b62778dab30dd26a38c67585"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "R9dhBDVHbwfG1WFm-10-30",
+      "purpose": "policy-scope",
+      "report": "R9dhBDVHbwfG1WFm",
+      "fight": 10,
+      "actor": 30,
+      "player": "Lumpan",
+      "realm": "Pyrewood Village",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51120_Thaddius.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [
+        75
+      ],
+      "duration_ms": 163253,
+      "published": "1738.03",
+      "totals": {
+        "raw": 285789,
+        "self": 2051,
+        "excluded": 0,
+        "ranked": 283738
+      },
+      "residual": "-61159/16325300",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 51,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "379e386ee89aa7968d30a30d938786a1fc9bb138c354c0008c9248c033fbfd5e",
+            "b13def794be2ca1c4cc319e493011c1ba3ea9e6298a3bb5f2edc75a916f5b97b",
+            "ab665121e3bf291ae9327be6b7a6fc78c261227c9a76bc80100f77bda282e782"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "TMQ7DqYj86GNKar4-58-28",
+      "purpose": "policy-scope",
+      "report": "TMQ7DqYj86GNKar4",
+      "fight": 58,
+      "actor": 28,
+      "player": "华丶天命已拟",
+      "realm": "法琳娜",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51120_Thaddius.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 188860,
+      "published": "1542.38",
+      "totals": {
+        "raw": 293266,
+        "self": 1972,
+        "excluded": 0,
+        "ranked": 291294
+      },
+      "residual": "283/472150"
+    },
+    {
+      "id": "cMB4JY6gGH1PdjCa-42-21",
+      "purpose": "policy-scope",
+      "report": "cMB4JY6gGH1PdjCa",
+      "fight": 42,
+      "actor": 21,
+      "player": "Craey",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51120_Thaddius.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 143979,
+      "published": "1620.06",
+      "totals": {
+        "raw": 234320,
+        "self": 1065,
+        "excluded": 0,
+        "ranked": 233255
+      },
+      "residual": "1733/654450",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 71,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "b4689d7a49b73d5a5a74ef99470258e93ebb29b1e2cb92addbcfed5b8721005e",
+            "6b7afd01a9c6fa96e897ede2edba8c100c80de903009dc181adf44b183e2d944",
+            "964ed2a55e9a6e0181c641dbc292079441bedda19d0de8ba265a2bd9c205add8"
+          ]
+        },
+        {
+          "pet": 90,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "b4689d7a49b73d5a5a74ef99470258e93ebb29b1e2cb92addbcfed5b8721005e",
+            "6b7afd01a9c6fa96e897ede2edba8c100c80de903009dc181adf44b183e2d944",
+            "964ed2a55e9a6e0181c641dbc292079441bedda19d0de8ba265a2bd9c205add8"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

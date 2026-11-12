@@ -1,0 +1,103 @@
+{
+  "version": 1,
+  "rule": "naxx-thaddius-shadow-priest-alliance-dps-v1",
+  "scope": {
+    "encounter_id": 51120,
+    "class_id": 7,
+    "category": "Shadow",
+    "metric": "dps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77122652-2006-20261107T163813.zip",
+    "sha256": "85f096bcc2951498da23e9d8e3297387fc1bd899217ec963867b977459298585"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "7ZT4vd13Jpxf8nhL-122-135",
+      "purpose": "policy-scope",
+      "report": "7ZT4vd13Jpxf8nhL",
+      "fight": 122,
+      "actor": 135,
+      "player": "주라구",
+      "realm": "로크홀라",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51120_Thaddius.json",
+      "page": 1,
+      "row": 3,
+      "owned_actor_ids": [],
+      "duration_ms": 178567,
+      "published": "1374.93",
+      "totals": {
+        "raw": 246513,
+        "self": 996,
+        "excluded": 0,
+        "ranked": 245517
+      },
+      "residual": "-12531/17856700"
+    },
+    {
+      "id": "nC8YRFVyv2dGTZ7K-22-18",
+      "purpose": "policy-scope",
+      "report": "nC8YRFVyv2dGTZ7K",
+      "fight": 22,
+      "actor": 18,
+      "player": "Truhae",
+      "realm": "Mograine",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51120_Thaddius.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 121040,
+      "published": "1421.37",
+      "totals": {
+        "raw": 173290,
+        "self": 1247,
+        "excluded": 0,
+        "ranked": 172043
+      },
+      "residual": "469/151300"
+    },
+    {
+      "id": "rkAx3KPLgzW8H79m-24-11",
+      "purpose": "policy-scope",
+      "report": "rkAx3KPLgzW8H79m",
+      "fight": 24,
+      "actor": 11,
+      "player": "Solex",
+      "realm": "Pagle",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51120_Thaddius.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 146793,
+      "published": "1411.67",
+      "totals": {
+        "raw": 209799,
+        "self": 2575,
+        "excluded": 0,
+        "ranked": 207224
+      },
+      "residual": "72569/14679300"
+    }
+  ],
+  "refusals": []
+}

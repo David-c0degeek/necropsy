@@ -1,0 +1,128 @@
+{
+  "version": 1,
+  "rule": "naxx-noth-destruction-warlock-alliance-dps-v1",
+  "scope": {
+    "encounter_id": 51117,
+    "class_id": 10,
+    "category": "Destruction",
+    "metric": "dps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77751784-2006-20261109T171544.zip",
+    "sha256": "44aa5ecd2af4f99afc994efb5cc9832d2dc9026370c15b908a5d1f0924f71068"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "7NmBydcX8HFRh1tA-34-45",
+      "purpose": "policy-scope",
+      "report": "7NmBydcX8HFRh1tA",
+      "fight": 34,
+      "actor": 45,
+      "player": "Encylate",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51117_Noth_the_Plaguebringer.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 48965,
+      "published": "1763.85",
+      "totals": {
+        "raw": 87204,
+        "self": 837,
+        "excluded": 0,
+        "ranked": 86367
+      },
+      "residual": "339/195860",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 60,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "30098106b44c875f9537b09d54c25eda26b185dbdf4616b86134987a2612bfbe"
+          ]
+        },
+        {
+          "pet": 77,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "30098106b44c875f9537b09d54c25eda26b185dbdf4616b86134987a2612bfbe"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7NmBydcX8HFRh1tA-34-41",
+      "purpose": "policy-scope",
+      "report": "7NmBydcX8HFRh1tA",
+      "fight": 34,
+      "actor": 41,
+      "player": "Ygg",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51117_Noth_the_Plaguebringer.json",
+      "page": 1,
+      "row": 3,
+      "owned_actor_ids": [],
+      "duration_ms": 48965,
+      "published": "1691.98",
+      "totals": {
+        "raw": 82848,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 82848
+      },
+      "residual": "1993/489650",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 177,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "30098106b44c875f9537b09d54c25eda26b185dbdf4616b86134987a2612bfbe"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "yfRGYHd1rq3FPWBA-32-7",
+      "purpose": "policy-scope",
+      "report": "yfRGYHd1rq3FPWBA",
+      "fight": 32,
+      "actor": 7,
+      "player": "Hyaná",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51117_Noth_the_Plaguebringer.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 47959,
+      "published": "2011.38",
+      "totals": {
+        "raw": 96464,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 96464
+      },
+      "residual": "11329/2397950"
+    }
+  ],
+  "refusals": []
+}

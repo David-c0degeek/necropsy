@@ -1,0 +1,181 @@
+{
+  "version": 1,
+  "rule": "naxx-horsemen-fury-warrior-alliance-dps-v1",
+  "scope": {
+    "encounter_id": 51121,
+    "class_id": 11,
+    "category": "Fury",
+    "metric": "dps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/76296293-2006-20261110T135634.zip",
+    "sha256": "e563a99f200c4df744213a18292b941ad51c418c9efadc420f7df7b691ab3457"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "71Kmc9tzVbgRMAdp-15-30",
+      "purpose": "policy-scope",
+      "report": "71Kmc9tzVbgRMAdp",
+      "fight": 15,
+      "actor": 30,
+      "player": "Zurzur",
+      "realm": "Mograine",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51121_The_Four_Horsemen.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 68961,
+      "published": "1780.73",
+      "totals": {
+        "raw": 123320,
+        "self": 519,
+        "excluded": 0,
+        "ranked": 122801
+      },
+      "residual": "7847/6896100",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 90,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "86a5b8ddc4279683a1b6b202922480c8d8d7f785257b6ce9b67f1253d7162189",
+            "e43a441d7a042453e81edd05c89c993ecda9f2d829e5665b07a215a042c43668"
+          ]
+        },
+        {
+          "pet": 92,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "86a5b8ddc4279683a1b6b202922480c8d8d7f785257b6ce9b67f1253d7162189",
+            "e43a441d7a042453e81edd05c89c993ecda9f2d829e5665b07a215a042c43668"
+          ]
+        },
+        {
+          "pet": 134,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "86a5b8ddc4279683a1b6b202922480c8d8d7f785257b6ce9b67f1253d7162189",
+            "e43a441d7a042453e81edd05c89c993ecda9f2d829e5665b07a215a042c43668"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "N912davgnbDCZRT6-20-37",
+      "purpose": "policy-scope",
+      "report": "N912davgnbDCZRT6",
+      "fight": 20,
+      "actor": 37,
+      "player": "Kankan",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51121_The_Four_Horsemen.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 63770,
+      "published": "1890.76",
+      "totals": {
+        "raw": 121073,
+        "self": 499,
+        "excluded": 0,
+        "ranked": 120574
+      },
+      "residual": "587/159425",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 58,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "e39e5a05e348579b34e543203bcbae0be4be531d836d16005e9f1d9ad4ae56a1",
+            "7f4c2ae25f14202fa8df21dd9c01b44e9782563911b905088874a6cec955c2a5"
+          ]
+        },
+        {
+          "pet": 116,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "e39e5a05e348579b34e543203bcbae0be4be531d836d16005e9f1d9ad4ae56a1",
+            "7f4c2ae25f14202fa8df21dd9c01b44e9782563911b905088874a6cec955c2a5"
+          ]
+        },
+        {
+          "pet": 117,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "e39e5a05e348579b34e543203bcbae0be4be531d836d16005e9f1d9ad4ae56a1",
+            "7f4c2ae25f14202fa8df21dd9c01b44e9782563911b905088874a6cec955c2a5"
+          ]
+        },
+        {
+          "pet": 169,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "e39e5a05e348579b34e543203bcbae0be4be531d836d16005e9f1d9ad4ae56a1",
+            "7f4c2ae25f14202fa8df21dd9c01b44e9782563911b905088874a6cec955c2a5"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ktq6FHVbYgy89rc2-19-8",
+      "purpose": "policy-scope",
+      "report": "ktq6FHVbYgy89rc2",
+      "fight": 19,
+      "actor": 8,
+      "player": "Jeezz",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51121_The_Four_Horsemen.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 63757,
+      "published": "1832.22",
+      "totals": {
+        "raw": 117446,
+        "self": 629,
+        "excluded": 0,
+        "ranked": 116817
+      },
+      "residual": "7473/3187850",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 140,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "a99fc9f16893d121f8007c991496b689ce7daaa91431ed18bc643073ad88022a",
+            "390274148fe3da5043144ed85c58436f17e28cb4a701ce3529d4d1bea4dac18a"
+          ]
+        },
+        {
+          "pet": 194,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "a99fc9f16893d121f8007c991496b689ce7daaa91431ed18bc643073ad88022a",
+            "390274148fe3da5043144ed85c58436f17e28cb4a701ce3529d4d1bea4dac18a"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

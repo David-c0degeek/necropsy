@@ -95,16 +95,28 @@ def test_inventory_preserves_every_missing_obligation() -> None:
 NAXX_BALANCE_DPS_POLICY_ENCOUNTERS = (51109, 51111, 51114, 51116, 51117, 51119, 51120, 51121)
 
 
+def _naxx_dps_policy_cells() -> set[str]:
+    """Cell keys of every committed Naxx DPS policy scope."""
+    zone = load_rules("classic_era", "zones/naxxramas")
+    return {
+        "naxxramas/{encounter_id}/{class_id}/{category}/{metric}/{faction}".format(**p["scope"])
+        for p in zone["ranking_metric_policies"]
+        if p["scope"]["metric"] == "dps"
+    }
+
+
 def test_a_raid_wide_ranking_rule_never_reconciles_a_cell() -> None:
     """Naxxramas's empirical exclusion rule does not stand in for a cell policy."""
     naxx = [c for c in coverage_cells() if c.raid == "naxxramas"]
     assert load_rules("classic_era", "zones/naxxramas")["ranking_exclusions_rule"]["basis"] == (
         "empirical"
     )
-    scoped = {f"naxxramas/{e}/2/Balance/dps/Alliance" for e in NAXX_BALANCE_DPS_POLICY_ENCOUNTERS}
+    scoped = _naxx_dps_policy_cells()
     assert {coverage_check.ranking_problem(c) for c in naxx if c.key not in scoped} == {
         "ranking policy remains unvalidated"
     }
+    assert {coverage_check.ranking_problem(c) for c in naxx if c.key in scoped} == {None}
+    assert len(scoped & {c.key for c in naxx}) == len(scoped)
 
 
 def test_content_audit_passes_the_exact_cell_category_to_strategy(
@@ -149,7 +161,9 @@ def test_content_audit_passes_the_exact_cell_category_to_strategy(
         assert ("no boss-specific guidance" in problems) is (
             cell.configuration.category != "Guardian"
         )
-        assert "ranking policy remains unvalidated" in problems
+        assert ("ranking policy remains unvalidated" in problems) is (
+            cell.key not in _naxx_dps_policy_cells()
+        )
 
 
 def test_raid_scoped_audit_skips_other_raids_but_not_unknown_cells() -> None:
@@ -217,8 +231,8 @@ def test_scoped_dps_policy_validates_only_its_exact_cell() -> None:
     for encounter in NAXX_BALANCE_DPS_POLICY_ENCOUNTERS:
         assert coverage_check.ranking_problem(_cell(DPS_CELL.format(encounter))) is None
     for key in (
-        "naxxramas/51109/2/Balance/dps/Horde",
-        "naxxramas/51109/2/Feral/dps/Alliance",
+        "naxxramas/51115/2/Balance/dps/Horde",  # Loatheb: 2 admitted players
+        "naxxramas/51118/2/Feral/dps/Alliance",  # Patchwerk: 2 admitted players
         "naxxramas/51109/2/Balance/hps/Alliance",
         "naxxramas/51108/2/Balance/dps/Alliance",  # Gluth: exclusions untested, stays open
         "naxxramas/51118/2/Balance/dps/Alliance",  # Patchwerk: no admitted row

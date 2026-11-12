@@ -1,0 +1,103 @@
+{
+  "version": 1,
+  "rule": "naxx-gothik-feral-druid-horde-dps-v1",
+  "scope": {
+    "encounter_id": 51109,
+    "class_id": 2,
+    "category": "Feral",
+    "metric": "dps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261031/77548335-2006-20261030T095117.zip",
+    "sha256": "4e39a080967408826e0ac36826f90cfb9094230407a7e5b4c5f437c8c7b7a82e"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "Y8CmjV2BGKZNLA3x-30-42",
+      "purpose": "policy-scope",
+      "report": "Y8CmjV2BGKZNLA3x",
+      "fight": 30,
+      "actor": 42,
+      "player": "Wolfboy",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51109_Gothik_the_Harvester.json",
+      "page": 1,
+      "row": 12,
+      "owned_actor_ids": [],
+      "duration_ms": 304680,
+      "published": "220.861",
+      "totals": {
+        "raw": 67292,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 67292
+      },
+      "residual": "1763/7617000"
+    },
+    {
+      "id": "jxQXNnRWB9GztHTJ-51-14",
+      "purpose": "policy-scope",
+      "report": "jxQXNnRWB9GztHTJ",
+      "fight": 51,
+      "actor": 14,
+      "player": "乂暴力熊乂",
+      "realm": "哈霍兰",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51109_Gothik_the_Harvester.json",
+      "page": 1,
+      "row": 14,
+      "owned_actor_ids": [],
+      "duration_ms": 302494,
+      "published": "212.609",
+      "totals": {
+        "raw": 64854,
+        "self": 541,
+        "excluded": 0,
+        "ranked": 64313
+      },
+      "residual": "26577/151247000"
+    },
+    {
+      "id": "mVPCRjgbGxL6q3Wy-6-33",
+      "purpose": "policy-scope",
+      "report": "mVPCRjgbGxL6q3Wy",
+      "fight": 6,
+      "actor": 33,
+      "player": "Opix",
+      "realm": "Fairbanks",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51109_Gothik_the_Harvester.json",
+      "page": 1,
+      "row": 19,
+      "owned_actor_ids": [],
+      "duration_ms": 299015,
+      "published": "202.632",
+      "totals": {
+        "raw": 60590,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 60590
+      },
+      "residual": "-187/7475375"
+    }
+  ],
+  "refusals": []
+}

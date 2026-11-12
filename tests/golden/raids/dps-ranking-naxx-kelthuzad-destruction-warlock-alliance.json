@@ -1,0 +1,205 @@
+{
+  "version": 1,
+  "rule": "naxx-kelthuzad-destruction-warlock-alliance-dps-v1",
+  "scope": {
+    "encounter_id": 51114,
+    "class_id": 10,
+    "category": "Destruction",
+    "metric": "dps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77751784-2006-20261109T171544.zip",
+    "sha256": "44aa5ecd2af4f99afc994efb5cc9832d2dc9026370c15b908a5d1f0924f71068"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "1LVk36DzAXZcfYKx-31-37",
+      "purpose": "policy-scope",
+      "report": "1LVk36DzAXZcfYKx",
+      "fight": 31,
+      "actor": 37,
+      "player": "Dalkira",
+      "realm": "Westfall",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51114_Kel_Thuzad.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 79642,
+      "published": "1203.85",
+      "totals": {
+        "raw": 96574,
+        "self": 697,
+        "excluded": 0,
+        "ranked": 95877
+      },
+      "residual": "-217/796420",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 36,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "94bd52ce9acd9746f263c1880ccedb461446e98ae9cbcb199849bba54713fd35",
+            "d0e23286cced48938cb3db95fb6a96a7e8ccadbffb30e19321dbc64175f4be07"
+          ]
+        },
+        {
+          "pet": 222,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "94bd52ce9acd9746f263c1880ccedb461446e98ae9cbcb199849bba54713fd35",
+            "d0e23286cced48938cb3db95fb6a96a7e8ccadbffb30e19321dbc64175f4be07"
+          ]
+        },
+        {
+          "pet": 227,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "94bd52ce9acd9746f263c1880ccedb461446e98ae9cbcb199849bba54713fd35",
+            "d0e23286cced48938cb3db95fb6a96a7e8ccadbffb30e19321dbc64175f4be07"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jFZL8N6MQV2d1wmH-55-38",
+      "purpose": "policy-scope",
+      "report": "jFZL8N6MQV2d1wmH",
+      "fight": 55,
+      "actor": 38,
+      "player": "Sameus",
+      "realm": "Westfall",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51114_Kel_Thuzad.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 144001,
+      "published": "1200.21",
+      "totals": {
+        "raw": 172831,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 172831
+      },
+      "residual": "-44021/14400100",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 39,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "5d2d53422765f1060b2cffaf3ee40b955435a15ae153c2a7f57ea03000ed9c13",
+            "2d622e1bd05c2208408ade4a9f797f26b7ec7d7026f90d43902b4deecbbf92b8"
+          ]
+        },
+        {
+          "pet": 66,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "5d2d53422765f1060b2cffaf3ee40b955435a15ae153c2a7f57ea03000ed9c13",
+            "2d622e1bd05c2208408ade4a9f797f26b7ec7d7026f90d43902b4deecbbf92b8"
+          ]
+        },
+        {
+          "pet": 89,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "5d2d53422765f1060b2cffaf3ee40b955435a15ae153c2a7f57ea03000ed9c13",
+            "2d622e1bd05c2208408ade4a9f797f26b7ec7d7026f90d43902b4deecbbf92b8"
+          ]
+        },
+        {
+          "pet": 128,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "5d2d53422765f1060b2cffaf3ee40b955435a15ae153c2a7f57ea03000ed9c13",
+            "2d622e1bd05c2208408ade4a9f797f26b7ec7d7026f90d43902b4deecbbf92b8"
+          ]
+        },
+        {
+          "pet": 196,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "5d2d53422765f1060b2cffaf3ee40b955435a15ae153c2a7f57ea03000ed9c13",
+            "2d622e1bd05c2208408ade4a9f797f26b7ec7d7026f90d43902b4deecbbf92b8"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pXRCk3mF4dA7KP8J-37-53",
+      "purpose": "policy-scope",
+      "report": "pXRCk3mF4dA7KP8J",
+      "fight": 37,
+      "actor": 53,
+      "player": "Zipfig",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51114_Kel_Thuzad.json",
+      "page": 1,
+      "row": 4,
+      "owned_actor_ids": [],
+      "duration_ms": 89630,
+      "published": "1147.36",
+      "totals": {
+        "raw": 102838,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 102838
+      },
+      "residual": "308/224075",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 52,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "2027a96679c3ab4de522e88648986b609b37024f4fabbfde5d284f9279e30102",
+            "8a25ac4ed0490e56602dc836230e9fd25f9fe5b5d9d1bb1bb26a15a096ea7deb"
+          ]
+        },
+        {
+          "pet": 111,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "2027a96679c3ab4de522e88648986b609b37024f4fabbfde5d284f9279e30102",
+            "8a25ac4ed0490e56602dc836230e9fd25f9fe5b5d9d1bb1bb26a15a096ea7deb"
+          ]
+        },
+        {
+          "pet": 162,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "2027a96679c3ab4de522e88648986b609b37024f4fabbfde5d284f9279e30102",
+            "8a25ac4ed0490e56602dc836230e9fd25f9fe5b5d9d1bb1bb26a15a096ea7deb"
+          ]
+        },
+        {
+          "pet": 212,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "2027a96679c3ab4de522e88648986b609b37024f4fabbfde5d284f9279e30102",
+            "8a25ac4ed0490e56602dc836230e9fd25f9fe5b5d9d1bb1bb26a15a096ea7deb"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

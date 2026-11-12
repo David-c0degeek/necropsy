@@ -1,0 +1,173 @@
+{
+  "version": 1,
+  "rule": "naxx-grobbulus-destruction-warlock-horde-dps-v1",
+  "scope": {
+    "encounter_id": 51111,
+    "class_id": 10,
+    "category": "Destruction",
+    "metric": "dps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/64322945-2006-20261110T064311.zip",
+    "sha256": "62ee186326d8affa4f56d5e53616640e38e5f8fc87ffae5396d0806bb576684d"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "AH2kN3aXRz81LJhW-48-10",
+      "purpose": "policy-scope",
+      "report": "AH2kN3aXRz81LJhW",
+      "fight": 48,
+      "actor": 10,
+      "player": "Rotlock",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51111_Grobbulus.json",
+      "page": 1,
+      "row": 7,
+      "owned_actor_ids": [],
+      "duration_ms": 60975,
+      "published": "1492.07",
+      "totals": {
+        "raw": 90979,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 90979
+      },
+      "residual": "127/243900",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 80,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "01c938066c42c05d7917245ac6e59ed42e5f36cb0bcb441429dfec0980e3ee99",
+            "d38618bd793a7c0f65da6f4a863ffab7fb33fee0a7fe34701a72b72129551045"
+          ]
+        },
+        {
+          "pet": 195,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "01c938066c42c05d7917245ac6e59ed42e5f36cb0bcb441429dfec0980e3ee99",
+            "d38618bd793a7c0f65da6f4a863ffab7fb33fee0a7fe34701a72b72129551045"
+          ]
+        },
+        {
+          "pet": 200,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "01c938066c42c05d7917245ac6e59ed42e5f36cb0bcb441429dfec0980e3ee99",
+            "d38618bd793a7c0f65da6f4a863ffab7fb33fee0a7fe34701a72b72129551045"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "TkZ3gLq8c6KXQwPF-39-38",
+      "purpose": "policy-scope",
+      "report": "TkZ3gLq8c6KXQwPF",
+      "fight": 39,
+      "actor": 38,
+      "player": "Coughsyrup",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51111_Grobbulus.json",
+      "page": 1,
+      "row": 3,
+      "owned_actor_ids": [],
+      "duration_ms": 61365,
+      "published": "1543.6",
+      "totals": {
+        "raw": 95849,
+        "self": 1126,
+        "excluded": 0,
+        "ranked": 94723
+      },
+      "residual": "-14/61365",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 92,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "571f4a4e4b5e239b04739b4884f061a2ad48a57c5584cc6b7cc5998cda4be497",
+            "c82e3bc87764aaf72bd6e1b5c10073956f5424c0dc11609e7c3cec4f93e5aaa1"
+          ]
+        },
+        {
+          "pet": 182,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "571f4a4e4b5e239b04739b4884f061a2ad48a57c5584cc6b7cc5998cda4be497",
+            "c82e3bc87764aaf72bd6e1b5c10073956f5424c0dc11609e7c3cec4f93e5aaa1"
+          ]
+        },
+        {
+          "pet": 251,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "571f4a4e4b5e239b04739b4884f061a2ad48a57c5584cc6b7cc5998cda4be497",
+            "c82e3bc87764aaf72bd6e1b5c10073956f5424c0dc11609e7c3cec4f93e5aaa1"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bnq7XzCfBr1tWPyx-50-57",
+      "purpose": "policy-scope",
+      "report": "bnq7XzCfBr1tWPyx",
+      "fight": 50,
+      "actor": 57,
+      "player": "Evildead",
+      "realm": "Pyrewood Village",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51111_Grobbulus.json",
+      "page": 1,
+      "row": 20,
+      "owned_actor_ids": [],
+      "duration_ms": 64374,
+      "published": "1389.18",
+      "totals": {
+        "raw": 89427,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 89427
+      },
+      "residual": "-611/536450",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 58,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "42dcb993e2e5f5828936a9b33dc390249e350fdce7f148db2d036a44d9b566ae",
+            "0d5cfe841bea6d05f268f87a091ed37860ba6270c9f521267991f586ebc6d9c6"
+          ]
+        },
+        {
+          "pet": 157,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "42dcb993e2e5f5828936a9b33dc390249e350fdce7f148db2d036a44d9b566ae",
+            "0d5cfe841bea6d05f268f87a091ed37860ba6270c9f521267991f586ebc6d9c6"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

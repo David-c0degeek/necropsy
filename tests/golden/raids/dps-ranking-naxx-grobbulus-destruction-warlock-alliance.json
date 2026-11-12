@@ -1,0 +1,171 @@
+{
+  "version": 1,
+  "rule": "naxx-grobbulus-destruction-warlock-alliance-dps-v1",
+  "scope": {
+    "encounter_id": 51111,
+    "class_id": 10,
+    "category": "Destruction",
+    "metric": "dps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77751784-2006-20261109T171544.zip",
+    "sha256": "44aa5ecd2af4f99afc994efb5cc9832d2dc9026370c15b908a5d1f0924f71068"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "CRKJPf48YzFgqrL7-20-3",
+      "purpose": "policy-scope",
+      "report": "CRKJPf48YzFgqrL7",
+      "fight": 20,
+      "actor": 3,
+      "player": "烟塵",
+      "realm": "哈霍兰",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51111_Grobbulus.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 71961,
+      "published": "1609.44",
+      "totals": {
+        "raw": 115817,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 115817
+      },
+      "residual": "2204/1799025",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 2,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "a50847bb446451e51315d2f6e8595d05e0a35b145aef2936e5c1de3bd7d9c257",
+            "4fc85abfbb986504ffe7e10ce440707ec8bf9b5363822857dd47cb8b889998d1"
+          ]
+        },
+        {
+          "pet": 110,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "a50847bb446451e51315d2f6e8595d05e0a35b145aef2936e5c1de3bd7d9c257",
+            "4fc85abfbb986504ffe7e10ce440707ec8bf9b5363822857dd47cb8b889998d1"
+          ]
+        },
+        {
+          "pet": 180,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "a50847bb446451e51315d2f6e8595d05e0a35b145aef2936e5c1de3bd7d9c257",
+            "4fc85abfbb986504ffe7e10ce440707ec8bf9b5363822857dd47cb8b889998d1"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "KdMQtgnGAD6Y7q3V-26-19",
+      "purpose": "policy-scope",
+      "report": "KdMQtgnGAD6Y7q3V",
+      "fight": 26,
+      "actor": 19,
+      "player": "Hyaná",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51111_Grobbulus.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 66470,
+      "published": "1664.9",
+      "totals": {
+        "raw": 110666,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 110666
+      },
+      "residual": "97/66470"
+    },
+    {
+      "id": "MwyRXK4jTbAPmfWv-25-59",
+      "purpose": "policy-scope",
+      "report": "MwyRXK4jTbAPmfWv",
+      "fight": 25,
+      "actor": 59,
+      "player": "Sameus",
+      "realm": "Westfall",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51111_Grobbulus.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 65608,
+      "published": "1781",
+      "totals": {
+        "raw": 117760,
+        "self": 912,
+        "excluded": 0,
+        "ranked": 116848
+      },
+      "residual": "19/8201",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 60,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "1ec17ac72bf9ad43ce6bdb3582c3a9455f1739c8c030ef80f9245a7bfc177278",
+            "db03eb392eb3dec6307c588fdc2e0f1624e197e1bbe43ffe6b4ab7eee70ad3a8"
+          ]
+        },
+        {
+          "pet": 70,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "1ec17ac72bf9ad43ce6bdb3582c3a9455f1739c8c030ef80f9245a7bfc177278",
+            "db03eb392eb3dec6307c588fdc2e0f1624e197e1bbe43ffe6b4ab7eee70ad3a8"
+          ]
+        },
+        {
+          "pet": 91,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "1ec17ac72bf9ad43ce6bdb3582c3a9455f1739c8c030ef80f9245a7bfc177278",
+            "db03eb392eb3dec6307c588fdc2e0f1624e197e1bbe43ffe6b4ab7eee70ad3a8"
+          ]
+        },
+        {
+          "pet": 129,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "1ec17ac72bf9ad43ce6bdb3582c3a9455f1739c8c030ef80f9245a7bfc177278",
+            "db03eb392eb3dec6307c588fdc2e0f1624e197e1bbe43ffe6b4ab7eee70ad3a8"
+          ]
+        },
+        {
+          "pet": 197,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "1ec17ac72bf9ad43ce6bdb3582c3a9455f1739c8c030ef80f9245a7bfc177278",
+            "db03eb392eb3dec6307c588fdc2e0f1624e197e1bbe43ffe6b4ab7eee70ad3a8"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

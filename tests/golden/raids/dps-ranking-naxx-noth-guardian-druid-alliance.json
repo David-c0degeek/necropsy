@@ -1,0 +1,115 @@
+{
+  "version": 1,
+  "rule": "naxx-noth-guardian-druid-alliance-dps-v1",
+  "scope": {
+    "encounter_id": 51117,
+    "class_id": 2,
+    "category": "Guardian",
+    "metric": "dps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261031/83306366-2006-20261031T073441.zip",
+    "sha256": "d6ecd3846ba9a27641ce80eb801006d630432348fd0283594d2f805dda7dcb55"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "BYdwbGWz2p6KfJtC-30-38",
+      "purpose": "policy-scope",
+      "report": "BYdwbGWz2p6KfJtC",
+      "fight": 30,
+      "actor": 38,
+      "player": "Littlehencha",
+      "realm": "Mograine",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51117_Noth_the_Plaguebringer.json",
+      "page": 1,
+      "row": 4,
+      "owned_actor_ids": [
+        115
+      ],
+      "duration_ms": 69462,
+      "published": "946.906",
+      "totals": {
+        "raw": 65774,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 65774
+      },
+      "residual": "3857/17365500"
+    },
+    {
+      "id": "b3TXFpJYh9KPNCMj-77-23",
+      "purpose": "policy-scope",
+      "report": "b3TXFpJYh9KPNCMj",
+      "fight": 77,
+      "actor": 23,
+      "player": "Harryjam",
+      "realm": "Windseeker",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51117_Noth_the_Plaguebringer.json",
+      "page": 1,
+      "row": 3,
+      "owned_actor_ids": [],
+      "duration_ms": 46394,
+      "published": "970.923",
+      "totals": {
+        "raw": 45045,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 45045
+      },
+      "residual": "-831/23197000"
+    },
+    {
+      "id": "zcApdV7HWgR2nvq6-31-11",
+      "purpose": "policy-scope",
+      "report": "zcApdV7HWgR2nvq6",
+      "fight": 31,
+      "actor": 11,
+      "player": "Iol",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51117_Noth_the_Plaguebringer.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 59381,
+      "published": "1068.84",
+      "totals": {
+        "raw": 63469,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 63469
+      },
+      "residual": "757/212075",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 71,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "8f873ed7101199115ba5c1680c5f0291873d163a0e4958bd7dfb6b3045162390",
+            "fdd5789febcc7b03c158046c581ea6d6ade1b7b5c0b24d2d97933be2e65a1556"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

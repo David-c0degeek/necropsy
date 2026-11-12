@@ -1,0 +1,155 @@
+{
+  "version": 1,
+  "rule": "naxx-sapphiron-fury-warrior-horde-dps-v1",
+  "scope": {
+    "encounter_id": 51119,
+    "class_id": 11,
+    "category": "Fury",
+    "metric": "dps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/75322236-2006-20261110T150026.zip",
+    "sha256": "3750625e922916fb4f3a6cf7243311216149d77b3b09eeebffcdcd43558f76dd"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "BrCJD9XL7zNqTdyP-29-17",
+      "purpose": "policy-scope",
+      "report": "BrCJD9XL7zNqTdyP",
+      "fight": 29,
+      "actor": 17,
+      "player": "Vague",
+      "realm": "Anathema",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51119_Sapphiron.json",
+      "page": 1,
+      "row": 3,
+      "owned_actor_ids": [],
+      "duration_ms": 19834,
+      "published": "11319.9",
+      "totals": {
+        "raw": 226309,
+        "self": 1790,
+        "excluded": 0,
+        "ranked": 224519
+      },
+      "residual": "11/2110",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 120,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "99904dcd7c0c1a6dd8e17b80d0bde9f11ae898e2ef01f2d81b929e780d79ae44"
+          ]
+        },
+        {
+          "pet": 151,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "99904dcd7c0c1a6dd8e17b80d0bde9f11ae898e2ef01f2d81b929e780d79ae44"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hYrA6fPGb2qDjZtL-34-38",
+      "purpose": "policy-scope",
+      "report": "hYrA6fPGb2qDjZtL",
+      "fight": 34,
+      "actor": 38,
+      "player": "Runn",
+      "realm": "Thunderfury",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51119_Sapphiron.json",
+      "page": 1,
+      "row": 4,
+      "owned_actor_ids": [
+        124
+      ],
+      "duration_ms": 18101,
+      "published": "11140.5",
+      "totals": {
+        "raw": 201655,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 201655
+      },
+      "residual": "1619/36202",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 182,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "d2d2fe2faea621fcd537a49022624607b9bde82f58ee660969237f5969c7adfc"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "k3zrYBRVXZKx9qtD-34-15",
+      "purpose": "policy-scope",
+      "report": "k3zrYBRVXZKx9qtD",
+      "fight": 34,
+      "actor": 15,
+      "player": "Ashbringerx",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51119_Sapphiron.json",
+      "page": 1,
+      "row": 5,
+      "owned_actor_ids": [
+        118
+      ],
+      "duration_ms": 19803,
+      "published": "11120.1",
+      "totals": {
+        "raw": 220212,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 220212
+      },
+      "residual": "2199/66010",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 149,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "4008da4580c022f1147cf87678ba1aadcba414f84dacc9fbf5a4ef0b65b6c235"
+          ]
+        },
+        {
+          "pet": 152,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "4008da4580c022f1147cf87678ba1aadcba414f84dacc9fbf5a4ef0b65b6c235"
+          ]
+        },
+        {
+          "pet": 265,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "4008da4580c022f1147cf87678ba1aadcba414f84dacc9fbf5a4ef0b65b6c235"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

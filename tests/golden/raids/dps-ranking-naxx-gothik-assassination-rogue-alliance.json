@@ -1,0 +1,147 @@
+{
+  "version": 1,
+  "rule": "naxx-gothik-assassination-rogue-alliance-dps-v1",
+  "scope": {
+    "encounter_id": 51109,
+    "class_id": 8,
+    "category": "Assassination",
+    "metric": "dps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77022735-2006-20261108T142205.zip",
+    "sha256": "f677e3ee78aeefc0ffe92aba276c7110707df719c2a3d05585a4aa47aa2abbb6"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "7tgJHC8rG4bRyf12-27-29",
+      "purpose": "policy-scope",
+      "report": "7tgJHC8rG4bRyf12",
+      "fight": 27,
+      "actor": 29,
+      "player": "Nosforatu",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51109_Gothik_the_Harvester.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 300620,
+      "published": "792.362",
+      "totals": {
+        "raw": 238569,
+        "self": 369,
+        "excluded": 0,
+        "ranked": 238200
+      },
+      "residual": "3389/7515500",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 135,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "ff773b9329c3cc710176592643cd185700d88d21e9da8b9b066f43848f93af1c",
+            "aab5b6c68d08b56d916911b717d42ec386e059b6052e972b93505bd420b72ad5",
+            "765377876c9c4884a9c18272dd9aee1894eba362dc62a606b07ef7d0efe2a627",
+            "97150eda02bc758eda8509d1302328edee53b6c9c9bece9d6dcc68c7eecb4384"
+          ]
+        },
+        {
+          "pet": 201,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "ff773b9329c3cc710176592643cd185700d88d21e9da8b9b066f43848f93af1c",
+            "aab5b6c68d08b56d916911b717d42ec386e059b6052e972b93505bd420b72ad5",
+            "765377876c9c4884a9c18272dd9aee1894eba362dc62a606b07ef7d0efe2a627",
+            "97150eda02bc758eda8509d1302328edee53b6c9c9bece9d6dcc68c7eecb4384"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7tgJHC8rG4bRyf12-27-8",
+      "purpose": "policy-scope",
+      "report": "7tgJHC8rG4bRyf12",
+      "fight": 27,
+      "actor": 8,
+      "player": "Kobebryant",
+      "realm": "Bigglesworth",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51109_Gothik_the_Harvester.json",
+      "page": 1,
+      "row": 3,
+      "owned_actor_ids": [],
+      "duration_ms": 300620,
+      "published": "776.894",
+      "totals": {
+        "raw": 233550,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 233550
+      },
+      "residual": "3143/7515500"
+    },
+    {
+      "id": "HwjymM8r4ZgdbBh9-28-5",
+      "purpose": "policy-scope",
+      "report": "HwjymM8r4ZgdbBh9",
+      "fight": 28,
+      "actor": 5,
+      "player": "Runíc",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51109_Gothik_the_Harvester.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 294752,
+      "published": "817.223",
+      "totals": {
+        "raw": 241349,
+        "self": 471,
+        "excluded": 0,
+        "ranked": 240878
+      },
+      "residual": "-3553/9211000",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 89,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "6275acb0cc17fbaa2fce69d9bcd59c573ba388112c47a82d48fb83aeacba64e3",
+            "a12d224756e6442776949a28ad03d13f5985027c1329ed908496e9bfaf4ae9c8",
+            "afd886aea69ad2f07f124aa8171840305ed402d90096303491b517877e576890",
+            "5abe4ecf7091e8bc5ca9f169e81e1f012d3a67eab9bbaddecc10aa1c566a0842"
+          ]
+        },
+        {
+          "pet": 130,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "6275acb0cc17fbaa2fce69d9bcd59c573ba388112c47a82d48fb83aeacba64e3",
+            "a12d224756e6442776949a28ad03d13f5985027c1329ed908496e9bfaf4ae9c8",
+            "afd886aea69ad2f07f124aa8171840305ed402d90096303491b517877e576890",
+            "5abe4ecf7091e8bc5ca9f169e81e1f012d3a67eab9bbaddecc10aa1c566a0842"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

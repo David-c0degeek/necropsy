@@ -1,0 +1,116 @@
+{
+  "version": 1,
+  "rule": "naxx-patchwerk-shadow-priest-horde-dps-v1",
+  "scope": {
+    "encounter_id": 51118,
+    "class_id": 7,
+    "category": "Shadow",
+    "metric": "dps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/66195792-2006-20261108T070712.zip",
+    "sha256": "05aa6d44d37a8dcbf6a64ccc17060b81f0d42f4abaa4c69a8eba453510c3f6de"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "WPxyrnqYh2J8D6LN-57-43",
+      "purpose": "policy-scope",
+      "report": "WPxyrnqYh2J8D6LN",
+      "fight": 57,
+      "actor": 43,
+      "player": "Ywfvniefjioe",
+      "realm": "Pyrewood Village",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51118_Patchwerk.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 126703,
+      "published": "1044.69",
+      "totals": {
+        "raw": 133394,
+        "self": 1029,
+        "excluded": 0,
+        "ranked": 132365
+      },
+      "residual": "-35707/12670300",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 130,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "46efc2c5078e55b7e0010a88037a2b88bafa42c0113941086d38e9ee8717cd3d",
+            "8bb82d85904b97ee469ee2f7d5e79705b2fae2009a72b38c3c57d7727554908a",
+            "0e596597e99d6edcb43550fe0081294129776885c3c88050f56088d2c46a669f"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bHhRtQr4LKmGpc21-41-12",
+      "purpose": "policy-scope",
+      "report": "bHhRtQr4LKmGpc21",
+      "fight": 41,
+      "actor": 12,
+      "player": "Varjo",
+      "realm": "Mankrik",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51118_Patchwerk.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 133711,
+      "published": "894.399",
+      "totals": {
+        "raw": 120649,
+        "self": 1058,
+        "excluded": 0,
+        "ranked": 119591
+      },
+      "residual": "15311/133711000"
+    },
+    {
+      "id": "dD1XmanHC3rkAz98-101-30",
+      "purpose": "policy-scope",
+      "report": "dD1XmanHC3rkAz98",
+      "fight": 101,
+      "actor": 30,
+      "player": "Kach",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51118_Patchwerk.json",
+      "page": 1,
+      "row": 4,
+      "owned_actor_ids": [
+        255
+      ],
+      "duration_ms": 160152,
+      "published": "866.895",
+      "totals": {
+        "raw": 139718,
+        "self": 883,
+        "excluded": 0,
+        "ranked": 138835
+      },
+      "residual": "799/4003800"
+    }
+  ],
+  "refusals": []
+}

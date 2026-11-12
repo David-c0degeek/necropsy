@@ -1,0 +1,103 @@
+{
+  "version": 1,
+  "rule": "naxx-thaddius-frost-mage-horde-dps-v1",
+  "scope": {
+    "encounter_id": 51120,
+    "class_id": 4,
+    "category": "Frost",
+    "metric": "dps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/83910414-2006-20261105T054215.zip",
+    "sha256": "3ad2f7dba9a65ac121ccfd7b140d1d31e8c22574197285bb0f32d4a6fd222ac0"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "9Bv73pJn1kgL4HyV-21-25",
+      "purpose": "policy-scope",
+      "report": "9Bv73pJn1kgL4HyV",
+      "fight": 21,
+      "actor": 25,
+      "player": "Belterx",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51120_Thaddius.json",
+      "page": 1,
+      "row": 9,
+      "owned_actor_ids": [],
+      "duration_ms": 109589,
+      "published": "1797.57",
+      "totals": {
+        "raw": 197483,
+        "self": 489,
+        "excluded": 0,
+        "ranked": 196994
+      },
+      "residual": "10127/10958900"
+    },
+    {
+      "id": "p362D4GbQhwcFtM1-28-3",
+      "purpose": "policy-scope",
+      "report": "p362D4GbQhwcFtM1",
+      "fight": 28,
+      "actor": 3,
+      "player": "Shivanna",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51120_Thaddius.json",
+      "page": 1,
+      "row": 6,
+      "owned_actor_ids": [],
+      "duration_ms": 137122,
+      "published": "1818.71",
+      "totals": {
+        "raw": 249385,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 249385
+      },
+      "residual": "-7631/6856100"
+    },
+    {
+      "id": "wRGpQ9TytKmxD6cF-23-2",
+      "purpose": "policy-scope",
+      "report": "wRGpQ9TytKmxD6cF",
+      "fight": 23,
+      "actor": 2,
+      "player": "猫猫",
+      "realm": "厄运之槌",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51120_Thaddius.json",
+      "page": 1,
+      "row": 15,
+      "owned_actor_ids": [],
+      "duration_ms": 166211,
+      "published": "1748.87",
+      "totals": {
+        "raw": 290681,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 290681
+      },
+      "residual": "-43157/16621100"
+    }
+  ],
+  "refusals": []
+}

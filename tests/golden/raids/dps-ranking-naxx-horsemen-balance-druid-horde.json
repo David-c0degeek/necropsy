@@ -1,0 +1,155 @@
+{
+  "version": 1,
+  "rule": "naxx-horsemen-balance-druid-horde-dps-v1",
+  "scope": {
+    "encounter_id": 51121,
+    "class_id": 2,
+    "category": "Balance",
+    "metric": "dps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261031/64347501-2006-20261027T093033.zip",
+    "sha256": "7021b6a180220f5933e700ec5121db16441526d5004d88679d6bf48e98718ab2"
+  },
+  "dispositions": {
+    "n": 5,
+    "k": 5,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "8GzVJt3TLmAc1MPC-66-5",
+      "purpose": "policy-scope",
+      "report": "8GzVJt3TLmAc1MPC",
+      "fight": 66,
+      "actor": 5,
+      "player": "小牛佩蹄",
+      "realm": "匕首岭",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51121_The_Four_Horsemen.json",
+      "page": 1,
+      "row": 30,
+      "owned_actor_ids": [],
+      "duration_ms": 342745,
+      "published": "244.526",
+      "totals": {
+        "raw": 84435,
+        "self": 625,
+        "excluded": 0,
+        "ranked": 83810
+      },
+      "residual": "-6387/34274500"
+    },
+    {
+      "id": "HPRjA6tLMwV7XF3q-37-45",
+      "purpose": "policy-scope",
+      "report": "HPRjA6tLMwV7XF3q",
+      "fight": 37,
+      "actor": 45,
+      "player": "Gimbaswife",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51121_The_Four_Horsemen.json",
+      "page": 1,
+      "row": 39,
+      "owned_actor_ids": [],
+      "duration_ms": 225754,
+      "published": "222.047",
+      "totals": {
+        "raw": 50128,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 50128
+      },
+      "residual": "781/112877000"
+    },
+    {
+      "id": "PrkwQxqWGJTRXVvf-30-74",
+      "purpose": "policy-scope",
+      "report": "PrkwQxqWGJTRXVvf",
+      "fight": 30,
+      "actor": 74,
+      "player": "妞老湿搓愤怒",
+      "realm": "哈霍兰",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51121_The_Four_Horsemen.json",
+      "page": 1,
+      "row": 35,
+      "owned_actor_ids": [],
+      "duration_ms": 534245,
+      "published": "234.11",
+      "totals": {
+        "raw": 125072,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 125072
+      },
+      "residual": "-1939/10684900"
+    },
+    {
+      "id": "XDTYcajq2m9t81W4-29-1",
+      "purpose": "policy-scope",
+      "report": "XDTYcajq2m9t81W4",
+      "fight": 29,
+      "actor": 1,
+      "player": "Hyromi",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51121_The_Four_Horsemen.json",
+      "page": 1,
+      "row": 44,
+      "owned_actor_ids": [],
+      "duration_ms": 339828,
+      "published": "213.458",
+      "totals": {
+        "raw": 72752,
+        "self": 213,
+        "excluded": 0,
+        "ranked": 72539
+      },
+      "residual": "-653/42478500"
+    },
+    {
+      "id": "Z6FPvDfhjRcpWwYd-64-37",
+      "purpose": "policy-scope",
+      "report": "Z6FPvDfhjRcpWwYd",
+      "fight": 64,
+      "actor": 37,
+      "player": "若曦小小牛",
+      "realm": "湖畔镇",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51121_The_Four_Horsemen.json",
+      "page": 1,
+      "row": 38,
+      "owned_actor_ids": [],
+      "duration_ms": 368842,
+      "published": "224.481",
+      "totals": {
+        "raw": 82798,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 82798
+      },
+      "residual": "-10501/184421000"
+    }
+  ],
+  "refusals": []
+}

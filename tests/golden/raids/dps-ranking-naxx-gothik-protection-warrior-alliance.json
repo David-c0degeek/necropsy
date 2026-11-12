@@ -1,0 +1,162 @@
+{
+  "version": 1,
+  "rule": "naxx-gothik-protection-warrior-alliance-dps-v1",
+  "scope": {
+    "encounter_id": 51109,
+    "class_id": 11,
+    "category": "Protection",
+    "metric": "dps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/75466963-2006-20261111T134356.zip",
+    "sha256": "fb12765c9b6fd67e8cb252b09df71668d12ee793cb22bd20be4afcf2d86b1442"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "3QhtwNnFY2ymqrv9-35-1",
+      "purpose": "policy-scope",
+      "report": "3QhtwNnFY2ymqrv9",
+      "fight": 35,
+      "actor": 1,
+      "player": "Erikqt",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51109_Gothik_the_Harvester.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 296318,
+      "published": "668.383",
+      "totals": {
+        "raw": 198140,
+        "self": 86,
+        "excluded": 0,
+        "ranked": 198054
+      },
+      "residual": "43103/148159000",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 73,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "5d3b62066e285b6d79b6dcb723bb308a25ff976ccda6a02a6520ed515326ccd7",
+            "f5c9b468915bc884257b38064c1318ec3ccfb6d9eed3db75a0cadd79917816b3",
+            "7c055564ac92c30bd0d925f908ee6882ff8c098f17060fa54da95d7661b342b6",
+            "4f393af7a93aeffb5b3966b8763673dfe24f3482f79da593de5ef7b63301cc94"
+          ]
+        },
+        {
+          "pet": 134,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "5d3b62066e285b6d79b6dcb723bb308a25ff976ccda6a02a6520ed515326ccd7",
+            "f5c9b468915bc884257b38064c1318ec3ccfb6d9eed3db75a0cadd79917816b3",
+            "7c055564ac92c30bd0d925f908ee6882ff8c098f17060fa54da95d7661b342b6",
+            "4f393af7a93aeffb5b3966b8763673dfe24f3482f79da593de5ef7b63301cc94"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "M3tkvVy9Gfx4KJWA-28-35",
+      "purpose": "policy-scope",
+      "report": "M3tkvVy9Gfx4KJWA",
+      "fight": 28,
+      "actor": 35,
+      "player": "Ezcó",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51109_Gothik_the_Harvester.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [
+        62
+      ],
+      "duration_ms": 301019,
+      "published": "682.94",
+      "totals": {
+        "raw": 205578,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 205578
+      },
+      "residual": "4207/15050950",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 138,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "2a3e3834397d3a323251737212bcedfb7e73240219a7b4462410c22bdbda731a",
+            "beeec0ae5d04fc36c3db110ee877b1742f8afd69bb5267e01cbc9bea11ac1406",
+            "fcb93437b998d4e46edd950b7c83cb2f9a7e800e689f15a57150a9889715e0f0",
+            "be9fb7e384397ac3b5d033782c0ac1d925ef837c2464ceebe93d937bd87dce60"
+          ]
+        },
+        {
+          "pet": 147,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "2a3e3834397d3a323251737212bcedfb7e73240219a7b4462410c22bdbda731a",
+            "beeec0ae5d04fc36c3db110ee877b1742f8afd69bb5267e01cbc9bea11ac1406",
+            "fcb93437b998d4e46edd950b7c83cb2f9a7e800e689f15a57150a9889715e0f0",
+            "be9fb7e384397ac3b5d033782c0ac1d925ef837c2464ceebe93d937bd87dce60"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "PRLZ8k6dTFxjvGA4-16-21",
+      "purpose": "policy-scope",
+      "report": "PRLZ8k6dTFxjvGA4",
+      "fight": 16,
+      "actor": 21,
+      "player": "Tiny",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51109_Gothik_the_Harvester.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 299552,
+      "published": "690.201",
+      "totals": {
+        "raw": 206751,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 206751
+      },
+      "residual": "-2811/9361000",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 136,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "936c0869b573ba042d565d8738c2345dbe28d3275f6a1defd0b4e8ae1bfe22da",
+            "4f90d3b936fedd7b8b1d83430522e9834a450a5e4446589abcfb87f55329b759",
+            "8ba2b23bd6f579e8e0fa29f947f443b3e9cc9eb3047ad8e39f644c6ecbe67bbe",
+            "e8419107f7b016f19520a579c46f2faded60e0096a639d8ad5349f6b0a029f15",
+            "fb62d386a051b3aad0d69ecd5b5d6d144cb04372ae5713f20c1a13fad8806ce0"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

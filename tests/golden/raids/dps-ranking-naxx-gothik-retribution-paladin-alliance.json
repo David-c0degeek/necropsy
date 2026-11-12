@@ -1,0 +1,155 @@
+{
+  "version": 1,
+  "rule": "naxx-gothik-retribution-paladin-alliance-dps-v1",
+  "scope": {
+    "encounter_id": 51109,
+    "class_id": 6,
+    "category": "Retribution",
+    "metric": "dps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/76716431-2006-20261106T042624.zip",
+    "sha256": "3b64e402362774511ae10a81c176e4cacf9aae04b62778dab30dd26a38c67585"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "V94MKA8vnf7BcQXF-18-3",
+      "purpose": "policy-scope",
+      "report": "V94MKA8vnf7BcQXF",
+      "fight": 18,
+      "actor": 3,
+      "player": "Löwennest",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51109_Gothik_the_Harvester.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 299057,
+      "published": "321.618",
+      "totals": {
+        "raw": 96182,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 96182
+      },
+      "residual": "-57113/149528500",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 144,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "a332aa3216373c3a023469377a6299ae1ac92c42cb169fb1ded686d8faf0b1f0",
+            "2790bf79817b8cd4dc0390754fc06960485da6b604402a33ff631846d14a1583",
+            "881336cd327cb453bbbe9a454f0b1d14cc53941476ae9c6806b15c298d748099",
+            "2adeddb7eef3183690517659e4f6371ea5f93ab94d24a17bfe8142c3e512adc9"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "npCNk8c2gLQhdRbA-100-5",
+      "purpose": "policy-scope",
+      "report": "npCNk8c2gLQhdRbA",
+      "fight": 100,
+      "actor": 5,
+      "player": "Georgy",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51109_Gothik_the_Harvester.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 304795,
+      "published": "313.378",
+      "totals": {
+        "raw": 95516,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 95516
+      },
+      "residual": "-4751/30479500",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 90,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "5f524f3c164aa97b7e0ede9cd3172d4b2e46821599e84a96fe7aed4ab5917fad",
+            "ecdd673f8d4db725d3ee92f0e68beafe13dc6962fa89967bf75c6a2d7e249516",
+            "c585da4bdc27cc4e5fc8755585bdce45fb01b37047db610b03c2db96724b6375"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vaAGH3bZcnpwCDN2-39-18",
+      "purpose": "policy-scope",
+      "report": "vaAGH3bZcnpwCDN2",
+      "fight": 39,
+      "actor": 18,
+      "player": "Derillian",
+      "realm": "Pyrewood Village",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51109_Gothik_the_Harvester.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 301100,
+      "published": "390.375",
+      "totals": {
+        "raw": 118148,
+        "self": 606,
+        "excluded": 0,
+        "ranked": 117542
+      },
+      "residual": "7/24088",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 90,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "0f7be8d4a50c199a3745ee1754da4106ef95d266d3d5f294a42df83aca7a1601",
+            "6d5fd073710bf1b9a909f4d03131541d62ee0cdb02275d0266c04755675dc707",
+            "44a0c9a11afc2fd9da45f43cd007382f24115ed6236e00ae9b4ce5ab8414872d"
+          ]
+        },
+        {
+          "pet": 123,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "0f7be8d4a50c199a3745ee1754da4106ef95d266d3d5f294a42df83aca7a1601",
+            "6d5fd073710bf1b9a909f4d03131541d62ee0cdb02275d0266c04755675dc707",
+            "44a0c9a11afc2fd9da45f43cd007382f24115ed6236e00ae9b4ce5ab8414872d"
+          ]
+        },
+        {
+          "pet": 125,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "0f7be8d4a50c199a3745ee1754da4106ef95d266d3d5f294a42df83aca7a1601",
+            "6d5fd073710bf1b9a909f4d03131541d62ee0cdb02275d0266c04755675dc707",
+            "44a0c9a11afc2fd9da45f43cd007382f24115ed6236e00ae9b4ce5ab8414872d"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

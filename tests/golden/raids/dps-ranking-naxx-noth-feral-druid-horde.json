@@ -1,0 +1,122 @@
+{
+  "version": 1,
+  "rule": "naxx-noth-feral-druid-horde-dps-v1",
+  "scope": {
+    "encounter_id": 51117,
+    "class_id": 2,
+    "category": "Feral",
+    "metric": "dps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261031/77548335-2006-20261030T095117.zip",
+    "sha256": "4e39a080967408826e0ac36826f90cfb9094230407a7e5b4c5f437c8c7b7a82e"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "BtrYKFGknj7bJdgC-12-39",
+      "purpose": "policy-scope",
+      "report": "BtrYKFGknj7bJdgC",
+      "fight": 12,
+      "actor": 39,
+      "player": "Efc",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51117_Noth_the_Plaguebringer.json",
+      "page": 1,
+      "row": 11,
+      "owned_actor_ids": [],
+      "duration_ms": 36675,
+      "published": "1331.64",
+      "totals": {
+        "raw": 49296,
+        "self": 458,
+        "excluded": 0,
+        "ranked": 48838
+      },
+      "residual": "103/36675",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 282,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "9b19e977deb22096985ad9f111455e734323bd79e00c7cb93cc614dcfaaf93d8"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "FbgG7DQMLfxJXjVH-16-42",
+      "purpose": "policy-scope",
+      "report": "FbgG7DQMLfxJXjVH",
+      "fight": 16,
+      "actor": 42,
+      "player": "Stankfaçe",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51117_Noth_the_Plaguebringer.json",
+      "page": 1,
+      "row": 24,
+      "owned_actor_ids": [],
+      "duration_ms": 52929,
+      "published": "1234.37",
+      "totals": {
+        "raw": 65754,
+        "self": 420,
+        "excluded": 0,
+        "ranked": 65334
+      },
+      "residual": "1009/1764300",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 151,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "c26735585a5a848b5cdbdfbf84f0d99718a3121a3119ebb701b2d8772ccbd12d",
+            "aa239d086f4f4c55ec4d85ace54ea02d013056d1c36cf6fb4e530a3ab872841c"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "M1AVNntv6pLyB78Y-68-34",
+      "purpose": "policy-scope",
+      "report": "M1AVNntv6pLyB78Y",
+      "fight": 68,
+      "actor": 34,
+      "player": "Wolfboy",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51117_Noth_the_Plaguebringer.json",
+      "page": 1,
+      "row": 28,
+      "owned_actor_ids": [],
+      "duration_ms": 56404,
+      "published": "1200.09",
+      "totals": {
+        "raw": 67690,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 67690
+      },
+      "residual": "3091/1410100"
+    }
+  ],
+  "refusals": []
+}

@@ -1,0 +1,173 @@
+{
+  "version": 1,
+  "rule": "naxx-grobbulus-fury-warrior-alliance-dps-v1",
+  "scope": {
+    "encounter_id": 51111,
+    "class_id": 11,
+    "category": "Fury",
+    "metric": "dps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/76296293-2006-20261110T135634.zip",
+    "sha256": "e563a99f200c4df744213a18292b941ad51c418c9efadc420f7df7b691ab3457"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "1KBt4PcYWvxM8a3f-19-3",
+      "purpose": "policy-scope",
+      "report": "1KBt4PcYWvxM8a3f",
+      "fight": 19,
+      "actor": 3,
+      "player": "Clickerxo",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51111_Grobbulus.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 43425,
+      "published": "2851.24",
+      "totals": {
+        "raw": 124505,
+        "self": 690,
+        "excluded": 0,
+        "ranked": 123815
+      },
+      "residual": "-97/43425",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 73,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "f913c2045a5bbca124605891f4d04008717a9bd46ff6a0a85aa4750cc8a9fc30",
+            "818d2e5d4fdde104c2477edc1909ba244c97a40c540652505c912904728734f4"
+          ]
+        },
+        {
+          "pet": 132,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "f913c2045a5bbca124605891f4d04008717a9bd46ff6a0a85aa4750cc8a9fc30",
+            "818d2e5d4fdde104c2477edc1909ba244c97a40c540652505c912904728734f4"
+          ]
+        },
+        {
+          "pet": 134,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "f913c2045a5bbca124605891f4d04008717a9bd46ff6a0a85aa4750cc8a9fc30",
+            "818d2e5d4fdde104c2477edc1909ba244c97a40c540652505c912904728734f4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CxGy4mtJ2Xca6VdY-17-14",
+      "purpose": "policy-scope",
+      "report": "CxGy4mtJ2Xca6VdY",
+      "fight": 17,
+      "actor": 14,
+      "player": "Zurzur",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51111_Grobbulus.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 43468,
+      "published": "2871.19",
+      "totals": {
+        "raw": 125561,
+        "self": 756,
+        "excluded": 0,
+        "ranked": 124805
+      },
+      "residual": "2827/1086700",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 63,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "b0f5b2ade60b44b680df6c8b7dfdcb27b519de968dda0ab496f88360495aeea1",
+            "04bafb52435d7b8d280603f489ca0f7b2978562941e85d4158c9963d70f51be7"
+          ]
+        },
+        {
+          "pet": 98,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "b0f5b2ade60b44b680df6c8b7dfdcb27b519de968dda0ab496f88360495aeea1",
+            "04bafb52435d7b8d280603f489ca0f7b2978562941e85d4158c9963d70f51be7"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "VrQxm2FB1vLTzX3w-20-23",
+      "purpose": "policy-scope",
+      "report": "VrQxm2FB1vLTzX3w",
+      "fight": 20,
+      "actor": 23,
+      "player": "Clickerxx",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51111_Grobbulus.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 45420,
+      "published": "2781.79",
+      "totals": {
+        "raw": 127229,
+        "self": 880,
+        "excluded": 0,
+        "ranked": 126349
+      },
+      "residual": "491/227100",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 88,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "96069e2abc7fff339106cda710e51e08b9e3c10cef8d272590a8f7cfc40a9e01",
+            "2698ac127c64904858ee6cf1a8aa5164b7e824160fd3b08b02e3d86221644762"
+          ]
+        },
+        {
+          "pet": 128,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "96069e2abc7fff339106cda710e51e08b9e3c10cef8d272590a8f7cfc40a9e01",
+            "2698ac127c64904858ee6cf1a8aa5164b7e824160fd3b08b02e3d86221644762"
+          ]
+        },
+        {
+          "pet": 138,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "96069e2abc7fff339106cda710e51e08b9e3c10cef8d272590a8f7cfc40a9e01",
+            "2698ac127c64904858ee6cf1a8aa5164b7e824160fd3b08b02e3d86221644762"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

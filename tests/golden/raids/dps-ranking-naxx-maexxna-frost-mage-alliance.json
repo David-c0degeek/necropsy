@@ -1,0 +1,103 @@
+{
+  "version": 1,
+  "rule": "naxx-maexxna-frost-mage-alliance-dps-v1",
+  "scope": {
+    "encounter_id": 51116,
+    "class_id": 4,
+    "category": "Frost",
+    "metric": "dps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/96494133-2006-20261105T033802.zip",
+    "sha256": "6c0c59209ab15336d31b0f5e38e56873b050d9be0d4546bc4cde16039bb1fb71"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "A8jdBNDv6K9ZwLrf-26-18",
+      "purpose": "policy-scope",
+      "report": "A8jdBNDv6K9ZwLrf",
+      "fight": 26,
+      "actor": 18,
+      "player": "一水滴",
+      "realm": "哈霍兰",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51116_Maexxna.json",
+      "page": 1,
+      "row": 4,
+      "owned_actor_ids": [],
+      "duration_ms": 66910,
+      "published": "1358.99",
+      "totals": {
+        "raw": 91420,
+        "self": 490,
+        "excluded": 0,
+        "ranked": 90930
+      },
+      "residual": "-209/669100"
+    },
+    {
+      "id": "M3nc2AKFdBZj4r6P-8-18",
+      "purpose": "policy-scope",
+      "report": "M3nc2AKFdBZj4r6P",
+      "fight": 8,
+      "actor": 18,
+      "player": "Aisle",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51116_Maexxna.json",
+      "page": 1,
+      "row": 5,
+      "owned_actor_ids": [],
+      "duration_ms": 39419,
+      "published": "1353.92",
+      "totals": {
+        "raw": 53370,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 53370
+      },
+      "residual": "-4312/985475"
+    },
+    {
+      "id": "gthJ9fmKk71ncYRy-7-34",
+      "purpose": "policy-scope",
+      "report": "gthJ9fmKk71ncYRy",
+      "fight": 7,
+      "actor": 34,
+      "player": "Pumpmage",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51116_Maexxna.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 37608,
+      "published": "1397.18",
+      "totals": {
+        "raw": 53434,
+        "self": 889,
+        "excluded": 0,
+        "ranked": 52545
+      },
+      "residual": "-303/78350"
+    }
+  ],
+  "refusals": []
+}

@@ -1,0 +1,103 @@
+{
+  "version": 1,
+  "rule": "naxx-noth-frost-mage-horde-dps-v1",
+  "scope": {
+    "encounter_id": 51117,
+    "class_id": 4,
+    "category": "Frost",
+    "metric": "dps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/83910414-2006-20261105T054215.zip",
+    "sha256": "3ad2f7dba9a65ac121ccfd7b140d1d31e8c22574197285bb0f32d4a6fd222ac0"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "A4R6VBhnDpWwbYKy-32-46",
+      "purpose": "policy-scope",
+      "report": "A4R6VBhnDpWwbYKy",
+      "fight": 32,
+      "actor": 46,
+      "player": "Klokovmagi",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51117_Noth_the_Plaguebringer.json",
+      "page": 1,
+      "row": 40,
+      "owned_actor_ids": [],
+      "duration_ms": 41685,
+      "published": "938.347",
+      "totals": {
+        "raw": 39115,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 39115
+      },
+      "residual": "1061/8337000"
+    },
+    {
+      "id": "T86Cdkxzw7D3cRbK-19-3",
+      "purpose": "policy-scope",
+      "report": "T86Cdkxzw7D3cRbK",
+      "fight": 19,
+      "actor": 3,
+      "player": "武林夜市",
+      "realm": "匕首岭",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51117_Noth_the_Plaguebringer.json",
+      "page": 1,
+      "row": 17,
+      "owned_actor_ids": [],
+      "duration_ms": 80872,
+      "published": "1075.44",
+      "totals": {
+        "raw": 86973,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 86973
+      },
+      "residual": "51/252725"
+    },
+    {
+      "id": "p362D4GbQhwcFtM1-13-3",
+      "purpose": "policy-scope",
+      "report": "p362D4GbQhwcFtM1",
+      "fight": 13,
+      "actor": 3,
+      "player": "Shivanna",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51117_Noth_the_Plaguebringer.json",
+      "page": 1,
+      "row": 27,
+      "owned_actor_ids": [],
+      "duration_ms": 47258,
+      "published": "1013.97",
+      "totals": {
+        "raw": 47918,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 47918
+      },
+      "residual": "-9713/2362900"
+    }
+  ],
+  "refusals": []
+}

@@ -1,0 +1,163 @@
+{
+  "version": 1,
+  "rule": "naxx-thaddius-assassination-rogue-alliance-dps-v1",
+  "scope": {
+    "encounter_id": 51120,
+    "class_id": 8,
+    "category": "Assassination",
+    "metric": "dps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77022735-2006-20261108T142205.zip",
+    "sha256": "f677e3ee78aeefc0ffe92aba276c7110707df719c2a3d05585a4aa47aa2abbb6"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "BWnkNxmM6HD4cCVa-29-26",
+      "purpose": "policy-scope",
+      "report": "BWnkNxmM6HD4cCVa",
+      "fight": 29,
+      "actor": 26,
+      "player": "贰娟子",
+      "realm": "匕首岭",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51120_Thaddius.json",
+      "page": 1,
+      "row": 3,
+      "owned_actor_ids": [],
+      "duration_ms": 141413,
+      "published": "2916.69",
+      "totals": {
+        "raw": 412458,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 412458
+      },
+      "residual": "11703/14141300",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 77,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "5fe0027b4043c0a59dc87eed1d0230a5d69870a639c45ded7d0a47975ea992c4",
+            "3b5040eb8a5746b7e83a98928c2d4c16e0414a9023a37f6a32c24db9b8b2d176",
+            "c96ea34e893ef409bf48f8387b9965882d763e3707d7aba4ab2171ce1aee7848"
+          ]
+        },
+        {
+          "pet": 100,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "5fe0027b4043c0a59dc87eed1d0230a5d69870a639c45ded7d0a47975ea992c4",
+            "3b5040eb8a5746b7e83a98928c2d4c16e0414a9023a37f6a32c24db9b8b2d176",
+            "c96ea34e893ef409bf48f8387b9965882d763e3707d7aba4ab2171ce1aee7848"
+          ]
+        },
+        {
+          "pet": 101,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "5fe0027b4043c0a59dc87eed1d0230a5d69870a639c45ded7d0a47975ea992c4",
+            "3b5040eb8a5746b7e83a98928c2d4c16e0414a9023a37f6a32c24db9b8b2d176",
+            "c96ea34e893ef409bf48f8387b9965882d763e3707d7aba4ab2171ce1aee7848"
+          ]
+        },
+        {
+          "pet": 142,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "5fe0027b4043c0a59dc87eed1d0230a5d69870a639c45ded7d0a47975ea992c4",
+            "3b5040eb8a5746b7e83a98928c2d4c16e0414a9023a37f6a32c24db9b8b2d176",
+            "c96ea34e893ef409bf48f8387b9965882d763e3707d7aba4ab2171ce1aee7848"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bvTafnWD4g72QVzw-22-33",
+      "purpose": "policy-scope",
+      "report": "bvTafnWD4g72QVzw",
+      "fight": 22,
+      "actor": 33,
+      "player": "Makonnen",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51120_Thaddius.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 127637,
+      "published": "2947.01",
+      "totals": {
+        "raw": 377469,
+        "self": 1321,
+        "excluded": 0,
+        "ranked": 376148
+      },
+      "residual": "48463/12763700",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 144,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "a04adecc27a9c456e0f168897ee3a7ed52eec59dae8fe56934a2060b963deda4",
+            "387d804ee312558f7e1a9c02395aa5db04b070096a14a8b763a3d35df8604e15",
+            "d51309a75f2928d0b24d072ffcee297947b3270c94d864c820f29ca17b06952c"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zFDHCbKG9cRBLyYd-18-6",
+      "purpose": "policy-scope",
+      "report": "zFDHCbKG9cRBLyYd",
+      "fight": 18,
+      "actor": 6,
+      "player": "Stivpys",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51120_Thaddius.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 139515,
+      "published": "3035.67",
+      "totals": {
+        "raw": 425147,
+        "self": 1625,
+        "excluded": 0,
+        "ranked": 423522
+      },
+      "residual": "3333/930100",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 137,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "699bffb5a49280d2e020557235c8aa8ace2a7f5b334d1beda453e59715b13622",
+            "a4d3654dd70bed7c16463fe59d7b1c53d51b7781d6365604813c417f1abd69e2",
+            "790b37a884147b9ec75178d6534146aafac777d99f1dba9e96c2d1aa5f53a7d6"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

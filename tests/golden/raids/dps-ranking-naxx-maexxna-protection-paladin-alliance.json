@@ -1,0 +1,135 @@
+{
+  "version": 1,
+  "rule": "naxx-maexxna-protection-paladin-alliance-dps-v1",
+  "scope": {
+    "encounter_id": 51116,
+    "class_id": 6,
+    "category": "Protection",
+    "metric": "dps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/67666001-2006-20261105T232014.zip",
+    "sha256": "b768ff71aa948c5091eb22eafbc8baa9e3a36165c0304d39d9d48b113ec1b591"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "aWgNB7yrbCkjX6MG-10-42",
+      "purpose": "policy-scope",
+      "report": "aWgNB7yrbCkjX6MG",
+      "fight": 10,
+      "actor": 42,
+      "player": "Kornek",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51116_Maexxna.json",
+      "page": 1,
+      "row": 3,
+      "owned_actor_ids": [],
+      "duration_ms": 64863,
+      "published": "558.839",
+      "totals": {
+        "raw": 36756,
+        "self": 508,
+        "excluded": 0,
+        "ranked": 36248
+      },
+      "residual": "25943/64863000",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 81,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "ac28d52660c1c4479b43bd0bbf9167911f74950b2a55e10aa58195a54f57aa6b"
+          ]
+        },
+        {
+          "pet": 131,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "ac28d52660c1c4479b43bd0bbf9167911f74950b2a55e10aa58195a54f57aa6b"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f6xByZakCQnqpA79-14-7",
+      "purpose": "policy-scope",
+      "report": "f6xByZakCQnqpA79",
+      "fight": 14,
+      "actor": 7,
+      "player": "Cisternina",
+      "realm": "Mankrik",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51116_Maexxna.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 42956,
+      "published": "802.798",
+      "totals": {
+        "raw": 35117,
+        "self": 632,
+        "excluded": 0,
+        "ranked": 34485
+      },
+      "residual": "1139/5369500",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 71,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "ef9e10f5331c081466006a850fd72175b7a3b1f14b7450db25adf914b964cc27"
+          ]
+        },
+        {
+          "pet": 116,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "ef9e10f5331c081466006a850fd72175b7a3b1f14b7450db25adf914b964cc27"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "h6cBHxQX1gN27rqm-17-5",
+      "purpose": "policy-scope",
+      "report": "h6cBHxQX1gN27rqm",
+      "fight": 17,
+      "actor": 5,
+      "player": "Ecclesia",
+      "realm": "Mankrik",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51116_Maexxna.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 38749,
+      "published": "666.133",
+      "totals": {
+        "raw": 26108,
+        "self": 296,
+        "excluded": 0,
+        "ranked": 25812
+      },
+      "residual": "12383/38749000"
+    }
+  ],
+  "refusals": []
+}

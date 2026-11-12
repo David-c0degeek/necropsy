@@ -1,0 +1,146 @@
+{
+  "version": 1,
+  "rule": "naxx-horsemen-retribution-paladin-alliance-dps-v1",
+  "scope": {
+    "encounter_id": 51121,
+    "class_id": 6,
+    "category": "Retribution",
+    "metric": "dps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/76716431-2006-20261106T042624.zip",
+    "sha256": "3b64e402362774511ae10a81c176e4cacf9aae04b62778dab30dd26a38c67585"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "JX1LkwgNyFMm8KBt-60-51",
+      "purpose": "policy-scope",
+      "report": "JX1LkwgNyFMm8KBt",
+      "fight": 60,
+      "actor": 51,
+      "player": "Craey",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51121_The_Four_Horsemen.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [
+        76,
+        83
+      ],
+      "duration_ms": 286457,
+      "published": "415.42",
+      "totals": {
+        "raw": 120643,
+        "self": 1643,
+        "excluded": 0,
+        "ranked": 119000
+      },
+      "residual": "1653/14322850"
+    },
+    {
+      "id": "TMtR8dP4Wx7KfGD9-15-33",
+      "purpose": "policy-scope",
+      "report": "TMtR8dP4Wx7KfGD9",
+      "fight": 15,
+      "actor": 33,
+      "player": "Retforceone",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51121_The_Four_Horsemen.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 140119,
+      "published": "329.384",
+      "totals": {
+        "raw": 46153,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 46153
+      },
+      "residual": "5413/17514875",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 181,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "78532eec5b3295ea8d9ac867a2918ab47f48e6c88db0e17a7e183f94355fa711",
+            "9488ea363917da29b562b7354cedc5cc8c34de2ef8fc44f1761c0036908f8ad7",
+            "59e778b67a8651dae41fa8a7fcba9a85afd16ba9f399caaf0b6bbe2292095c29"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "n2rTAQVtDqvwx1dB-53-48",
+      "purpose": "policy-scope",
+      "report": "n2rTAQVtDqvwx1dB",
+      "fight": 53,
+      "actor": 48,
+      "player": "Derillian",
+      "realm": "Pyrewood Village",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51121_The_Four_Horsemen.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 215537,
+      "published": "361.26",
+      "totals": {
+        "raw": 78372,
+        "self": 507,
+        "excluded": 0,
+        "ranked": 77865
+      },
+      "residual": "5169/10776850",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 68,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "99534570b3c1eaf0a3961c9e6d2728c40761296b696e745689e6efdf7fd5f48f",
+            "31995dc95c7c65059d04c718393d4478f78f8fa68870393ccf84d483ac55065f",
+            "a1e7a5a60e3da57fa9517d06018d04d96d155c6ca467a7c7e540938e98d60e4d"
+          ]
+        },
+        {
+          "pet": 87,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "99534570b3c1eaf0a3961c9e6d2728c40761296b696e745689e6efdf7fd5f48f",
+            "31995dc95c7c65059d04c718393d4478f78f8fa68870393ccf84d483ac55065f",
+            "a1e7a5a60e3da57fa9517d06018d04d96d155c6ca467a7c7e540938e98d60e4d"
+          ]
+        },
+        {
+          "pet": 184,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "99534570b3c1eaf0a3961c9e6d2728c40761296b696e745689e6efdf7fd5f48f",
+            "31995dc95c7c65059d04c718393d4478f78f8fa68870393ccf84d483ac55065f",
+            "a1e7a5a60e3da57fa9517d06018d04d96d155c6ca467a7c7e540938e98d60e4d"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

@@ -1,0 +1,125 @@
+{
+  "version": 1,
+  "rule": "naxx-sapphiron-frost-mage-horde-dps-v1",
+  "scope": {
+    "encounter_id": 51119,
+    "class_id": 4,
+    "category": "Frost",
+    "metric": "dps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/83910414-2006-20261105T054215.zip",
+    "sha256": "3ad2f7dba9a65ac121ccfd7b140d1d31e8c22574197285bb0f32d4a6fd222ac0"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "Jw9YgNaAvXc6WtTM-34-47",
+      "purpose": "policy-scope",
+      "report": "Jw9YgNaAvXc6WtTM",
+      "fight": 34,
+      "actor": 47,
+      "player": "Farengar",
+      "realm": "Thunderfury",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51119_Sapphiron.json",
+      "page": 1,
+      "row": 8,
+      "owned_actor_ids": [
+        295
+      ],
+      "duration_ms": 22700,
+      "published": "1272.25",
+      "totals": {
+        "raw": 28880,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 28880
+      },
+      "residual": "-3/908",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 189,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "ca4441c6414db7d42241fa63a14cbc74d48857b837a00f1a63d0aefa9471adf3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hYrA6fPGb2qDjZtL-34-26",
+      "purpose": "policy-scope",
+      "report": "hYrA6fPGb2qDjZtL",
+      "fight": 34,
+      "actor": 26,
+      "player": "Derpbooster",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51119_Sapphiron.json",
+      "page": 1,
+      "row": 9,
+      "owned_actor_ids": [
+        294
+      ],
+      "duration_ms": 18101,
+      "published": "1218.44",
+      "totals": {
+        "raw": 22055,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 22055
+      },
+      "residual": "439/452525"
+    },
+    {
+      "id": "vVb46z9tDWaFHCk8-32-23",
+      "purpose": "policy-scope",
+      "report": "vVb46z9tDWaFHCk8",
+      "fight": 32,
+      "actor": 23,
+      "player": "Mylak",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51119_Sapphiron.json",
+      "page": 1,
+      "row": 6,
+      "owned_actor_ids": [],
+      "duration_ms": 20083,
+      "published": "1487.33",
+      "totals": {
+        "raw": 29870,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 29870
+      },
+      "residual": "-4839/2008300",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 180,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "14946f661257bfd138e54bfe438aff3193e9ecafa903ff0fd5a30f2cd039546c"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

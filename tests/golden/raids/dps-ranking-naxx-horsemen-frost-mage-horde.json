@@ -1,0 +1,136 @@
+{
+  "version": 1,
+  "rule": "naxx-horsemen-frost-mage-horde-dps-v1",
+  "scope": {
+    "encounter_id": 51121,
+    "class_id": 4,
+    "category": "Frost",
+    "metric": "dps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/83910414-2006-20261105T054215.zip",
+    "sha256": "3ad2f7dba9a65ac121ccfd7b140d1d31e8c22574197285bb0f32d4a6fd222ac0"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "CWqXxJwaAYrbhVHQ-64-11",
+      "purpose": "policy-scope",
+      "report": "CWqXxJwaAYrbhVHQ",
+      "fight": 64,
+      "actor": 11,
+      "player": "数下五个字",
+      "realm": "哈霍兰",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51121_The_Four_Horsemen.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 301344,
+      "published": "655.918",
+      "totals": {
+        "raw": 197657,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 197657
+      },
+      "residual": "361/2354250",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 65,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "f9c8381b3eb86f37a5e4a833242520d169e695eeab8566301ee110da9001d178",
+            "a67b410d14ffd26ff0c2e1e304233b0ac34108767a965d6f42b40294f740fc35",
+            "8e3f385cb3aa0543f9fd1781ecb9571d8c494689c27ce2aefae113fa94831dcf"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c8NCtwQdfzFyPnYr-51-21",
+      "purpose": "policy-scope",
+      "report": "c8NCtwQdfzFyPnYr",
+      "fight": 51,
+      "actor": 21,
+      "player": "秦岭山中仙",
+      "realm": "匕首岭",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51121_The_Four_Horsemen.json",
+      "page": 1,
+      "row": 3,
+      "owned_actor_ids": [],
+      "duration_ms": 279980,
+      "published": "651.961",
+      "totals": {
+        "raw": 182536,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 182536
+      },
+      "residual": "-2039/13999000",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 78,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "ba1daa1d7c6ad79e2420b6700178f27485ead1542c9596da7ab495f2bac28f9b",
+            "f97a3b9e2600f725da2cdaf393289c2de2b9d32e0692a3176b54a3b9fccf7c5c",
+            "2a446a283644ec1a498e56e89780c8a350fe9618704765dbbf97586bb9fc36d3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tPgpXH9zDqM8QJ4v-51-1",
+      "purpose": "policy-scope",
+      "report": "tPgpXH9zDqM8QJ4v",
+      "fight": 51,
+      "actor": 1,
+      "player": "喜欢灬羊奶",
+      "realm": "匕首岭",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51121_The_Four_Horsemen.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 286306,
+      "published": "662.508",
+      "totals": {
+        "raw": 189680,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 189680
+      },
+      "residual": "-1931/35788250",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 179,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "a092bd4fa59846dc071de8c869b4b90c253fc8f4d791f62ec52b4b026ba47735",
+            "14b17b28295b2dd6cc7be58098cde95842d6f1cc7e20121e036b209e073ce87b",
+            "75b10428bb094f7864ed1aca9d878dab19e1030249afac817b28173b96d92972"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

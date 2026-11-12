@@ -1,0 +1,103 @@
+{
+  "version": 1,
+  "rule": "naxx-grobbulus-frost-mage-alliance-dps-v1",
+  "scope": {
+    "encounter_id": 51111,
+    "class_id": 4,
+    "category": "Frost",
+    "metric": "dps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/96494133-2006-20261105T033802.zip",
+    "sha256": "6c0c59209ab15336d31b0f5e38e56873b050d9be0d4546bc4cde16039bb1fb71"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "2pAfwVPDRWb8mgvq-19-3",
+      "purpose": "policy-scope",
+      "report": "2pAfwVPDRWb8mgvq",
+      "fight": 19,
+      "actor": 3,
+      "player": "Rôn",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51111_Grobbulus.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 61613,
+      "published": "1459.53",
+      "totals": {
+        "raw": 89926,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 89926
+      },
+      "residual": "-2189/6161300"
+    },
+    {
+      "id": "PkZKpC6r1QcAN8wq-26-41",
+      "purpose": "policy-scope",
+      "report": "PkZKpC6r1QcAN8wq",
+      "fight": 26,
+      "actor": 41,
+      "player": "Tôast",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51111_Grobbulus.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 63650,
+      "published": "1363.13",
+      "totals": {
+        "raw": 86763,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 86763
+      },
+      "residual": "-449/127300"
+    },
+    {
+      "id": "V1FjzgHAvh93NCwQ-15-18",
+      "purpose": "policy-scope",
+      "report": "V1FjzgHAvh93NCwQ",
+      "fight": 15,
+      "actor": 18,
+      "player": "Koldskaal",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51111_Grobbulus.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 57299,
+      "published": "1342.22",
+      "totals": {
+        "raw": 76908,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 76908
+      },
+      "residual": "6811/2864950"
+    }
+  ],
+  "refusals": []
+}

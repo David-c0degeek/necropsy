@@ -1,0 +1,150 @@
+{
+  "version": 1,
+  "rule": "naxx-horsemen-assassination-rogue-alliance-dps-v1",
+  "scope": {
+    "encounter_id": 51121,
+    "class_id": 8,
+    "category": "Assassination",
+    "metric": "dps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77022735-2006-20261108T142205.zip",
+    "sha256": "f677e3ee78aeefc0ffe92aba276c7110707df719c2a3d05585a4aa47aa2abbb6"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "CHyGRJFxrfmkALwh-23-1",
+      "purpose": "policy-scope",
+      "report": "CHyGRJFxrfmkALwh",
+      "fight": 23,
+      "actor": 1,
+      "player": "Iogan",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51121_The_Four_Horsemen.json",
+      "page": 1,
+      "row": 3,
+      "owned_actor_ids": [],
+      "duration_ms": 87690,
+      "published": "1301.49",
+      "totals": {
+        "raw": 114559,
+        "self": 431,
+        "excluded": 0,
+        "ranked": 114128
+      },
+      "residual": "3419/876900",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 148,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "30899d9182df8b0be2bc8ce00cc7835fffc329b7e098f73a6b3e6feca24acda3",
+            "f8b44c456c097cb85008e935872c29660c66e56e343fd5a3e5cb321d8f6b2bfc"
+          ]
+        },
+        {
+          "pet": 149,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "30899d9182df8b0be2bc8ce00cc7835fffc329b7e098f73a6b3e6feca24acda3",
+            "f8b44c456c097cb85008e935872c29660c66e56e343fd5a3e5cb321d8f6b2bfc"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "KJ2NRwAZ8Pc6Fm9T-21-53",
+      "purpose": "policy-scope",
+      "report": "KJ2NRwAZ8Pc6Fm9T",
+      "fight": 21,
+      "actor": 53,
+      "player": "Eriandrel",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51121_The_Four_Horsemen.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 77158,
+      "published": "1323.98",
+      "totals": {
+        "raw": 102527,
+        "self": 371,
+        "excluded": 0,
+        "ranked": 102156
+      },
+      "residual": "8779/1928950"
+    },
+    {
+      "id": "MqvG76g3cKCZPVpN-39-19",
+      "purpose": "policy-scope",
+      "report": "MqvG76g3cKCZPVpN",
+      "fight": 39,
+      "actor": 19,
+      "player": "Tusqaiprime",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51121_The_Four_Horsemen.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 140542,
+      "published": "1343.56",
+      "totals": {
+        "raw": 189286,
+        "self": 459,
+        "excluded": 0,
+        "ranked": 188827
+      },
+      "residual": "4881/1756775",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 98,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "b145fbe38c1dbd4daeeaa1adf196b2bb398b3c591d1abd1f58239480705a991b",
+            "0a5b1975bd61e96affd53ec16284629705e742c482d35158df0f8a2f404fd8bb",
+            "2216548d77d217e62448560fd530622d7c5545da04ca1d162779601467123cb9"
+          ]
+        },
+        {
+          "pet": 136,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "b145fbe38c1dbd4daeeaa1adf196b2bb398b3c591d1abd1f58239480705a991b",
+            "0a5b1975bd61e96affd53ec16284629705e742c482d35158df0f8a2f404fd8bb",
+            "2216548d77d217e62448560fd530622d7c5545da04ca1d162779601467123cb9"
+          ]
+        },
+        {
+          "pet": 142,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "b145fbe38c1dbd4daeeaa1adf196b2bb398b3c591d1abd1f58239480705a991b",
+            "0a5b1975bd61e96affd53ec16284629705e742c482d35158df0f8a2f404fd8bb",
+            "2216548d77d217e62448560fd530622d7c5545da04ca1d162779601467123cb9"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

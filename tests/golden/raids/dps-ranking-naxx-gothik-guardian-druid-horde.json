@@ -1,0 +1,115 @@
+{
+  "version": 1,
+  "rule": "naxx-gothik-guardian-druid-horde-dps-v1",
+  "scope": {
+    "encounter_id": 51109,
+    "class_id": 2,
+    "category": "Guardian",
+    "metric": "dps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/70621233-2006-20261101T123113.zip",
+    "sha256": "2fc02829c6013cb5bac380868754ee7689bc531819d85265d5f84f809bbea947"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "1PmFGDBKjT2VQcbw-57-53",
+      "purpose": "policy-scope",
+      "report": "1PmFGDBKjT2VQcbw",
+      "fight": 57,
+      "actor": 53,
+      "player": "Carlin",
+      "realm": "哈霍兰",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51109_Gothik_the_Harvester.json",
+      "page": 1,
+      "row": 15,
+      "owned_actor_ids": [],
+      "duration_ms": 304467,
+      "published": "216.49",
+      "totals": {
+        "raw": 65914,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 65914
+      },
+      "residual": "-6083/30446700"
+    },
+    {
+      "id": "1XFpkPNGnvj6ZcV4-23-39",
+      "purpose": "policy-scope",
+      "report": "1XFpkPNGnvj6ZcV4",
+      "fight": 23,
+      "actor": 39,
+      "player": "Efc",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51109_Gothik_the_Harvester.json",
+      "page": 1,
+      "row": 18,
+      "owned_actor_ids": [],
+      "duration_ms": 298740,
+      "published": "211.384",
+      "totals": {
+        "raw": 63149,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 63149
+      },
+      "residual": "899/1867125",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 281,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "2c4e8605cbadd584bf88e2f4251901506364ef2fd4b1137e696fd8e20b6d48a2",
+            "2292304929db7810054eae32eb6a1d32e1266ee8ea9c19874b56cb20a048129b",
+            "2a09041fc544589e9b15e4010ac2bbc6b2b5d671ce323edabbb34151e0eb6977",
+            "350cbea0df502dd47cb2e790881fd5dc0180ef935297127ccefa6e6f5eb80df7"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3W4KXCJnvHV1dYA7-76-13",
+      "purpose": "policy-scope",
+      "report": "3W4KXCJnvHV1dYA7",
+      "fight": 76,
+      "actor": 13,
+      "player": "Sabrakzus",
+      "realm": "Mograine",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51109_Gothik_the_Harvester.json",
+      "page": 1,
+      "row": 16,
+      "owned_actor_ids": [],
+      "duration_ms": 298554,
+      "published": "216.4",
+      "totals": {
+        "raw": 64607,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 64607
+      },
+      "residual": "-214/746385"
+    }
+  ],
+  "refusals": []
+}

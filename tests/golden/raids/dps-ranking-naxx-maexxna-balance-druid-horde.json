@@ -1,0 +1,155 @@
+{
+  "version": 1,
+  "rule": "naxx-maexxna-balance-druid-horde-dps-v1",
+  "scope": {
+    "encounter_id": 51116,
+    "class_id": 2,
+    "category": "Balance",
+    "metric": "dps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261031/64347501-2006-20261027T093033.zip",
+    "sha256": "7021b6a180220f5933e700ec5121db16441526d5004d88679d6bf48e98718ab2"
+  },
+  "dispositions": {
+    "n": 5,
+    "k": 5,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "FwbcHxTnYQNG4pfJ-3-35",
+      "purpose": "policy-scope",
+      "report": "FwbcHxTnYQNG4pfJ",
+      "fight": 3,
+      "actor": 35,
+      "player": "Smallduke",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51116_Maexxna.json",
+      "page": 1,
+      "row": 18,
+      "owned_actor_ids": [],
+      "duration_ms": 35943,
+      "published": "700.136",
+      "totals": {
+        "raw": 25165,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 25165
+      },
+      "residual": "1469/4492875"
+    },
+    {
+      "id": "bzfCv8ApWatmyRHY-3-17",
+      "purpose": "policy-scope",
+      "report": "bzfCv8ApWatmyRHY",
+      "fight": 3,
+      "actor": 17,
+      "player": "Kierkhasflag",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51116_Maexxna.json",
+      "page": 1,
+      "row": 29,
+      "owned_actor_ids": [],
+      "duration_ms": 41266,
+      "published": "624.897",
+      "totals": {
+        "raw": 25787,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 25787
+      },
+      "residual": "199/20633000"
+    },
+    {
+      "id": "fkZ6R4xmhBQtpnM7-61-26",
+      "purpose": "policy-scope",
+      "report": "fkZ6R4xmhBQtpnM7",
+      "fight": 61,
+      "actor": 26,
+      "player": "Gimbaswife",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51116_Maexxna.json",
+      "page": 1,
+      "row": 6,
+      "owned_actor_ids": [],
+      "duration_ms": 41621,
+      "published": "883.881",
+      "totals": {
+        "raw": 36788,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 36788
+      },
+      "residual": "-11101/41621000"
+    },
+    {
+      "id": "gmbKctyCHPMjZRxz-16-34",
+      "purpose": "policy-scope",
+      "report": "gmbKctyCHPMjZRxz",
+      "fight": 16,
+      "actor": 34,
+      "player": "小牛佩蹄",
+      "realm": "匕首岭",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51116_Maexxna.json",
+      "page": 1,
+      "row": 31,
+      "owned_actor_ids": [],
+      "duration_ms": 75668,
+      "published": "607.02",
+      "totals": {
+        "raw": 45932,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 45932
+      },
+      "residual": "133/945850"
+    },
+    {
+      "id": "ryJaK3mpf7FMXwnD-13-39",
+      "purpose": "policy-scope",
+      "report": "ryJaK3mpf7FMXwnD",
+      "fight": 13,
+      "actor": 39,
+      "player": "Neakers",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51116_Maexxna.json",
+      "page": 1,
+      "row": 19,
+      "owned_actor_ids": [],
+      "duration_ms": 65580,
+      "published": "680.482",
+      "totals": {
+        "raw": 44626,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 44626
+      },
+      "residual": "-239/1639500"
+    }
+  ],
+  "refusals": []
+}

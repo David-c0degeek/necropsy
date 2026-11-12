@@ -79,3 +79,11 @@ no oracle or refusal was altered to fit. The initial 15-participant trial is
 preserved separately. These new-v2 drafts are separate from the historical
 39 v1 matches; neither set establishes a per-cell or raid-wide policy.
 05.2–05.4 remain open and no coverage status changes.
+
+2026-11-12 · cell-scoped DPS policies for every captured configuration ·
+`research/dps-policies-20261112/` applies the C1 rule to all 26 DPS
+configurations in the follow-up register: 142 new policies (150 in total).
+Open: 130 cells at the five exclusion bosses, 84 below the minimum of 3
+admitted players, 26 with contradictions (mostly Mage Fire). The golden test
+re-proves every row from raw pages. No independent Codex review (owner
+decision 2026-11-12). No engine emission or cell status follows.

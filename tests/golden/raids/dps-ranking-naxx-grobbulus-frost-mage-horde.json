@@ -1,0 +1,122 @@
+{
+  "version": 1,
+  "rule": "naxx-grobbulus-frost-mage-horde-dps-v1",
+  "scope": {
+    "encounter_id": 51111,
+    "class_id": 4,
+    "category": "Frost",
+    "metric": "dps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/83910414-2006-20261105T054215.zip",
+    "sha256": "3ad2f7dba9a65ac121ccfd7b140d1d31e8c22574197285bb0f32d4a6fd222ac0"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "ZfmDnPLcq7wKzVRv-20-11",
+      "purpose": "policy-scope",
+      "report": "ZfmDnPLcq7wKzVRv",
+      "fight": 20,
+      "actor": 11,
+      "player": "Klokovmagi",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51111_Grobbulus.json",
+      "page": 1,
+      "row": 13,
+      "owned_actor_ids": [],
+      "duration_ms": 51610,
+      "published": "1105.81",
+      "totals": {
+        "raw": 57071,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 57071
+      },
+      "residual": "1459/516100"
+    },
+    {
+      "id": "mt3Hcqj8WbKTY7g1-25-43",
+      "purpose": "policy-scope",
+      "report": "mt3Hcqj8WbKTY7g1",
+      "fight": 25,
+      "actor": 43,
+      "player": "不是冰法",
+      "realm": "法琳娜",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51111_Grobbulus.json",
+      "page": 1,
+      "row": 34,
+      "owned_actor_ids": [],
+      "duration_ms": 114103,
+      "published": "994.558",
+      "totals": {
+        "raw": 113482,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 113482
+      },
+      "residual": "-1119/2480500",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 70,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "6d5de01d919d5b166a0f0200fedff4f3b505fd048a6da3514001fa576a019dba"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "qnfdxJ4cDyN1X6rg-26-30",
+      "purpose": "policy-scope",
+      "report": "qnfdxJ4cDyN1X6rg",
+      "fight": 26,
+      "actor": 30,
+      "player": "問題灬少女",
+      "realm": "伊弗斯",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51111_Grobbulus.json",
+      "page": 1,
+      "row": 26,
+      "owned_actor_ids": [],
+      "duration_ms": 94865,
+      "published": "1021.59",
+      "totals": {
+        "raw": 96913,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 96913
+      },
+      "residual": "-2707/1897300",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 61,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "febee63749db877df6672c15f9bed38b2c5b3774564b9b398e18af77f57fcf5d",
+            "2dcd0e8e8b82d6b63dac47cab2e5ffd580c064eed33749cba6f979e18ea7ac4a"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

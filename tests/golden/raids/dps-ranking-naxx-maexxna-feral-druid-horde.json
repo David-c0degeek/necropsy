@@ -1,0 +1,112 @@
+{
+  "version": 1,
+  "rule": "naxx-maexxna-feral-druid-horde-dps-v1",
+  "scope": {
+    "encounter_id": 51116,
+    "class_id": 2,
+    "category": "Feral",
+    "metric": "dps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261031/77548335-2006-20261030T095117.zip",
+    "sha256": "4e39a080967408826e0ac36826f90cfb9094230407a7e5b4c5f437c8c7b7a82e"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "A91xzKfwdc6g7JTq-12-62",
+      "purpose": "policy-scope",
+      "report": "A91xzKfwdc6g7JTq",
+      "fight": 12,
+      "actor": 62,
+      "player": "Efc",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51116_Maexxna.json",
+      "page": 1,
+      "row": 8,
+      "owned_actor_ids": [],
+      "duration_ms": 35607,
+      "published": "1431.54",
+      "totals": {
+        "raw": 50973,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 50973
+      },
+      "residual": "199/45650",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 189,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "b4f570048c0b2dcaffa41f4a5846529eb8412bfdf91f882b504a2723b9287cf6"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Y8CmjV2BGKZNLA3x-17-42",
+      "purpose": "policy-scope",
+      "report": "Y8CmjV2BGKZNLA3x",
+      "fight": 17,
+      "actor": 42,
+      "player": "Wolfboy",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51116_Maexxna.json",
+      "page": 1,
+      "row": 23,
+      "owned_actor_ids": [],
+      "duration_ms": 35604,
+      "published": "1297.97",
+      "totals": {
+        "raw": 46213,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 46213
+      },
+      "residual": "1903/890100"
+    },
+    {
+      "id": "r3LVgYvbNDPx8QwZ-18-42",
+      "purpose": "policy-scope",
+      "report": "r3LVgYvbNDPx8QwZ",
+      "fight": 18,
+      "actor": 42,
+      "player": "Midinvaerne",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51116_Maexxna.json",
+      "page": 1,
+      "row": 20,
+      "owned_actor_ids": [],
+      "duration_ms": 39062,
+      "published": "1359.92",
+      "totals": {
+        "raw": 53121,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 53121
+      },
+      "residual": "-2438/488275"
+    }
+  ],
+  "refusals": []
+}

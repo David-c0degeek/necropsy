@@ -1,0 +1,115 @@
+{
+  "version": 1,
+  "rule": "naxx-sapphiron-shadow-priest-alliance-dps-v1",
+  "scope": {
+    "encounter_id": 51119,
+    "class_id": 7,
+    "category": "Shadow",
+    "metric": "dps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77122652-2006-20261107T163813.zip",
+    "sha256": "85f096bcc2951498da23e9d8e3297387fc1bd899217ec963867b977459298585"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "XHkhvdr2TN8nmpcD-47-28",
+      "purpose": "policy-scope",
+      "report": "XHkhvdr2TN8nmpcD",
+      "fight": 47,
+      "actor": 28,
+      "player": "你好安度因",
+      "realm": "湖畔镇",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51119_Sapphiron.json",
+      "page": 1,
+      "row": 4,
+      "owned_actor_ids": [],
+      "duration_ms": 183795,
+      "published": "671.253",
+      "totals": {
+        "raw": 123373,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 123373
+      },
+      "residual": "10973/36759000"
+    },
+    {
+      "id": "gNwKAW9jBp7DhbxH-41-25",
+      "purpose": "policy-scope",
+      "report": "gNwKAW9jBp7DhbxH",
+      "fight": 41,
+      "actor": 25,
+      "player": "Zaera",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51119_Sapphiron.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 141673,
+      "published": "692.334",
+      "totals": {
+        "raw": 99033,
+        "self": 948,
+        "excluded": 0,
+        "ranked": 98085
+      },
+      "residual": "-17391/70836500"
+    },
+    {
+      "id": "xcvJGdRDKLtNZmQj-53-37",
+      "purpose": "policy-scope",
+      "report": "xcvJGdRDKLtNZmQj",
+      "fight": 53,
+      "actor": 37,
+      "player": "Solex",
+      "realm": "Pagle",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51119_Sapphiron.json",
+      "page": 1,
+      "row": 3,
+      "owned_actor_ids": [],
+      "duration_ms": 205736,
+      "published": "671.769",
+      "totals": {
+        "raw": 138207,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 138207
+      },
+      "residual": "-8373/25717000",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 121,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "c7154186429cc7f23c90f8f5744f923f0de90804f2cdaaf4dd0509c1ca49565f",
+            "ceb505d332c79cb0f853365a69008d68eb59a906b9b7809d5154e1ee570ae12c",
+            "ecc0309d0a1f9f942a29716f9dedeb5dac489e250c0bf0c0e635da3e0c4e509f",
+            "0953ddd752613fe92188b19b59a526d8b037389b83d2c47ca2f26aaaccb62338"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

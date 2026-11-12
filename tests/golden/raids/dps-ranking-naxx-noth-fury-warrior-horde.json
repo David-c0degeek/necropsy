@@ -1,0 +1,165 @@
+{
+  "version": 1,
+  "rule": "naxx-noth-fury-warrior-horde-dps-v1",
+  "scope": {
+    "encounter_id": 51117,
+    "class_id": 11,
+    "category": "Fury",
+    "metric": "dps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/75322236-2006-20261110T150026.zip",
+    "sha256": "3750625e922916fb4f3a6cf7243311216149d77b3b09eeebffcdcd43558f76dd"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "NkhTwHxDMyKaqCAQ-12-54",
+      "purpose": "policy-scope",
+      "report": "NkhTwHxDMyKaqCAQ",
+      "fight": 12,
+      "actor": 54,
+      "player": "Axecute",
+      "realm": "Thunderfury",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51117_Noth_the_Plaguebringer.json",
+      "page": 1,
+      "row": 9,
+      "owned_actor_ids": [],
+      "duration_ms": 34871,
+      "published": "3094.75",
+      "totals": {
+        "raw": 107917,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 107917
+      },
+      "residual": "-109/139484",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 171,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "3e0f9f241a254099e642df0d99e858e2cdb1c9a77c07352a148f8e53dd12568d"
+          ]
+        },
+        {
+          "pet": 258,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "3e0f9f241a254099e642df0d99e858e2cdb1c9a77c07352a148f8e53dd12568d"
+          ]
+        },
+        {
+          "pet": 289,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "3e0f9f241a254099e642df0d99e858e2cdb1c9a77c07352a148f8e53dd12568d"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "PYq9DWCtrabAfkv1-11-12",
+      "purpose": "policy-scope",
+      "report": "PYq9DWCtrabAfkv1",
+      "fight": 11,
+      "actor": 12,
+      "player": "Kippah",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51117_Noth_the_Plaguebringer.json",
+      "page": 1,
+      "row": 12,
+      "owned_actor_ids": [],
+      "duration_ms": 30929,
+      "published": "3066.15",
+      "totals": {
+        "raw": 94833,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 94833
+      },
+      "residual": "933/618580",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 109,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "11c84c35a88250020b431b673a791dddde3d3b660907ac2711d5c41a2da20f5a"
+          ]
+        },
+        {
+          "pet": 160,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "11c84c35a88250020b431b673a791dddde3d3b660907ac2711d5c41a2da20f5a"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "PYq9DWCtrabAfkv1-11-27",
+      "purpose": "policy-scope",
+      "report": "PYq9DWCtrabAfkv1",
+      "fight": 11,
+      "actor": 27,
+      "player": "Johnnyblaze",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51117_Noth_the_Plaguebringer.json",
+      "page": 1,
+      "row": 16,
+      "owned_actor_ids": [],
+      "duration_ms": 30929,
+      "published": "2989.4",
+      "totals": {
+        "raw": 93292,
+        "self": 833,
+        "excluded": 0,
+        "ranked": 92459
+      },
+      "residual": "-763/154645",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 162,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "11c84c35a88250020b431b673a791dddde3d3b660907ac2711d5c41a2da20f5a"
+          ]
+        },
+        {
+          "pet": 166,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "11c84c35a88250020b431b673a791dddde3d3b660907ac2711d5c41a2da20f5a"
+          ]
+        },
+        {
+          "pet": 197,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "11c84c35a88250020b431b673a791dddde3d3b660907ac2711d5c41a2da20f5a"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

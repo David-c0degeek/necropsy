@@ -1,0 +1,139 @@
+{
+  "version": 1,
+  "rule": "naxx-grobbulus-feral-druid-alliance-dps-v1",
+  "scope": {
+    "encounter_id": 51111,
+    "class_id": 2,
+    "category": "Feral",
+    "metric": "dps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261031/75650895-2006-20261029T065847.zip",
+    "sha256": "be76c08559f11ed91b648a7a3aa88970647c7a333552356b6e84049511578633"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "JbMahR1HVcqZpQPY-83-103",
+      "purpose": "policy-scope",
+      "report": "JbMahR1HVcqZpQPY",
+      "fight": 83,
+      "actor": 103,
+      "player": "Suncat",
+      "realm": "Ashkandi",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51111_Grobbulus.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 67944,
+      "published": "1445.25",
+      "totals": {
+        "raw": 98879,
+        "self": 683,
+        "excluded": 0,
+        "ranked": 98196
+      },
+      "residual": "-11/11324",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 162,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "ce592d1387fd6f5e887940be5aab76795e29d47afb580a6d93087f2242d984db",
+            "fbebda4da5787135880dd03586f01768979b89f2fa5de3b630696fc2ef64e4b4"
+          ]
+        },
+        {
+          "pet": 253,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "ce592d1387fd6f5e887940be5aab76795e29d47afb580a6d93087f2242d984db",
+            "fbebda4da5787135880dd03586f01768979b89f2fa5de3b630696fc2ef64e4b4"
+          ]
+        },
+        {
+          "pet": 274,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "ce592d1387fd6f5e887940be5aab76795e29d47afb580a6d93087f2242d984db",
+            "fbebda4da5787135880dd03586f01768979b89f2fa5de3b630696fc2ef64e4b4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fnybVNGXc7q4mvtQ-19-17",
+      "purpose": "policy-scope",
+      "report": "fnybVNGXc7q4mvtQ",
+      "fight": 19,
+      "actor": 17,
+      "player": "Mckitty",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51111_Grobbulus.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 53270,
+      "published": "1484.51",
+      "totals": {
+        "raw": 79697,
+        "self": 617,
+        "excluded": 0,
+        "ranked": 79080
+      },
+      "residual": "1523/532700",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 82,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "1ded2a2439c75ee5fabdb125e7355aee7c64b46dd0222a74f06517040059d22b",
+            "a0a3c2d9b51c90a1b3184918459793ad2b4edac28c53c35a080fb6942f0169d3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "k3htQVr9MgdzZ84y-21-11",
+      "purpose": "policy-scope",
+      "report": "k3htQVr9MgdzZ84y",
+      "fight": 21,
+      "actor": 11,
+      "player": "Dyzzxy",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51111_Grobbulus.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 53901,
+      "published": "1478.86",
+      "totals": {
+        "raw": 79712,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 79712
+      },
+      "residual": "-31/50850"
+    }
+  ],
+  "refusals": []
+}

@@ -1,0 +1,131 @@
+{
+  "version": 1,
+  "rule": "naxx-grobbulus-feral-druid-horde-dps-v1",
+  "scope": {
+    "encounter_id": 51111,
+    "class_id": 2,
+    "category": "Feral",
+    "metric": "dps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261031/77548335-2006-20261030T095117.zip",
+    "sha256": "4e39a080967408826e0ac36826f90cfb9094230407a7e5b4c5f437c8c7b7a82e"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "1XFpkPNGnvj6ZcV4-31-39",
+      "purpose": "policy-scope",
+      "report": "1XFpkPNGnvj6ZcV4",
+      "fight": 31,
+      "actor": 39,
+      "player": "Efc",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51111_Grobbulus.json",
+      "page": 1,
+      "row": 15,
+      "owned_actor_ids": [],
+      "duration_ms": 62889,
+      "published": "1287.12",
+      "totals": {
+        "raw": 80946,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 80946
+      },
+      "residual": "2586/524075",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 281,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "54f7b2ec8ae632d48d1246985620c74bfc2ebc5a7416c325fa460a42d639efd3",
+            "6c78c3febdd625da47fe3e6b2db045febee53081c7045f90de67c4c10e04d63f"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3VA2qMPZjpnNGfyt-23-32",
+      "purpose": "policy-scope",
+      "report": "3VA2qMPZjpnNGfyt",
+      "fight": 23,
+      "actor": 32,
+      "player": "Lorfan",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51111_Grobbulus.json",
+      "page": 1,
+      "row": 21,
+      "owned_actor_ids": [],
+      "duration_ms": 66397,
+      "published": "1218.79",
+      "totals": {
+        "raw": 80924,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 80924
+      },
+      "residual": "37/6639700"
+    },
+    {
+      "id": "wzcXahM291TGQY47-33-36",
+      "purpose": "policy-scope",
+      "report": "wzcXahM291TGQY47",
+      "fight": 33,
+      "actor": 36,
+      "player": "Stankfaçe",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51111_Grobbulus.json",
+      "page": 1,
+      "row": 10,
+      "owned_actor_ids": [],
+      "duration_ms": 71195,
+      "published": "1322.09",
+      "totals": {
+        "raw": 94126,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 94126
+      },
+      "residual": "-3951/1423900",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 104,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "bc10b580d734c02b844c29db0f62dd61eb0159df6eace691536406e7f3ea9b73",
+            "c53e9dc12250973074adecf0c6b3b1f70b5e51985b5ef842381c15af531b68c2"
+          ]
+        },
+        {
+          "pet": 192,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "bc10b580d734c02b844c29db0f62dd61eb0159df6eace691536406e7f3ea9b73",
+            "c53e9dc12250973074adecf0c6b3b1f70b5e51985b5ef842381c15af531b68c2"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

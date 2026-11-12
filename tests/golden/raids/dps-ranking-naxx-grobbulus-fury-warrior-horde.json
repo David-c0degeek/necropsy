@@ -1,0 +1,157 @@
+{
+  "version": 1,
+  "rule": "naxx-grobbulus-fury-warrior-horde-dps-v1",
+  "scope": {
+    "encounter_id": 51111,
+    "class_id": 11,
+    "category": "Fury",
+    "metric": "dps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/75322236-2006-20261110T150026.zip",
+    "sha256": "3750625e922916fb4f3a6cf7243311216149d77b3b09eeebffcdcd43558f76dd"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "4vMBA1nV7wgt8DCQ-17-67",
+      "purpose": "policy-scope",
+      "report": "4vMBA1nV7wgt8DCQ",
+      "fight": 17,
+      "actor": 67,
+      "player": "Kdbjr",
+      "realm": "Bloodfang",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51111_Grobbulus.json",
+      "page": 1,
+      "row": 7,
+      "owned_actor_ids": [],
+      "duration_ms": 50623,
+      "published": "2616.14",
+      "totals": {
+        "raw": 132437,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 132437
+      },
+      "residual": "7239/2531150",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 145,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "74427ffe2369dc7ea13543a31648c01beb11f603ef8cecc742a4d79c23b540cf",
+            "302c8d0f1d457301b9b122480cb505d1e464be77e0c61eff547a683d34c63a3c"
+          ]
+        },
+        {
+          "pet": 246,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "74427ffe2369dc7ea13543a31648c01beb11f603ef8cecc742a4d79c23b540cf",
+            "302c8d0f1d457301b9b122480cb505d1e464be77e0c61eff547a683d34c63a3c"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "AqCTDYj8kQbpgLnf-24-29",
+      "purpose": "policy-scope",
+      "report": "AqCTDYj8kQbpgLnf",
+      "fight": 24,
+      "actor": 29,
+      "player": "Freethinker",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51111_Grobbulus.json",
+      "page": 1,
+      "row": 10,
+      "owned_actor_ids": [],
+      "duration_ms": 58937,
+      "published": "2582.38",
+      "totals": {
+        "raw": 152198,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 152198
+      },
+      "residual": "13497/2946850",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 219,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "18cffb00dc901f14677074356d0f3baa959bf3990d9672e24a716dfc55c89a09",
+            "3ef96d91c9b0e69a2721ca7fcd302e517f034ad11926230b69f39970f205a63b"
+          ]
+        },
+        {
+          "pet": 236,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "18cffb00dc901f14677074356d0f3baa959bf3990d9672e24a716dfc55c89a09",
+            "3ef96d91c9b0e69a2721ca7fcd302e517f034ad11926230b69f39970f205a63b"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gAmFZL7tH3BW6nfK-29-9",
+      "purpose": "policy-scope",
+      "report": "gAmFZL7tH3BW6nfK",
+      "fight": 29,
+      "actor": 9,
+      "player": "Rekkzz",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51111_Grobbulus.json",
+      "page": 1,
+      "row": 4,
+      "owned_actor_ids": [],
+      "duration_ms": 55464,
+      "published": "2691.15",
+      "totals": {
+        "raw": 149863,
+        "self": 601,
+        "excluded": 0,
+        "ranked": 149262
+      },
+      "residual": "47/46220",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 96,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "598b8b4585cacef2cc67f796017507e1760020fc0b33c1624fa283d0b9558762",
+            "23689ab3c47d6d638440f4ed437624ea1b243268dcac27c4b379c9fa4a2c1f35"
+          ]
+        },
+        {
+          "pet": 272,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "598b8b4585cacef2cc67f796017507e1760020fc0b33c1624fa283d0b9558762",
+            "23689ab3c47d6d638440f4ed437624ea1b243268dcac27c4b379c9fa4a2c1f35"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

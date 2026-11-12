@@ -1,0 +1,103 @@
+{
+  "version": 1,
+  "rule": "naxx-thaddius-frost-mage-alliance-dps-v1",
+  "scope": {
+    "encounter_id": 51120,
+    "class_id": 4,
+    "category": "Frost",
+    "metric": "dps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/96494133-2006-20261105T033802.zip",
+    "sha256": "6c0c59209ab15336d31b0f5e38e56873b050d9be0d4546bc4cde16039bb1fb71"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "BR1XgY8fQqCbKmjv-30-5",
+      "purpose": "policy-scope",
+      "report": "BR1XgY8fQqCbKmjv",
+      "fight": 30,
+      "actor": 5,
+      "player": "Tôast",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51120_Thaddius.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 128522,
+      "published": "1876.61",
+      "totals": {
+        "raw": 241186,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 241186
+      },
+      "residual": "16479/6426100"
+    },
+    {
+      "id": "V1FjzgHAvh93NCwQ-19-18",
+      "purpose": "policy-scope",
+      "report": "V1FjzgHAvh93NCwQ",
+      "fight": 19,
+      "actor": 18,
+      "player": "Koldskaal",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51120_Thaddius.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 120630,
+      "published": "2040.59",
+      "totals": {
+        "raw": 246156,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 246156
+      },
+      "residual": "-1239/402100"
+    },
+    {
+      "id": "cHfZAv2Lj9gprV1d-62-169",
+      "purpose": "policy-scope",
+      "report": "cHfZAv2Lj9gprV1d",
+      "fight": 62,
+      "actor": 169,
+      "player": "Ronkuby",
+      "realm": "Pagle",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51120_Thaddius.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 171799,
+      "published": "1872.04",
+      "totals": {
+        "raw": 321614,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 321614
+      },
+      "residual": "-14999/4294975"
+    }
+  ],
+  "refusals": []
+}

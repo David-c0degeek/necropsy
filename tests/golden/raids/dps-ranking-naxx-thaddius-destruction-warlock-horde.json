@@ -1,0 +1,163 @@
+{
+  "version": 1,
+  "rule": "naxx-thaddius-destruction-warlock-horde-dps-v1",
+  "scope": {
+    "encounter_id": 51120,
+    "class_id": 10,
+    "category": "Destruction",
+    "metric": "dps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/64322945-2006-20261110T064311.zip",
+    "sha256": "62ee186326d8affa4f56d5e53616640e38e5f8fc87ffae5396d0806bb576684d"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "TkZ3gLq8c6KXQwPF-43-38",
+      "purpose": "policy-scope",
+      "report": "TkZ3gLq8c6KXQwPF",
+      "fight": 43,
+      "actor": 38,
+      "player": "Coughsyrup",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51120_Thaddius.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 143272,
+      "published": "2433.08",
+      "totals": {
+        "raw": 348592,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 348592
+      },
+      "residual": "-743/447725",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 92,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "8937d7b4cf4021dfcccf85dc0299adbbb5d065f298051f1cdca505be914d0c05",
+            "07dd9ecef72a68f391a7bf7bf2834922d8a7afb8252d8207bbee3c3c6e55373d",
+            "68e1d80421943620ac7579c828125850270687e722efdb10a3d896e25db2e8cc"
+          ]
+        },
+        {
+          "pet": 182,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "8937d7b4cf4021dfcccf85dc0299adbbb5d065f298051f1cdca505be914d0c05",
+            "07dd9ecef72a68f391a7bf7bf2834922d8a7afb8252d8207bbee3c3c6e55373d",
+            "68e1d80421943620ac7579c828125850270687e722efdb10a3d896e25db2e8cc"
+          ]
+        },
+        {
+          "pet": 251,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "8937d7b4cf4021dfcccf85dc0299adbbb5d065f298051f1cdca505be914d0c05",
+            "07dd9ecef72a68f391a7bf7bf2834922d8a7afb8252d8207bbee3c3c6e55373d",
+            "68e1d80421943620ac7579c828125850270687e722efdb10a3d896e25db2e8cc"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "VDjm14wtTyM7YqkF-32-18",
+      "purpose": "policy-scope",
+      "report": "VDjm14wtTyM7YqkF",
+      "fight": 32,
+      "actor": 18,
+      "player": "Dafunc",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51120_Thaddius.json",
+      "page": 1,
+      "row": 5,
+      "owned_actor_ids": [],
+      "duration_ms": 124435,
+      "published": "2391.11",
+      "totals": {
+        "raw": 297538,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 297538
+      },
+      "residual": "4543/2488700",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 57,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "84823146dca2246393df53c3089e8157bb51aa35c5806defbd55d952d580e1c1",
+            "b8222a21c14261a058db131c4679246ce0d97dee3468ab614765ef5d1d6d3321",
+            "889073dd3dc5173a8d5583adc313b8c8c774be919e3bf8fc96a8201e56e916be"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mQzLq3krNt7ZMvcY-34-46",
+      "purpose": "policy-scope",
+      "report": "mQzLq3krNt7ZMvcY",
+      "fight": 34,
+      "actor": 46,
+      "player": "Dippindots",
+      "realm": "Bigglesworth",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51120_Thaddius.json",
+      "page": 1,
+      "row": 27,
+      "owned_actor_ids": [],
+      "duration_ms": 144128,
+      "published": "2167.12",
+      "totals": {
+        "raw": 312342,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 312342
+      },
+      "residual": "-1049/225200",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 240,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "22121d15adf2d39610bc642a1419e31b8c35c562b52a7418109dd1f912b0657c",
+            "9c1c11e926a13b090f08be4511a2039da95d826c6da476ff14cf8dd1d6efb0d8",
+            "e5d15b3416babcef12dcfa917031f7cfa9492a7241f29146d3d507619ae4ee28"
+          ]
+        },
+        {
+          "pet": 251,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "22121d15adf2d39610bc642a1419e31b8c35c562b52a7418109dd1f912b0657c",
+            "9c1c11e926a13b090f08be4511a2039da95d826c6da476ff14cf8dd1d6efb0d8",
+            "e5d15b3416babcef12dcfa917031f7cfa9492a7241f29146d3d507619ae4ee28"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

@@ -1,0 +1,164 @@
+{
+  "version": 1,
+  "rule": "naxx-gothik-fury-warrior-alliance-dps-v1",
+  "scope": {
+    "encounter_id": 51109,
+    "class_id": 11,
+    "category": "Fury",
+    "metric": "dps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/76296293-2006-20261110T135634.zip",
+    "sha256": "e563a99f200c4df744213a18292b941ad51c418c9efadc420f7df7b691ab3457"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "PRLZ8k6dTFxjvGA4-16-14",
+      "purpose": "policy-scope",
+      "report": "PRLZ8k6dTFxjvGA4",
+      "fight": 16,
+      "actor": 14,
+      "player": "Kankan",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51109_Gothik_the_Harvester.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [
+        92
+      ],
+      "duration_ms": 299552,
+      "published": "1178.2",
+      "totals": {
+        "raw": 352931,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 352931
+      },
+      "residual": "-729/187220",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 46,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "936c0869b573ba042d565d8738c2345dbe28d3275f6a1defd0b4e8ae1bfe22da",
+            "4f90d3b936fedd7b8b1d83430522e9834a450a5e4446589abcfb87f55329b759",
+            "8ba2b23bd6f579e8e0fa29f947f443b3e9cc9eb3047ad8e39f644c6ecbe67bbe",
+            "e8419107f7b016f19520a579c46f2faded60e0096a639d8ad5349f6b0a029f15",
+            "fb62d386a051b3aad0d69ecd5b5d6d144cb04372ae5713f20c1a13fad8806ce0"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "XwBq7VyPHhprgAt2-19-32",
+      "purpose": "policy-scope",
+      "report": "XwBq7VyPHhprgAt2",
+      "fight": 19,
+      "actor": 32,
+      "player": "Zurzur",
+      "realm": "Mograine",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51109_Gothik_the_Harvester.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 298730,
+      "published": "1220.56",
+      "totals": {
+        "raw": 364619,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 364619
+      },
+      "residual": "2778/746825",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 54,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "b88c8b2edf7854526244cc63748bdd89f082eacbf31d7270cb3dcc5e86e3727e",
+            "5ac35ed395f0131130a22d4c327f71054441c9c55bcebdeae7c76f6247449118",
+            "f69674170c4a7c2bc06ac2df0caec97d37e8b84af30b91b6f5a2e824e1f0265a",
+            "447dc7e6765c33b07a364dfbf3a56c18d7be086bb298ddfa60420e96d051192f",
+            "6898804c623af3246edad5665e0cdbe0ca741e9fe3886889d41aa83c7358fba5"
+          ]
+        },
+        {
+          "pet": 96,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "b88c8b2edf7854526244cc63748bdd89f082eacbf31d7270cb3dcc5e86e3727e",
+            "5ac35ed395f0131130a22d4c327f71054441c9c55bcebdeae7c76f6247449118",
+            "f69674170c4a7c2bc06ac2df0caec97d37e8b84af30b91b6f5a2e824e1f0265a",
+            "447dc7e6765c33b07a364dfbf3a56c18d7be086bb298ddfa60420e96d051192f",
+            "6898804c623af3246edad5665e0cdbe0ca741e9fe3886889d41aa83c7358fba5"
+          ]
+        },
+        {
+          "pet": 111,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "b88c8b2edf7854526244cc63748bdd89f082eacbf31d7270cb3dcc5e86e3727e",
+            "5ac35ed395f0131130a22d4c327f71054441c9c55bcebdeae7c76f6247449118",
+            "f69674170c4a7c2bc06ac2df0caec97d37e8b84af30b91b6f5a2e824e1f0265a",
+            "447dc7e6765c33b07a364dfbf3a56c18d7be086bb298ddfa60420e96d051192f",
+            "6898804c623af3246edad5665e0cdbe0ca741e9fe3886889d41aa83c7358fba5"
+          ]
+        },
+        {
+          "pet": 216,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "b88c8b2edf7854526244cc63748bdd89f082eacbf31d7270cb3dcc5e86e3727e",
+            "5ac35ed395f0131130a22d4c327f71054441c9c55bcebdeae7c76f6247449118",
+            "f69674170c4a7c2bc06ac2df0caec97d37e8b84af30b91b6f5a2e824e1f0265a",
+            "447dc7e6765c33b07a364dfbf3a56c18d7be086bb298ddfa60420e96d051192f",
+            "6898804c623af3246edad5665e0cdbe0ca741e9fe3886889d41aa83c7358fba5"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wzJTxjc6Nv2pFKab-12-25",
+      "purpose": "policy-scope",
+      "report": "wzJTxjc6Nv2pFKab",
+      "fight": 12,
+      "actor": 25,
+      "player": "Smmno",
+      "realm": "Ashbringer",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51109_Gothik_the_Harvester.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 302228,
+      "published": "1203.24",
+      "totals": {
+        "raw": 363653,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 363653
+      },
+      "residual": "1133/1888925"
+    }
+  ],
+  "refusals": []
+}

@@ -1,0 +1,132 @@
+{
+  "version": 1,
+  "rule": "naxx-kelthuzad-guardian-druid-horde-dps-v1",
+  "scope": {
+    "encounter_id": 51114,
+    "class_id": 2,
+    "category": "Guardian",
+    "metric": "dps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/70621233-2006-20261101T123113.zip",
+    "sha256": "2fc02829c6013cb5bac380868754ee7689bc531819d85265d5f84f809bbea947"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "4c2wdK9pfVCrqMDt-3-13",
+      "purpose": "policy-scope",
+      "report": "4c2wdK9pfVCrqMDt",
+      "fight": 3,
+      "actor": 13,
+      "player": "Clownform",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51114_Kel_Thuzad.json",
+      "page": 1,
+      "row": 5,
+      "owned_actor_ids": [],
+      "duration_ms": 128422,
+      "published": "712.191",
+      "totals": {
+        "raw": 91461,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 91461
+      },
+      "residual": "3699/64211000"
+    },
+    {
+      "id": "D34vcfrMGBHmg8TA-40-40",
+      "purpose": "policy-scope",
+      "report": "D34vcfrMGBHmg8TA",
+      "fight": 40,
+      "actor": 40,
+      "player": "Bengal",
+      "realm": "Kurinnaxx",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51114_Kel_Thuzad.json",
+      "page": 1,
+      "row": 9,
+      "owned_actor_ids": [],
+      "duration_ms": 116943,
+      "published": "656.14",
+      "totals": {
+        "raw": 76731,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 76731
+      },
+      "residual": "333/1949050",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 149,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "4cfdd44d455471cef4f6b3f75443e87ff73512eb72a3e39a56e3ae14afcc4c86",
+            "5829cc21d6ab777a54c16f49482b8fbbbaab53b5ad4bf73afcac17d00a48986b",
+            "7f7c23f8646cb9b413ea0f7c6b7a77fba1b91a5ef5a17d186fe4bbe7c76c9b5d"
+          ]
+        },
+        {
+          "pet": 152,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "4cfdd44d455471cef4f6b3f75443e87ff73512eb72a3e39a56e3ae14afcc4c86",
+            "5829cc21d6ab777a54c16f49482b8fbbbaab53b5ad4bf73afcac17d00a48986b",
+            "7f7c23f8646cb9b413ea0f7c6b7a77fba1b91a5ef5a17d186fe4bbe7c76c9b5d"
+          ]
+        },
+        {
+          "pet": 157,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "4cfdd44d455471cef4f6b3f75443e87ff73512eb72a3e39a56e3ae14afcc4c86",
+            "5829cc21d6ab777a54c16f49482b8fbbbaab53b5ad4bf73afcac17d00a48986b",
+            "7f7c23f8646cb9b413ea0f7c6b7a77fba1b91a5ef5a17d186fe4bbe7c76c9b5d"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "YBqfcgNGJXdF76KL-40-8",
+      "purpose": "policy-scope",
+      "report": "YBqfcgNGJXdF76KL",
+      "fight": 40,
+      "actor": 8,
+      "player": "Efc",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51114_Kel_Thuzad.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 94813,
+      "published": "840.855",
+      "totals": {
+        "raw": 79724,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 79724
+      },
+      "residual": "2977/18962600"
+    }
+  ],
+  "refusals": []
+}

@@ -1,0 +1,160 @@
+{
+  "version": 1,
+  "rule": "naxx-noth-feral-druid-alliance-dps-v1",
+  "scope": {
+    "encounter_id": 51117,
+    "class_id": 2,
+    "category": "Feral",
+    "metric": "dps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261031/75650895-2006-20261029T065847.zip",
+    "sha256": "be76c08559f11ed91b648a7a3aa88970647c7a333552356b6e84049511578633"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "9YxtWav3pNBJmqPX-35-32",
+      "purpose": "policy-scope",
+      "report": "9YxtWav3pNBJmqPX",
+      "fight": 35,
+      "actor": 32,
+      "player": "Mckitty",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51117_Noth_the_Plaguebringer.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 41465,
+      "published": "1673.19",
+      "totals": {
+        "raw": 69800,
+        "self": 421,
+        "excluded": 0,
+        "ranked": 69379
+      },
+      "residual": "3533/829300",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 93,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "5e46ebbe555e1d3d20de053dc6a1a7eed53fdf439e7c25872e8000e484128f6e",
+            "a1906d23a769b7e796558747d64aa3284e96a88df16cac15245ee872ce09d9ac"
+          ]
+        },
+        {
+          "pet": 136,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "5e46ebbe555e1d3d20de053dc6a1a7eed53fdf439e7c25872e8000e484128f6e",
+            "a1906d23a769b7e796558747d64aa3284e96a88df16cac15245ee872ce09d9ac"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "NjWaMzPDcwqV7KbB-53-18",
+      "purpose": "policy-scope",
+      "report": "NjWaMzPDcwqV7KbB",
+      "fight": 53,
+      "actor": 18,
+      "player": "Suncat",
+      "realm": "Ashkandi",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51117_Noth_the_Plaguebringer.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 56981,
+      "published": "1572.61",
+      "totals": {
+        "raw": 90107,
+        "self": 498,
+        "excluded": 0,
+        "ranked": 89609
+      },
+      "residual": "10959/5698100",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 76,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "765231c3c2a9bc5b17427eb25b689c75274ca1fd2c5fcecc92ece6c24fcd34b8"
+          ]
+        },
+        {
+          "pet": 145,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "765231c3c2a9bc5b17427eb25b689c75274ca1fd2c5fcecc92ece6c24fcd34b8"
+          ]
+        },
+        {
+          "pet": 186,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "765231c3c2a9bc5b17427eb25b689c75274ca1fd2c5fcecc92ece6c24fcd34b8"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rdk8DqG6QjvCRVFK-29-51",
+      "purpose": "policy-scope",
+      "report": "rdk8DqG6QjvCRVFK",
+      "fight": 29,
+      "actor": 51,
+      "player": "Hélios",
+      "realm": "Golemagg",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51117_Noth_the_Plaguebringer.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 41129,
+      "published": "1428.12",
+      "totals": {
+        "raw": 59320,
+        "self": 583,
+        "excluded": 0,
+        "ranked": 58737
+      },
+      "residual": "-3687/1028225",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 120,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "3788834fff538bf2819069178d8d1bdb9a5ab69968be586c89777ddff6aad7b1"
+          ]
+        },
+        {
+          "pet": 160,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "3788834fff538bf2819069178d8d1bdb9a5ab69968be586c89777ddff6aad7b1"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

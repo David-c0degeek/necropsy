@@ -1,0 +1,114 @@
+{
+  "version": 1,
+  "rule": "naxx-sapphiron-frost-mage-alliance-dps-v1",
+  "scope": {
+    "encounter_id": 51119,
+    "class_id": 4,
+    "category": "Frost",
+    "metric": "dps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/96494133-2006-20261105T033802.zip",
+    "sha256": "6c0c59209ab15336d31b0f5e38e56873b050d9be0d4546bc4cde16039bb1fb71"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "GMq6CQ1cvZzyrWTJ-31-31",
+      "purpose": "policy-scope",
+      "report": "GMq6CQ1cvZzyrWTJ",
+      "fight": 31,
+      "actor": 31,
+      "player": "小兰",
+      "realm": "哈霍兰",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51119_Sapphiron.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [
+        226
+      ],
+      "duration_ms": 16545,
+      "published": "2921.31",
+      "totals": {
+        "raw": 48333,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 48333
+      },
+      "residual": "-493/110300",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 73,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "26f05e463e672614aba8250d6306bd0bd2b085375ce6da784a80cc744896025b"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "M69TZ7GrpCQc1kJV-2-11",
+      "purpose": "policy-scope",
+      "report": "M69TZ7GrpCQc1kJV",
+      "fight": 2,
+      "actor": 11,
+      "player": "可爱的呼啦圈",
+      "realm": "法琳娜",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51119_Sapphiron.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 22681,
+      "published": "2958.64",
+      "totals": {
+        "raw": 67105,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 67105
+      },
+      "residual": "2154/567025"
+    },
+    {
+      "id": "M69TZ7GrpCQc1kJV-2-5",
+      "purpose": "policy-scope",
+      "report": "M69TZ7GrpCQc1kJV",
+      "fight": 2,
+      "actor": 5,
+      "player": "大地之法",
+      "realm": "哈霍兰",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51119_Sapphiron.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 22681,
+      "published": "2289.36",
+      "totals": {
+        "raw": 51925,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 51925
+      },
+      "residual": "646/567025"
+    }
+  ],
+  "refusals": []
+}

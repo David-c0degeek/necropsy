@@ -1,0 +1,139 @@
+{
+  "version": 1,
+  "rule": "naxx-sapphiron-protection-warrior-alliance-dps-v1",
+  "scope": {
+    "encounter_id": 51119,
+    "class_id": 11,
+    "category": "Protection",
+    "metric": "dps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/75466963-2006-20261111T134356.zip",
+    "sha256": "fb12765c9b6fd67e8cb252b09df71668d12ee793cb22bd20be4afcf2d86b1442"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "1nH3M94x7rAwkyXN-35-60",
+      "purpose": "policy-scope",
+      "report": "1nH3M94x7rAwkyXN",
+      "fight": 35,
+      "actor": 60,
+      "player": "Gs",
+      "realm": "Anathema",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51119_Sapphiron.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [
+        220
+      ],
+      "duration_ms": 21541,
+      "published": "6217.68",
+      "totals": {
+        "raw": 133935,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 133935
+      },
+      "residual": "-1122/538525",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 123,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "a441767b3329078d1b3caada75ccf329de2727ea41d3a409da2498a5f883ff86"
+          ]
+        },
+        {
+          "pet": 182,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "a441767b3329078d1b3caada75ccf329de2727ea41d3a409da2498a5f883ff86"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4h8WGQM2kxTvArPg-23-11",
+      "purpose": "policy-scope",
+      "report": "4h8WGQM2kxTvArPg",
+      "fight": 23,
+      "actor": 11,
+      "player": "Aami",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51119_Sapphiron.json",
+      "page": 1,
+      "row": 4,
+      "owned_actor_ids": [],
+      "duration_ms": 16944,
+      "published": "5245.04",
+      "totals": {
+        "raw": 88872,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 88872
+      },
+      "residual": "22/8825",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 71,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "e23b585a614f44a06cbf0530b893112dd444e2a57f296f0939e831a6145329c9"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "BDJvNZRzy629KFYb-36-5",
+      "purpose": "policy-scope",
+      "report": "BDJvNZRzy629KFYb",
+      "fight": 36,
+      "actor": 5,
+      "player": "Fora",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51119_Sapphiron.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 16575,
+      "published": "5506.24",
+      "totals": {
+        "raw": 91266,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 91266
+      },
+      "residual": "24/5525",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 49,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "76516c8aca3e2b1dd9a7132be8d8afeed537d7c1a9b79957820e0910b7b33859"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

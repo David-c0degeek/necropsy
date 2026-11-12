@@ -1,0 +1,123 @@
+{
+  "version": 1,
+  "rule": "naxx-kelthuzad-retribution-paladin-alliance-dps-v1",
+  "scope": {
+    "encounter_id": 51114,
+    "class_id": 6,
+    "category": "Retribution",
+    "metric": "dps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/76716431-2006-20261106T042624.zip",
+    "sha256": "3b64e402362774511ae10a81c176e4cacf9aae04b62778dab30dd26a38c67585"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "MNZ9xWFpD1vdL3VR-3-23",
+      "purpose": "policy-scope",
+      "report": "MNZ9xWFpD1vdL3VR",
+      "fight": 3,
+      "actor": 23,
+      "player": "Krumjorn",
+      "realm": "Everlook",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51114_Kel_Thuzad.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 165851,
+      "published": "706.321",
+      "totals": {
+        "raw": 117144,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 117144
+      },
+      "residual": "-44171/165851000"
+    },
+    {
+      "id": "jykFYDNAhQfcZPnv-3-50",
+      "purpose": "policy-scope",
+      "report": "jykFYDNAhQfcZPnv",
+      "fight": 3,
+      "actor": 50,
+      "player": "Craey",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51114_Kel_Thuzad.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 179759,
+      "published": "845.354",
+      "totals": {
+        "raw": 153430,
+        "self": 1470,
+        "excluded": 0,
+        "ranked": 151960
+      },
+      "residual": "5157/89879500",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 53,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "f32504c70362d04d6b1be7d4fb35c784479faa502f10a3d58ddbeca86abf60ad",
+            "f3020c3088e7ea86b72f18324749746f245e7212110846aced0701ebcc3af9a9",
+            "1ddf28c123d81deab812b177975bde3cd86ce3ea980c3836886d2917ea252347"
+          ]
+        },
+        {
+          "pet": 57,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "f32504c70362d04d6b1be7d4fb35c784479faa502f10a3d58ddbeca86abf60ad",
+            "f3020c3088e7ea86b72f18324749746f245e7212110846aced0701ebcc3af9a9",
+            "1ddf28c123d81deab812b177975bde3cd86ce3ea980c3836886d2917ea252347"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "z8bagC2ZBJwhG9Hm-3-39",
+      "purpose": "policy-scope",
+      "report": "z8bagC2ZBJwhG9Hm",
+      "fight": 3,
+      "actor": 39,
+      "player": "Derillian",
+      "realm": "Pyrewood Village",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51114_Kel_Thuzad.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 171438,
+      "published": "850.36",
+      "totals": {
+        "raw": 146693,
+        "self": 909,
+        "excluded": 0,
+        "ranked": 145784
+      },
+      "residual": "-221/2142975"
+    }
+  ],
+  "refusals": []
+}

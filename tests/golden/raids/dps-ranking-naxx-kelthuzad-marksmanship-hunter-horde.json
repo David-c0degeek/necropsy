@@ -1,0 +1,154 @@
+{
+  "version": 1,
+  "rule": "naxx-kelthuzad-marksmanship-hunter-horde-dps-v1",
+  "scope": {
+    "encounter_id": 51114,
+    "class_id": 3,
+    "category": "Marksmanship",
+    "metric": "dps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/64181902-2006-20261104T151326.zip",
+    "sha256": "107c7bcb85e14bd9b69038141be282a8a5d8bc19e25b2d7f01609122d453349a"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "48KQFL3dhjPYMHbf-46-34",
+      "purpose": "policy-scope",
+      "report": "48KQFL3dhjPYMHbf",
+      "fight": 46,
+      "actor": 34,
+      "player": "Wwrrdd",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51114_Kel_Thuzad.json",
+      "page": 1,
+      "row": 7,
+      "owned_actor_ids": [
+        35
+      ],
+      "duration_ms": 111535,
+      "published": "1160.16",
+      "totals": {
+        "raw": 129398,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 129398
+      },
+      "residual": "-2228/557675",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 169,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "d03167f3476d7db75d14cda83126515aa2d531baf6e012889c18c383a953ea68",
+            "2083e723955ee8b844e05ef390d6e9c3f9d1934fbd706516f1261c7040461baf",
+            "b08bb0eb556bc38c67aac26c5b06938c7c4993eb3cd77f8cead3b1a08423e92b"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "FzyPBHNdRWc9JvVK-31-38",
+      "purpose": "policy-scope",
+      "report": "FzyPBHNdRWc9JvVK",
+      "fight": 31,
+      "actor": 38,
+      "player": "Seczdemon",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51114_Kel_Thuzad.json",
+      "page": 1,
+      "row": 21,
+      "owned_actor_ids": [
+        83
+      ],
+      "duration_ms": 73434,
+      "published": "1091.59",
+      "totals": {
+        "raw": 80160,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 80160
+      },
+      "residual": "2999/1223900",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 104,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "28f3595c38863cb6565804617be3453e65c3f89745976ba6a2b122d5d4e54aaa",
+            "f2dc17e08fb181c02cb6abb2c60be170f26f087bf51c2f956645ef53a09e8006"
+          ]
+        },
+        {
+          "pet": 105,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "28f3595c38863cb6565804617be3453e65c3f89745976ba6a2b122d5d4e54aaa",
+            "f2dc17e08fb181c02cb6abb2c60be170f26f087bf51c2f956645ef53a09e8006"
+          ]
+        },
+        {
+          "pet": 195,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "28f3595c38863cb6565804617be3453e65c3f89745976ba6a2b122d5d4e54aaa",
+            "f2dc17e08fb181c02cb6abb2c60be170f26f087bf51c2f956645ef53a09e8006"
+          ]
+        },
+        {
+          "pet": 280,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "28f3595c38863cb6565804617be3453e65c3f89745976ba6a2b122d5d4e54aaa",
+            "f2dc17e08fb181c02cb6abb2c60be170f26f087bf51c2f956645ef53a09e8006"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "k8KCr1zbfpnVvXGT-4-7",
+      "purpose": "policy-scope",
+      "report": "k8KCr1zbfpnVvXGT",
+      "fight": 4,
+      "actor": 7,
+      "player": "Smcadogx",
+      "realm": "Pyrewood Village",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51114_Kel_Thuzad.json",
+      "page": 1,
+      "row": 9,
+      "owned_actor_ids": [
+        74
+      ],
+      "duration_ms": 138745,
+      "published": "1153.17",
+      "totals": {
+        "raw": 159997,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 159997
+      },
+      "residual": "8567/2774900"
+    }
+  ],
+  "refusals": []
+}

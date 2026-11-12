@@ -1,0 +1,119 @@
+{
+  "version": 1,
+  "rule": "naxx-maexxna-guardian-druid-alliance-dps-v1",
+  "scope": {
+    "encounter_id": 51116,
+    "class_id": 2,
+    "category": "Guardian",
+    "metric": "dps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261031/83306366-2006-20261031T073441.zip",
+    "sha256": "d6ecd3846ba9a27641ce80eb801006d630432348fd0283594d2f805dda7dcb55"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "4tXdnTWajDVChNRY-49-5",
+      "purpose": "policy-scope",
+      "report": "4tXdnTWajDVChNRY",
+      "fight": 49,
+      "actor": 5,
+      "player": "Harryjam",
+      "realm": "Windseeker",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51116_Maexxna.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 41180,
+      "published": "927.125",
+      "totals": {
+        "raw": 38179,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 38179
+      },
+      "residual": "-3/16472"
+    },
+    {
+      "id": "MGcdHDtb4RNyTvkz-11-39",
+      "purpose": "policy-scope",
+      "report": "MGcdHDtb4RNyTvkz",
+      "fight": 11,
+      "actor": 39,
+      "player": "Hamtaró",
+      "realm": "Rattlegore",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51116_Maexxna.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 40055,
+      "published": "1195.86",
+      "totals": {
+        "raw": 48661,
+        "self": 761,
+        "excluded": 0,
+        "ranked": 47900
+      },
+      "residual": "-1723/400550",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 60,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "4bc80433e95c724556b0d75876000da0472477dbbd979aaf4c99f884c583aa5b"
+          ]
+        },
+        {
+          "pet": 143,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "4bc80433e95c724556b0d75876000da0472477dbbd979aaf4c99f884c583aa5b"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "WVdkqbcA4vN8QGTz-9-5",
+      "purpose": "policy-scope",
+      "report": "WVdkqbcA4vN8QGTz",
+      "fight": 9,
+      "actor": 5,
+      "player": "Iol",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51116_Maexxna.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 40327,
+      "published": "1125.45",
+      "totals": {
+        "raw": 45386,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 45386
+      },
+      "residual": "-443/806540"
+    }
+  ],
+  "refusals": []
+}

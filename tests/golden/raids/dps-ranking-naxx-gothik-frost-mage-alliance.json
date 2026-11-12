@@ -1,0 +1,103 @@
+{
+  "version": 1,
+  "rule": "naxx-gothik-frost-mage-alliance-dps-v1",
+  "scope": {
+    "encounter_id": 51109,
+    "class_id": 4,
+    "category": "Frost",
+    "metric": "dps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/96494133-2006-20261105T033802.zip",
+    "sha256": "6c0c59209ab15336d31b0f5e38e56873b050d9be0d4546bc4cde16039bb1fb71"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "2mzMRgFWKGjY6Byr-73-5",
+      "purpose": "policy-scope",
+      "report": "2mzMRgFWKGjY6Byr",
+      "fight": 73,
+      "actor": 5,
+      "player": "魅儿眉儿媚",
+      "realm": "哈霍兰",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51109_Gothik_the_Harvester.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 305920,
+      "published": "413.314",
+      "totals": {
+        "raw": 126441,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 126441
+      },
+      "residual": "-59/956000"
+    },
+    {
+      "id": "KHx6r3QqPtLAhDa8-43-19",
+      "purpose": "policy-scope",
+      "report": "KHx6r3QqPtLAhDa8",
+      "fight": 43,
+      "actor": 19,
+      "player": "孟少奶奶",
+      "realm": "匕首岭",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51109_Gothik_the_Harvester.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 307370,
+      "published": "421.941",
+      "totals": {
+        "raw": 129692,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 129692
+      },
+      "residual": "-517/30737000"
+    },
+    {
+      "id": "WJnrYqaw918PN4VT-64-51",
+      "purpose": "policy-scope",
+      "report": "WJnrYqaw918PN4VT",
+      "fight": 64,
+      "actor": 51,
+      "player": "围兜兜吃手手",
+      "realm": "哈霍兰",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51109_Gothik_the_Harvester.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 306244,
+      "published": "447.248",
+      "totals": {
+        "raw": 136967,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 136967
+      },
+      "residual": "-516/9570125"
+    }
+  ],
+  "refusals": []
+}

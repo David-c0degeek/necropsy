@@ -1,0 +1,164 @@
+{
+  "version": 1,
+  "rule": "naxx-sapphiron-marksmanship-hunter-alliance-dps-v1",
+  "scope": {
+    "encounter_id": 51119,
+    "class_id": 3,
+    "category": "Marksmanship",
+    "metric": "dps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/75928820-2006-20261103T162831.zip",
+    "sha256": "98a2d5a39d3b85dfee8db0b777b1c74cbef11656138baa5b7b892302311050a1"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "Ky6WL9dQj7cNCBRx-31-37",
+      "purpose": "policy-scope",
+      "report": "Ky6WL9dQj7cNCBRx",
+      "fight": 31,
+      "actor": 37,
+      "player": "Folk",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51119_Sapphiron.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [
+        47
+      ],
+      "duration_ms": 20960,
+      "published": "3536.5",
+      "totals": {
+        "raw": 74125,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 74125
+      },
+      "residual": "-1/524",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 67,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "87b268ae6b64e3bce2d276ffc0a2732890341c93813a19084f781fa7f3d0fd91"
+          ]
+        },
+        {
+          "pet": 137,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "87b268ae6b64e3bce2d276ffc0a2732890341c93813a19084f781fa7f3d0fd91"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "XaFkyRQhJpMr2Cmx-33-17",
+      "purpose": "policy-scope",
+      "report": "XaFkyRQhJpMr2Cmx",
+      "fight": 33,
+      "actor": 17,
+      "player": "Sabér",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51119_Sapphiron.json",
+      "page": 1,
+      "row": 5,
+      "owned_actor_ids": [
+        33
+      ],
+      "duration_ms": 17208,
+      "published": "3380.7",
+      "totals": {
+        "raw": 58175,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 58175
+      },
+      "residual": "-107/21510",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 113,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "b373371f216824198deace384b24aa048b1d15d3ff3fba6e9b0cb07f9236c7ab"
+          ]
+        },
+        {
+          "pet": 140,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "b373371f216824198deace384b24aa048b1d15d3ff3fba6e9b0cb07f9236c7ab"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mh7XyLKBgrQtqxdk-38-11",
+      "purpose": "policy-scope",
+      "report": "mh7XyLKBgrQtqxdk",
+      "fight": 38,
+      "actor": 11,
+      "player": "Clicker",
+      "realm": "Mograine",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51119_Sapphiron.json",
+      "page": 1,
+      "row": 3,
+      "owned_actor_ids": [
+        46
+      ],
+      "duration_ms": 22524,
+      "published": "3525.53",
+      "totals": {
+        "raw": 79409,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 79409
+      },
+      "residual": "-943/563100",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 57,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "5a22a421e77a28be85bd63340ac6bd0290f42eb0058913bf1730cc401a0a208e"
+          ]
+        },
+        {
+          "pet": 124,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "5a22a421e77a28be85bd63340ac6bd0290f42eb0058913bf1730cc401a0a208e"
+          ]
+        },
+        {
+          "pet": 209,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "5a22a421e77a28be85bd63340ac6bd0290f42eb0058913bf1730cc401a0a208e"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

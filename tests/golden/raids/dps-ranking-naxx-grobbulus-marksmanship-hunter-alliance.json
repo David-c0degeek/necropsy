@@ -1,0 +1,129 @@
+{
+  "version": 1,
+  "rule": "naxx-grobbulus-marksmanship-hunter-alliance-dps-v1",
+  "scope": {
+    "encounter_id": 51111,
+    "class_id": 3,
+    "category": "Marksmanship",
+    "metric": "dps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/75928820-2006-20261103T162831.zip",
+    "sha256": "98a2d5a39d3b85dfee8db0b777b1c74cbef11656138baa5b7b892302311050a1"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "CXhJ7GcbLNZKfm8z-13-7",
+      "purpose": "policy-scope",
+      "report": "CXhJ7GcbLNZKfm8z",
+      "fight": 13,
+      "actor": 7,
+      "player": "Arrowman",
+      "realm": "Fairbanks",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51111_Grobbulus.json",
+      "page": 1,
+      "row": 3,
+      "owned_actor_ids": [
+        8
+      ],
+      "duration_ms": 52551,
+      "published": "1364.08",
+      "totals": {
+        "raw": 71684,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 71684
+      },
+      "residual": "5798/1313775"
+    },
+    {
+      "id": "Y1PVGcBH4QMqAWkr-55-20",
+      "purpose": "policy-scope",
+      "report": "Y1PVGcBH4QMqAWkr",
+      "fight": 55,
+      "actor": 20,
+      "player": "Cizero",
+      "realm": "Mankrik",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51111_Grobbulus.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [
+        21
+      ],
+      "duration_ms": 69946,
+      "published": "1378.58",
+      "totals": {
+        "raw": 96426,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 96426
+      },
+      "residual": "-3917/1748650",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 61,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "67b11f625088ec5f26f4baabbf3ae2dba4028de4b6aa01a71b2e7ad9ce979937",
+            "ad30d2d650a52240fab578c299c37990c8c1be044589f628db1df1b28192a0e4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f7FjcYH3BQvDkqdt-17-15",
+      "purpose": "policy-scope",
+      "report": "f7FjcYH3BQvDkqdt",
+      "fight": 17,
+      "actor": 15,
+      "player": "Clicker",
+      "realm": "Mograine",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51111_Grobbulus.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [
+        17
+      ],
+      "duration_ms": 42479,
+      "published": "1416.06",
+      "totals": {
+        "raw": 60153,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 60153
+      },
+      "residual": "9363/2123950",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 153,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "5da725f6f3e7bc4e4aee10075c678ee9516f68ea1784404972148501fa026199",
+            "37c0a1c26b2a4bc16352d5aa6aaf6cb8060923b08c7bb9d71df7f33648747cdc"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

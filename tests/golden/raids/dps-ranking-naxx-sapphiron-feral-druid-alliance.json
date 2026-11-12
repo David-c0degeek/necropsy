@@ -1,0 +1,112 @@
+{
+  "version": 1,
+  "rule": "naxx-sapphiron-feral-druid-alliance-dps-v1",
+  "scope": {
+    "encounter_id": 51119,
+    "class_id": 2,
+    "category": "Feral",
+    "metric": "dps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261031/75650895-2006-20261029T065847.zip",
+    "sha256": "be76c08559f11ed91b648a7a3aa88970647c7a333552356b6e84049511578633"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "4mfNYhWtV9Zg6kMF-36-10",
+      "purpose": "policy-scope",
+      "report": "4mfNYhWtV9Zg6kMF",
+      "fight": 36,
+      "actor": 10,
+      "player": "Curve",
+      "realm": "Fairbanks",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51119_Sapphiron.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 21948,
+      "published": "3221.98",
+      "totals": {
+        "raw": 70716,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 70716
+      },
+      "residual": "-71/91450",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 126,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "0982622b342cab09cb3b0873a3f1a1beda6e29928ae1b727086d9e4089a85644"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7mrWKjJgT2MnbcAa-37-42",
+      "purpose": "policy-scope",
+      "report": "7mrWKjJgT2MnbcAa",
+      "fight": 37,
+      "actor": 42,
+      "player": "Dreadzy",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51119_Sapphiron.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 18825,
+      "published": "2117.82",
+      "totals": {
+        "raw": 39868,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 39868
+      },
+      "residual": "77/37650"
+    },
+    {
+      "id": "ARWX2ypkjcFthz1b-34-3",
+      "purpose": "policy-scope",
+      "report": "ARWX2ypkjcFthz1b",
+      "fight": 34,
+      "actor": 3,
+      "player": "Bonnibelle",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51119_Sapphiron.json",
+      "page": 1,
+      "row": 3,
+      "owned_actor_ids": [],
+      "duration_ms": 21516,
+      "published": "1895.66",
+      "totals": {
+        "raw": 40787,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 40787
+      },
+      "residual": "-257/268950"
+    }
+  ],
+  "refusals": []
+}

@@ -1,0 +1,115 @@
+{
+  "version": 1,
+  "rule": "naxx-sapphiron-shadow-priest-horde-dps-v1",
+  "scope": {
+    "encounter_id": 51119,
+    "class_id": 7,
+    "category": "Shadow",
+    "metric": "dps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/66195792-2006-20261108T070712.zip",
+    "sha256": "05aa6d44d37a8dcbf6a64ccc17060b81f0d42f4abaa4c69a8eba453510c3f6de"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "2DJB1rGtQmMvPcVF-61-31",
+      "purpose": "policy-scope",
+      "report": "2DJB1rGtQmMvPcVF",
+      "fight": 61,
+      "actor": 31,
+      "player": "Soliel",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51119_Sapphiron.json",
+      "page": 1,
+      "row": 5,
+      "owned_actor_ids": [],
+      "duration_ms": 142620,
+      "published": "666.162",
+      "totals": {
+        "raw": 95027,
+        "self": 19,
+        "excluded": 0,
+        "ranked": 95008
+      },
+      "residual": "-611/3565500"
+    },
+    {
+      "id": "WPxyrnqYh2J8D6LN-93-43",
+      "purpose": "policy-scope",
+      "report": "WPxyrnqYh2J8D6LN",
+      "fight": 93,
+      "actor": 43,
+      "player": "Ywfvniefjioe",
+      "realm": "Pyrewood Village",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51119_Sapphiron.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 214587,
+      "published": "698.859",
+      "totals": {
+        "raw": 152016,
+        "self": 2050,
+        "excluded": 0,
+        "ranked": 149966
+      },
+      "residual": "-56233/214587000",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 130,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "bb1f7c8d814a45355eb35ab7d5245c20b2175731f8200a3f5b8abf172b556095",
+            "b653d08596da12b46b17ac8a6e859714fe8e33ce78c617f0634e9f60ada1fff8",
+            "7454a7aad84ec05bc389cc0b9d892f11c547d97e1ce600b84455cc2c14276130",
+            "48ca8e862da536e48a2d4e6944536cdcc6bb044e8b4bd5458765c5bf78c899ad"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vQ94NTnwJb683PXr-88-52",
+      "purpose": "policy-scope",
+      "report": "vQ94NTnwJb683PXr",
+      "fight": 88,
+      "actor": 52,
+      "player": "Soolia",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51119_Sapphiron.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 204626,
+      "published": "672.441",
+      "totals": {
+        "raw": 137599,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 137599
+      },
+      "residual": "43967/102313000"
+    }
+  ],
+  "refusals": []
+}

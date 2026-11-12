@@ -1,0 +1,121 @@
+{
+  "version": 1,
+  "rule": "naxx-patchwerk-destruction-warlock-alliance-dps-v1",
+  "scope": {
+    "encounter_id": 51118,
+    "class_id": 10,
+    "category": "Destruction",
+    "metric": "dps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77751784-2006-20261109T171544.zip",
+    "sha256": "44aa5ecd2af4f99afc994efb5cc9832d2dc9026370c15b908a5d1f0924f71068"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "7NmBydcX8HFRh1tA-14-38",
+      "purpose": "policy-scope",
+      "report": "7NmBydcX8HFRh1tA",
+      "fight": 14,
+      "actor": 38,
+      "player": "Sobr",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51118_Patchwerk.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 110767,
+      "published": "1881.08",
+      "totals": {
+        "raw": 209340,
+        "self": 978,
+        "excluded": 0,
+        "ranked": 208362
+      },
+      "residual": "10291/2769175"
+    },
+    {
+      "id": "7NmBydcX8HFRh1tA-14-45",
+      "purpose": "policy-scope",
+      "report": "7NmBydcX8HFRh1tA",
+      "fight": 14,
+      "actor": 45,
+      "player": "Encylate",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51118_Patchwerk.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 110767,
+      "published": "1767.35",
+      "totals": {
+        "raw": 196930,
+        "self": 1166,
+        "excluded": 0,
+        "ranked": 195764
+      },
+      "residual": "-1149/2215340",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 60,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "d483d35fec612088ba1cc8133c41e527dd9d85521982d5a160a4b2e04770f475",
+            "6546cc1ea291e14731fd21eaf710859db82c2769ae401a49a41ead34050a8232"
+          ]
+        },
+        {
+          "pet": 77,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "d483d35fec612088ba1cc8133c41e527dd9d85521982d5a160a4b2e04770f475",
+            "6546cc1ea291e14731fd21eaf710859db82c2769ae401a49a41ead34050a8232"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7NmBydcX8HFRh1tA-14-42",
+      "purpose": "policy-scope",
+      "report": "7NmBydcX8HFRh1tA",
+      "fight": 14,
+      "actor": 42,
+      "player": "Krentemi",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51118_Patchwerk.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 110767,
+      "published": "1744.21",
+      "totals": {
+        "raw": 194413,
+        "self": 1212,
+        "excluded": 0,
+        "ranked": 193201
+      },
+      "residual": "9093/11076700"
+    }
+  ],
+  "refusals": []
+}

@@ -1,0 +1,121 @@
+{
+  "version": 1,
+  "rule": "naxx-noth-destruction-warlock-horde-dps-v1",
+  "scope": {
+    "encounter_id": 51117,
+    "class_id": 10,
+    "category": "Destruction",
+    "metric": "dps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/64322945-2006-20261110T064311.zip",
+    "sha256": "62ee186326d8affa4f56d5e53616640e38e5f8fc87ffae5396d0806bb576684d"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "F9HrDpTfbBxgWZwQ-25-5",
+      "purpose": "policy-scope",
+      "report": "F9HrDpTfbBxgWZwQ",
+      "fight": 25,
+      "actor": 5,
+      "player": "Coughsyrup",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51117_Noth_the_Plaguebringer.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 53340,
+      "published": "1733.52",
+      "totals": {
+        "raw": 94364,
+        "self": 1898,
+        "excluded": 0,
+        "ranked": 92466
+      },
+      "residual": "18/22225",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 58,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "3b36c2e1644fad0db33836d6475cb5ec08570391405546f327fa2ab524f7d989",
+            "fcba6f5e5e2dbd845bdd091aca5ff3539006bde1ca3c5d3eceafc04e37e742e7"
+          ]
+        },
+        {
+          "pet": 110,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "3b36c2e1644fad0db33836d6475cb5ec08570391405546f327fa2ab524f7d989",
+            "fcba6f5e5e2dbd845bdd091aca5ff3539006bde1ca3c5d3eceafc04e37e742e7"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q4P8rj2YazcK6FHD-14-41",
+      "purpose": "policy-scope",
+      "report": "Q4P8rj2YazcK6FHD",
+      "fight": 14,
+      "actor": 41,
+      "player": "Dafunc",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51117_Noth_the_Plaguebringer.json",
+      "page": 1,
+      "row": 11,
+      "owned_actor_ids": [],
+      "duration_ms": 38678,
+      "published": "1595.12",
+      "totals": {
+        "raw": 61696,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 61696
+      },
+      "residual": "-642/483475"
+    },
+    {
+      "id": "wG9PHZFp3y8z2jJk-12-45",
+      "purpose": "policy-scope",
+      "report": "wG9PHZFp3y8z2jJk",
+      "fight": 12,
+      "actor": 45,
+      "player": "Crol",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51117_Noth_the_Plaguebringer.json",
+      "page": 1,
+      "row": 9,
+      "owned_actor_ids": [],
+      "duration_ms": 39204,
+      "published": "1623.33",
+      "totals": {
+        "raw": 64258,
+        "self": 617,
+        "excluded": 0,
+        "ranked": 63641
+      },
+      "residual": "-733/980100"
+    }
+  ],
+  "refusals": []
+}

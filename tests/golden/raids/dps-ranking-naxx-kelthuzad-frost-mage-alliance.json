@@ -1,0 +1,103 @@
+{
+  "version": 1,
+  "rule": "naxx-kelthuzad-frost-mage-alliance-dps-v1",
+  "scope": {
+    "encounter_id": 51114,
+    "class_id": 4,
+    "category": "Frost",
+    "metric": "dps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/96494133-2006-20261105T033802.zip",
+    "sha256": "6c0c59209ab15336d31b0f5e38e56873b050d9be0d4546bc4cde16039bb1fb71"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "HzRjDJtB2XyGvZLp-95-1",
+      "purpose": "policy-scope",
+      "report": "HzRjDJtB2XyGvZLp",
+      "fight": 95,
+      "actor": 1,
+      "player": "Legss",
+      "realm": "Nethergarde Keep",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51114_Kel_Thuzad.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 139717,
+      "published": "849.668",
+      "totals": {
+        "raw": 118713,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 118713
+      },
+      "residual": "-15989/34929250"
+    },
+    {
+      "id": "ZqNDJ3wgQPdbp691-46-10",
+      "purpose": "policy-scope",
+      "report": "ZqNDJ3wgQPdbp691",
+      "fight": 46,
+      "actor": 10,
+      "player": "Aisle",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51114_Kel_Thuzad.json",
+      "page": 1,
+      "row": 3,
+      "owned_actor_ids": [],
+      "duration_ms": 132627,
+      "published": "751.793",
+      "totals": {
+        "raw": 99708,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 99708
+      },
+      "residual": "-16737/44209000"
+    },
+    {
+      "id": "mjvPqTd9w7fZVHnA-21-42",
+      "purpose": "policy-scope",
+      "report": "mjvPqTd9w7fZVHnA",
+      "fight": 21,
+      "actor": 42,
+      "player": "Petrapink",
+      "realm": "Pyrewood Village",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51114_Kel_Thuzad.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 168708,
+      "published": "758.18",
+      "totals": {
+        "raw": 127911,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 127911
+      },
+      "residual": "-131/702950"
+    }
+  ],
+  "refusals": []
+}

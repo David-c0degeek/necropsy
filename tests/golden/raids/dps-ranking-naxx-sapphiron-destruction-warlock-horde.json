@@ -1,0 +1,157 @@
+{
+  "version": 1,
+  "rule": "naxx-sapphiron-destruction-warlock-horde-dps-v1",
+  "scope": {
+    "encounter_id": 51119,
+    "class_id": 10,
+    "category": "Destruction",
+    "metric": "dps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/64322945-2006-20261110T064311.zip",
+    "sha256": "62ee186326d8affa4f56d5e53616640e38e5f8fc87ffae5396d0806bb576684d"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "4WKXnxD8ZRCAkbNp-36-8",
+      "purpose": "policy-scope",
+      "report": "4WKXnxD8ZRCAkbNp",
+      "fight": 36,
+      "actor": 8,
+      "player": "Englaived",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51119_Sapphiron.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [
+        295
+      ],
+      "duration_ms": 21463,
+      "published": "3505.89",
+      "totals": {
+        "raw": 75247,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 75247
+      },
+      "residual": "8293/2146300",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 108,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "5256b4fc253621f89662c1758be270029eb449dce18f453b10ff26c15499ebe6"
+          ]
+        },
+        {
+          "pet": 238,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "5256b4fc253621f89662c1758be270029eb449dce18f453b10ff26c15499ebe6"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "KXkJPBfrax8qmHyV-32-56",
+      "purpose": "policy-scope",
+      "report": "KXkJPBfrax8qmHyV",
+      "fight": 32,
+      "actor": 56,
+      "player": "Alanjackson",
+      "realm": "Fairbanks",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51119_Sapphiron.json",
+      "page": 1,
+      "row": 4,
+      "owned_actor_ids": [
+        295
+      ],
+      "duration_ms": 18690,
+      "published": "3352.54",
+      "totals": {
+        "raw": 62659,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 62659
+      },
+      "residual": "137/93450",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 223,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "6a5442c25a699766c1e9fa436de3e35f92f10364929c921199ea526d7db08e79"
+          ]
+        },
+        {
+          "pet": 244,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "6a5442c25a699766c1e9fa436de3e35f92f10364929c921199ea526d7db08e79"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "yjxmVPQpWk3YN6C4-28-38",
+      "purpose": "policy-scope",
+      "report": "yjxmVPQpWk3YN6C4",
+      "fight": 28,
+      "actor": 38,
+      "player": "Secundus",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51119_Sapphiron.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [
+        84
+      ],
+      "duration_ms": 20372,
+      "published": "3827.56",
+      "totals": {
+        "raw": 77975,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 77975
+      },
+      "residual": "-327/127325",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 139,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "de13280bc3fb906e8e870214f9bc2f69d774d6eb6140d55a2cdea25ddba5ac1a"
+          ]
+        },
+        {
+          "pet": 205,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "de13280bc3fb906e8e870214f9bc2f69d774d6eb6140d55a2cdea25ddba5ac1a"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

@@ -1,0 +1,155 @@
+{
+  "version": 1,
+  "rule": "naxx-sapphiron-guardian-druid-alliance-dps-v1",
+  "scope": {
+    "encounter_id": 51119,
+    "class_id": 2,
+    "category": "Guardian",
+    "metric": "dps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261031/83306366-2006-20261031T073441.zip",
+    "sha256": "d6ecd3846ba9a27641ce80eb801006d630432348fd0283594d2f805dda7dcb55"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "21Ykya7dQHmtAxGX-54-3",
+      "purpose": "policy-scope",
+      "report": "21Ykya7dQHmtAxGX",
+      "fight": 54,
+      "actor": 3,
+      "player": "Hamtaró",
+      "realm": "Rattlegore",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51119_Sapphiron.json",
+      "page": 1,
+      "row": 3,
+      "owned_actor_ids": [],
+      "duration_ms": 184946,
+      "published": "583.386",
+      "totals": {
+        "raw": 107895,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 107895
+      },
+      "residual": "23211/46236500",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 63,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "92ed12163c6a4e7433b0f62cd604bbf4eb88f5c98aebdc86f4658f148ddc353b",
+            "98ef85b76b73739c1409feb5ff43b2037e2b5cb9d71f4b1e8436eb2813917998",
+            "e5cf23cb54281ded2b2c619422e3f4ba971483b8a259b17a781c557f30767935",
+            "9d691cb925397bb5ce9344082b6e26ca6df5bfad49e009104f4526f49e30598b"
+          ]
+        },
+        {
+          "pet": 151,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "92ed12163c6a4e7433b0f62cd604bbf4eb88f5c98aebdc86f4658f148ddc353b",
+            "98ef85b76b73739c1409feb5ff43b2037e2b5cb9d71f4b1e8436eb2813917998",
+            "e5cf23cb54281ded2b2c619422e3f4ba971483b8a259b17a781c557f30767935",
+            "9d691cb925397bb5ce9344082b6e26ca6df5bfad49e009104f4526f49e30598b"
+          ]
+        },
+        {
+          "pet": 155,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "92ed12163c6a4e7433b0f62cd604bbf4eb88f5c98aebdc86f4658f148ddc353b",
+            "98ef85b76b73739c1409feb5ff43b2037e2b5cb9d71f4b1e8436eb2813917998",
+            "e5cf23cb54281ded2b2c619422e3f4ba971483b8a259b17a781c557f30767935",
+            "9d691cb925397bb5ce9344082b6e26ca6df5bfad49e009104f4526f49e30598b"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3mvMLWACGdByfaZt-41-17",
+      "purpose": "policy-scope",
+      "report": "3mvMLWACGdByfaZt",
+      "fight": 41,
+      "actor": 17,
+      "player": "Miskovsky",
+      "realm": "Windseeker",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51119_Sapphiron.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 137934,
+      "published": "597.967",
+      "totals": {
+        "raw": 82480,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 82480
+      },
+      "residual": "9911/68967000"
+    },
+    {
+      "id": "kat3N9rFvb1AyKQW-61-35",
+      "purpose": "policy-scope",
+      "report": "kat3N9rFvb1AyKQW",
+      "fight": 61,
+      "actor": 35,
+      "player": "Iol",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51119_Sapphiron.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 129389,
+      "published": "750.86",
+      "totals": {
+        "raw": 97153,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 97153
+      },
+      "residual": "-1227/6469450",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 120,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "b98401b3950dd54dcde1d1012ed773a8ac44a44c79231d2d8b278814726a427b",
+            "494653c7cfecfde3a0f111d80f425565077a2ae3d56eacdad149c60b0949b69e",
+            "0dfe7570a6305bd67c968658b88c106b62fd1a264150c242d94d15f96adb9793"
+          ]
+        },
+        {
+          "pet": 181,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "b98401b3950dd54dcde1d1012ed773a8ac44a44c79231d2d8b278814726a427b",
+            "494653c7cfecfde3a0f111d80f425565077a2ae3d56eacdad149c60b0949b69e",
+            "0dfe7570a6305bd67c968658b88c106b62fd1a264150c242d94d15f96adb9793"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

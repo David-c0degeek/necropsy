@@ -1,0 +1,163 @@
+{
+  "version": 1,
+  "rule": "naxx-horsemen-destruction-warlock-horde-dps-v1",
+  "scope": {
+    "encounter_id": 51121,
+    "class_id": 10,
+    "category": "Destruction",
+    "metric": "dps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/64322945-2006-20261110T064311.zip",
+    "sha256": "62ee186326d8affa4f56d5e53616640e38e5f8fc87ffae5396d0806bb576684d"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "VTvBXZp6HRQt3y1A-85-1",
+      "purpose": "policy-scope",
+      "report": "VTvBXZp6HRQt3y1A",
+      "fight": 85,
+      "actor": 1,
+      "player": "Coughsyrup",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51121_The_Four_Horsemen.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 267105,
+      "published": "806.129",
+      "totals": {
+        "raw": 215321,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 215321
+      },
+      "residual": "-17309/53421000",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 162,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "6cebae54dcf0c700860547f3445c240054fd1f4542874506b14f1f46cad9fa51",
+            "3ac0d4bcbc6eaf2073ecaa7ed30886afd7eecec6a095c526c768bdc2a4567e51",
+            "e3fd6bcd27366219ef3115e8001956fe5b6d224e30e40079f562fa71f106fb9b"
+          ]
+        },
+        {
+          "pet": 184,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "6cebae54dcf0c700860547f3445c240054fd1f4542874506b14f1f46cad9fa51",
+            "3ac0d4bcbc6eaf2073ecaa7ed30886afd7eecec6a095c526c768bdc2a4567e51",
+            "e3fd6bcd27366219ef3115e8001956fe5b6d224e30e40079f562fa71f106fb9b"
+          ]
+        },
+        {
+          "pet": 240,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "6cebae54dcf0c700860547f3445c240054fd1f4542874506b14f1f46cad9fa51",
+            "3ac0d4bcbc6eaf2073ecaa7ed30886afd7eecec6a095c526c768bdc2a4567e51",
+            "e3fd6bcd27366219ef3115e8001956fe5b6d224e30e40079f562fa71f106fb9b"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tgJzRmYvrncVPy96-71-42",
+      "purpose": "policy-scope",
+      "report": "tgJzRmYvrncVPy96",
+      "fight": 71,
+      "actor": 42,
+      "player": "Tubbygold",
+      "realm": "Pyrewood Village",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51121_The_Four_Horsemen.json",
+      "page": 1,
+      "row": 4,
+      "owned_actor_ids": [],
+      "duration_ms": 261852,
+      "published": "698.734",
+      "totals": {
+        "raw": 182965,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 182965
+      },
+      "residual": "13079/32731500",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 57,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "b2bdc7af4f28be71e70f3b9da237a81cf0b418a9bda36d8be6b5058b3319096f",
+            "b3f8430114dafba159c8f0068191414bbb9d42e2c9dcbb2a095d8238d97a69b6",
+            "27343abfd36d27fb68693ed4298bd099456cb82e8fd901492dc71ef58c6358fe"
+          ]
+        },
+        {
+          "pet": 175,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "b2bdc7af4f28be71e70f3b9da237a81cf0b418a9bda36d8be6b5058b3319096f",
+            "b3f8430114dafba159c8f0068191414bbb9d42e2c9dcbb2a095d8238d97a69b6",
+            "27343abfd36d27fb68693ed4298bd099456cb82e8fd901492dc71ef58c6358fe"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "xYrVZHfvMLz4qWyA-21-2",
+      "purpose": "policy-scope",
+      "report": "xYrVZHfvMLz4qWyA",
+      "fight": 21,
+      "actor": 2,
+      "player": "Dafunc",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51121_The_Four_Horsemen.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 156372,
+      "published": "771.852",
+      "totals": {
+        "raw": 120696,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 120696
+      },
+      "residual": "-853/3257750",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 4,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "b832a834a3fa79be321e7f2d245c72d5c64757280331dbf71c1b68f61c4fcfcb",
+            "c2c52a5be960ec6f65c509c424122e960b74d78d958d52a4b24ecb4138b617d0",
+            "0d3cd60c5f2a059557cca52727382723679d5b8e5273dec50bb3db3477b687ea"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

@@ -1,0 +1,114 @@
+{
+  "version": 1,
+  "rule": "naxx-gothik-guardian-druid-alliance-dps-v1",
+  "scope": {
+    "encounter_id": 51109,
+    "class_id": 2,
+    "category": "Guardian",
+    "metric": "dps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261031/83306366-2006-20261031T073441.zip",
+    "sha256": "d6ecd3846ba9a27641ce80eb801006d630432348fd0283594d2f805dda7dcb55"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "MZBymYtWqrpVKNvH-49-46",
+      "purpose": "policy-scope",
+      "report": "MZBymYtWqrpVKNvH",
+      "fight": 49,
+      "actor": 46,
+      "player": "缺得的德",
+      "realm": "匕首岭",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51109_Gothik_the_Harvester.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 310613,
+      "published": "265.23",
+      "totals": {
+        "raw": 82384,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 82384
+      },
+      "residual": "11401/31061300",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 79,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "eb5ae9e4f98f568c9df6ca3c04f422c186109b54fb2099515032a22ad76d71cb",
+            "0d1f33f1af741383c6f8db855310a15bb6ad84bb7f14c44ad34b40719475a292",
+            "2fd1b57af08e824a633f6aaa519a6ca5f172ed7edd7447e188937c3d1b1273eb"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tafbX4Y2JLCDw7Nj-25-46",
+      "purpose": "policy-scope",
+      "report": "tafbX4Y2JLCDw7Nj",
+      "fight": 25,
+      "actor": 46,
+      "player": "Sheikh",
+      "realm": "Thunderfury",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51109_Gothik_the_Harvester.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 299531,
+      "published": "265.151",
+      "totals": {
+        "raw": 79421,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 79421
+      },
+      "residual": "55819/299531000"
+    },
+    {
+      "id": "wzJTxjc6Nv2pFKab-12-20",
+      "purpose": "policy-scope",
+      "report": "wzJTxjc6Nv2pFKab",
+      "fight": 12,
+      "actor": 20,
+      "player": "Destinations",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51109_Gothik_the_Harvester.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 302228,
+      "published": "264.704",
+      "totals": {
+        "raw": 80001,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 80001
+      },
+      "residual": "1234/9444625"
+    }
+  ],
+  "refusals": []
+}

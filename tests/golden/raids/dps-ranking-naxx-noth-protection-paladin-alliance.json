@@ -1,0 +1,113 @@
+{
+  "version": 1,
+  "rule": "naxx-noth-protection-paladin-alliance-dps-v1",
+  "scope": {
+    "encounter_id": 51117,
+    "class_id": 6,
+    "category": "Protection",
+    "metric": "dps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/67666001-2006-20261105T232014.zip",
+    "sha256": "b768ff71aa948c5091eb22eafbc8baa9e3a36165c0304d39d9d48b113ec1b591"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "BLPDhXW416j9tfva-23-27",
+      "purpose": "policy-scope",
+      "report": "BLPDhXW416j9tfva",
+      "fight": 23,
+      "actor": 27,
+      "player": "Ecclesia",
+      "realm": "Mankrik",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51117_Noth_the_Plaguebringer.json",
+      "page": 1,
+      "row": 3,
+      "owned_actor_ids": [],
+      "duration_ms": 49490,
+      "published": "638.998",
+      "totals": {
+        "raw": 31624,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 31624
+      },
+      "residual": "-551/2474500"
+    },
+    {
+      "id": "Mvg369KbYzQGjdZk-49-24",
+      "purpose": "policy-scope",
+      "report": "Mvg369KbYzQGjdZk",
+      "fight": 49,
+      "actor": 24,
+      "player": "Tulkas",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51117_Noth_the_Plaguebringer.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 88283,
+      "published": "709.91",
+      "totals": {
+        "raw": 62673,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 62673
+      },
+      "residual": "119/679100"
+    },
+    {
+      "id": "w7RAXGQkybCt1WLa-64-24",
+      "purpose": "policy-scope",
+      "report": "w7RAXGQkybCt1WLa",
+      "fight": 64,
+      "actor": 24,
+      "player": "Cisternina",
+      "realm": "Mankrik",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51117_Noth_the_Plaguebringer.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 70536,
+      "published": "640.453",
+      "totals": {
+        "raw": 45557,
+        "self": 382,
+        "excluded": 0,
+        "ranked": 45175
+      },
+      "residual": "899/8817000",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 68,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "3805cc7077a9f8d32c6eb6827aedf4533750711d0d4d84cbb35598f9264570ee",
+            "6593ed8b82160d28a74f5f29356174f9fb6aec8951857dacba3efa487f12e229"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

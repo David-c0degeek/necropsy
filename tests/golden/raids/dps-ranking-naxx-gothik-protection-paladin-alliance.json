@@ -1,0 +1,114 @@
+{
+  "version": 1,
+  "rule": "naxx-gothik-protection-paladin-alliance-dps-v1",
+  "scope": {
+    "encounter_id": 51109,
+    "class_id": 6,
+    "category": "Protection",
+    "metric": "dps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/67666001-2006-20261105T232014.zip",
+    "sha256": "b768ff71aa948c5091eb22eafbc8baa9e3a36165c0304d39d9d48b113ec1b591"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "1gLByvYVHWkcMrzN-106-24",
+      "purpose": "policy-scope",
+      "report": "1gLByvYVHWkcMrzN",
+      "fight": 106,
+      "actor": 24,
+      "player": "Georgy",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51109_Gothik_the_Harvester.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 303882,
+      "published": "285.223",
+      "totals": {
+        "raw": 86674,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 86674
+      },
+      "residual": "-67843/151941000",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 96,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "5f155a288db7c071b04db1d00f6f4d310a8aee83da5266c116606724b63d24ab",
+            "e76f59ac2025f1e4c96749adaa2aca2a291edbf2da8f231bb87848ecdb8a7785",
+            "bf4e5a0b0683801a2738df7c1d970042995b18af55ae68a75f890a800d9e4997"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7d9Ap24KwJD8PWRY-61-13",
+      "purpose": "policy-scope",
+      "report": "7d9Ap24KwJD8PWRY",
+      "fight": 61,
+      "actor": 13,
+      "player": "Jayzee",
+      "realm": "Pyrewood Village",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51109_Gothik_the_Harvester.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 306557,
+      "published": "253.499",
+      "totals": {
+        "raw": 77712,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 77712
+      },
+      "residual": "107057/306557000"
+    },
+    {
+      "id": "h6cBHxQX1gN27rqm-49-5",
+      "purpose": "policy-scope",
+      "report": "h6cBHxQX1gN27rqm",
+      "fight": 49,
+      "actor": 5,
+      "player": "Ecclesia",
+      "realm": "Mankrik",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51109_Gothik_the_Harvester.json",
+      "page": 1,
+      "row": 3,
+      "owned_actor_ids": [],
+      "duration_ms": 308109,
+      "published": "225.131",
+      "totals": {
+        "raw": 70812,
+        "self": 1447,
+        "excluded": 0,
+        "ranked": 69365
+      },
+      "residual": "112721/308109000"
+    }
+  ],
+  "refusals": []
+}

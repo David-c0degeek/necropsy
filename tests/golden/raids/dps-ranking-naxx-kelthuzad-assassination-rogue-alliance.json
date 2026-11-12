@@ -1,0 +1,183 @@
+{
+  "version": 1,
+  "rule": "naxx-kelthuzad-assassination-rogue-alliance-dps-v1",
+  "scope": {
+    "encounter_id": 51114,
+    "class_id": 8,
+    "category": "Assassination",
+    "metric": "dps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77022735-2006-20261108T142205.zip",
+    "sha256": "f677e3ee78aeefc0ffe92aba276c7110707df719c2a3d05585a4aa47aa2abbb6"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "HwjymM8r4ZgdbBh9-34-5",
+      "purpose": "policy-scope",
+      "report": "HwjymM8r4ZgdbBh9",
+      "fight": 34,
+      "actor": 5,
+      "player": "Runíc",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51114_Kel_Thuzad.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 85442,
+      "published": "1749.41",
+      "totals": {
+        "raw": 149473,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 149473
+      },
+      "residual": "-4461/4272100",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 89,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "425e27813baeb4c3395b93c42fa61c7dd16383019f80d4927c23ae558345f7d9",
+            "b60fce35617c978b19e5f4aee3388d39ef72309b3d2fa863bb5c475f387b8f98"
+          ]
+        },
+        {
+          "pet": 130,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "425e27813baeb4c3395b93c42fa61c7dd16383019f80d4927c23ae558345f7d9",
+            "b60fce35617c978b19e5f4aee3388d39ef72309b3d2fa863bb5c475f387b8f98"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "PkJzmb8hcBw2VvAn-57-6",
+      "purpose": "policy-scope",
+      "report": "PkJzmb8hcBw2VvAn",
+      "fight": 57,
+      "actor": 6,
+      "player": "Craeylol",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51114_Kel_Thuzad.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 84873,
+      "published": "1849.68",
+      "totals": {
+        "raw": 157408,
+        "self": 420,
+        "excluded": 0,
+        "ranked": 156988
+      },
+      "residual": "2734/2121825",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 79,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "2cd1075074ddc47cd0747d2896b01d936173e497f6e21636d26e7628e82ef68d",
+            "c1bda488979b8ad0ab98d88c6b06fb5aeb06d65025ca7df984d37ee3adf5d6a3"
+          ]
+        },
+        {
+          "pet": 86,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "2cd1075074ddc47cd0747d2896b01d936173e497f6e21636d26e7628e82ef68d",
+            "c1bda488979b8ad0ab98d88c6b06fb5aeb06d65025ca7df984d37ee3adf5d6a3"
+          ]
+        },
+        {
+          "pet": 102,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "2cd1075074ddc47cd0747d2896b01d936173e497f6e21636d26e7628e82ef68d",
+            "c1bda488979b8ad0ab98d88c6b06fb5aeb06d65025ca7df984d37ee3adf5d6a3"
+          ]
+        },
+        {
+          "pet": 122,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "2cd1075074ddc47cd0747d2896b01d936173e497f6e21636d26e7628e82ef68d",
+            "c1bda488979b8ad0ab98d88c6b06fb5aeb06d65025ca7df984d37ee3adf5d6a3"
+          ]
+        },
+        {
+          "pet": 215,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "2cd1075074ddc47cd0747d2896b01d936173e497f6e21636d26e7628e82ef68d",
+            "c1bda488979b8ad0ab98d88c6b06fb5aeb06d65025ca7df984d37ee3adf5d6a3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Tdva4tG6yL2xrPQf-47-28",
+      "purpose": "policy-scope",
+      "report": "Tdva4tG6yL2xrPQf",
+      "fight": 47,
+      "actor": 28,
+      "player": "Awo",
+      "realm": "Earthshaker",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51114_Kel_Thuzad.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [
+        49
+      ],
+      "duration_ms": 92558,
+      "published": "1789.93",
+      "totals": {
+        "raw": 166278,
+        "self": 606,
+        "excluded": 0,
+        "ranked": 165672
+      },
+      "residual": "-17047/4627900",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 97,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "f5ab2e1840d66ed535b71a2871b2abcecbae41c34c4d023165da85a1b2b3ead1",
+            "ff3e7d876a1ba920dcee951da2e3eafd5e6f5af3afdb3108061defbbd634457c"
+          ]
+        },
+        {
+          "pet": 128,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "f5ab2e1840d66ed535b71a2871b2abcecbae41c34c4d023165da85a1b2b3ead1",
+            "ff3e7d876a1ba920dcee951da2e3eafd5e6f5af3afdb3108061defbbd634457c"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

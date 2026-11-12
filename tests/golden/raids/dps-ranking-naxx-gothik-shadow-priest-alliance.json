@@ -1,0 +1,103 @@
+{
+  "version": 1,
+  "rule": "naxx-gothik-shadow-priest-alliance-dps-v1",
+  "scope": {
+    "encounter_id": 51109,
+    "class_id": 7,
+    "category": "Shadow",
+    "metric": "dps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77122652-2006-20261107T163813.zip",
+    "sha256": "85f096bcc2951498da23e9d8e3297387fc1bd899217ec963867b977459298585"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "XKFLM6YR29Cmxpnb-38-41",
+      "purpose": "policy-scope",
+      "report": "XKFLM6YR29Cmxpnb",
+      "fight": 38,
+      "actor": 41,
+      "player": "Deyada",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51109_Gothik_the_Harvester.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 298300,
+      "published": "229.554",
+      "totals": {
+        "raw": 68476,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 68476
+      },
+      "residual": "11/78500"
+    },
+    {
+      "id": "ZL924hN1HAyQCYX7-43-42",
+      "purpose": "policy-scope",
+      "report": "ZL924hN1HAyQCYX7",
+      "fight": 43,
+      "actor": 42,
+      "player": "Kerzon",
+      "realm": "Pagle",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51109_Gothik_the_Harvester.json",
+      "page": 1,
+      "row": 3,
+      "owned_actor_ids": [],
+      "duration_ms": 294877,
+      "published": "225.86",
+      "totals": {
+        "raw": 66601,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 66601
+      },
+      "residual": "4039/14743850"
+    },
+    {
+      "id": "nZFqfgYQz27AP4BC-61-59",
+      "purpose": "policy-scope",
+      "report": "nZFqfgYQz27AP4BC",
+      "fight": 61,
+      "actor": 59,
+      "player": "Riffriff",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51109_Gothik_the_Harvester.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 307522,
+      "published": "251.523",
+      "totals": {
+        "raw": 77349,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 77349
+      },
+      "residual": "71997/153761000"
+    }
+  ],
+  "refusals": []
+}

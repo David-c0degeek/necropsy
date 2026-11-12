@@ -1,0 +1,134 @@
+{
+  "version": 1,
+  "rule": "naxx-maexxna-marksmanship-hunter-horde-dps-v1",
+  "scope": {
+    "encounter_id": 51116,
+    "class_id": 3,
+    "category": "Marksmanship",
+    "metric": "dps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/64181902-2006-20261104T151326.zip",
+    "sha256": "107c7bcb85e14bd9b69038141be282a8a5d8bc19e25b2d7f01609122d453349a"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "Ac1fKxGW6h3jmJpd-10-51",
+      "purpose": "policy-scope",
+      "report": "Ac1fKxGW6h3jmJpd",
+      "fight": 10,
+      "actor": 51,
+      "player": "Jeianstew",
+      "realm": "Mankrik",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51116_Maexxna.json",
+      "page": 1,
+      "row": 3,
+      "owned_actor_ids": [
+        58
+      ],
+      "duration_ms": 34841,
+      "published": "1488.25",
+      "totals": {
+        "raw": 51852,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 51852
+      },
+      "residual": "-473/139364"
+    },
+    {
+      "id": "VknXqch8rNGWpFMv-15-64",
+      "purpose": "policy-scope",
+      "report": "VknXqch8rNGWpFMv",
+      "fight": 15,
+      "actor": 64,
+      "player": "Shinazee",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51116_Maexxna.json",
+      "page": 1,
+      "row": 5,
+      "owned_actor_ids": [
+        68
+      ],
+      "duration_ms": 34620,
+      "published": "1451.53",
+      "totals": {
+        "raw": 50252,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 50252
+      },
+      "residual": "157/173100",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 121,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "efaaaaa96961fb14df5e9efadd3626ab3209015ea0351e31d7edc9775072b8fd"
+          ]
+        },
+        {
+          "pet": 189,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "efaaaaa96961fb14df5e9efadd3626ab3209015ea0351e31d7edc9775072b8fd"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fNj7RTCkvXgGhqzy-11-27",
+      "purpose": "policy-scope",
+      "report": "fNj7RTCkvXgGhqzy",
+      "fight": 11,
+      "actor": 27,
+      "player": "Timecöp",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51116_Maexxna.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [
+        28
+      ],
+      "duration_ms": 32546,
+      "published": "1650.03",
+      "totals": {
+        "raw": 53702,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 53702
+      },
+      "residual": "6181/1627300",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 197,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "83e60622ac0eb57c05c59f34333f1fb049d287c7352023384e771ef67c7b167b"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

@@ -1,0 +1,125 @@
+{
+  "version": 1,
+  "rule": "naxx-horsemen-protection-paladin-alliance-dps-v1",
+  "scope": {
+    "encounter_id": 51121,
+    "class_id": 6,
+    "category": "Protection",
+    "metric": "dps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/67666001-2006-20261105T232014.zip",
+    "sha256": "b768ff71aa948c5091eb22eafbc8baa9e3a36165c0304d39d9d48b113ec1b591"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "VWc3txFjP2z6Mmba-58-9",
+      "purpose": "policy-scope",
+      "report": "VWc3txFjP2z6Mmba",
+      "fight": 58,
+      "actor": 9,
+      "player": "Kornek",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51121_The_Four_Horsemen.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 230511,
+      "published": "246.166",
+      "totals": {
+        "raw": 56744,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 56744
+      },
+      "residual": "14587/115255500",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 71,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "12d8bae30ba2e064559aff034fead10d62ca5a024866ed00c7b20bd870cd570b",
+            "6f79ba217f084c33433eec830858689b227f1edc51b2a0be055d8fd39b305ffd",
+            "481a70e55c75a2c8950b869fb6ad2d33f1a973bb3c4d0089808f631c6b453733"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pmqY9gdDv28xHAyb-32-39",
+      "purpose": "policy-scope",
+      "report": "pmqY9gdDv28xHAyb",
+      "fight": 32,
+      "actor": 39,
+      "player": "Ecclesia",
+      "realm": "Mankrik",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51121_The_Four_Horsemen.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 191715,
+      "published": "246.809",
+      "totals": {
+        "raw": 47317,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 47317
+      },
+      "residual": "2513/38343000"
+    },
+    {
+      "id": "w7RAXGQkybCt1WLa-58-24",
+      "purpose": "policy-scope",
+      "report": "w7RAXGQkybCt1WLa",
+      "fight": 58,
+      "actor": 24,
+      "player": "Cisternina",
+      "realm": "Mankrik",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51121_The_Four_Horsemen.json",
+      "page": 1,
+      "row": 3,
+      "owned_actor_ids": [],
+      "duration_ms": 284390,
+      "published": "216.122",
+      "totals": {
+        "raw": 61954,
+        "self": 491,
+        "excluded": 0,
+        "ranked": 61463
+      },
+      "residual": "3221/14219500",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 68,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "68003ddbd0a6715557848dd72dd884e3c8d89d4050dd4c8a9721f6c09d3eea44",
+            "b2994487cd3b0db8962c0860729c0f814ee08944e959785c2761c797446cf63b",
+            "853c5b58ce53d90a743bc0f17562f04b28764d5010a2a0b8ae1e8d6f79fd0769"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

@@ -1,0 +1,125 @@
+{
+  "version": 1,
+  "rule": "naxx-gothik-frost-mage-horde-dps-v1",
+  "scope": {
+    "encounter_id": 51109,
+    "class_id": 4,
+    "category": "Frost",
+    "metric": "dps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/83910414-2006-20261105T054215.zip",
+    "sha256": "3ad2f7dba9a65ac121ccfd7b140d1d31e8c22574197285bb0f32d4a6fd222ac0"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "NGLkFH7f3KXaAJxr-53-3",
+      "purpose": "policy-scope",
+      "report": "NGLkFH7f3KXaAJxr",
+      "fight": 53,
+      "actor": 3,
+      "player": "武林夜市",
+      "realm": "匕首岭",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51109_Gothik_the_Harvester.json",
+      "page": 1,
+      "row": 9,
+      "owned_actor_ids": [],
+      "duration_ms": 303029,
+      "published": "333.361",
+      "totals": {
+        "raw": 101603,
+        "self": 585,
+        "excluded": 0,
+        "ranked": 101018
+      },
+      "residual": "-50469/303029000"
+    },
+    {
+      "id": "qPYMyXnbmjHL31WK-55-32",
+      "purpose": "policy-scope",
+      "report": "qPYMyXnbmjHL31WK",
+      "fight": 55,
+      "actor": 32,
+      "player": "逍遥小仙人",
+      "realm": "哈霍兰",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51109_Gothik_the_Harvester.json",
+      "page": 1,
+      "row": 19,
+      "owned_actor_ids": [],
+      "duration_ms": 318985,
+      "published": "310.911",
+      "totals": {
+        "raw": 99176,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 99176
+      },
+      "residual": "10933/63797000",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 186,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "d0d42cea72a3e79191fc0652fbb33f7868863bf11df2af88814678d1a386b600",
+            "5f78f6e16447811a2783d86e4356b8fb3d99a32855edae07579315af3fbaa288",
+            "da6b780a316545507050c02b73f67b04f5402e26d677c1be5fe9ae01637a5c4e"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "twhVGcrTF8Wzy492-36-8",
+      "purpose": "policy-scope",
+      "report": "twhVGcrTF8Wzy492",
+      "fight": 36,
+      "actor": 8,
+      "player": "一瓶西凤",
+      "realm": "哈霍兰",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51109_Gothik_the_Harvester.json",
+      "page": 1,
+      "row": 12,
+      "owned_actor_ids": [],
+      "duration_ms": 298640,
+      "published": "323.416",
+      "totals": {
+        "raw": 97080,
+        "self": 495,
+        "excluded": 0,
+        "ranked": 96585
+      },
+      "residual": "143/933250",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 69,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "166ee735dd6adac2171927f8ddf42862d86172de956ca08e5e78294351466bd7",
+            "ea16a2986e99691938e9dfc5e55bb4269c3c3b0bba6b904f9922adfc8baa4e19",
+            "993c3c9c97f54b62aaa03f4b23f1c3073d423791b2b72912ba1f6d51ec016c04"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

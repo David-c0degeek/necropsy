@@ -1,0 +1,172 @@
+{
+  "version": 1,
+  "rule": "naxx-sapphiron-assassination-rogue-alliance-dps-v1",
+  "scope": {
+    "encounter_id": 51119,
+    "class_id": 8,
+    "category": "Assassination",
+    "metric": "dps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77022735-2006-20261108T142205.zip",
+    "sha256": "f677e3ee78aeefc0ffe92aba276c7110707df719c2a3d05585a4aa47aa2abbb6"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "DtFAg9L2WBZabRX8-27-22",
+      "purpose": "policy-scope",
+      "report": "DtFAg9L2WBZabRX8",
+      "fight": 27,
+      "actor": 22,
+      "player": "Lebabe",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51119_Sapphiron.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 19620,
+      "published": "6578.24",
+      "totals": {
+        "raw": 129065,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 129065
+      },
+      "residual": "-86/24525",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 82,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "42eaa8b5873b5184631932fbff5be83621acb3e77952ff58a82267da81df38ee"
+          ]
+        },
+        {
+          "pet": 121,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "42eaa8b5873b5184631932fbff5be83621acb3e77952ff58a82267da81df38ee"
+          ]
+        },
+        {
+          "pet": 126,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "42eaa8b5873b5184631932fbff5be83621acb3e77952ff58a82267da81df38ee"
+          ]
+        },
+        {
+          "pet": 159,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "42eaa8b5873b5184631932fbff5be83621acb3e77952ff58a82267da81df38ee"
+          ]
+        },
+        {
+          "pet": 216,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "42eaa8b5873b5184631932fbff5be83621acb3e77952ff58a82267da81df38ee"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bVHNAxM8p69tWaFC-29-40",
+      "purpose": "policy-scope",
+      "report": "bVHNAxM8p69tWaFC",
+      "fight": 29,
+      "actor": 40,
+      "player": "Flaps",
+      "realm": "Mankrik",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51119_Sapphiron.json",
+      "page": 1,
+      "row": 3,
+      "owned_actor_ids": [],
+      "duration_ms": 19615,
+      "published": "6292.02",
+      "totals": {
+        "raw": 124943,
+        "self": 1525,
+        "excluded": 0,
+        "ranked": 123418
+      },
+      "residual": "277/196150",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 68,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "e4f29ab7788c0fb371a3eec12d236493516f7da9c97d307cfd7a7a51778cdbe2"
+          ]
+        },
+        {
+          "pet": 202,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "e4f29ab7788c0fb371a3eec12d236493516f7da9c97d307cfd7a7a51778cdbe2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mBTzKnRVdGA2wvHx-34-42",
+      "purpose": "policy-scope",
+      "report": "mBTzKnRVdGA2wvHx",
+      "fight": 34,
+      "actor": 42,
+      "player": "Iogan",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51119_Sapphiron.json",
+      "page": 1,
+      "row": 4,
+      "owned_actor_ids": [],
+      "duration_ms": 18324,
+      "published": "6012.01",
+      "totals": {
+        "raw": 110164,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 110164
+      },
+      "residual": "-1781/458100",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 128,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "f4983614a1ab56ba3bc8b11ad8c9c7121afa3cffcb09751080315939bd3912d4"
+          ]
+        },
+        {
+          "pet": 132,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "f4983614a1ab56ba3bc8b11ad8c9c7121afa3cffcb09751080315939bd3912d4"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

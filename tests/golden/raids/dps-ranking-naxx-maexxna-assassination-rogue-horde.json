@@ -1,0 +1,126 @@
+{
+  "version": 1,
+  "rule": "naxx-maexxna-assassination-rogue-horde-dps-v1",
+  "scope": {
+    "encounter_id": 51116,
+    "class_id": 8,
+    "category": "Assassination",
+    "metric": "dps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/62246596-2006-20261108T183110.zip",
+    "sha256": "fe4586f7b35248d9aac33bd34fee7bae7499e57c9f39a27cd524ff3fd2cd9078"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "KjHF7bZngmD9ALwX-10-24",
+      "purpose": "policy-scope",
+      "report": "KjHF7bZngmD9ALwX",
+      "fight": 10,
+      "actor": 24,
+      "player": "Raserie",
+      "realm": "Kurinnaxx",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51116_Maexxna.json",
+      "page": 1,
+      "row": 3,
+      "owned_actor_ids": [],
+      "duration_ms": 33600,
+      "published": "2391.07",
+      "totals": {
+        "raw": 80856,
+        "self": 516,
+        "excluded": 0,
+        "ranked": 80340
+      },
+      "residual": "1/700",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 134,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "349c5984ec20330986cc73994e660e2c8a2313871f51d295e69cf6fefb06c0a0"
+          ]
+        },
+        {
+          "pet": 135,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "349c5984ec20330986cc73994e660e2c8a2313871f51d295e69cf6fefb06c0a0"
+          ]
+        },
+        {
+          "pet": 179,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "349c5984ec20330986cc73994e660e2c8a2313871f51d295e69cf6fefb06c0a0"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Pqkwx7Ycf2RmWyjd-9-35",
+      "purpose": "policy-scope",
+      "report": "Pqkwx7Ycf2RmWyjd",
+      "fight": 9,
+      "actor": 35,
+      "player": "Whoracle",
+      "realm": "Bigglesworth",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51116_Maexxna.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 33553,
+      "published": "2484.87",
+      "totals": {
+        "raw": 83992,
+        "self": 617,
+        "excluded": 0,
+        "ranked": 83375
+      },
+      "residual": "541/115700"
+    },
+    {
+      "id": "jQq4py6c8x9wZ1hK-11-37",
+      "purpose": "policy-scope",
+      "report": "jQq4py6c8x9wZ1hK",
+      "fight": 11,
+      "actor": 37,
+      "player": "Convict",
+      "realm": "Gandling",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51116_Maexxna.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 31367,
+      "published": "2393.76",
+      "totals": {
+        "raw": 75761,
+        "self": 676,
+        "excluded": 0,
+        "ranked": 75085
+      },
+      "residual": "-1748/784175"
+    }
+  ],
+  "refusals": []
+}

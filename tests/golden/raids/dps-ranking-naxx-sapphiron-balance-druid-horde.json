@@ -1,0 +1,164 @@
+{
+  "version": 1,
+  "rule": "naxx-sapphiron-balance-druid-horde-dps-v1",
+  "scope": {
+    "encounter_id": 51119,
+    "class_id": 2,
+    "category": "Balance",
+    "metric": "dps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261031/64347501-2006-20261027T093033.zip",
+    "sha256": "7021b6a180220f5933e700ec5121db16441526d5004d88679d6bf48e98718ab2"
+  },
+  "dispositions": {
+    "n": 5,
+    "k": 5,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "1FNawvtKfD6chCpr-10-36",
+      "purpose": "policy-scope",
+      "report": "1FNawvtKfD6chCpr",
+      "fight": 10,
+      "actor": 36,
+      "player": "Crljenac",
+      "realm": "Mirage Raceway",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51119_Sapphiron.json",
+      "page": 1,
+      "row": 21,
+      "owned_actor_ids": [],
+      "duration_ms": 242482,
+      "published": "468.69",
+      "totals": {
+        "raw": 115740,
+        "self": 2091,
+        "excluded": 0,
+        "ranked": 113649
+      },
+      "residual": "5571/12124100"
+    },
+    {
+      "id": "DBdrMnzyKG3HZqfW-33-40",
+      "purpose": "policy-scope",
+      "report": "DBdrMnzyKG3HZqfW",
+      "fight": 33,
+      "actor": 40,
+      "player": "Tilopa",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51119_Sapphiron.json",
+      "page": 1,
+      "row": 5,
+      "owned_actor_ids": [],
+      "duration_ms": 21314,
+      "published": "1049.36",
+      "totals": {
+        "raw": 22366,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 22366
+      },
+      "residual": "-738/266425",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 298,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "8472fdbcdebfc2a0c0a6f16d82056aa02b18d3c946e98fbe4c98b4a2e24475aa"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "MB2YQv8bN9tZg67R-4-48",
+      "purpose": "policy-scope",
+      "report": "MB2YQv8bN9tZg67R",
+      "fight": 4,
+      "actor": 48,
+      "player": "Necsta",
+      "realm": "Pyrewood Village",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51119_Sapphiron.json",
+      "page": 1,
+      "row": 41,
+      "owned_actor_ids": [],
+      "duration_ms": 233250,
+      "published": "323.803",
+      "totals": {
+        "raw": 76382,
+        "self": 855,
+        "excluded": 0,
+        "ranked": 75527
+      },
+      "residual": "-199/933000"
+    },
+    {
+      "id": "Nr2tGvMA6fjy1LDd-1-33",
+      "purpose": "policy-scope",
+      "report": "Nr2tGvMA6fjy1LDd",
+      "fight": 1,
+      "actor": 33,
+      "player": "Freshbull",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51119_Sapphiron.json",
+      "page": 1,
+      "row": 28,
+      "owned_actor_ids": [],
+      "duration_ms": 198394,
+      "published": "401.963",
+      "totals": {
+        "raw": 79747,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 79747
+      },
+      "residual": "-23711/99197000"
+    },
+    {
+      "id": "kfCMXYGZ4mbHRayT-83-23",
+      "purpose": "policy-scope",
+      "report": "kfCMXYGZ4mbHRayT",
+      "fight": 83,
+      "actor": 23,
+      "player": "Savageclaw",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51119_Sapphiron.json",
+      "page": 1,
+      "row": 35,
+      "owned_actor_ids": [],
+      "duration_ms": 143074,
+      "published": "371.339",
+      "totals": {
+        "raw": 53129,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 53129
+      },
+      "residual": "21957/71537000"
+    }
+  ],
+  "refusals": []
+}

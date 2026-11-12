@@ -1,0 +1,136 @@
+{
+  "version": 1,
+  "rule": "naxx-thaddius-protection-paladin-alliance-dps-v1",
+  "scope": {
+    "encounter_id": 51120,
+    "class_id": 6,
+    "category": "Protection",
+    "metric": "dps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/67666001-2006-20261105T232014.zip",
+    "sha256": "b768ff71aa948c5091eb22eafbc8baa9e3a36165c0304d39d9d48b113ec1b591"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "L7PmYWZFXdv4nckf-56-25",
+      "purpose": "policy-scope",
+      "report": "L7PmYWZFXdv4nckf",
+      "fight": 56,
+      "actor": 25,
+      "player": "Ecclesia",
+      "realm": "Mankrik",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51120_Thaddius.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 150761,
+      "published": "982.23",
+      "totals": {
+        "raw": 150112,
+        "self": 2030,
+        "excluded": 0,
+        "ranked": 148082
+      },
+      "residual": "2297/15076100",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 92,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "062fe80da8f5582b31d1a5333c589f3b47ee7045dcec1f47f837126bb940f7c6",
+            "742ec28f134f023b46a87a0cd26c6f6a77e186705ac9c966c2120f32e2a7d236",
+            "52a2433d8e330384b603b150093ab4e7ca5221df559143ce8c2ad4261395ca6e"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "yDAGnRYq1fCFHbXJ-11-29",
+      "purpose": "policy-scope",
+      "report": "yDAGnRYq1fCFHbXJ",
+      "fight": 11,
+      "actor": 29,
+      "player": "Kornek",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51120_Thaddius.json",
+      "page": 1,
+      "row": 3,
+      "owned_actor_ids": [],
+      "duration_ms": 184168,
+      "published": "819.149",
+      "totals": {
+        "raw": 153356,
+        "self": 2495,
+        "excluded": 0,
+        "ranked": 150861
+      },
+      "residual": "-4129/23021000",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 82,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "9a1a525e14cf1899e811ecdf9111249497b357d03da90ae4bd034d912e75c711",
+            "7472325ebb976c25c4c79ed61629ea4e3e22fcb3db24a8c494053dc0cccf01e6",
+            "9de696efaa76f4aeca12be8b280d53d117df58a46d29ccedca2163af0a4b0e57"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "yk823mD9RYTxfzAp-27-19",
+      "purpose": "policy-scope",
+      "report": "yk823mD9RYTxfzAp",
+      "fight": 27,
+      "actor": 19,
+      "player": "Cisternina",
+      "realm": "Mankrik",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51120_Thaddius.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 135337,
+      "published": "869.201",
+      "totals": {
+        "raw": 119126,
+        "self": 1491,
+        "excluded": 0,
+        "ranked": 117635
+      },
+      "residual": "-55737/135337000",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 77,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "4c6eb1010c43f92fd25fb81b7d936c449bb0083f275279ceed965da221899b31",
+            "92e49af53b90c4a7b631da9a74932445edcbfbeaa06110964bb333e003fda553",
+            "8240c5806be11731caa13818adf5dae32bfb3e0213d4eb3278033dbe1f2d5a35"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

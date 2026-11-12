@@ -1,0 +1,135 @@
+{
+  "version": 1,
+  "rule": "naxx-maexxna-protection-warrior-horde-dps-v1",
+  "scope": {
+    "encounter_id": 51116,
+    "class_id": 11,
+    "category": "Protection",
+    "metric": "dps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/61334639-2006-20261111T164838.zip",
+    "sha256": "21e6e2cd5b1414f44b76357454889f90a030870bde28d1a9fbbf9ab20c46e1f9"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "dP1TvMw32bVpr7Kg-10-25",
+      "purpose": "policy-scope",
+      "report": "dP1TvMw32bVpr7Kg",
+      "fight": 10,
+      "actor": 25,
+      "player": "Worriah",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51116_Maexxna.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 34578,
+      "published": "1915.24",
+      "totals": {
+        "raw": 67108,
+        "self": 883,
+        "excluded": 0,
+        "ranked": 66225
+      },
+      "residual": "-703/144075",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 54,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "36ee2e08c8c50e87ace305723b7ada0c76f1573fa48fb4c9b37688dea4ba396d"
+          ]
+        },
+        {
+          "pet": 265,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "36ee2e08c8c50e87ace305723b7ada0c76f1573fa48fb4c9b37688dea4ba396d"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hL9MRqBTz4Hc8WXN-9-9",
+      "purpose": "policy-scope",
+      "report": "hL9MRqBTz4Hc8WXN",
+      "fight": 9,
+      "actor": 9,
+      "player": "Beefalo",
+      "realm": "Gandling",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51116_Maexxna.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 32738,
+      "published": "1926.63",
+      "totals": {
+        "raw": 63628,
+        "self": 554,
+        "excluded": 0,
+        "ranked": 63074
+      },
+      "residual": "-647/1636900",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 154,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "eba223b9f4d6fe1c828db59757369005226c154ddd59e9b78a2fe9880ec63355"
+          ]
+        },
+        {
+          "pet": 176,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "eba223b9f4d6fe1c828db59757369005226c154ddd59e9b78a2fe9880ec63355"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "y4aKPLqd1HfVFQp9-8-22",
+      "purpose": "policy-scope",
+      "report": "y4aKPLqd1HfVFQp9",
+      "fight": 8,
+      "actor": 22,
+      "player": "Chogori",
+      "realm": "Dragonfang",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51116_Maexxna.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 34441,
+      "published": "1822.89",
+      "totals": {
+        "raw": 63079,
+        "self": 297,
+        "excluded": 0,
+        "ranked": 62782
+      },
+      "residual": "-15449/3444100"
+    }
+  ],
+  "refusals": []
+}

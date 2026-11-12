@@ -1,0 +1,163 @@
+{
+  "version": 1,
+  "rule": "naxx-gothik-protection-warrior-horde-dps-v1",
+  "scope": {
+    "encounter_id": 51109,
+    "class_id": 11,
+    "category": "Protection",
+    "metric": "dps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/61334639-2006-20261111T164838.zip",
+    "sha256": "21e6e2cd5b1414f44b76357454889f90a030870bde28d1a9fbbf9ab20c46e1f9"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "GwzpkVLqFvrRABcM-20-15",
+      "purpose": "policy-scope",
+      "report": "GwzpkVLqFvrRABcM",
+      "fight": 20,
+      "actor": 15,
+      "player": "Krystian",
+      "realm": "Noggenfogger",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51109_Gothik_the_Harvester.json",
+      "page": 1,
+      "row": 7,
+      "owned_actor_ids": [
+        97
+      ],
+      "duration_ms": 301861,
+      "published": "622.482",
+      "totals": {
+        "raw": 187903,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 187903
+      },
+      "residual": "-19501/150930500",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 160,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "a45135ae457dfb95dd32b13606720997254fc7fce5203ec3af43792fe810d634",
+            "b4efc6ed916906d22c9ba0e39733fccb6868dc26854453b2a23cfc92d4e67808",
+            "daa3c73b56c6efca0919404c7ee2f4a76c97498e3c62f6ba34f784dbac70eb0c",
+            "bc482da433331b5b471e21dbed9a096c068f5de349334f10523c21ff89a21eb3",
+            "9995c5a27fa4533e8cf2210027491920ad2727b133867e5484d9e89e06f4fe2a"
+          ]
+        },
+        {
+          "pet": 162,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "a45135ae457dfb95dd32b13606720997254fc7fce5203ec3af43792fe810d634",
+            "b4efc6ed916906d22c9ba0e39733fccb6868dc26854453b2a23cfc92d4e67808",
+            "daa3c73b56c6efca0919404c7ee2f4a76c97498e3c62f6ba34f784dbac70eb0c",
+            "bc482da433331b5b471e21dbed9a096c068f5de349334f10523c21ff89a21eb3",
+            "9995c5a27fa4533e8cf2210027491920ad2727b133867e5484d9e89e06f4fe2a"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q4P8rj2YazcK6FHD-36-7",
+      "purpose": "policy-scope",
+      "report": "Q4P8rj2YazcK6FHD",
+      "fight": 36,
+      "actor": 7,
+      "player": "Axecute",
+      "realm": "Thunderfury",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51109_Gothik_the_Harvester.json",
+      "page": 1,
+      "row": 17,
+      "owned_actor_ids": [],
+      "duration_ms": 299123,
+      "published": "574.182",
+      "totals": {
+        "raw": 171751,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 171751
+      },
+      "residual": "-21193/149561500",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 152,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "a56529e63a3b053d560d4c50ab8886ebf3d9dbe3b6f10c8a338e50637f8424ff",
+            "798cb81382208dca0e6cb9467569603f9301b04c0292e2d78ca1a835f2a636ff",
+            "4b0793332040f47bc798f6774762697549b4d99bca8e479efc0eba6ffe896abc",
+            "c9a2025274e391f6f444301c66ff0fa2402df18e775aaa3bcda9f351180f5c4f"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f23F6yHWLpgPZrwX-29-38",
+      "purpose": "policy-scope",
+      "report": "f23F6yHWLpgPZrwX",
+      "fight": 29,
+      "actor": 38,
+      "player": "七八六欧",
+      "realm": "哈霍兰",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51109_Gothik_the_Harvester.json",
+      "page": 1,
+      "row": 18,
+      "owned_actor_ids": [],
+      "duration_ms": 301212,
+      "published": "574.087",
+      "totals": {
+        "raw": 172922,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 172922
+      },
+      "residual": "26639/75303000",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 269,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "679c42aa27c105a1873ecacef2aab8da84e38de4821f9af09609d917e1a57e0f",
+            "b4fb01767259ec77405887703974e3c2b5316f6fb51f7beee99d5e4a7f93d67b",
+            "5ed0fda188d4fbea1cbdcbab5c0e9cc349e356ae2327a01e14cf0a8e0e0c35b4",
+            "2f574e815b8e3a5a7717e633e97d1ac224ceb81ab5e2356ea5f4338d2faa19d3"
+          ]
+        },
+        {
+          "pet": 272,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "679c42aa27c105a1873ecacef2aab8da84e38de4821f9af09609d917e1a57e0f",
+            "b4fb01767259ec77405887703974e3c2b5316f6fb51f7beee99d5e4a7f93d67b",
+            "5ed0fda188d4fbea1cbdcbab5c0e9cc349e356ae2327a01e14cf0a8e0e0c35b4",
+            "2f574e815b8e3a5a7717e633e97d1ac224ceb81ab5e2356ea5f4338d2faa19d3"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

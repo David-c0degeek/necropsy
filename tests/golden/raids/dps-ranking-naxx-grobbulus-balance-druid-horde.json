@@ -1,0 +1,155 @@
+{
+  "version": 1,
+  "rule": "naxx-grobbulus-balance-druid-horde-dps-v1",
+  "scope": {
+    "encounter_id": 51111,
+    "class_id": 2,
+    "category": "Balance",
+    "metric": "dps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261031/64347501-2006-20261027T093033.zip",
+    "sha256": "7021b6a180220f5933e700ec5121db16441526d5004d88679d6bf48e98718ab2"
+  },
+  "dispositions": {
+    "n": 5,
+    "k": 5,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "9nNhCMjVAQL1JtkP-76-19",
+      "purpose": "policy-scope",
+      "report": "9nNhCMjVAQL1JtkP",
+      "fight": 76,
+      "actor": 19,
+      "player": "Crljenac",
+      "realm": "Mirage Raceway",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51111_Grobbulus.json",
+      "page": 1,
+      "row": 20,
+      "owned_actor_ids": [],
+      "duration_ms": 87604,
+      "published": "740.206",
+      "totals": {
+        "raw": 65753,
+        "self": 908,
+        "excluded": 0,
+        "ranked": 64845
+      },
+      "residual": "-73/995500"
+    },
+    {
+      "id": "gpPMcNJ9knhW61qG-26-51",
+      "purpose": "policy-scope",
+      "report": "gpPMcNJ9knhW61qG",
+      "fight": 26,
+      "actor": 51,
+      "player": "Gimbaswife",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51111_Grobbulus.json",
+      "page": 1,
+      "row": 29,
+      "owned_actor_ids": [],
+      "duration_ms": 58601,
+      "published": "714.135",
+      "totals": {
+        "raw": 41849,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 41849
+      },
+      "residual": "-5027/11720200"
+    },
+    {
+      "id": "gqW6zJMbvdt7XCcf-44-44",
+      "purpose": "policy-scope",
+      "report": "gqW6zJMbvdt7XCcf",
+      "fight": 44,
+      "actor": 44,
+      "player": "Freshbull",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51111_Grobbulus.json",
+      "page": 1,
+      "row": 23,
+      "owned_actor_ids": [],
+      "duration_ms": 83370,
+      "published": "737.088",
+      "totals": {
+        "raw": 62461,
+        "self": 1010,
+        "excluded": 0,
+        "ranked": 61451
+      },
+      "residual": "-332/1042125"
+    },
+    {
+      "id": "gtWVMkwnPqmjYCDF-40-15",
+      "purpose": "policy-scope",
+      "report": "gtWVMkwnPqmjYCDF",
+      "fight": 40,
+      "actor": 15,
+      "player": "Neakers",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51111_Grobbulus.json",
+      "page": 1,
+      "row": 18,
+      "owned_actor_ids": [],
+      "duration_ms": 76413,
+      "published": "757.083",
+      "totals": {
+        "raw": 57851,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 57851
+      },
+      "residual": "16721/76413000"
+    },
+    {
+      "id": "x6k2mCv7JKdqVpDr-66-48",
+      "purpose": "policy-scope",
+      "report": "x6k2mCv7JKdqVpDr",
+      "fight": 66,
+      "actor": 48,
+      "player": "Kentosuh",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51111_Grobbulus.json",
+      "page": 1,
+      "row": 24,
+      "owned_actor_ids": [],
+      "duration_ms": 93240,
+      "published": "730.32",
+      "totals": {
+        "raw": 69117,
+        "self": 1022,
+        "excluded": 0,
+        "ranked": 68095
+      },
+      "residual": "-23/58275"
+    }
+  ],
+  "refusals": []
+}

@@ -1,0 +1,113 @@
+{
+  "version": 1,
+  "rule": "naxx-grobbulus-shadow-priest-alliance-dps-v1",
+  "scope": {
+    "encounter_id": 51111,
+    "class_id": 7,
+    "category": "Shadow",
+    "metric": "dps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77122652-2006-20261107T163813.zip",
+    "sha256": "85f096bcc2951498da23e9d8e3297387fc1bd899217ec963867b977459298585"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "FGJ4pAjkhmqt23TK-27-33",
+      "purpose": "policy-scope",
+      "report": "FGJ4pAjkhmqt23TK",
+      "fight": 27,
+      "actor": 33,
+      "player": "Solex",
+      "realm": "Pagle",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51111_Grobbulus.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 63600,
+      "published": "873.255",
+      "totals": {
+        "raw": 55539,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 55539
+      },
+      "residual": "-3/10600",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 75,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "c08edbaab85ea18db46d16efa1172392abc2d5446870d6c0c0baa12a3cef5994",
+            "53cd57ee4476995704008f30d959f7490a0ffa958e833d1e5171fb7efbb7fdf7"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "KdMQtgnGAD6Y7q3V-26-29",
+      "purpose": "policy-scope",
+      "report": "KdMQtgnGAD6Y7q3V",
+      "fight": 26,
+      "actor": 29,
+      "player": "Zaera",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51111_Grobbulus.json",
+      "page": 1,
+      "row": 3,
+      "owned_actor_ids": [],
+      "duration_ms": 66470,
+      "published": "863.006",
+      "totals": {
+        "raw": 57364,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 57364
+      },
+      "residual": "-441/3323500"
+    },
+    {
+      "id": "tphK8ZRdLqmYWTN7-49-12",
+      "purpose": "policy-scope",
+      "report": "tphK8ZRdLqmYWTN7",
+      "fight": 49,
+      "actor": 12,
+      "player": "Riffriff",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51111_Grobbulus.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 74637,
+      "published": "955.813",
+      "totals": {
+        "raw": 72195,
+        "self": 856,
+        "excluded": 0,
+        "ranked": 71339
+      },
+      "residual": "-14881/74637000"
+    }
+  ],
+  "refusals": []
+}

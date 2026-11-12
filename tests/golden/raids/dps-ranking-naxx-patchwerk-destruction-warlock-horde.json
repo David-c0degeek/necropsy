@@ -1,0 +1,143 @@
+{
+  "version": 1,
+  "rule": "naxx-patchwerk-destruction-warlock-horde-dps-v1",
+  "scope": {
+    "encounter_id": 51118,
+    "class_id": 10,
+    "category": "Destruction",
+    "metric": "dps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/64322945-2006-20261110T064311.zip",
+    "sha256": "62ee186326d8affa4f56d5e53616640e38e5f8fc87ffae5396d0806bb576684d"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "VDjm14wtTyM7YqkF-27-30",
+      "purpose": "policy-scope",
+      "report": "VDjm14wtTyM7YqkF",
+      "fight": 27,
+      "actor": 30,
+      "player": "Plasmavoid",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51118_Patchwerk.json",
+      "page": 1,
+      "row": 22,
+      "owned_actor_ids": [],
+      "duration_ms": 105334,
+      "published": "1425.48",
+      "totals": {
+        "raw": 151451,
+        "self": 1299,
+        "excluded": 0,
+        "ranked": 150152
+      },
+      "residual": "6121/1316675",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 39,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "71ddc0075185e693b7a938f66b7f1c64eafba3d4fd2e24e323fbe2f63571b306",
+            "8cd353011370d073eaba317a0a0d70ecb9f62de153b8eb5d23ff17edaff25aa1",
+            "1075ccf251ff25f1a862f98ac6e01fafd78f733bc88988d78502376e4451576d"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "VTvBXZp6HRQt3y1A-56-1",
+      "purpose": "policy-scope",
+      "report": "VTvBXZp6HRQt3y1A",
+      "fight": 56,
+      "actor": 1,
+      "player": "Coughsyrup",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51118_Patchwerk.json",
+      "page": 1,
+      "row": 29,
+      "owned_actor_ids": [],
+      "duration_ms": 109069,
+      "published": "1399.66",
+      "totals": {
+        "raw": 154089,
+        "self": 1430,
+        "excluded": 0,
+        "ranked": 152659
+      },
+      "residual": "-25827/5453450",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 162,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "b6c0c61e697de1acb2fd6255f491b2a889e636de13358a798ce70368d14c81da",
+            "c8b641a182f8f1f170352fb8dacf55fd2a56a86d1ff92184938fb3ce0e225268",
+            "79ab1ad10ae8523dffc9ebdf7fcd46e49ee85a11912fc67d49afbe90c9996458"
+          ]
+        },
+        {
+          "pet": 184,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "b6c0c61e697de1acb2fd6255f491b2a889e636de13358a798ce70368d14c81da",
+            "c8b641a182f8f1f170352fb8dacf55fd2a56a86d1ff92184938fb3ce0e225268",
+            "79ab1ad10ae8523dffc9ebdf7fcd46e49ee85a11912fc67d49afbe90c9996458"
+          ]
+        },
+        {
+          "pet": 240,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "b6c0c61e697de1acb2fd6255f491b2a889e636de13358a798ce70368d14c81da",
+            "c8b641a182f8f1f170352fb8dacf55fd2a56a86d1ff92184938fb3ce0e225268",
+            "79ab1ad10ae8523dffc9ebdf7fcd46e49ee85a11912fc67d49afbe90c9996458"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bKwm3WL7Ga2C6D1H-20-35",
+      "purpose": "policy-scope",
+      "report": "bKwm3WL7Ga2C6D1H",
+      "fight": 20,
+      "actor": 35,
+      "player": "Dafunc",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51118_Patchwerk.json",
+      "page": 1,
+      "row": 12,
+      "owned_actor_ids": [],
+      "duration_ms": 108210,
+      "published": "1493.91",
+      "totals": {
+        "raw": 162578,
+        "self": 922,
+        "excluded": 0,
+        "ranked": 161656
+      },
+      "residual": "-11/1082100"
+    }
+  ],
+  "refusals": []
+}

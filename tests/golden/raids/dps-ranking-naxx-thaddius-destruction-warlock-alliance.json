@@ -1,0 +1,147 @@
+{
+  "version": 1,
+  "rule": "naxx-thaddius-destruction-warlock-alliance-dps-v1",
+  "scope": {
+    "encounter_id": 51120,
+    "class_id": 10,
+    "category": "Destruction",
+    "metric": "dps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77751784-2006-20261109T171544.zip",
+    "sha256": "44aa5ecd2af4f99afc994efb5cc9832d2dc9026370c15b908a5d1f0924f71068"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "7NmBydcX8HFRh1tA-20-38",
+      "purpose": "policy-scope",
+      "report": "7NmBydcX8HFRh1tA",
+      "fight": 20,
+      "actor": 38,
+      "player": "Sobr",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51120_Thaddius.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 143641,
+      "published": "2791.26",
+      "totals": {
+        "raw": 400939,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 400939
+      },
+      "residual": "-18883/7182050"
+    },
+    {
+      "id": "xkdCV2L1MRnzarG9-31-58",
+      "purpose": "policy-scope",
+      "report": "xkdCV2L1MRnzarG9",
+      "fight": 31,
+      "actor": 58,
+      "player": "Hyaná",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51120_Thaddius.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 127545,
+      "published": "2530.52",
+      "totals": {
+        "raw": 322755,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 322755
+      },
+      "residual": "-289/212575",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 64,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "81a48d209260c82c7921b96ea240e40ea49ef9a497490b7c302aa288b7e2a0ea",
+            "a67b21159ce49ee95251efa8c02f19c6478a4ce8fea5747d3daa30f9b1a21db6"
+          ]
+        },
+        {
+          "pet": 191,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "81a48d209260c82c7921b96ea240e40ea49ef9a497490b7c302aa288b7e2a0ea",
+            "a67b21159ce49ee95251efa8c02f19c6478a4ce8fea5747d3daa30f9b1a21db6"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "xkdCV2L1MRnzarG9-31-43",
+      "purpose": "policy-scope",
+      "report": "xkdCV2L1MRnzarG9",
+      "fight": 31,
+      "actor": 43,
+      "player": "Conflagrate",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51120_Thaddius.json",
+      "page": 1,
+      "row": 3,
+      "owned_actor_ids": [],
+      "duration_ms": 127545,
+      "published": "2404.56",
+      "totals": {
+        "raw": 306690,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 306690
+      },
+      "residual": "658/212575",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 44,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "81a48d209260c82c7921b96ea240e40ea49ef9a497490b7c302aa288b7e2a0ea",
+            "a67b21159ce49ee95251efa8c02f19c6478a4ce8fea5747d3daa30f9b1a21db6"
+          ]
+        },
+        {
+          "pet": 68,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "81a48d209260c82c7921b96ea240e40ea49ef9a497490b7c302aa288b7e2a0ea",
+            "a67b21159ce49ee95251efa8c02f19c6478a4ce8fea5747d3daa30f9b1a21db6"
+          ]
+        },
+        {
+          "pet": 192,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "81a48d209260c82c7921b96ea240e40ea49ef9a497490b7c302aa288b7e2a0ea",
+            "a67b21159ce49ee95251efa8c02f19c6478a4ce8fea5747d3daa30f9b1a21db6"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

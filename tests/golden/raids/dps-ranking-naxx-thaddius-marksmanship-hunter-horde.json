@@ -1,0 +1,178 @@
+{
+  "version": 1,
+  "rule": "naxx-thaddius-marksmanship-hunter-horde-dps-v1",
+  "scope": {
+    "encounter_id": 51120,
+    "class_id": 3,
+    "category": "Marksmanship",
+    "metric": "dps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/64181902-2006-20261104T151326.zip",
+    "sha256": "107c7bcb85e14bd9b69038141be282a8a5d8bc19e25b2d7f01609122d453349a"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "NGwTqndRv6KCp72M-29-30",
+      "purpose": "policy-scope",
+      "report": "NGwTqndRv6KCp72M",
+      "fight": 29,
+      "actor": 30,
+      "player": "Jeyt",
+      "realm": "Ashbringer",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51120_Thaddius.json",
+      "page": 1,
+      "row": 6,
+      "owned_actor_ids": [
+        63
+      ],
+      "duration_ms": 149131,
+      "published": "1862.19",
+      "totals": {
+        "raw": 277710,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 277710
+      },
+      "residual": "-25689/14913100",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 88,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "6cbf4d244c901eed25216a2ae8b32d9dd61929b50065b4041b336958ef2ada0d",
+            "b07aceb7b8861cfff6f09853b8ae21f58cc86ec6eb0136e46b48d67aa1f8de4b",
+            "af54f3e1488127396f7749ef0facee378351a934a1de585055030b462ff3878d"
+          ]
+        },
+        {
+          "pet": 197,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "6cbf4d244c901eed25216a2ae8b32d9dd61929b50065b4041b336958ef2ada0d",
+            "b07aceb7b8861cfff6f09853b8ae21f58cc86ec6eb0136e46b48d67aa1f8de4b",
+            "af54f3e1488127396f7749ef0facee378351a934a1de585055030b462ff3878d"
+          ]
+        },
+        {
+          "pet": 217,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "6cbf4d244c901eed25216a2ae8b32d9dd61929b50065b4041b336958ef2ada0d",
+            "b07aceb7b8861cfff6f09853b8ae21f58cc86ec6eb0136e46b48d67aa1f8de4b",
+            "af54f3e1488127396f7749ef0facee378351a934a1de585055030b462ff3878d"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "PjXARDqNrkyhvg1C-49-7",
+      "purpose": "policy-scope",
+      "report": "PjXARDqNrkyhvg1C",
+      "fight": 49,
+      "actor": 7,
+      "player": "Durzag",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51120_Thaddius.json",
+      "page": 1,
+      "row": 28,
+      "owned_actor_ids": [
+        29
+      ],
+      "duration_ms": 141795,
+      "published": "1764.77",
+      "totals": {
+        "raw": 250236,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 250236
+      },
+      "residual": "973/315100",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 158,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "72db6f98a61671719030dccd4bccd30da50d1a6db50cf6b8659f7ea82a0d6c81",
+            "5f9e089e36886eacd346433daa386a651522a5292799f4f934647e9d47ffddcd",
+            "887784260452a82d4488d7a11346306b2cbf388f557e1d697713eb146e3b6832"
+          ]
+        },
+        {
+          "pet": 239,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "72db6f98a61671719030dccd4bccd30da50d1a6db50cf6b8659f7ea82a0d6c81",
+            "5f9e089e36886eacd346433daa386a651522a5292799f4f934647e9d47ffddcd",
+            "887784260452a82d4488d7a11346306b2cbf388f557e1d697713eb146e3b6832"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "W9daZmq2n8CFYVKQ-69-31",
+      "purpose": "policy-scope",
+      "report": "W9daZmq2n8CFYVKQ",
+      "fight": 69,
+      "actor": 31,
+      "player": "Smcadogx",
+      "realm": "Pyrewood Village",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51120_Thaddius.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [
+        32
+      ],
+      "duration_ms": 147919,
+      "published": "1998.21",
+      "totals": {
+        "raw": 297582,
+        "self": 2009,
+        "excluded": 0,
+        "ranked": 295573
+      },
+      "residual": "-22499/14791900",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 80,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "2802796b3e07b34d904fa870eb8e669fec7b11d78631067af642e7bbe5c922ec",
+            "64bde2fcdc4f1a4ba47b30c8e46342133c0682631fca48b099febc0805c66de2",
+            "329586e9335dd0e3df34ea21c2f193724171b7218aabf4f00fcc5e8c4a740d63"
+          ]
+        },
+        {
+          "pet": 244,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "2802796b3e07b34d904fa870eb8e669fec7b11d78631067af642e7bbe5c922ec",
+            "64bde2fcdc4f1a4ba47b30c8e46342133c0682631fca48b099febc0805c66de2",
+            "329586e9335dd0e3df34ea21c2f193724171b7218aabf4f00fcc5e8c4a740d63"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

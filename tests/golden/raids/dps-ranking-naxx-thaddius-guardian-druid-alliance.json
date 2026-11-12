@@ -1,0 +1,164 @@
+{
+  "version": 1,
+  "rule": "naxx-thaddius-guardian-druid-alliance-dps-v1",
+  "scope": {
+    "encounter_id": 51120,
+    "class_id": 2,
+    "category": "Guardian",
+    "metric": "dps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261031/83306366-2006-20261031T073441.zip",
+    "sha256": "d6ecd3846ba9a27641ce80eb801006d630432348fd0283594d2f805dda7dcb55"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "3FHPnh2N68Xt14cK-30-28",
+      "purpose": "policy-scope",
+      "report": "3FHPnh2N68Xt14cK",
+      "fight": 30,
+      "actor": 28,
+      "player": "Iol",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51120_Thaddius.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 177852,
+      "published": "1513.44",
+      "totals": {
+        "raw": 269169,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 269169
+      },
+      "residual": "1394/370525",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 53,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "acf1dd23d2d6a72f6785a97c64ec88cf45e9dd62d55d5d1c097b1e0f4268f350",
+            "28ef1dc611f01c09514324e1996649f53920ea312490033fd9077c08c8cde79e",
+            "53fcf6018861ef74b79398e1d32f70c344daafff7c5ccb7a989530d63cd77a99",
+            "8b959176041baba8a86f07db7e78c9960bbb867029ddd1852018bf23ed2c7dc9"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "R2f4QcZFB7aDJYgT-91-400",
+      "purpose": "policy-scope",
+      "report": "R2f4QcZFB7aDJYgT",
+      "fight": 91,
+      "actor": 400,
+      "player": "Mìlfurion",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51120_Thaddius.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 136314,
+      "published": "1441.69",
+      "totals": {
+        "raw": 198207,
+        "self": 1684,
+        "excluded": 0,
+        "ranked": 196523
+      },
+      "residual": "23467/6815700",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 428,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "286efdc875336f15f83a8019fd658eeb60206d5483a7799acc3e0c4c029084c4",
+            "d1b8d9685f1f7de261337e76add4afe07130863de701fc98bcada2befb98eff5",
+            "62aa8beb25f8017e64e28c86f151cad7639b86cd783a5533b788a6af6b48c714"
+          ]
+        },
+        {
+          "pet": 429,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "286efdc875336f15f83a8019fd658eeb60206d5483a7799acc3e0c4c029084c4",
+            "d1b8d9685f1f7de261337e76add4afe07130863de701fc98bcada2befb98eff5",
+            "62aa8beb25f8017e64e28c86f151cad7639b86cd783a5533b788a6af6b48c714"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hm3LyaRwG2bMgzcX-48-58",
+      "purpose": "policy-scope",
+      "report": "hm3LyaRwG2bMgzcX",
+      "fight": 48,
+      "actor": 58,
+      "player": "Suncat",
+      "realm": "Ashkandi",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51120_Thaddius.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 169496,
+      "published": "1434.09",
+      "totals": {
+        "raw": 245190,
+        "self": 2118,
+        "excluded": 0,
+        "ranked": 243072
+      },
+      "residual": "-6483/2118700",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 150,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "58da6c6925e4e1e244c03fd7d56b8056cab44cec5494da1da55ae96420da94e3",
+            "ba8c0b9af3f74c5f5071abcfec0eb0d1fb52b450a6d5fa3fdcb067112753fea9",
+            "8aed74e465c75fe44dd29e71c82782b69a9a64b78972acc0a4407d68770b3409"
+          ]
+        },
+        {
+          "pet": 152,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "58da6c6925e4e1e244c03fd7d56b8056cab44cec5494da1da55ae96420da94e3",
+            "ba8c0b9af3f74c5f5071abcfec0eb0d1fb52b450a6d5fa3fdcb067112753fea9",
+            "8aed74e465c75fe44dd29e71c82782b69a9a64b78972acc0a4407d68770b3409"
+          ]
+        },
+        {
+          "pet": 201,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "58da6c6925e4e1e244c03fd7d56b8056cab44cec5494da1da55ae96420da94e3",
+            "ba8c0b9af3f74c5f5071abcfec0eb0d1fb52b450a6d5fa3fdcb067112753fea9",
+            "8aed74e465c75fe44dd29e71c82782b69a9a64b78972acc0a4407d68770b3409"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

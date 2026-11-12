@@ -1,0 +1,185 @@
+{
+  "version": 1,
+  "rule": "naxx-horsemen-protection-warrior-alliance-dps-v1",
+  "scope": {
+    "encounter_id": 51121,
+    "class_id": 11,
+    "category": "Protection",
+    "metric": "dps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/75466963-2006-20261111T134356.zip",
+    "sha256": "fb12765c9b6fd67e8cb252b09df71668d12ee793cb22bd20be4afcf2d86b1442"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "AM3gL1X87xqVzHdf-43-121",
+      "purpose": "policy-scope",
+      "report": "AM3gL1X87xqVzHdf",
+      "fight": 43,
+      "actor": 121,
+      "player": "Clapem",
+      "realm": "Thunderfury",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51121_The_Four_Horsemen.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 140965,
+      "published": "1015.05",
+      "totals": {
+        "raw": 143605,
+        "self": 518,
+        "excluded": 0,
+        "ranked": 143087
+      },
+      "residual": "1907/563860",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 165,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "1e3e41a2c60eb1ff0d4a5e1fae0be36ac1f77c3a7666124000ff4ce988876437",
+            "606c5221ac192f62b0ae0e9eed37d1cafc59f6a30f15b5441fda7b1b761f6224",
+            "a76c9f78d37b627440f0d7cb74c0d5f5a185674f19ab4945f48a624f101d2265"
+          ]
+        },
+        {
+          "pet": 166,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "1e3e41a2c60eb1ff0d4a5e1fae0be36ac1f77c3a7666124000ff4ce988876437",
+            "606c5221ac192f62b0ae0e9eed37d1cafc59f6a30f15b5441fda7b1b761f6224",
+            "a76c9f78d37b627440f0d7cb74c0d5f5a185674f19ab4945f48a624f101d2265"
+          ]
+        },
+        {
+          "pet": 226,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "1e3e41a2c60eb1ff0d4a5e1fae0be36ac1f77c3a7666124000ff4ce988876437",
+            "606c5221ac192f62b0ae0e9eed37d1cafc59f6a30f15b5441fda7b1b761f6224",
+            "a76c9f78d37b627440f0d7cb74c0d5f5a185674f19ab4945f48a624f101d2265"
+          ]
+        },
+        {
+          "pet": 255,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "1e3e41a2c60eb1ff0d4a5e1fae0be36ac1f77c3a7666124000ff4ce988876437",
+            "606c5221ac192f62b0ae0e9eed37d1cafc59f6a30f15b5441fda7b1b761f6224",
+            "a76c9f78d37b627440f0d7cb74c0d5f5a185674f19ab4945f48a624f101d2265"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cHzAG3V4jmk7fndM-17-13",
+      "purpose": "policy-scope",
+      "report": "cHzAG3V4jmk7fndM",
+      "fight": 17,
+      "actor": 13,
+      "player": "Myosiin",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51121_The_Four_Horsemen.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 67353,
+      "published": "1007.53",
+      "totals": {
+        "raw": 67860,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 67860
+      },
+      "residual": "-431/172700",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 146,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "47472fd46b0308ef95520cd34bafa70ec7b0a21570967a1637a3d00cd1a6918d",
+            "73dfca9daca2fb53e7da7b2e27e04ccf2a2412a27e9152e1ff1dd64fb2d1b57c"
+          ]
+        },
+        {
+          "pet": 154,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "47472fd46b0308ef95520cd34bafa70ec7b0a21570967a1637a3d00cd1a6918d",
+            "73dfca9daca2fb53e7da7b2e27e04ccf2a2412a27e9152e1ff1dd64fb2d1b57c"
+          ]
+        },
+        {
+          "pet": 189,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "47472fd46b0308ef95520cd34bafa70ec7b0a21570967a1637a3d00cd1a6918d",
+            "73dfca9daca2fb53e7da7b2e27e04ccf2a2412a27e9152e1ff1dd64fb2d1b57c"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zpkqGJP2HaMb7Nd3-17-40",
+      "purpose": "policy-scope",
+      "report": "zpkqGJP2HaMb7Nd3",
+      "fight": 17,
+      "actor": 40,
+      "player": "Coltyy",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51121_The_Four_Horsemen.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 68169,
+      "published": "1017.57",
+      "totals": {
+        "raw": 69843,
+        "self": 476,
+        "excluded": 0,
+        "ranked": 69367
+      },
+      "residual": "27067/6816900",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 203,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "ec381ee311bafdc2e7e69fcc094cef2f8b12325ed87e3ea1f938e2702076a2de",
+            "b7ddee7f90f9300ce810a32b9bf9a00cfc2f31598451c40adc30e7fd124690d5"
+          ]
+        },
+        {
+          "pet": 241,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "ec381ee311bafdc2e7e69fcc094cef2f8b12325ed87e3ea1f938e2702076a2de",
+            "b7ddee7f90f9300ce810a32b9bf9a00cfc2f31598451c40adc30e7fd124690d5"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

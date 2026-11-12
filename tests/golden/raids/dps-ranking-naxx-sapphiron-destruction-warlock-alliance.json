@@ -1,0 +1,160 @@
+{
+  "version": 1,
+  "rule": "naxx-sapphiron-destruction-warlock-alliance-dps-v1",
+  "scope": {
+    "encounter_id": 51119,
+    "class_id": 10,
+    "category": "Destruction",
+    "metric": "dps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77751784-2006-20261109T171544.zip",
+    "sha256": "44aa5ecd2af4f99afc994efb5cc9832d2dc9026370c15b908a5d1f0924f71068"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "HRCaLz8YyMvA36xb-40-28",
+      "purpose": "policy-scope",
+      "report": "HRCaLz8YyMvA36xb",
+      "fight": 40,
+      "actor": 28,
+      "player": "Pyromaniak",
+      "realm": "Pagle",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51119_Sapphiron.json",
+      "page": 1,
+      "row": 6,
+      "owned_actor_ids": [
+        203
+      ],
+      "duration_ms": 18770,
+      "published": "3324.99",
+      "totals": {
+        "raw": 62410,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 62410
+      },
+      "residual": "-623/187700",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 38,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "55e6e475335a17004aac94c051dce30844af63485dacf585cb2972843eb41ff1"
+          ]
+        },
+        {
+          "pet": 122,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "55e6e475335a17004aac94c051dce30844af63485dacf585cb2972843eb41ff1"
+          ]
+        },
+        {
+          "pet": 143,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "55e6e475335a17004aac94c051dce30844af63485dacf585cb2972843eb41ff1"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "WA7ZFHdzNv6xC1rf-40-40",
+      "purpose": "policy-scope",
+      "report": "WA7ZFHdzNv6xC1rf",
+      "fight": 40,
+      "actor": 40,
+      "player": "Brieosten",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51119_Sapphiron.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 19988,
+      "published": "3382.08",
+      "totals": {
+        "raw": 67601,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 67601
+      },
+      "residual": "-94/124925",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 75,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "f9c122e677b316f744145b8f525977e266ce50a69008926d621868309691a126"
+          ]
+        },
+        {
+          "pet": 153,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "f9c122e677b316f744145b8f525977e266ce50a69008926d621868309691a126"
+          ]
+        },
+        {
+          "pet": 192,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "f9c122e677b316f744145b8f525977e266ce50a69008926d621868309691a126"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b1pNRw4qMJ6G8KmY-36-47",
+      "purpose": "policy-scope",
+      "report": "b1pNRw4qMJ6G8KmY",
+      "fight": 36,
+      "actor": 47,
+      "player": "Sameus",
+      "realm": "Westfall",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51119_Sapphiron.json",
+      "page": 1,
+      "row": 3,
+      "owned_actor_ids": [],
+      "duration_ms": 19733,
+      "published": "3354.94",
+      "totals": {
+        "raw": 66203,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 66203
+      },
+      "residual": "-1551/986650",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 48,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "7056c91c29f0b0fce25bb76e3045a715ea646f8fc91d8bb5bf91a4ee63df3433"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

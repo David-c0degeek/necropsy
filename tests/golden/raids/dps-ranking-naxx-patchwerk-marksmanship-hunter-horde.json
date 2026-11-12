@@ -1,0 +1,170 @@
+{
+  "version": 1,
+  "rule": "naxx-patchwerk-marksmanship-hunter-horde-dps-v1",
+  "scope": {
+    "encounter_id": 51118,
+    "class_id": 3,
+    "category": "Marksmanship",
+    "metric": "dps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/64181902-2006-20261104T151326.zip",
+    "sha256": "107c7bcb85e14bd9b69038141be282a8a5d8bc19e25b2d7f01609122d453349a"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "23mkda9YMBDFWLyC-59-1",
+      "purpose": "policy-scope",
+      "report": "23mkda9YMBDFWLyC",
+      "fight": 59,
+      "actor": 1,
+      "player": "Zerksy",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51118_Patchwerk.json",
+      "page": 1,
+      "row": 18,
+      "owned_actor_ids": [
+        108
+      ],
+      "duration_ms": 125657,
+      "published": "1268.4",
+      "totals": {
+        "raw": 159383,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 159383
+      },
+      "residual": "-242/89755",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 321,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "4d6f7d17674d5c995f6e1b34386466de73c5b62b1bdbb9d3257227d359454acc",
+            "a0ab52e3506dc328f83b2fa1fc23f47fcdd51f4ffe85cb23f78a808fc50c413d",
+            "9f0c3b3dc2d2d4826d43a76e47067ef2385a3fcc583942cc7d49fe8f4be27f40"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mz4d8tHQGBVNvfKT-31-35",
+      "purpose": "policy-scope",
+      "report": "mz4d8tHQGBVNvfKT",
+      "fight": 31,
+      "actor": 35,
+      "player": "Zakki",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51118_Patchwerk.json",
+      "page": 1,
+      "row": 22,
+      "owned_actor_ids": [
+        70
+      ],
+      "duration_ms": 100749,
+      "published": "1261.32",
+      "totals": {
+        "raw": 127077,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 127077
+      },
+      "residual": "2261/839575",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 190,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "92fc1f63928cc051f3d3630834b97b9ead0a5ad488de28b7d23df2f1cd89b29e",
+            "375ec38a81b2cf4206438e2ba8c82895905270615ad7f254880486adbadd5355",
+            "02928c5b06c5c9939c4de9cbd66bd1f05fe65aa949afaf33251554e09ea0e787"
+          ]
+        },
+        {
+          "pet": 192,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "92fc1f63928cc051f3d3630834b97b9ead0a5ad488de28b7d23df2f1cd89b29e",
+            "375ec38a81b2cf4206438e2ba8c82895905270615ad7f254880486adbadd5355",
+            "02928c5b06c5c9939c4de9cbd66bd1f05fe65aa949afaf33251554e09ea0e787"
+          ]
+        },
+        {
+          "pet": 278,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "92fc1f63928cc051f3d3630834b97b9ead0a5ad488de28b7d23df2f1cd89b29e",
+            "375ec38a81b2cf4206438e2ba8c82895905270615ad7f254880486adbadd5355",
+            "02928c5b06c5c9939c4de9cbd66bd1f05fe65aa949afaf33251554e09ea0e787"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zcX2KFYTtqh3Jbg9-60-41",
+      "purpose": "policy-scope",
+      "report": "zcX2KFYTtqh3Jbg9",
+      "fight": 60,
+      "actor": 41,
+      "player": "Smcadogx",
+      "realm": "Pyrewood Village",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51118_Patchwerk.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [
+        42,
+        71
+      ],
+      "duration_ms": 105930,
+      "published": "1409.79",
+      "totals": {
+        "raw": 149937,
+        "self": 598,
+        "excluded": 0,
+        "ranked": 149339
+      },
+      "residual": "-547/1059300",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 149,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "e5477dac42d6062613050499cb3c6dde51db6f8707a8dac6c45de6956d661c28",
+            "fd93b504249e688c351e55e3bbaa7db5701ccc470bd3fa476acb61fa61237211",
+            "ab53838da5ab660e14a18cacc631cc4f18ba3f81160288dfe75458a2cd914ed9"
+          ]
+        },
+        {
+          "pet": 251,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "e5477dac42d6062613050499cb3c6dde51db6f8707a8dac6c45de6956d661c28",
+            "fd93b504249e688c351e55e3bbaa7db5701ccc470bd3fa476acb61fa61237211",
+            "ab53838da5ab660e14a18cacc631cc4f18ba3f81160288dfe75458a2cd914ed9"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

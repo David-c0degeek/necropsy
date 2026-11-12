@@ -1,5 +1,12 @@
 # Remaining Naxx work — 2026-10-23
 
+Policies, 2026-11-12: 150 cell-scoped Naxx DPS policies now exist
+(`research/dps-policies-20261112/`). Open DPS cells: 130 at the five
+exclusion bosses (no policy evidence tests the lists), 84 below the minimum of
+3 admitted players (D023 follow-up deferred; ownerless guardians, D026, are the
+main cause), 26 with contradictions (Mage Fire). Shaman pet listings
+(totems) block both Shaman DPS configurations.
+
 Intake, 2026-11-11: every Naxx configuration is now captured (34, all
 partial). The 27 new archives pass strict read and are in Git LFS under
 `tests/golden/raids/raw/naxx-production-20261111/`

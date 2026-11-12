@@ -1,0 +1,159 @@
+{
+  "version": 1,
+  "rule": "naxx-noth-marksmanship-hunter-alliance-dps-v1",
+  "scope": {
+    "encounter_id": 51117,
+    "class_id": 3,
+    "category": "Marksmanship",
+    "metric": "dps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/75928820-2006-20261103T162831.zip",
+    "sha256": "98a2d5a39d3b85dfee8db0b777b1c74cbef11656138baa5b7b892302311050a1"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "1VaNTh26dWzDPwFq-43-14",
+      "purpose": "policy-scope",
+      "report": "1VaNTh26dWzDPwFq",
+      "fight": 43,
+      "actor": 14,
+      "player": "Tagx",
+      "realm": "Thunderfury",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51117_Noth_the_Plaguebringer.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [
+        9
+      ],
+      "duration_ms": 67496,
+      "published": "1500.12",
+      "totals": {
+        "raw": 101252,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 101252
+      },
+      "residual": "-311/210925",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 83,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "869d7c63492bd19d602135cb9db4d0c69e1920703de12205b924377ebff68cd2",
+            "9068a4e8e8caad4a171e2456d6ff500260f0a01c46c45cfdfd544a144e135cae"
+          ]
+        },
+        {
+          "pet": 87,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "869d7c63492bd19d602135cb9db4d0c69e1920703de12205b924377ebff68cd2",
+            "9068a4e8e8caad4a171e2456d6ff500260f0a01c46c45cfdfd544a144e135cae"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3zLP6tQkCdxYryRW-26-11",
+      "purpose": "policy-scope",
+      "report": "3zLP6tQkCdxYryRW",
+      "fight": 26,
+      "actor": 11,
+      "player": "Clicker",
+      "realm": "Mograine",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51117_Noth_the_Plaguebringer.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [
+        31
+      ],
+      "duration_ms": 40648,
+      "published": "1522.95",
+      "totals": {
+        "raw": 61905,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 61905
+      },
+      "residual": "321/101620",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 152,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "fd1c17ffb22ef7ccf68d786464db2600693d794dad11c77c217cf611c48c2aa1"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4tXdnTWajDVChNRY-88-2",
+      "purpose": "policy-scope",
+      "report": "4tXdnTWajDVChNRY",
+      "fight": 88,
+      "actor": 2,
+      "player": "Radiowave",
+      "realm": "Westfall",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51117_Noth_the_Plaguebringer.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [
+        3
+      ],
+      "duration_ms": 44151,
+      "published": "1504.29",
+      "totals": {
+        "raw": 66416,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 66416
+      },
+      "residual": "9221/4415100",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 142,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "f5828302dd86730a5d9dc783c4e70d429aeb5802eb46aaf78d4def708d993681"
+          ]
+        },
+        {
+          "pet": 165,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "f5828302dd86730a5d9dc783c4e70d429aeb5802eb46aaf78d4def708d993681"
+          ]
+        },
+        {
+          "pet": 209,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "f5828302dd86730a5d9dc783c4e70d429aeb5802eb46aaf78d4def708d993681"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

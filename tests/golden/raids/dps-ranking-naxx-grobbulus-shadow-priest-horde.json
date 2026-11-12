@@ -1,0 +1,123 @@
+{
+  "version": 1,
+  "rule": "naxx-grobbulus-shadow-priest-horde-dps-v1",
+  "scope": {
+    "encounter_id": 51111,
+    "class_id": 7,
+    "category": "Shadow",
+    "metric": "dps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/66195792-2006-20261108T070712.zip",
+    "sha256": "05aa6d44d37a8dcbf6a64ccc17060b81f0d42f4abaa4c69a8eba453510c3f6de"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "QZHfwqp6K9xzDYm4-47-28",
+      "purpose": "policy-scope",
+      "report": "QZHfwqp6K9xzDYm4",
+      "fight": 47,
+      "actor": 28,
+      "player": "Soolia",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51111_Grobbulus.json",
+      "page": 1,
+      "row": 7,
+      "owned_actor_ids": [],
+      "duration_ms": 91898,
+      "published": "801.693",
+      "totals": {
+        "raw": 73674,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 73674
+      },
+      "residual": "8343/45949000"
+    },
+    {
+      "id": "WPxyrnqYh2J8D6LN-61-43",
+      "purpose": "policy-scope",
+      "report": "WPxyrnqYh2J8D6LN",
+      "fight": 61,
+      "actor": 43,
+      "player": "Ywfvniefjioe",
+      "realm": "Pyrewood Village",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51111_Grobbulus.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 67767,
+      "published": "900.719",
+      "totals": {
+        "raw": 61039,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 61039
+      },
+      "residual": "-24473/67767000",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 130,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "e58b01a05b1318b70ab32170fc4f5ef93c2187679e8f81212b3bb636e38b86f9",
+            "631c568875eadc7f42738a0d2e12de5ecc092449f3e6407e0863a0f2866be618"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "y2bQD784wHna6PBv-51-41",
+      "purpose": "policy-scope",
+      "report": "y2bQD784wHna6PBv",
+      "fight": 51,
+      "actor": 41,
+      "player": "Varjo",
+      "realm": "Mankrik",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51111_Grobbulus.json",
+      "page": 1,
+      "row": 8,
+      "owned_actor_ids": [],
+      "duration_ms": 80413,
+      "published": "794.399",
+      "totals": {
+        "raw": 63880,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 63880
+      },
+      "residual": "-6787/80413000",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 136,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "8b53a9a809c9ab24b161ba26bcc7e28113c9a66d9e4de814cc44f28db5f1daf1",
+            "894da13f8e19ecd5346dc012e429d5be2c210d3b1d03eb3f48adc6d032a89a19"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

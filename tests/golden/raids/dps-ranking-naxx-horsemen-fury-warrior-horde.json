@@ -1,0 +1,181 @@
+{
+  "version": 1,
+  "rule": "naxx-horsemen-fury-warrior-horde-dps-v1",
+  "scope": {
+    "encounter_id": 51121,
+    "class_id": 11,
+    "category": "Fury",
+    "metric": "dps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/75322236-2006-20261110T150026.zip",
+    "sha256": "3750625e922916fb4f3a6cf7243311216149d77b3b09eeebffcdcd43558f76dd"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "b1463YqycDXKBkTV-20-1",
+      "purpose": "policy-scope",
+      "report": "b1463YqycDXKBkTV",
+      "fight": 20,
+      "actor": 1,
+      "player": "Benuno",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51121_The_Four_Horsemen.json",
+      "page": 1,
+      "row": 17,
+      "owned_actor_ids": [],
+      "duration_ms": 69577,
+      "published": "1617.8",
+      "totals": {
+        "raw": 113094,
+        "self": 532,
+        "excluded": 0,
+        "ranked": 112562
+      },
+      "residual": "1647/347885",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 175,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "71c9b17b8771079587f63bb69c0d22d3b06dbbb9fb99e980d367439cb8d4bd94",
+            "5d239d5a00eb943c787a46a3e877167db8e34afe7553238c0c5a532afa3f54f6"
+          ]
+        },
+        {
+          "pet": 185,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "71c9b17b8771079587f63bb69c0d22d3b06dbbb9fb99e980d367439cb8d4bd94",
+            "5d239d5a00eb943c787a46a3e877167db8e34afe7553238c0c5a532afa3f54f6"
+          ]
+        },
+        {
+          "pet": 223,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "71c9b17b8771079587f63bb69c0d22d3b06dbbb9fb99e980d367439cb8d4bd94",
+            "5d239d5a00eb943c787a46a3e877167db8e34afe7553238c0c5a532afa3f54f6"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b1463YqycDXKBkTV-20-26",
+      "purpose": "policy-scope",
+      "report": "b1463YqycDXKBkTV",
+      "fight": 20,
+      "actor": 26,
+      "player": "Shashuka",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51121_The_Four_Horsemen.json",
+      "page": 1,
+      "row": 21,
+      "owned_actor_ids": [],
+      "duration_ms": 69577,
+      "published": "1584.65",
+      "totals": {
+        "raw": 110255,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 110255
+      },
+      "residual": "-3861/1391540",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 142,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "71c9b17b8771079587f63bb69c0d22d3b06dbbb9fb99e980d367439cb8d4bd94",
+            "5d239d5a00eb943c787a46a3e877167db8e34afe7553238c0c5a532afa3f54f6"
+          ]
+        },
+        {
+          "pet": 186,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "71c9b17b8771079587f63bb69c0d22d3b06dbbb9fb99e980d367439cb8d4bd94",
+            "5d239d5a00eb943c787a46a3e877167db8e34afe7553238c0c5a532afa3f54f6"
+          ]
+        },
+        {
+          "pet": 200,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "71c9b17b8771079587f63bb69c0d22d3b06dbbb9fb99e980d367439cb8d4bd94",
+            "5d239d5a00eb943c787a46a3e877167db8e34afe7553238c0c5a532afa3f54f6"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "n6GmHqLp8WRjDXCt-15-13",
+      "purpose": "policy-scope",
+      "report": "n6GmHqLp8WRjDXCt",
+      "fight": 15,
+      "actor": 13,
+      "player": "Klevronee",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51121_The_Four_Horsemen.json",
+      "page": 1,
+      "row": 31,
+      "owned_actor_ids": [],
+      "duration_ms": 74733,
+      "published": "1555.95",
+      "totals": {
+        "raw": 116837,
+        "self": 556,
+        "excluded": 0,
+        "ranked": 116281
+      },
+      "residual": "3773/1494660",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 166,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "fadf812b927d4d5ab8681f0d7f593fc186c3029c7909d5c83f17a2c2dddbf833",
+            "90ab7c5252b9eded6983701700d4a69c013af57d8292dac2e73a59ef221aa366"
+          ]
+        },
+        {
+          "pet": 194,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "fadf812b927d4d5ab8681f0d7f593fc186c3029c7909d5c83f17a2c2dddbf833",
+            "90ab7c5252b9eded6983701700d4a69c013af57d8292dac2e73a59ef221aa366"
+          ]
+        },
+        {
+          "pet": 236,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "fadf812b927d4d5ab8681f0d7f593fc186c3029c7909d5c83f17a2c2dddbf833",
+            "90ab7c5252b9eded6983701700d4a69c013af57d8292dac2e73a59ef221aa366"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

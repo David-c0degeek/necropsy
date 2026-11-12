@@ -1,0 +1,121 @@
+{
+  "version": 1,
+  "rule": "naxx-grobbulus-guardian-druid-alliance-dps-v1",
+  "scope": {
+    "encounter_id": 51111,
+    "class_id": 2,
+    "category": "Guardian",
+    "metric": "dps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261031/83306366-2006-20261031T073441.zip",
+    "sha256": "d6ecd3846ba9a27641ce80eb801006d630432348fd0283594d2f805dda7dcb55"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "RycGPLBmrj31AM96-22-27",
+      "purpose": "policy-scope",
+      "report": "RycGPLBmrj31AM96",
+      "fight": 22,
+      "actor": 27,
+      "player": "守猪",
+      "realm": "哈霍兰",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51111_Grobbulus.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 90450,
+      "published": "901.614",
+      "totals": {
+        "raw": 81551,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 81551
+      },
+      "residual": "137/904500"
+    },
+    {
+      "id": "aDqvzm7gbZw1r4YT-26-24",
+      "purpose": "policy-scope",
+      "report": "aDqvzm7gbZw1r4YT",
+      "fight": 26,
+      "actor": 24,
+      "player": "守猪逮兔",
+      "realm": "哈霍兰",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51111_Grobbulus.json",
+      "page": 1,
+      "row": 3,
+      "owned_actor_ids": [],
+      "duration_ms": 84012,
+      "published": "889.706",
+      "totals": {
+        "raw": 74746,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 74746
+      },
+      "residual": "2441/10501500"
+    },
+    {
+      "id": "chTap6WYgPtHVm1n-14-15",
+      "purpose": "policy-scope",
+      "report": "chTap6WYgPtHVm1n",
+      "fight": 14,
+      "actor": 15,
+      "player": "Iol",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51111_Grobbulus.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 60778,
+      "published": "1068.94",
+      "totals": {
+        "raw": 64968,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 64968
+      },
+      "residual": "-883/1519450",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 120,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "4e8c421a0da4f8fb7ffb2c56635a34a8764ad7e8386228a6b757286de848b8d6",
+            "054cc929a4473ed5a481a9a591ab6ff7099aa8ed6e32a9ee049d3111189bc645"
+          ]
+        },
+        {
+          "pet": 181,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "4e8c421a0da4f8fb7ffb2c56635a34a8764ad7e8386228a6b757286de848b8d6",
+            "054cc929a4473ed5a481a9a591ab6ff7099aa8ed6e32a9ee049d3111189bc645"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

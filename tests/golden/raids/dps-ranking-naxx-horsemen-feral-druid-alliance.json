@@ -1,0 +1,145 @@
+{
+  "version": 1,
+  "rule": "naxx-horsemen-feral-druid-alliance-dps-v1",
+  "scope": {
+    "encounter_id": 51121,
+    "class_id": 2,
+    "category": "Feral",
+    "metric": "dps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261031/75650895-2006-20261029T065847.zip",
+    "sha256": "be76c08559f11ed91b648a7a3aa88970647c7a333552356b6e84049511578633"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "N6rfMATD1wH9j37p-58-21",
+      "purpose": "policy-scope",
+      "report": "N6rfMATD1wH9j37p",
+      "fight": 58,
+      "actor": 21,
+      "player": "Mckitty",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51121_The_Four_Horsemen.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 220077,
+      "published": "634.096",
+      "totals": {
+        "raw": 140040,
+        "self": 490,
+        "excluded": 0,
+        "ranked": 139550
+      },
+      "residual": "6826/27509625",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 133,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "9dc6f41f56623689de2b1a369c2b5292251e671cc038e999e4d124719fde0004",
+            "b3e5d69d717fe2d7c0f599efcd8817b3f06d989d5f5123f8a9635d0fc9dbcaf1",
+            "c0676d585f32d31e0691d7b81c039dc272cce09561a179e5482da35eeee0e5d0"
+          ]
+        },
+        {
+          "pet": 134,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "9dc6f41f56623689de2b1a369c2b5292251e671cc038e999e4d124719fde0004",
+            "b3e5d69d717fe2d7c0f599efcd8817b3f06d989d5f5123f8a9635d0fc9dbcaf1",
+            "c0676d585f32d31e0691d7b81c039dc272cce09561a179e5482da35eeee0e5d0"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gnVdhvj9ykrwRb8x-58-23",
+      "purpose": "policy-scope",
+      "report": "gnVdhvj9ykrwRb8x",
+      "fight": 58,
+      "actor": 23,
+      "player": "Mcbear",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51121_The_Four_Horsemen.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 220073,
+      "published": "586.037",
+      "totals": {
+        "raw": 130626,
+        "self": 1655,
+        "excluded": 0,
+        "ranked": 128971
+      },
+      "residual": "79299/220073000",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 80,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "934543595805555e6ab482a9eb043301258b5d36b13648376535ad2cba1f3625",
+            "8f19059a166cde4e85cea7d506fd6a281888232068c0f0627c6e968a850366e6",
+            "610d53f4a21b1b4f8268daac590c7b07b2a5bf7e2bc8424bb8b8b1b0b418056e"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "raGABktgVb6pYnxK-27-11",
+      "purpose": "policy-scope",
+      "report": "raGABktgVb6pYnxK",
+      "fight": 27,
+      "actor": 11,
+      "player": "Stinkface",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51121_The_Four_Horsemen.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 187029,
+      "published": "629.303",
+      "totals": {
+        "raw": 118672,
+        "self": 974,
+        "excluded": 0,
+        "ranked": 117698
+      },
+      "residual": "89213/187029000",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 78,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "b403790dba2a82f9cb415d6eba6285f66b6294d02da55a74b87937deff17512b",
+            "c5eef5021ebc6ba26cfa5470c1ea1759ede0c47565d4f956b93abc6381364e1a",
+            "b82e54566646f5d17859c754d0f25cae019096bc1c55ae877599642b98651007"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

@@ -18,6 +18,7 @@ from typing import Any
 
 import pytest
 
+from necropsy.analysis.class_catalog import CLASS_NAMES
 from necropsy.rules import load_rules
 from scripts.check_raid_coverage import NO_PRODUCTION_EXCLUSIONS, POLICY_CONDITIONS
 from scripts.raw_projection import verify_projection
@@ -31,8 +32,8 @@ POLICIES = {
     if p["scope"]["metric"] == "dps" and p["rule"].startswith("naxx-")
 }
 MINIMUM_ADMITTED = 3
-# The only admitted row with positive owned-unit damage: Frelserboom's Servant of
-# Weldon Barov (actor 81) on Maexxna, so dropped owned damage is provable only here.
+# The first admitted row with positive owned-unit damage: Frelserboom's Servant of
+# Weldon Barov (actor 81) on Maexxna. Hunter and Warlock policies add more.
 OWNED_WITNESS = ("g8f9nGyRTpNLMqWm", 9, 442)
 
 
@@ -99,12 +100,17 @@ def _consistent(total: int, duration: int, published: str) -> bool:
 
 
 def _owned_units(
-    listing: Any, fight: dict[str, Any], actors: dict[int, dict[str, Any]], actor: int
+    listing: Any,
+    fight: dict[str, Any],
+    actors: dict[int, dict[str, Any]],
+    actor: int,
+    absent: frozenset[int] = frozenset(),
 ) -> set[int]:
     """The actor's owned units: an explicit listing that both catalogs confirm.
 
     A missing listing is unknown ownership, never an empty one; an empty list is
-    accepted only when it is present and every catalog agrees.
+    accepted only when it is present and every catalog agrees. ABSENT are catalog
+    pets the caller has shown never appear in this fight (D022).
     """
     assert isinstance(listing, list), "missing explicit owned-unit listing"
     ids = []
@@ -118,7 +124,8 @@ def _owned_units(
     assert all(type(p.get("petOwner")) is int for p in fight["friendlyPets"])
     in_fight = {p["id"] for p in fight["friendlyPets"] if p["petOwner"] == actor}
     in_catalog = {a for a, v in actors.items() if v.get("petOwner") == actor}
-    assert set(ids) == in_fight == in_catalog, "owned-unit listings disagree"
+    assert not absent & {p["id"] for p in fight["friendlyPets"]}, "an absent pet is listed"
+    assert set(ids) == in_fight == in_catalog - absent, "owned-unit listings disagree"
     return set(ids)
 
 
@@ -139,7 +146,17 @@ def _measure(archive: dict[str, Any], row: dict[str, Any]) -> dict[str, Any]:
         assert len(folders) == 1, folders
         listing_name = f"{folders.pop()}/pets.json"
         listing = _read(z, listing_name) if listing_name in z.namelist() else None
-        owned = _owned_units(listing, fight, actors, actor)
+        absent = frozenset(p["pet"] for p in row.get("catalog_pets_out_of_scope", ()))
+        if absent:
+            # D022: a catalog pet is out of scope only if the fight's encounter-All
+            # pages never name it.
+            prefix = f"events/{row['report']}/fight_{row['fight']}/encounter/"
+            pages = sorted(n for n in z.namelist() if n.startswith(prefix))
+            assert pages
+            for name in pages:
+                for event in _read(z, name)["data"]:
+                    assert not absent & {event.get("sourceID"), event.get("targetID")}, name
+        owned = _owned_units(listing, fight, actors, actor, absent)
         details = [
             p
             for role in report["playerDetails"]["data"]["playerDetails"].values()
@@ -223,10 +240,12 @@ def test_published_dps_matches_raw_owner_and_owned_unit_damage(
 ) -> None:
     policy = POLICIES[rule]
     m = _measure(_evidence(rule)["archive"], row)
+    scope = policy["scope"]
+    class_name = CLASS_NAMES[scope["class_id"]]
     externals = load_rules("classic_era", "externals")["factions"]
-    alliance = {int(k) for k, v in externals.items() if v == policy["scope"]["faction"]}
-    assert m["details"] and all(d["type"] == "Druid" for d in m["details"])
-    assert {d["combatantInfo"]["factionID"] for d in m["details"]} <= alliance
+    faction = {int(k) for k, v in externals.items() if v == scope["faction"]}
+    assert m["details"] and all(d["type"] == class_name for d in m["details"])
+    assert {d["combatantInfo"]["factionID"] for d in m["details"]} <= faction
     assert {d["name"] for d in m["details"]} == {row["player"]}
     assert m["owned"] == row["owned_actor_ids"]
     assert m["totals"] == row["totals"]
@@ -238,7 +257,7 @@ def test_published_dps_matches_raw_owner_and_owned_unit_damage(
         published["server"]["name"],
         published["class"],
         published["spec"],
-    ) == (row["report"], row["fight"], row["player"], row["realm"], "Druid", "Balance")
+    ) == (row["report"], row["fight"], row["player"], row["realm"], class_name, scope["category"])
     amount, duration = str(published["amount"]), m["duration_ms"]
     assert int(published["duration"]) == duration == row["duration_ms"]
     assert amount == row["published"]
@@ -266,7 +285,7 @@ def test_every_wrong_policy_is_exercised_by_some_admitted_row() -> None:
     }
     self_damage = [k for k, m in measured.items() if m["totals"]["self"]]
     owned = [(k, m["owned_damage"]) for k, m in measured.items() if m["owned_damage"]]
-    assert owned == [(OWNED_WITNESS[:2], OWNED_WITNESS[2])]
+    assert (OWNED_WITNESS[:2], OWNED_WITNESS[2]) in owned
     assert self_damage
     multi_target = [
         k for k, m in measured.items() if len([v for v in m["by_target"].values() if v]) > 1

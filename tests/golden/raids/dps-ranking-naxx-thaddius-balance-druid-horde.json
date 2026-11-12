@@ -1,0 +1,184 @@
+{
+  "version": 1,
+  "rule": "naxx-thaddius-balance-druid-horde-dps-v1",
+  "scope": {
+    "encounter_id": 51120,
+    "class_id": 2,
+    "category": "Balance",
+    "metric": "dps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261031/64347501-2006-20261027T093033.zip",
+    "sha256": "7021b6a180220f5933e700ec5121db16441526d5004d88679d6bf48e98718ab2"
+  },
+  "dispositions": {
+    "n": 5,
+    "k": 5,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "43zxhZmkwfptDdMH-62-47",
+      "purpose": "policy-scope",
+      "report": "43zxhZmkwfptDdMH",
+      "fight": 62,
+      "actor": 47,
+      "player": "Freshbull",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51120_Thaddius.json",
+      "page": 1,
+      "row": 39,
+      "owned_actor_ids": [],
+      "duration_ms": 171599,
+      "published": "1035.11",
+      "totals": {
+        "raw": 179503,
+        "self": 1879,
+        "excluded": 0,
+        "ranked": 177624
+      },
+      "residual": "15911/17159900",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 224,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "5b644d96a13d898358a596d208f1861b019a00ae9b0cefa54ed855672368a934",
+            "ffbd496054ab66ebdaa22cf30d2549f792ed452a5c3a9e1aca7787b4195331e0",
+            "3ff918e93258b9f1daafc43d96714cbe6b4267582cedb82f33d8e469b568b633"
+          ]
+        },
+        {
+          "pet": 226,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "5b644d96a13d898358a596d208f1861b019a00ae9b0cefa54ed855672368a934",
+            "ffbd496054ab66ebdaa22cf30d2549f792ed452a5c3a9e1aca7787b4195331e0",
+            "3ff918e93258b9f1daafc43d96714cbe6b4267582cedb82f33d8e469b568b633"
+          ]
+        },
+        {
+          "pet": 235,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "5b644d96a13d898358a596d208f1861b019a00ae9b0cefa54ed855672368a934",
+            "ffbd496054ab66ebdaa22cf30d2549f792ed452a5c3a9e1aca7787b4195331e0",
+            "3ff918e93258b9f1daafc43d96714cbe6b4267582cedb82f33d8e469b568b633"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7vVRftagQbmWKTz9-22-22",
+      "purpose": "policy-scope",
+      "report": "7vVRftagQbmWKTz9",
+      "fight": 22,
+      "actor": 22,
+      "player": "锐意",
+      "realm": "哈霍兰",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51120_Thaddius.json",
+      "page": 1,
+      "row": 36,
+      "owned_actor_ids": [],
+      "duration_ms": 178649,
+      "published": "1059.88",
+      "totals": {
+        "raw": 189347,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 189347
+      },
+      "residual": "12447/4466225"
+    },
+    {
+      "id": "AGpWTjbZwyRzmthB-71-24",
+      "purpose": "policy-scope",
+      "report": "AGpWTjbZwyRzmthB",
+      "fight": 71,
+      "actor": 24,
+      "player": "Crljenac",
+      "realm": "Mirage Raceway",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51120_Thaddius.json",
+      "page": 1,
+      "row": 4,
+      "owned_actor_ids": [],
+      "duration_ms": 186967,
+      "published": "1424.93",
+      "totals": {
+        "raw": 269937,
+        "self": 3522,
+        "excluded": 0,
+        "ranked": 266415
+      },
+      "residual": "11269/18696700"
+    },
+    {
+      "id": "gX4KLNqC2Wc9jYhR-34-26",
+      "purpose": "policy-scope",
+      "report": "gX4KLNqC2Wc9jYhR",
+      "fight": 34,
+      "actor": 26,
+      "player": "Gimbaswife",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51120_Thaddius.json",
+      "page": 1,
+      "row": 32,
+      "owned_actor_ids": [],
+      "duration_ms": 132545,
+      "published": "1080.12",
+      "totals": {
+        "raw": 143164,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 143164
+      },
+      "residual": "-361/94675"
+    },
+    {
+      "id": "y3hamAcK4nfZpGCk-8-7",
+      "purpose": "policy-scope",
+      "report": "y3hamAcK4nfZpGCk",
+      "fight": 8,
+      "actor": 7,
+      "player": "Plasmastrike",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51120_Thaddius.json",
+      "page": 1,
+      "row": 13,
+      "owned_actor_ids": [],
+      "duration_ms": 199035,
+      "published": "1197.11",
+      "totals": {
+        "raw": 239213,
+        "self": 946,
+        "excluded": 0,
+        "ranked": 238267
+      },
+      "residual": "4223/3980700"
+    }
+  ],
+  "refusals": []
+}
