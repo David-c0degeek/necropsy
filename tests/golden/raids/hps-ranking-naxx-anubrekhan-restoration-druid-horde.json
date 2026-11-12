@@ -1,0 +1,112 @@
+{
+  "version": 1,
+  "rule": "naxx-anubrekhan-restoration-druid-horde-hps-v1",
+  "scope": {
+    "encounter_id": 51107,
+    "class_id": 2,
+    "category": "Restoration",
+    "metric": "hps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77577270-2006-20261103T040708.zip",
+    "sha256": "f2151316bf0531ee4187a54e5f234c18b29028f9418e3d7d513d83521c2a681d"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "BQRD6fC3pKan2XAF-2-24",
+      "purpose": "policy-scope",
+      "report": "BQRD6fC3pKan2XAF",
+      "fight": 2,
+      "actor": 24,
+      "player": "Karakorn",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51107_Anub_Rekhan.json",
+      "page": 1,
+      "row": 15,
+      "owned_actor_ids": [],
+      "duration_ms": 37625,
+      "published": "729.728",
+      "totals": {
+        "raw": 27456,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 27456
+      },
+      "residual": "-16/37625"
+    },
+    {
+      "id": "bWy8pwKjdGQmha6A-2-11",
+      "purpose": "policy-scope",
+      "report": "bWy8pwKjdGQmha6A",
+      "fight": 2,
+      "actor": 11,
+      "player": "Thorisdottir",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51107_Anub_Rekhan.json",
+      "page": 1,
+      "row": 12,
+      "owned_actor_ids": [],
+      "duration_ms": 32430,
+      "published": "740.117",
+      "totals": {
+        "raw": 24002,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 24002
+      },
+      "residual": "569/3243000",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 165,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "14c3889566a4746d5bc2ab7bd5f2ef492469651a8f0a2ba5aa200204bbdbaaa8"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t7zYvKMHAJ4VgmBp-2-20",
+      "purpose": "policy-scope",
+      "report": "t7zYvKMHAJ4VgmBp",
+      "fight": 2,
+      "actor": 20,
+      "player": "Bigblackkcow",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51107_Anub_Rekhan.json",
+      "page": 1,
+      "row": 38,
+      "owned_actor_ids": [],
+      "duration_ms": 42719,
+      "published": "666.495",
+      "totals": {
+        "raw": 28472,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 28472
+      },
+      "residual": "19/8543800"
+    }
+  ],
+  "refusals": []
+}

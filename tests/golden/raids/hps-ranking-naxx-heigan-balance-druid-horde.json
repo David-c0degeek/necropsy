@@ -1,0 +1,113 @@
+{
+  "version": 1,
+  "rule": "naxx-heigan-balance-druid-horde-hps-v1",
+  "scope": {
+    "encounter_id": 51112,
+    "class_id": 2,
+    "category": "Balance",
+    "metric": "hps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261031/76376122-2006-20261028T163059.zip",
+    "sha256": "392bf13fb1350ae468253631895b9be591d46516a40d020a00dcaa568fa1ef4f"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "A82gLVQPthabKwjM-69-12",
+      "purpose": "policy-scope",
+      "report": "A82gLVQPthabKwjM",
+      "fight": 69,
+      "actor": 12,
+      "player": "Arzid",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51112_Heigan_the_Unclean.json",
+      "page": 1,
+      "row": 20,
+      "owned_actor_ids": [],
+      "duration_ms": 57619,
+      "published": "73.4653",
+      "totals": {
+        "raw": 4233,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 4233
+      },
+      "residual": "28793/576190000"
+    },
+    {
+      "id": "DMTgYWA68N9dm2HF-28-14",
+      "purpose": "policy-scope",
+      "report": "DMTgYWA68N9dm2HF",
+      "fight": 28,
+      "actor": 14,
+      "player": "骑猪追狗打",
+      "realm": "厄运之槌",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51112_Heigan_the_Unclean.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 92821,
+      "published": "115.599",
+      "totals": {
+        "raw": 10730,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 10730
+      },
+      "residual": "-14779/92821000"
+    },
+    {
+      "id": "mWaQvBFVcL89TwnJ-21-28",
+      "purpose": "policy-scope",
+      "report": "mWaQvBFVcL89TwnJ",
+      "fight": 21,
+      "actor": 28,
+      "player": "Dragontry",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51112_Heigan_the_Unclean.json",
+      "page": 1,
+      "row": 19,
+      "owned_actor_ids": [],
+      "duration_ms": 61593,
+      "published": "73.8071",
+      "totals": {
+        "raw": 4546,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 4546
+      },
+      "residual": "-7103/615930000",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 264,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "6e629a5f67546ffbff89246cbc6c8e433b227e8ba75360caeddea8776eb774f6",
+            "5aab5b0591bbae12b6432a048939de17db8fa3cd4529e025f16c947e57f174f1"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

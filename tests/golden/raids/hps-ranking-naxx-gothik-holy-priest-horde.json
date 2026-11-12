@@ -1,0 +1,103 @@
+{
+  "version": 1,
+  "rule": "naxx-gothik-holy-priest-horde-hps-v1",
+  "scope": {
+    "encounter_id": 51109,
+    "class_id": 7,
+    "category": "Holy",
+    "metric": "hps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77516109-2006-20261107T143644.zip",
+    "sha256": "6261e9d695747c333065fa0655f610a7b7bd0be5015f47f70395edf7e7789eca"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "Ch6d3Nn9xQArZXTb-12-35",
+      "purpose": "policy-scope",
+      "report": "Ch6d3Nn9xQArZXTb",
+      "fight": 12,
+      "actor": 35,
+      "player": "莫灬恋",
+      "realm": "哈霍兰",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51109_Gothik_the_Harvester.json",
+      "page": 3,
+      "row": 96,
+      "owned_actor_ids": [],
+      "duration_ms": 309023,
+      "published": "491.569",
+      "totals": {
+        "raw": 151906,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 151906
+      },
+      "residual": "-127087/309023000"
+    },
+    {
+      "id": "Yvar2nLJHhA3mbTZ-25-15",
+      "purpose": "policy-scope",
+      "report": "Yvar2nLJHhA3mbTZ",
+      "fight": 25,
+      "actor": 15,
+      "player": "Playdead",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51109_Gothik_the_Harvester.json",
+      "page": 2,
+      "row": 4,
+      "owned_actor_ids": [],
+      "duration_ms": 294175,
+      "published": "560.581",
+      "totals": {
+        "raw": 164909,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 164909
+      },
+      "residual": "3373/11767000"
+    },
+    {
+      "id": "pxyJbw89Y1dnKNTQ-20-31",
+      "purpose": "policy-scope",
+      "report": "pxyJbw89Y1dnKNTQ",
+      "fight": 20,
+      "actor": 31,
+      "player": "Snohvit",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51109_Gothik_the_Harvester.json",
+      "page": 1,
+      "row": 11,
+      "owned_actor_ids": [],
+      "duration_ms": 309395,
+      "published": "721.34",
+      "totals": {
+        "raw": 223179,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 223179
+      },
+      "residual": "107/3093950"
+    }
+  ],
+  "refusals": []
+}

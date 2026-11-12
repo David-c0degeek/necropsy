@@ -1,0 +1,109 @@
+{
+  "version": 1,
+  "rule": "naxx-sapphiron-holy-priest-alliance-hps-v1",
+  "scope": {
+    "encounter_id": 51119,
+    "class_id": 7,
+    "category": "Holy",
+    "metric": "hps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77573659-2006-20261106T154918.zip",
+    "sha256": "d292ee0e8a3db304a504e98ecc0528b70e43446dd74548afaf5788d8af9d8139"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "KRMbXgGJApa26HZf-28-20",
+      "purpose": "policy-scope",
+      "report": "KRMbXgGJApa26HZf",
+      "fight": 28,
+      "actor": 20,
+      "player": "医林",
+      "realm": "哈霍兰",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51119_Sapphiron.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 20704,
+      "published": "2403.06",
+      "totals": {
+        "raw": 49753,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 49753
+      },
+      "residual": "143/64700"
+    },
+    {
+      "id": "ZbqNGh1gJjKBRAwv-38-1",
+      "purpose": "policy-scope",
+      "report": "ZbqNGh1gJjKBRAwv",
+      "fight": 38,
+      "actor": 1,
+      "player": "Almsivi",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51119_Sapphiron.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 20669,
+      "published": "2099.13",
+      "totals": {
+        "raw": 43387,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 43387
+      },
+      "residual": "8203/2066900",
+      "fight_active_catalog_units": [
+        {
+          "unit": 221,
+          "rule": "catalog-unit-active-in-fight-v1"
+        }
+      ]
+    },
+    {
+      "id": "hA3tQMWw2XvcTYjy-30-4",
+      "purpose": "policy-scope",
+      "report": "hA3tQMWw2XvcTYjy",
+      "fight": 30,
+      "actor": 4,
+      "player": "Shodeena",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51119_Sapphiron.json",
+      "page": 1,
+      "row": 3,
+      "owned_actor_ids": [],
+      "duration_ms": 21064,
+      "published": "2095.14",
+      "totals": {
+        "raw": 44132,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 44132
+      },
+      "residual": "-181/131650"
+    }
+  ],
+  "refusals": []
+}

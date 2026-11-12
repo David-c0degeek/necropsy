@@ -1,0 +1,121 @@
+{
+  "version": 1,
+  "rule": "naxx-grobbulus-restoration-druid-horde-hps-v1",
+  "scope": {
+    "encounter_id": 51111,
+    "class_id": 2,
+    "category": "Restoration",
+    "metric": "hps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77577270-2006-20261103T040708.zip",
+    "sha256": "f2151316bf0531ee4187a54e5f234c18b29028f9418e3d7d513d83521c2a681d"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "CaYXGFhHqyDmbQ6f-25-3",
+      "purpose": "policy-scope",
+      "report": "CaYXGFhHqyDmbQ6f",
+      "fight": 25,
+      "actor": 3,
+      "player": "Cylak",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51111_Grobbulus.json",
+      "page": 1,
+      "row": 30,
+      "owned_actor_ids": [],
+      "duration_ms": 86298,
+      "published": "735.312",
+      "totals": {
+        "raw": 63456,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 63456
+      },
+      "residual": "938/1797875"
+    },
+    {
+      "id": "X4C86zavmyngQWP3-24-16",
+      "purpose": "policy-scope",
+      "report": "X4C86zavmyngQWP3",
+      "fight": 24,
+      "actor": 16,
+      "player": "Thorisdottir",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51111_Grobbulus.json",
+      "page": 1,
+      "row": 7,
+      "owned_actor_ids": [],
+      "duration_ms": 65180,
+      "published": "820.789",
+      "totals": {
+        "raw": 53499,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 53499
+      },
+      "residual": "-1351/3259000",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 143,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "e7175c4e3897bebf11a51af5579c616fbec0403a787510d5f6b92d75d9414c72",
+            "ca46f112bb1959f033d297a5241cf3d20d5cfae91dcb306c7a99b095a3fe9858"
+          ]
+        },
+        {
+          "pet": 294,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "e7175c4e3897bebf11a51af5579c616fbec0403a787510d5f6b92d75d9414c72",
+            "ca46f112bb1959f033d297a5241cf3d20d5cfae91dcb306c7a99b095a3fe9858"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hMat9Ndj1fAPG4bm-46-25",
+      "purpose": "policy-scope",
+      "report": "hMat9Ndj1fAPG4bm",
+      "fight": 46,
+      "actor": 25,
+      "player": "Bemep",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51111_Grobbulus.json",
+      "page": 1,
+      "row": 33,
+      "owned_actor_ids": [],
+      "duration_ms": 79888,
+      "published": "726.993",
+      "totals": {
+        "raw": 58078,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 58078
+      },
+      "residual": "-1049/4993000"
+    }
+  ],
+  "refusals": []
+}

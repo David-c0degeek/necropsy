@@ -1,0 +1,103 @@
+{
+  "version": 1,
+  "rule": "naxx-heigan-holy-priest-horde-hps-v1",
+  "scope": {
+    "encounter_id": 51112,
+    "class_id": 7,
+    "category": "Holy",
+    "metric": "hps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77516109-2006-20261107T143644.zip",
+    "sha256": "6261e9d695747c333065fa0655f610a7b7bd0be5015f47f70395edf7e7789eca"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "VDRgpt7GjqP6xFBc-14-43",
+      "purpose": "policy-scope",
+      "report": "VDRgpt7GjqP6xFBc",
+      "fight": 14,
+      "actor": 43,
+      "player": "Hylak",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51112_Heigan_the_Unclean.json",
+      "page": 2,
+      "row": 4,
+      "owned_actor_ids": [],
+      "duration_ms": 55931,
+      "published": "565",
+      "totals": {
+        "raw": 31601,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 31601
+      },
+      "residual": "-15/55931"
+    },
+    {
+      "id": "YnqARGrpLtz8FN9J-10-22",
+      "purpose": "policy-scope",
+      "report": "YnqARGrpLtz8FN9J",
+      "fight": 10,
+      "actor": 22,
+      "player": "Thelema",
+      "realm": "Anathema",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51112_Heigan_the_Unclean.json",
+      "page": 2,
+      "row": 15,
+      "owned_actor_ids": [],
+      "duration_ms": 52366,
+      "published": "558.76",
+      "totals": {
+        "raw": 29260,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 29260
+      },
+      "residual": "-327/654575"
+    },
+    {
+      "id": "Yvar2nLJHhA3mbTZ-32-15",
+      "purpose": "policy-scope",
+      "report": "Yvar2nLJHhA3mbTZ",
+      "fight": 32,
+      "actor": 15,
+      "player": "Playdead",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51112_Heigan_the_Unclean.json",
+      "page": 2,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 51484,
+      "published": "566.72",
+      "totals": {
+        "raw": 29177,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 29177
+      },
+      "residual": "-78/321775"
+    }
+  ],
+  "refusals": []
+}

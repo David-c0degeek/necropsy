@@ -1,0 +1,127 @@
+{
+  "version": 1,
+  "rule": "naxx-gothik-restoration-druid-alliance-hps-v1",
+  "scope": {
+    "encounter_id": 51109,
+    "class_id": 2,
+    "category": "Restoration",
+    "metric": "hps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/60117765-2006-20261102T031646.zip",
+    "sha256": "5bb2468398c6b371d012ee717af46b5c52a4de0da78d7993f4b84dc2e8e50277"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "KcytWpGagwFznr4x-34-13",
+      "purpose": "policy-scope",
+      "report": "KcytWpGagwFznr4x",
+      "fight": 34,
+      "actor": 13,
+      "player": "Tatey",
+      "realm": "Ashkandi",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51109_Gothik_the_Harvester.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 305161,
+      "published": "537.86",
+      "totals": {
+        "raw": 164134,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 164134
+      },
+      "residual": "5227/15258050"
+    },
+    {
+      "id": "MpGjWx3yDPJkTd7v-40-42",
+      "purpose": "policy-scope",
+      "report": "MpGjWx3yDPJkTd7v",
+      "fight": 40,
+      "actor": 42,
+      "player": "Stay",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51109_Gothik_the_Harvester.json",
+      "page": 1,
+      "row": 3,
+      "owned_actor_ids": [],
+      "duration_ms": 303388,
+      "published": "533.429",
+      "totals": {
+        "raw": 161836,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 161836
+      },
+      "residual": "10637/75847000",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 203,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "03ce552db5833658faffb8d587af99c9774e1071997eb5dd77d544915332da75",
+            "cb3c20be0c67e671e3777138e4c42f9130096c2b30e450a924ca924d3949c827",
+            "47af45a8526c081a5e7309cefb5ade530d8f4017a5dcdccde6773006018d469d",
+            "d6c0d3c54828f463d11576148f3039de3cd8cf32b26cac91f46a6d5fc680291b"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rgyBWhRYZ8jD2Gx6-25-42",
+      "purpose": "policy-scope",
+      "report": "rgyBWhRYZ8jD2Gx6",
+      "fight": 25,
+      "actor": 42,
+      "player": "Consequence",
+      "realm": "Pagle",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51109_Gothik_the_Harvester.json",
+      "page": 1,
+      "row": 4,
+      "owned_actor_ids": [],
+      "duration_ms": 302081,
+      "published": "533.304",
+      "totals": {
+        "raw": 161101,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 161101
+      },
+      "residual": "-37/1987375",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 147,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "08837a7b90d3e629efac56df5bc22e194384bc393b3854cadf5dd3b77b10a775",
+            "4ca924c48109415d4cfe1d757fc96ae46028836040dcbaceae22554364cb6a0d",
+            "bcb3b147054411824c2066da5f41cabb4d1fb536afd9fcbc84a1d4972a99417d",
+            "4382bd887663319e8fe1a95d3d5a28be41c824247baefe418cc64424924ac227"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

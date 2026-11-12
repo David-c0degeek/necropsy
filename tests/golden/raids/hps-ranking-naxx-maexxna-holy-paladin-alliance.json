@@ -1,0 +1,103 @@
+{
+  "version": 1,
+  "rule": "naxx-maexxna-holy-paladin-alliance-hps-v1",
+  "scope": {
+    "encounter_id": 51116,
+    "class_id": 6,
+    "category": "Holy",
+    "metric": "hps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77152471-2006-20261105T150116.zip",
+    "sha256": "566899fe83351370211b425ae94f48a0d367fbb9ecd0d26ca7d870df76838618"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "3BHfKwrC7ADTRbqj-9-25",
+      "purpose": "policy-scope",
+      "report": "3BHfKwrC7ADTRbqj",
+      "fight": 9,
+      "actor": 25,
+      "player": "Thormina",
+      "realm": "Mankrik",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51116_Maexxna.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 75964,
+      "published": "754.318",
+      "totals": {
+        "raw": 57301,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 57301
+      },
+      "residual": "-1569/9495500"
+    },
+    {
+      "id": "LtY6JrnjpvkaKdyV-17-1",
+      "purpose": "policy-scope",
+      "report": "LtY6JrnjpvkaKdyV",
+      "fight": 17,
+      "actor": 1,
+      "player": "Stimorol",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51116_Maexxna.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 73780,
+      "published": "1432.62",
+      "totals": {
+        "raw": 105699,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 105699
+      },
+      "residual": "741/184450"
+    },
+    {
+      "id": "fGcQCPZFr8zbmk2w-5-41",
+      "purpose": "policy-scope",
+      "report": "fGcQCPZFr8zbmk2w",
+      "fight": 5,
+      "actor": 41,
+      "player": "Qlimaxx",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51116_Maexxna.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 35646,
+      "published": "650.367",
+      "totals": {
+        "raw": 23183,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 23183
+      },
+      "residual": "8959/17823000"
+    }
+  ],
+  "refusals": []
+}

@@ -1,8 +1,8 @@
 """List configuration and boss cells that need more valid comparison players.
 
-A comparison is valid only when the existing ranking admission accepts it. For
-DPS, that is `freeze_dps_ranking.compute` on the comparison's exact published
-leaderboard row, so this detector and the freezer cannot drift apart. The
+A comparison is valid only when the existing ranking admission accepts it. That
+is `freeze_dps_ranking.compute` (DPS or HPS mode) on the comparison's exact
+published leaderboard row, so this detector and the freezer cannot drift apart. The
 subject (kind `you`, or the same name on the same realm) never counts. Only
 same-faction cohort entries whose faction the capture observed are comparisons;
 the cross-faction ceiling never is, and an unobserved faction is unverified.
@@ -15,8 +15,8 @@ At a boss with production ranking exclusions, the freezer runs with the exact
 packaged exclusion list. A comparison is admitted only when its excluded damage
 is exactly 0, so the ranked amount does not depend on that untested list; it is
 marked exclusion-neutral (D025). Positive excluded damage, or an arithmetic
-mismatch under the list, stays unverified. HPS stays unverified: there is no
-HPS admission for these archives.
+mismatch under the list, stays unverified. HPS rows are admitted by the
+freezer's HPS mode (heal and absorbed on friendly recipients, no exclusions).
 
 A cell needs follow-up when its admitted comparisons are fewer than the
 packaged minimum (`live_cohort.min_same_faction`), whatever depth the archive
@@ -143,9 +143,6 @@ def cells(archive: Path) -> list[dict[str, Any]]:
                 continue
             if verdict["faction"] != subject["faction"]:
                 continue  # an observed other-faction player is never a comparison
-            if metric != "dps":
-                cell["unverified"].append(who | {"reason": "no HPS admission for this archive"})
-                continue
             # A fight may hold several selected players; resolve this one's actor.
             matches = [
                 a["id"]
@@ -182,7 +179,8 @@ def cells(archive: Path) -> list[dict[str, Any]]:
             if len(rows) != 1:
                 cell["refused"].append(who | {"reason": "no unique matching published row"})
                 continue
-            applied = exclusions.get(encounter) or []
+            # Production exclusion lists name damage targets; healing takes none.
+            applied = (exclusions.get(encounter) or []) if metric == "dps" else []
             spec = {
                 "archive": archive.resolve().as_posix(),
                 "sha256": digest,
@@ -201,7 +199,7 @@ def cells(archive: Path) -> list[dict[str, Any]]:
                 "row": rows[0][1],
             }
             try:
-                result = dps.compute(spec, work)
+                result = dps.compute(spec, work, metric=metric)
             except dps.ArithmeticMismatch as error:
                 if not applied:
                     cell["refused"].append(who | {"reason": str(error)})

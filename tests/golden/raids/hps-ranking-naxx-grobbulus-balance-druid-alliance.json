@@ -1,0 +1,103 @@
+{
+  "version": 1,
+  "rule": "naxx-grobbulus-balance-druid-alliance-hps-v1",
+  "scope": {
+    "encounter_id": 51111,
+    "class_id": 2,
+    "category": "Balance",
+    "metric": "hps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261031/65603754-2006-20261027T195031.zip",
+    "sha256": "f439dc7db47a18dcda8d5db7264be0990cd042124900315b93fff583bf2220be"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "6g39CxdHRMzcYbX8-123-4",
+      "purpose": "policy-scope",
+      "report": "6g39CxdHRMzcYbX8",
+      "fight": 123,
+      "actor": 4,
+      "player": "Outofshape",
+      "realm": "Golemagg",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51111_Grobbulus.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 92597,
+      "published": "531.065",
+      "totals": {
+        "raw": 49175,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 49175
+      },
+      "residual": "-5161/18519400"
+    },
+    {
+      "id": "MDvc1q2nQWGNXZKL-33-25",
+      "purpose": "policy-scope",
+      "report": "MDvc1q2nQWGNXZKL",
+      "fight": 33,
+      "actor": 25,
+      "player": "Maliju",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51111_Grobbulus.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 86021,
+      "published": "421.478",
+      "totals": {
+        "raw": 36256,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 36256
+      },
+      "residual": "20481/43010500"
+    },
+    {
+      "id": "Rzf3gVvYQ78ap2B6-15-32",
+      "purpose": "policy-scope",
+      "report": "Rzf3gVvYQ78ap2B6",
+      "fight": 15,
+      "actor": 32,
+      "player": "乐在骑中矣",
+      "realm": "哈霍兰",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51111_Grobbulus.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 122194,
+      "published": "323.6",
+      "totals": {
+        "raw": 39542,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 39542
+      },
+      "residual": "54/305485"
+    }
+  ],
+  "refusals": []
+}

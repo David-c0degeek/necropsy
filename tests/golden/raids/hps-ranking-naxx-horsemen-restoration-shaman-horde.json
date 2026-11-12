@@ -1,0 +1,332 @@
+{
+  "version": 1,
+  "rule": "naxx-horsemen-restoration-shaman-horde-hps-v1",
+  "scope": {
+    "encounter_id": 51121,
+    "class_id": 9,
+    "category": "Restoration",
+    "metric": "hps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/62259058-2006-20261109T151537.zip",
+    "sha256": "d6828c7a2256d1cbc284cd828a839d24c088cd11a5429aedc125819e2836756a"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "GptVrg1hFMxXwCWd-20-17",
+      "purpose": "policy-scope",
+      "report": "GptVrg1hFMxXwCWd",
+      "fight": 20,
+      "actor": 17,
+      "player": "Blueranger",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51121_The_Four_Horsemen.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 98707,
+      "published": "962.647",
+      "totals": {
+        "raw": 95020,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 95020
+      },
+      "residual": "2571/98707000",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 178,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "769dcfc0a0d98c5b6438e683139fd4524ac0c5dbb9f32e5d0a2c5b621654e5c6",
+            "ee9cde8c2988dc391095c1ada791fef3dbe9e1018438d2aa020458dd18b982b5",
+            "c75ab685fe3b38f4aeacfc1dd145d167914108c30b5e577272ac1b57e4ec5683"
+          ]
+        },
+        {
+          "pet": 179,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "769dcfc0a0d98c5b6438e683139fd4524ac0c5dbb9f32e5d0a2c5b621654e5c6",
+            "ee9cde8c2988dc391095c1ada791fef3dbe9e1018438d2aa020458dd18b982b5",
+            "c75ab685fe3b38f4aeacfc1dd145d167914108c30b5e577272ac1b57e4ec5683"
+          ]
+        },
+        {
+          "pet": 223,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "769dcfc0a0d98c5b6438e683139fd4524ac0c5dbb9f32e5d0a2c5b621654e5c6",
+            "ee9cde8c2988dc391095c1ada791fef3dbe9e1018438d2aa020458dd18b982b5",
+            "c75ab685fe3b38f4aeacfc1dd145d167914108c30b5e577272ac1b57e4ec5683"
+          ]
+        },
+        {
+          "pet": 270,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "769dcfc0a0d98c5b6438e683139fd4524ac0c5dbb9f32e5d0a2c5b621654e5c6",
+            "ee9cde8c2988dc391095c1ada791fef3dbe9e1018438d2aa020458dd18b982b5",
+            "c75ab685fe3b38f4aeacfc1dd145d167914108c30b5e577272ac1b57e4ec5683"
+          ]
+        },
+        {
+          "pet": 278,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "769dcfc0a0d98c5b6438e683139fd4524ac0c5dbb9f32e5d0a2c5b621654e5c6",
+            "ee9cde8c2988dc391095c1ada791fef3dbe9e1018438d2aa020458dd18b982b5",
+            "c75ab685fe3b38f4aeacfc1dd145d167914108c30b5e577272ac1b57e4ec5683"
+          ]
+        },
+        {
+          "pet": 285,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "769dcfc0a0d98c5b6438e683139fd4524ac0c5dbb9f32e5d0a2c5b621654e5c6",
+            "ee9cde8c2988dc391095c1ada791fef3dbe9e1018438d2aa020458dd18b982b5",
+            "c75ab685fe3b38f4aeacfc1dd145d167914108c30b5e577272ac1b57e4ec5683"
+          ]
+        },
+        {
+          "pet": 293,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "769dcfc0a0d98c5b6438e683139fd4524ac0c5dbb9f32e5d0a2c5b621654e5c6",
+            "ee9cde8c2988dc391095c1ada791fef3dbe9e1018438d2aa020458dd18b982b5",
+            "c75ab685fe3b38f4aeacfc1dd145d167914108c30b5e577272ac1b57e4ec5683"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bzK64yd3JcTfMGgB-22-34",
+      "purpose": "policy-scope",
+      "report": "bzK64yd3JcTfMGgB",
+      "fight": 22,
+      "actor": 34,
+      "player": "Draghuk",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51121_The_Four_Horsemen.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 93109,
+      "published": "921.919",
+      "totals": {
+        "raw": 85839,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 85839
+      },
+      "residual": "43829/93109000",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 68,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "c1f58ae8a860a5c5cb249ee67bbd2c4a1fa4e37c765a1c3a54f211c3ff909365",
+            "5a5070ba1c59bd2578bf0e314c0cec2d2154e64c2ca5c0ca38292419a9145e66"
+          ]
+        },
+        {
+          "pet": 204,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "c1f58ae8a860a5c5cb249ee67bbd2c4a1fa4e37c765a1c3a54f211c3ff909365",
+            "5a5070ba1c59bd2578bf0e314c0cec2d2154e64c2ca5c0ca38292419a9145e66"
+          ]
+        },
+        {
+          "pet": 277,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "c1f58ae8a860a5c5cb249ee67bbd2c4a1fa4e37c765a1c3a54f211c3ff909365",
+            "5a5070ba1c59bd2578bf0e314c0cec2d2154e64c2ca5c0ca38292419a9145e66"
+          ]
+        },
+        {
+          "pet": 289,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "c1f58ae8a860a5c5cb249ee67bbd2c4a1fa4e37c765a1c3a54f211c3ff909365",
+            "5a5070ba1c59bd2578bf0e314c0cec2d2154e64c2ca5c0ca38292419a9145e66"
+          ]
+        },
+        {
+          "pet": 306,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "c1f58ae8a860a5c5cb249ee67bbd2c4a1fa4e37c765a1c3a54f211c3ff909365",
+            "5a5070ba1c59bd2578bf0e314c0cec2d2154e64c2ca5c0ca38292419a9145e66"
+          ]
+        }
+      ],
+      "fight_active_catalog_units": [
+        {
+          "unit": 44,
+          "rule": "catalog-unit-active-in-fight-v1"
+        },
+        {
+          "unit": 79,
+          "rule": "catalog-unit-active-in-fight-v1"
+        },
+        {
+          "unit": 96,
+          "rule": "catalog-unit-active-in-fight-v1"
+        }
+      ]
+    },
+    {
+      "id": "yKJZgqNjpvkTB7PQ-24-40",
+      "purpose": "policy-scope",
+      "report": "yKJZgqNjpvkTB7PQ",
+      "fight": 24,
+      "actor": 40,
+      "player": "Dèniro",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51121_The_Four_Horsemen.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [
+        58
+      ],
+      "duration_ms": 120707,
+      "published": "896.485",
+      "totals": {
+        "raw": 108212,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 108212
+      },
+      "residual": "-2979/24141400",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 85,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "06bbed81ace722ca35cdd0cef7e73f9d6c6eaab3d90ed176d133e562f354e165",
+            "61308df32472e08cac2930de62d91f7c4521f76d178cf97b5be642932c45a392",
+            "1f19243b1c9374b939182b7c9a3572b4bc23a6d90c651a24e2f3689ee2dab6c3"
+          ]
+        },
+        {
+          "pet": 155,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "06bbed81ace722ca35cdd0cef7e73f9d6c6eaab3d90ed176d133e562f354e165",
+            "61308df32472e08cac2930de62d91f7c4521f76d178cf97b5be642932c45a392",
+            "1f19243b1c9374b939182b7c9a3572b4bc23a6d90c651a24e2f3689ee2dab6c3"
+          ]
+        },
+        {
+          "pet": 197,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "06bbed81ace722ca35cdd0cef7e73f9d6c6eaab3d90ed176d133e562f354e165",
+            "61308df32472e08cac2930de62d91f7c4521f76d178cf97b5be642932c45a392",
+            "1f19243b1c9374b939182b7c9a3572b4bc23a6d90c651a24e2f3689ee2dab6c3"
+          ]
+        },
+        {
+          "pet": 199,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "06bbed81ace722ca35cdd0cef7e73f9d6c6eaab3d90ed176d133e562f354e165",
+            "61308df32472e08cac2930de62d91f7c4521f76d178cf97b5be642932c45a392",
+            "1f19243b1c9374b939182b7c9a3572b4bc23a6d90c651a24e2f3689ee2dab6c3"
+          ]
+        },
+        {
+          "pet": 233,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "06bbed81ace722ca35cdd0cef7e73f9d6c6eaab3d90ed176d133e562f354e165",
+            "61308df32472e08cac2930de62d91f7c4521f76d178cf97b5be642932c45a392",
+            "1f19243b1c9374b939182b7c9a3572b4bc23a6d90c651a24e2f3689ee2dab6c3"
+          ]
+        },
+        {
+          "pet": 271,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "06bbed81ace722ca35cdd0cef7e73f9d6c6eaab3d90ed176d133e562f354e165",
+            "61308df32472e08cac2930de62d91f7c4521f76d178cf97b5be642932c45a392",
+            "1f19243b1c9374b939182b7c9a3572b4bc23a6d90c651a24e2f3689ee2dab6c3"
+          ]
+        },
+        {
+          "pet": 320,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "06bbed81ace722ca35cdd0cef7e73f9d6c6eaab3d90ed176d133e562f354e165",
+            "61308df32472e08cac2930de62d91f7c4521f76d178cf97b5be642932c45a392",
+            "1f19243b1c9374b939182b7c9a3572b4bc23a6d90c651a24e2f3689ee2dab6c3"
+          ]
+        },
+        {
+          "pet": 327,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "06bbed81ace722ca35cdd0cef7e73f9d6c6eaab3d90ed176d133e562f354e165",
+            "61308df32472e08cac2930de62d91f7c4521f76d178cf97b5be642932c45a392",
+            "1f19243b1c9374b939182b7c9a3572b4bc23a6d90c651a24e2f3689ee2dab6c3"
+          ]
+        },
+        {
+          "pet": 333,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "06bbed81ace722ca35cdd0cef7e73f9d6c6eaab3d90ed176d133e562f354e165",
+            "61308df32472e08cac2930de62d91f7c4521f76d178cf97b5be642932c45a392",
+            "1f19243b1c9374b939182b7c9a3572b4bc23a6d90c651a24e2f3689ee2dab6c3"
+          ]
+        },
+        {
+          "pet": 337,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "06bbed81ace722ca35cdd0cef7e73f9d6c6eaab3d90ed176d133e562f354e165",
+            "61308df32472e08cac2930de62d91f7c4521f76d178cf97b5be642932c45a392",
+            "1f19243b1c9374b939182b7c9a3572b4bc23a6d90c651a24e2f3689ee2dab6c3"
+          ]
+        }
+      ],
+      "fight_active_catalog_units": [
+        {
+          "unit": 44,
+          "rule": "catalog-unit-active-in-fight-v1"
+        },
+        {
+          "unit": 51,
+          "rule": "catalog-unit-active-in-fight-v1"
+        },
+        {
+          "unit": 65,
+          "rule": "catalog-unit-active-in-fight-v1"
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

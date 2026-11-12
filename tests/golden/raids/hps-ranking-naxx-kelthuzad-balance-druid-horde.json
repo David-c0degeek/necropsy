@@ -1,0 +1,103 @@
+{
+  "version": 1,
+  "rule": "naxx-kelthuzad-balance-druid-horde-hps-v1",
+  "scope": {
+    "encounter_id": 51114,
+    "class_id": 2,
+    "category": "Balance",
+    "metric": "hps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261031/76376122-2006-20261028T163059.zip",
+    "sha256": "392bf13fb1350ae468253631895b9be591d46516a40d020a00dcaa568fa1ef4f"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "78YKbcJxfBQVrk3G-51-9",
+      "purpose": "policy-scope",
+      "report": "78YKbcJxfBQVrk3G",
+      "fight": 51,
+      "actor": 9,
+      "player": "毛毛兔斯基",
+      "realm": "法琳娜",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51114_Kel_Thuzad.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 418204,
+      "published": "326.628",
+      "totals": {
+        "raw": 136597,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 136597
+      },
+      "residual": "-8507/26137750"
+    },
+    {
+      "id": "cZApBDaHKk8Qvzj9-73-5",
+      "purpose": "policy-scope",
+      "report": "cZApBDaHKk8Qvzj9",
+      "fight": 73,
+      "actor": 5,
+      "player": "开局送人头",
+      "realm": "匕首岭",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51114_Kel_Thuzad.json",
+      "page": 1,
+      "row": 4,
+      "owned_actor_ids": [],
+      "duration_ms": 374619,
+      "published": "297.179",
+      "totals": {
+        "raw": 111329,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 111329
+      },
+      "residual": "100199/374619000"
+    },
+    {
+      "id": "dKqPRGXf7jnprMg8-66-56",
+      "purpose": "policy-scope",
+      "report": "dKqPRGXf7jnprMg8",
+      "fight": 66,
+      "actor": 56,
+      "player": "包包里有糖",
+      "realm": "哈霍兰",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51114_Kel_Thuzad.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 366132,
+      "published": "334.147",
+      "totals": {
+        "raw": 122342,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 122342
+      },
+      "residual": "22649/91533000"
+    }
+  ],
+  "refusals": []
+}

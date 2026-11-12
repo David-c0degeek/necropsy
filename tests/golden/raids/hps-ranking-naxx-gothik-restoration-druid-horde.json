@@ -1,0 +1,116 @@
+{
+  "version": 1,
+  "rule": "naxx-gothik-restoration-druid-horde-hps-v1",
+  "scope": {
+    "encounter_id": 51109,
+    "class_id": 2,
+    "category": "Restoration",
+    "metric": "hps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77577270-2006-20261103T040708.zip",
+    "sha256": "f2151316bf0531ee4187a54e5f234c18b29028f9418e3d7d513d83521c2a681d"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "CaYXGFhHqyDmbQ6f-16-3",
+      "purpose": "policy-scope",
+      "report": "CaYXGFhHqyDmbQ6f",
+      "fight": 16,
+      "actor": 3,
+      "player": "Cylak",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51109_Gothik_the_Harvester.json",
+      "page": 1,
+      "row": 8,
+      "owned_actor_ids": [],
+      "duration_ms": 299694,
+      "published": "486.45",
+      "totals": {
+        "raw": 145786,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 145786
+      },
+      "residual": "-1463/2996940"
+    },
+    {
+      "id": "arbRL2tKA8wWyGDx-19-7",
+      "purpose": "policy-scope",
+      "report": "arbRL2tKA8wWyGDx",
+      "fight": 19,
+      "actor": 7,
+      "player": "Thorisdottir",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51109_Gothik_the_Harvester.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 299611,
+      "published": "588.199",
+      "totals": {
+        "raw": 176231,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 176231
+      },
+      "residual": "109411/299611000",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 164,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "71814092a328f3255f4d15aa4daa747f68337897e7f65a96d588ab015df488c5",
+            "6b6c0589e87d1dd9ae5c86ee76edc69278b4a14cdd827b4e44707a94a0f00253",
+            "e6a60b2d5dd545379f9caa112ab184cd3b8c1cd22ac131cbb73a4be2379cd6c1",
+            "e49ab2ec8cc8c5e55cc299188f4c713adbfa744fa863838802a8747f47c5da6e",
+            "611cbd740a3b96d7793f84da7ce019cd3ab0c407ec3d472e22be5427174a570b"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t9kYR6nCzhfg1rZD-30-47",
+      "purpose": "policy-scope",
+      "report": "t9kYR6nCzhfg1rZD",
+      "fight": 30,
+      "actor": 47,
+      "player": "Chucktaurus",
+      "realm": "Fairbanks",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51109_Gothik_the_Harvester.json",
+      "page": 1,
+      "row": 13,
+      "owned_actor_ids": [],
+      "duration_ms": 297465,
+      "published": "466.361",
+      "totals": {
+        "raw": 138726,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 138726
+      },
+      "residual": "-713/2833000"
+    }
+  ],
+  "refusals": []
+}

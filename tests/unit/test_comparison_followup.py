@@ -141,11 +141,11 @@ def _admit(
     excluded: dict[str, int] | None = None,
     mismatch: set[str] | None = None,
 ) -> Any:
-    def compute(spec: dict[str, Any], base: Path) -> dict[str, Any]:
+    def compute(spec: dict[str, Any], base: Path, metric: str = "dps") -> dict[str, Any]:
         if seen is not None:
-            seen.append(spec)
+            seen.append(spec | {"metric": metric})
         if spec["player"] in (mismatch or set()):
-            raise ArithmeticMismatch("published DPS contradicts raw")
+            raise ArithmeticMismatch(f"published {metric.upper()} contradicts raw")
         if spec["player"] not in names:
             raise ValueError("pet listings disagree")
         return {"totals": {"excluded": (excluded or {}).get(spec["player"], 0)}}
@@ -259,13 +259,17 @@ def test_a_mismatch_without_exclusions_and_evidence_failures_are_refused(
     }
 
 
-def test_hps_stays_unverified(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
-    def never(spec: dict[str, Any], base: Path) -> dict[str, Any]:
-        raise AssertionError("no admission may run for an unverified comparison")
-
-    _patch(monkeypatch, never)
-    for cell in followup.cells(_archive(tmp_path, metric="hps")):
-        assert cell["followup"] == "admission-missing" and len(cell["unverified"]) == 3
+def test_hps_is_admitted_by_the_hps_mode_without_exclusions(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    seen: list[dict[str, Any]] = []
+    _patch(monkeypatch, _admit({"Ally1", "Ally2", "Ally3"}, seen, mismatch={"Ally3"}))
+    found = followup.cells(_archive(tmp_path, metric="hps"))
+    assert seen and all(s["metric"] == "hps" and s["excluded_game_ids"] == [] for s in seen)
+    for encounter in (ENCOUNTER_PLAIN, ENCOUNTER_EXCLUDED):
+        cell = _cell(found, encounter)
+        assert cell["admitted_distinct_players"] == 2 and not cell["unverified"]
+        assert [r["reason"] for r in cell["refused"]] == ["published HPS contradicts raw"]
 
 
 def test_comparisons_sharing_one_fight_are_each_admitted_with_their_own_actor(

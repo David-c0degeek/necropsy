@@ -1,9 +1,9 @@
 {
-  "kind": "Naxx cell-scoped DPS policy matrix; every register configuration",
+  "kind": "Naxx cell-scoped DPS and HPS policy matrix; every register configuration",
   "inputs": {
-    "register_sha256": "e91fabaf577369fac1dad16e6a5bf83478ed6a7e304da8bf33c112ccac64d410",
-    "builder_sha256": "3c8c87875679c0efc3012e74315788ee0f35e80c9dcc89a8dcbe17d3226448e9",
-    "freezer_sha256": "0fe0704a5c6104234aad6d8abe1704ddcd647509643a9c73f74742ca392d1f26"
+    "register_sha256": "25c04454c76550661854ca84950129bd97b1bc227b2f2de0a3df8d56a94a03b9",
+    "builder_sha256": "37fe08e2d028fcce221d12e04cea86bed030c12c396f81920a82305c5428a1a0",
+    "freezer_sha256": "a950a921a4cffb086bb8852ea6f3bdeff645db135fb379bb353ab4ce4c400374"
   },
   "minimum_admitted_players": 3,
   "cells": [
@@ -529,6 +529,276 @@
       "scope": {
         "encounter_id": 51107,
         "class_id": 2,
+        "category": "Balance",
+        "metric": "hps",
+        "faction": "Alliance"
+      },
+      "boss": "Anub'Rekhan",
+      "archive": "tests/golden/raids/raw/naxx-production-20261031/65603754-2006-20261027T195031.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-anubrekhan-balance-druid-alliance-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51108,
+        "class_id": 2,
+        "category": "Balance",
+        "metric": "hps",
+        "faction": "Alliance"
+      },
+      "boss": "Gluth",
+      "archive": "tests/golden/raids/raw/naxx-production-20261031/65603754-2006-20261027T195031.zip",
+      "admitted": 1,
+      "admitted_distinct_players": 1,
+      "refused": 2,
+      "contradictions": 0,
+      "other_refusals": [
+        "wrong encounter or not a kill"
+      ],
+      "decision": "OPEN: 2 non-ownership refusal(s) retained"
+    },
+    {
+      "scope": {
+        "encounter_id": 51109,
+        "class_id": 2,
+        "category": "Balance",
+        "metric": "hps",
+        "faction": "Alliance"
+      },
+      "boss": "Gothik the Harvester",
+      "archive": "tests/golden/raids/raw/naxx-production-20261031/65603754-2006-20261027T195031.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-gothik-balance-druid-alliance-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51110,
+        "class_id": 2,
+        "category": "Balance",
+        "metric": "hps",
+        "faction": "Alliance"
+      },
+      "boss": "Grand Widow Faerlina",
+      "archive": "tests/golden/raids/raw/naxx-production-20261031/65603754-2006-20261027T195031.zip",
+      "admitted": 2,
+      "admitted_distinct_players": 2,
+      "refused": 1,
+      "contradictions": 1,
+      "other_refusals": [],
+      "decision": "OPEN: 1 contradiction(s) retained"
+    },
+    {
+      "scope": {
+        "encounter_id": 51111,
+        "class_id": 2,
+        "category": "Balance",
+        "metric": "hps",
+        "faction": "Alliance"
+      },
+      "boss": "Grobbulus",
+      "archive": "tests/golden/raids/raw/naxx-production-20261031/65603754-2006-20261027T195031.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-grobbulus-balance-druid-alliance-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51112,
+        "class_id": 2,
+        "category": "Balance",
+        "metric": "hps",
+        "faction": "Alliance"
+      },
+      "boss": "Heigan the Unclean",
+      "archive": "tests/golden/raids/raw/naxx-production-20261031/65603754-2006-20261027T195031.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-heigan-balance-druid-alliance-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51113,
+        "class_id": 2,
+        "category": "Balance",
+        "metric": "hps",
+        "faction": "Alliance"
+      },
+      "boss": "Instructor Razuvious",
+      "archive": "tests/golden/raids/raw/naxx-production-20261031/65603754-2006-20261027T195031.zip",
+      "admitted": 1,
+      "admitted_distinct_players": 1,
+      "refused": 2,
+      "contradictions": 2,
+      "other_refusals": [],
+      "decision": "OPEN: 2 contradiction(s) retained"
+    },
+    {
+      "scope": {
+        "encounter_id": 51114,
+        "class_id": 2,
+        "category": "Balance",
+        "metric": "hps",
+        "faction": "Alliance"
+      },
+      "boss": "Kel'Thuzad",
+      "archive": "tests/golden/raids/raw/naxx-production-20261031/65603754-2006-20261027T195031.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-kelthuzad-balance-druid-alliance-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51115,
+        "class_id": 2,
+        "category": "Balance",
+        "metric": "hps",
+        "faction": "Alliance"
+      },
+      "boss": "Loatheb",
+      "archive": "tests/golden/raids/raw/naxx-production-20261031/65603754-2006-20261027T195031.zip",
+      "admitted": 2,
+      "admitted_distinct_players": 2,
+      "refused": 1,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "OPEN: 2 admitted players, fewer than 3"
+    },
+    {
+      "scope": {
+        "encounter_id": 51116,
+        "class_id": 2,
+        "category": "Balance",
+        "metric": "hps",
+        "faction": "Alliance"
+      },
+      "boss": "Maexxna",
+      "archive": "tests/golden/raids/raw/naxx-production-20261031/65603754-2006-20261027T195031.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-maexxna-balance-druid-alliance-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51117,
+        "class_id": 2,
+        "category": "Balance",
+        "metric": "hps",
+        "faction": "Alliance"
+      },
+      "boss": "Noth the Plaguebringer",
+      "archive": "tests/golden/raids/raw/naxx-production-20261031/65603754-2006-20261027T195031.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-noth-balance-druid-alliance-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51118,
+        "class_id": 2,
+        "category": "Balance",
+        "metric": "hps",
+        "faction": "Alliance"
+      },
+      "boss": "Patchwerk",
+      "archive": "tests/golden/raids/raw/naxx-production-20261031/65603754-2006-20261027T195031.zip",
+      "admitted": 0,
+      "admitted_distinct_players": 0,
+      "refused": 3,
+      "contradictions": 0,
+      "other_refusals": [
+        "wrong encounter or not a kill"
+      ],
+      "decision": "OPEN: 3 non-ownership refusal(s) retained"
+    },
+    {
+      "scope": {
+        "encounter_id": 51119,
+        "class_id": 2,
+        "category": "Balance",
+        "metric": "hps",
+        "faction": "Alliance"
+      },
+      "boss": "Sapphiron",
+      "archive": "tests/golden/raids/raw/naxx-production-20261031/65603754-2006-20261027T195031.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-sapphiron-balance-druid-alliance-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51120,
+        "class_id": 2,
+        "category": "Balance",
+        "metric": "hps",
+        "faction": "Alliance"
+      },
+      "boss": "Thaddius",
+      "archive": "tests/golden/raids/raw/naxx-production-20261031/65603754-2006-20261027T195031.zip",
+      "admitted": 1,
+      "admitted_distinct_players": 1,
+      "refused": 2,
+      "contradictions": 0,
+      "other_refusals": [
+        "wrong encounter or not a kill"
+      ],
+      "decision": "OPEN: 2 non-ownership refusal(s) retained"
+    },
+    {
+      "scope": {
+        "encounter_id": 51121,
+        "class_id": 2,
+        "category": "Balance",
+        "metric": "hps",
+        "faction": "Alliance"
+      },
+      "boss": "The Four Horsemen",
+      "archive": "tests/golden/raids/raw/naxx-production-20261031/65603754-2006-20261027T195031.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-horsemen-balance-druid-alliance-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51107,
+        "class_id": 2,
         "category": "Feral",
         "metric": "dps",
         "faction": "Alliance"
@@ -786,6 +1056,282 @@
       "other_refusals": [],
       "decision": "POLICY",
       "rule": "naxx-horsemen-feral-druid-alliance-dps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51107,
+        "class_id": 2,
+        "category": "Balance",
+        "metric": "hps",
+        "faction": "Horde"
+      },
+      "boss": "Anub'Rekhan",
+      "archive": "tests/golden/raids/raw/naxx-production-20261031/76376122-2006-20261028T163059.zip",
+      "admitted": 2,
+      "admitted_distinct_players": 2,
+      "refused": 1,
+      "contradictions": 0,
+      "other_refusals": [
+        "wrong encounter or not a kill"
+      ],
+      "decision": "OPEN: 1 non-ownership refusal(s) retained"
+    },
+    {
+      "scope": {
+        "encounter_id": 51108,
+        "class_id": 2,
+        "category": "Balance",
+        "metric": "hps",
+        "faction": "Horde"
+      },
+      "boss": "Gluth",
+      "archive": "tests/golden/raids/raw/naxx-production-20261031/76376122-2006-20261028T163059.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-gluth-balance-druid-horde-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51109,
+        "class_id": 2,
+        "category": "Balance",
+        "metric": "hps",
+        "faction": "Horde"
+      },
+      "boss": "Gothik the Harvester",
+      "archive": "tests/golden/raids/raw/naxx-production-20261031/76376122-2006-20261028T163059.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-gothik-balance-druid-horde-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51110,
+        "class_id": 2,
+        "category": "Balance",
+        "metric": "hps",
+        "faction": "Horde"
+      },
+      "boss": "Grand Widow Faerlina",
+      "archive": "tests/golden/raids/raw/naxx-production-20261031/76376122-2006-20261028T163059.zip",
+      "admitted": 2,
+      "admitted_distinct_players": 2,
+      "refused": 1,
+      "contradictions": 0,
+      "other_refusals": [
+        "wrong encounter or not a kill"
+      ],
+      "decision": "OPEN: 1 non-ownership refusal(s) retained"
+    },
+    {
+      "scope": {
+        "encounter_id": 51111,
+        "class_id": 2,
+        "category": "Balance",
+        "metric": "hps",
+        "faction": "Horde"
+      },
+      "boss": "Grobbulus",
+      "archive": "tests/golden/raids/raw/naxx-production-20261031/76376122-2006-20261028T163059.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-grobbulus-balance-druid-horde-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51112,
+        "class_id": 2,
+        "category": "Balance",
+        "metric": "hps",
+        "faction": "Horde"
+      },
+      "boss": "Heigan the Unclean",
+      "archive": "tests/golden/raids/raw/naxx-production-20261031/76376122-2006-20261028T163059.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-heigan-balance-druid-horde-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51113,
+        "class_id": 2,
+        "category": "Balance",
+        "metric": "hps",
+        "faction": "Horde"
+      },
+      "boss": "Instructor Razuvious",
+      "archive": "tests/golden/raids/raw/naxx-production-20261031/76376122-2006-20261028T163059.zip",
+      "admitted": 0,
+      "admitted_distinct_players": 0,
+      "refused": 3,
+      "contradictions": 2,
+      "other_refusals": [
+        "wrong encounter or not a kill"
+      ],
+      "decision": "OPEN: 2 contradiction(s) retained"
+    },
+    {
+      "scope": {
+        "encounter_id": 51114,
+        "class_id": 2,
+        "category": "Balance",
+        "metric": "hps",
+        "faction": "Horde"
+      },
+      "boss": "Kel'Thuzad",
+      "archive": "tests/golden/raids/raw/naxx-production-20261031/76376122-2006-20261028T163059.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-kelthuzad-balance-druid-horde-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51115,
+        "class_id": 2,
+        "category": "Balance",
+        "metric": "hps",
+        "faction": "Horde"
+      },
+      "boss": "Loatheb",
+      "archive": "tests/golden/raids/raw/naxx-production-20261031/76376122-2006-20261028T163059.zip",
+      "admitted": 2,
+      "admitted_distinct_players": 2,
+      "refused": 1,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "OPEN: 2 admitted players, fewer than 3"
+    },
+    {
+      "scope": {
+        "encounter_id": 51116,
+        "class_id": 2,
+        "category": "Balance",
+        "metric": "hps",
+        "faction": "Horde"
+      },
+      "boss": "Maexxna",
+      "archive": "tests/golden/raids/raw/naxx-production-20261031/76376122-2006-20261028T163059.zip",
+      "admitted": 2,
+      "admitted_distinct_players": 2,
+      "refused": 1,
+      "contradictions": 0,
+      "other_refusals": [
+        "wrong encounter or not a kill"
+      ],
+      "decision": "OPEN: 1 non-ownership refusal(s) retained"
+    },
+    {
+      "scope": {
+        "encounter_id": 51117,
+        "class_id": 2,
+        "category": "Balance",
+        "metric": "hps",
+        "faction": "Horde"
+      },
+      "boss": "Noth the Plaguebringer",
+      "archive": "tests/golden/raids/raw/naxx-production-20261031/76376122-2006-20261028T163059.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-noth-balance-druid-horde-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51118,
+        "class_id": 2,
+        "category": "Balance",
+        "metric": "hps",
+        "faction": "Horde"
+      },
+      "boss": "Patchwerk",
+      "archive": "tests/golden/raids/raw/naxx-production-20261031/76376122-2006-20261028T163059.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-patchwerk-balance-druid-horde-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51119,
+        "class_id": 2,
+        "category": "Balance",
+        "metric": "hps",
+        "faction": "Horde"
+      },
+      "boss": "Sapphiron",
+      "archive": "tests/golden/raids/raw/naxx-production-20261031/76376122-2006-20261028T163059.zip",
+      "admitted": 2,
+      "admitted_distinct_players": 2,
+      "refused": 1,
+      "contradictions": 0,
+      "other_refusals": [
+        "wrong encounter or not a kill"
+      ],
+      "decision": "OPEN: 1 non-ownership refusal(s) retained"
+    },
+    {
+      "scope": {
+        "encounter_id": 51120,
+        "class_id": 2,
+        "category": "Balance",
+        "metric": "hps",
+        "faction": "Horde"
+      },
+      "boss": "Thaddius",
+      "archive": "tests/golden/raids/raw/naxx-production-20261031/76376122-2006-20261028T163059.zip",
+      "admitted": 2,
+      "admitted_distinct_players": 2,
+      "refused": 1,
+      "contradictions": 0,
+      "other_refusals": [
+        "wrong encounter or not a kill"
+      ],
+      "decision": "OPEN: 1 non-ownership refusal(s) retained"
+    },
+    {
+      "scope": {
+        "encounter_id": 51121,
+        "class_id": 2,
+        "category": "Balance",
+        "metric": "hps",
+        "faction": "Horde"
+      },
+      "boss": "The Four Horsemen",
+      "archive": "tests/golden/raids/raw/naxx-production-20261031/76376122-2006-20261028T163059.zip",
+      "admitted": 2,
+      "admitted_distinct_players": 2,
+      "refused": 1,
+      "contradictions": 0,
+      "other_refusals": [
+        "wrong encounter or not a kill"
+      ],
+      "decision": "OPEN: 1 non-ownership refusal(s) retained"
     },
     {
       "scope": {
@@ -1313,6 +1859,272 @@
     {
       "scope": {
         "encounter_id": 51107,
+        "class_id": 2,
+        "category": "Restoration",
+        "metric": "hps",
+        "faction": "Alliance"
+      },
+      "boss": "Anub'Rekhan",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/60117765-2006-20261102T031646.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-anubrekhan-restoration-druid-alliance-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51108,
+        "class_id": 2,
+        "category": "Restoration",
+        "metric": "hps",
+        "faction": "Alliance"
+      },
+      "boss": "Gluth",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/60117765-2006-20261102T031646.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-gluth-restoration-druid-alliance-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51109,
+        "class_id": 2,
+        "category": "Restoration",
+        "metric": "hps",
+        "faction": "Alliance"
+      },
+      "boss": "Gothik the Harvester",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/60117765-2006-20261102T031646.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-gothik-restoration-druid-alliance-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51110,
+        "class_id": 2,
+        "category": "Restoration",
+        "metric": "hps",
+        "faction": "Alliance"
+      },
+      "boss": "Grand Widow Faerlina",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/60117765-2006-20261102T031646.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-faerlina-restoration-druid-alliance-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51111,
+        "class_id": 2,
+        "category": "Restoration",
+        "metric": "hps",
+        "faction": "Alliance"
+      },
+      "boss": "Grobbulus",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/60117765-2006-20261102T031646.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-grobbulus-restoration-druid-alliance-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51112,
+        "class_id": 2,
+        "category": "Restoration",
+        "metric": "hps",
+        "faction": "Alliance"
+      },
+      "boss": "Heigan the Unclean",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/60117765-2006-20261102T031646.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-heigan-restoration-druid-alliance-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51113,
+        "class_id": 2,
+        "category": "Restoration",
+        "metric": "hps",
+        "faction": "Alliance"
+      },
+      "boss": "Instructor Razuvious",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/60117765-2006-20261102T031646.zip",
+      "admitted": 0,
+      "admitted_distinct_players": 0,
+      "refused": 3,
+      "contradictions": 3,
+      "other_refusals": [],
+      "decision": "OPEN: 3 contradiction(s) retained"
+    },
+    {
+      "scope": {
+        "encounter_id": 51114,
+        "class_id": 2,
+        "category": "Restoration",
+        "metric": "hps",
+        "faction": "Alliance"
+      },
+      "boss": "Kel'Thuzad",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/60117765-2006-20261102T031646.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-kelthuzad-restoration-druid-alliance-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51115,
+        "class_id": 2,
+        "category": "Restoration",
+        "metric": "hps",
+        "faction": "Alliance"
+      },
+      "boss": "Loatheb",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/60117765-2006-20261102T031646.zip",
+      "admitted": 1,
+      "admitted_distinct_players": 1,
+      "refused": 2,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "OPEN: 1 admitted players, fewer than 3"
+    },
+    {
+      "scope": {
+        "encounter_id": 51116,
+        "class_id": 2,
+        "category": "Restoration",
+        "metric": "hps",
+        "faction": "Alliance"
+      },
+      "boss": "Maexxna",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/60117765-2006-20261102T031646.zip",
+      "admitted": 2,
+      "admitted_distinct_players": 2,
+      "refused": 1,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "OPEN: 2 admitted players, fewer than 3"
+    },
+    {
+      "scope": {
+        "encounter_id": 51117,
+        "class_id": 2,
+        "category": "Restoration",
+        "metric": "hps",
+        "faction": "Alliance"
+      },
+      "boss": "Noth the Plaguebringer",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/60117765-2006-20261102T031646.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-noth-restoration-druid-alliance-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51118,
+        "class_id": 2,
+        "category": "Restoration",
+        "metric": "hps",
+        "faction": "Alliance"
+      },
+      "boss": "Patchwerk",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/60117765-2006-20261102T031646.zip",
+      "admitted": 1,
+      "admitted_distinct_players": 1,
+      "refused": 2,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "OPEN: 1 admitted players, fewer than 3"
+    },
+    {
+      "scope": {
+        "encounter_id": 51119,
+        "class_id": 2,
+        "category": "Restoration",
+        "metric": "hps",
+        "faction": "Alliance"
+      },
+      "boss": "Sapphiron",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/60117765-2006-20261102T031646.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-sapphiron-restoration-druid-alliance-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51120,
+        "class_id": 2,
+        "category": "Restoration",
+        "metric": "hps",
+        "faction": "Alliance"
+      },
+      "boss": "Thaddius",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/60117765-2006-20261102T031646.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-thaddius-restoration-druid-alliance-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51121,
+        "class_id": 2,
+        "category": "Restoration",
+        "metric": "hps",
+        "faction": "Alliance"
+      },
+      "boss": "The Four Horsemen",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/60117765-2006-20261102T031646.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-horsemen-restoration-druid-alliance-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51107,
         "class_id": 11,
         "category": "Protection",
         "metric": "dps",
@@ -1834,6 +2646,272 @@
       "other_refusals": [],
       "decision": "POLICY",
       "rule": "naxx-horsemen-assassination-rogue-horde-dps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51107,
+        "class_id": 9,
+        "category": "Restoration",
+        "metric": "hps",
+        "faction": "Horde"
+      },
+      "boss": "Anub'Rekhan",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/62259058-2006-20261109T151537.zip",
+      "admitted": 0,
+      "admitted_distinct_players": 0,
+      "refused": 3,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "OPEN: 0 admitted players, fewer than 3"
+    },
+    {
+      "scope": {
+        "encounter_id": 51108,
+        "class_id": 9,
+        "category": "Restoration",
+        "metric": "hps",
+        "faction": "Horde"
+      },
+      "boss": "Gluth",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/62259058-2006-20261109T151537.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-gluth-restoration-shaman-horde-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51109,
+        "class_id": 9,
+        "category": "Restoration",
+        "metric": "hps",
+        "faction": "Horde"
+      },
+      "boss": "Gothik the Harvester",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/62259058-2006-20261109T151537.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-gothik-restoration-shaman-horde-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51110,
+        "class_id": 9,
+        "category": "Restoration",
+        "metric": "hps",
+        "faction": "Horde"
+      },
+      "boss": "Grand Widow Faerlina",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/62259058-2006-20261109T151537.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-faerlina-restoration-shaman-horde-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51111,
+        "class_id": 9,
+        "category": "Restoration",
+        "metric": "hps",
+        "faction": "Horde"
+      },
+      "boss": "Grobbulus",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/62259058-2006-20261109T151537.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-grobbulus-restoration-shaman-horde-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51112,
+        "class_id": 9,
+        "category": "Restoration",
+        "metric": "hps",
+        "faction": "Horde"
+      },
+      "boss": "Heigan the Unclean",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/62259058-2006-20261109T151537.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-heigan-restoration-shaman-horde-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51113,
+        "class_id": 9,
+        "category": "Restoration",
+        "metric": "hps",
+        "faction": "Horde"
+      },
+      "boss": "Instructor Razuvious",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/62259058-2006-20261109T151537.zip",
+      "admitted": 0,
+      "admitted_distinct_players": 0,
+      "refused": 3,
+      "contradictions": 3,
+      "other_refusals": [],
+      "decision": "OPEN: 3 contradiction(s) retained"
+    },
+    {
+      "scope": {
+        "encounter_id": 51114,
+        "class_id": 9,
+        "category": "Restoration",
+        "metric": "hps",
+        "faction": "Horde"
+      },
+      "boss": "Kel'Thuzad",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/62259058-2006-20261109T151537.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-kelthuzad-restoration-shaman-horde-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51115,
+        "class_id": 9,
+        "category": "Restoration",
+        "metric": "hps",
+        "faction": "Horde"
+      },
+      "boss": "Loatheb",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/62259058-2006-20261109T151537.zip",
+      "admitted": 1,
+      "admitted_distinct_players": 1,
+      "refused": 2,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "OPEN: 1 admitted players, fewer than 3"
+    },
+    {
+      "scope": {
+        "encounter_id": 51116,
+        "class_id": 9,
+        "category": "Restoration",
+        "metric": "hps",
+        "faction": "Horde"
+      },
+      "boss": "Maexxna",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/62259058-2006-20261109T151537.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-maexxna-restoration-shaman-horde-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51117,
+        "class_id": 9,
+        "category": "Restoration",
+        "metric": "hps",
+        "faction": "Horde"
+      },
+      "boss": "Noth the Plaguebringer",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/62259058-2006-20261109T151537.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-noth-restoration-shaman-horde-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51118,
+        "class_id": 9,
+        "category": "Restoration",
+        "metric": "hps",
+        "faction": "Horde"
+      },
+      "boss": "Patchwerk",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/62259058-2006-20261109T151537.zip",
+      "admitted": 1,
+      "admitted_distinct_players": 1,
+      "refused": 2,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "OPEN: 1 admitted players, fewer than 3"
+    },
+    {
+      "scope": {
+        "encounter_id": 51119,
+        "class_id": 9,
+        "category": "Restoration",
+        "metric": "hps",
+        "faction": "Horde"
+      },
+      "boss": "Sapphiron",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/62259058-2006-20261109T151537.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-sapphiron-restoration-shaman-horde-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51120,
+        "class_id": 9,
+        "category": "Restoration",
+        "metric": "hps",
+        "faction": "Horde"
+      },
+      "boss": "Thaddius",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/62259058-2006-20261109T151537.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-thaddius-restoration-shaman-horde-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51121,
+        "class_id": 9,
+        "category": "Restoration",
+        "metric": "hps",
+        "faction": "Horde"
+      },
+      "boss": "The Four Horsemen",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/62259058-2006-20261109T151537.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-horsemen-restoration-shaman-horde-hps-v1"
     },
     {
       "scope": {
@@ -5751,6 +6829,1071 @@
     {
       "scope": {
         "encounter_id": 51107,
+        "class_id": 6,
+        "category": "Holy",
+        "metric": "hps",
+        "faction": "Alliance"
+      },
+      "boss": "Anub'Rekhan",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/77152471-2006-20261105T150116.zip",
+      "admitted": 2,
+      "admitted_distinct_players": 2,
+      "refused": 1,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "OPEN: 2 admitted players, fewer than 3"
+    },
+    {
+      "scope": {
+        "encounter_id": 51108,
+        "class_id": 6,
+        "category": "Holy",
+        "metric": "hps",
+        "faction": "Alliance"
+      },
+      "boss": "Gluth",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/77152471-2006-20261105T150116.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-gluth-holy-paladin-alliance-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51109,
+        "class_id": 6,
+        "category": "Holy",
+        "metric": "hps",
+        "faction": "Alliance"
+      },
+      "boss": "Gothik the Harvester",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/77152471-2006-20261105T150116.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-gothik-holy-paladin-alliance-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51110,
+        "class_id": 6,
+        "category": "Holy",
+        "metric": "hps",
+        "faction": "Alliance"
+      },
+      "boss": "Grand Widow Faerlina",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/77152471-2006-20261105T150116.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-faerlina-holy-paladin-alliance-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51111,
+        "class_id": 6,
+        "category": "Holy",
+        "metric": "hps",
+        "faction": "Alliance"
+      },
+      "boss": "Grobbulus",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/77152471-2006-20261105T150116.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-grobbulus-holy-paladin-alliance-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51112,
+        "class_id": 6,
+        "category": "Holy",
+        "metric": "hps",
+        "faction": "Alliance"
+      },
+      "boss": "Heigan the Unclean",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/77152471-2006-20261105T150116.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-heigan-holy-paladin-alliance-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51113,
+        "class_id": 6,
+        "category": "Holy",
+        "metric": "hps",
+        "faction": "Alliance"
+      },
+      "boss": "Instructor Razuvious",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/77152471-2006-20261105T150116.zip",
+      "admitted": 0,
+      "admitted_distinct_players": 0,
+      "refused": 3,
+      "contradictions": 3,
+      "other_refusals": [],
+      "decision": "OPEN: 3 contradiction(s) retained"
+    },
+    {
+      "scope": {
+        "encounter_id": 51114,
+        "class_id": 6,
+        "category": "Holy",
+        "metric": "hps",
+        "faction": "Alliance"
+      },
+      "boss": "Kel'Thuzad",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/77152471-2006-20261105T150116.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "OPEN: 1 row(s) heal a non-friendly recipient"
+    },
+    {
+      "scope": {
+        "encounter_id": 51115,
+        "class_id": 6,
+        "category": "Holy",
+        "metric": "hps",
+        "faction": "Alliance"
+      },
+      "boss": "Loatheb",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/77152471-2006-20261105T150116.zip",
+      "admitted": 2,
+      "admitted_distinct_players": 2,
+      "refused": 1,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "OPEN: 2 admitted players, fewer than 3"
+    },
+    {
+      "scope": {
+        "encounter_id": 51116,
+        "class_id": 6,
+        "category": "Holy",
+        "metric": "hps",
+        "faction": "Alliance"
+      },
+      "boss": "Maexxna",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/77152471-2006-20261105T150116.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-maexxna-holy-paladin-alliance-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51117,
+        "class_id": 6,
+        "category": "Holy",
+        "metric": "hps",
+        "faction": "Alliance"
+      },
+      "boss": "Noth the Plaguebringer",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/77152471-2006-20261105T150116.zip",
+      "admitted": 2,
+      "admitted_distinct_players": 2,
+      "refused": 1,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "OPEN: 2 admitted players, fewer than 3"
+    },
+    {
+      "scope": {
+        "encounter_id": 51118,
+        "class_id": 6,
+        "category": "Holy",
+        "metric": "hps",
+        "faction": "Alliance"
+      },
+      "boss": "Patchwerk",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/77152471-2006-20261105T150116.zip",
+      "admitted": 2,
+      "admitted_distinct_players": 2,
+      "refused": 1,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "OPEN: 2 admitted players, fewer than 3"
+    },
+    {
+      "scope": {
+        "encounter_id": 51119,
+        "class_id": 6,
+        "category": "Holy",
+        "metric": "hps",
+        "faction": "Alliance"
+      },
+      "boss": "Sapphiron",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/77152471-2006-20261105T150116.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-sapphiron-holy-paladin-alliance-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51120,
+        "class_id": 6,
+        "category": "Holy",
+        "metric": "hps",
+        "faction": "Alliance"
+      },
+      "boss": "Thaddius",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/77152471-2006-20261105T150116.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-thaddius-holy-paladin-alliance-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51121,
+        "class_id": 6,
+        "category": "Holy",
+        "metric": "hps",
+        "faction": "Alliance"
+      },
+      "boss": "The Four Horsemen",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/77152471-2006-20261105T150116.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-horsemen-holy-paladin-alliance-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51107,
+        "class_id": 7,
+        "category": "Holy",
+        "metric": "hps",
+        "faction": "Horde"
+      },
+      "boss": "Anub'Rekhan",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/77516109-2006-20261107T143644.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-anubrekhan-holy-priest-horde-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51108,
+        "class_id": 7,
+        "category": "Holy",
+        "metric": "hps",
+        "faction": "Horde"
+      },
+      "boss": "Gluth",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/77516109-2006-20261107T143644.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-gluth-holy-priest-horde-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51109,
+        "class_id": 7,
+        "category": "Holy",
+        "metric": "hps",
+        "faction": "Horde"
+      },
+      "boss": "Gothik the Harvester",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/77516109-2006-20261107T143644.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-gothik-holy-priest-horde-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51110,
+        "class_id": 7,
+        "category": "Holy",
+        "metric": "hps",
+        "faction": "Horde"
+      },
+      "boss": "Grand Widow Faerlina",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/77516109-2006-20261107T143644.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-faerlina-holy-priest-horde-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51111,
+        "class_id": 7,
+        "category": "Holy",
+        "metric": "hps",
+        "faction": "Horde"
+      },
+      "boss": "Grobbulus",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/77516109-2006-20261107T143644.zip",
+      "admitted": 2,
+      "admitted_distinct_players": 2,
+      "refused": 1,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "OPEN: 2 admitted players, fewer than 3"
+    },
+    {
+      "scope": {
+        "encounter_id": 51112,
+        "class_id": 7,
+        "category": "Holy",
+        "metric": "hps",
+        "faction": "Horde"
+      },
+      "boss": "Heigan the Unclean",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/77516109-2006-20261107T143644.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-heigan-holy-priest-horde-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51113,
+        "class_id": 7,
+        "category": "Holy",
+        "metric": "hps",
+        "faction": "Horde"
+      },
+      "boss": "Instructor Razuvious",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/77516109-2006-20261107T143644.zip",
+      "admitted": 0,
+      "admitted_distinct_players": 0,
+      "refused": 3,
+      "contradictions": 3,
+      "other_refusals": [],
+      "decision": "OPEN: 3 contradiction(s) retained"
+    },
+    {
+      "scope": {
+        "encounter_id": 51114,
+        "class_id": 7,
+        "category": "Holy",
+        "metric": "hps",
+        "faction": "Horde"
+      },
+      "boss": "Kel'Thuzad",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/77516109-2006-20261107T143644.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-kelthuzad-holy-priest-horde-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51115,
+        "class_id": 7,
+        "category": "Holy",
+        "metric": "hps",
+        "faction": "Horde"
+      },
+      "boss": "Loatheb",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/77516109-2006-20261107T143644.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-loatheb-holy-priest-horde-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51116,
+        "class_id": 7,
+        "category": "Holy",
+        "metric": "hps",
+        "faction": "Horde"
+      },
+      "boss": "Maexxna",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/77516109-2006-20261107T143644.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-maexxna-holy-priest-horde-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51117,
+        "class_id": 7,
+        "category": "Holy",
+        "metric": "hps",
+        "faction": "Horde"
+      },
+      "boss": "Noth the Plaguebringer",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/77516109-2006-20261107T143644.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-noth-holy-priest-horde-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51118,
+        "class_id": 7,
+        "category": "Holy",
+        "metric": "hps",
+        "faction": "Horde"
+      },
+      "boss": "Patchwerk",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/77516109-2006-20261107T143644.zip",
+      "admitted": 2,
+      "admitted_distinct_players": 2,
+      "refused": 1,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "OPEN: 2 admitted players, fewer than 3"
+    },
+    {
+      "scope": {
+        "encounter_id": 51119,
+        "class_id": 7,
+        "category": "Holy",
+        "metric": "hps",
+        "faction": "Horde"
+      },
+      "boss": "Sapphiron",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/77516109-2006-20261107T143644.zip",
+      "admitted": 2,
+      "admitted_distinct_players": 2,
+      "refused": 1,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "OPEN: 2 admitted players, fewer than 3"
+    },
+    {
+      "scope": {
+        "encounter_id": 51120,
+        "class_id": 7,
+        "category": "Holy",
+        "metric": "hps",
+        "faction": "Horde"
+      },
+      "boss": "Thaddius",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/77516109-2006-20261107T143644.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-thaddius-holy-priest-horde-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51121,
+        "class_id": 7,
+        "category": "Holy",
+        "metric": "hps",
+        "faction": "Horde"
+      },
+      "boss": "The Four Horsemen",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/77516109-2006-20261107T143644.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-horsemen-holy-priest-horde-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51107,
+        "class_id": 7,
+        "category": "Holy",
+        "metric": "hps",
+        "faction": "Alliance"
+      },
+      "boss": "Anub'Rekhan",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/77573659-2006-20261106T154918.zip",
+      "admitted": 2,
+      "admitted_distinct_players": 2,
+      "refused": 1,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "OPEN: 2 admitted players, fewer than 3"
+    },
+    {
+      "scope": {
+        "encounter_id": 51108,
+        "class_id": 7,
+        "category": "Holy",
+        "metric": "hps",
+        "faction": "Alliance"
+      },
+      "boss": "Gluth",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/77573659-2006-20261106T154918.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-gluth-holy-priest-alliance-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51109,
+        "class_id": 7,
+        "category": "Holy",
+        "metric": "hps",
+        "faction": "Alliance"
+      },
+      "boss": "Gothik the Harvester",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/77573659-2006-20261106T154918.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-gothik-holy-priest-alliance-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51110,
+        "class_id": 7,
+        "category": "Holy",
+        "metric": "hps",
+        "faction": "Alliance"
+      },
+      "boss": "Grand Widow Faerlina",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/77573659-2006-20261106T154918.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-faerlina-holy-priest-alliance-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51111,
+        "class_id": 7,
+        "category": "Holy",
+        "metric": "hps",
+        "faction": "Alliance"
+      },
+      "boss": "Grobbulus",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/77573659-2006-20261106T154918.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-grobbulus-holy-priest-alliance-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51112,
+        "class_id": 7,
+        "category": "Holy",
+        "metric": "hps",
+        "faction": "Alliance"
+      },
+      "boss": "Heigan the Unclean",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/77573659-2006-20261106T154918.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-heigan-holy-priest-alliance-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51113,
+        "class_id": 7,
+        "category": "Holy",
+        "metric": "hps",
+        "faction": "Alliance"
+      },
+      "boss": "Instructor Razuvious",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/77573659-2006-20261106T154918.zip",
+      "admitted": 0,
+      "admitted_distinct_players": 0,
+      "refused": 3,
+      "contradictions": 3,
+      "other_refusals": [],
+      "decision": "OPEN: 3 contradiction(s) retained"
+    },
+    {
+      "scope": {
+        "encounter_id": 51114,
+        "class_id": 7,
+        "category": "Holy",
+        "metric": "hps",
+        "faction": "Alliance"
+      },
+      "boss": "Kel'Thuzad",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/77573659-2006-20261106T154918.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-kelthuzad-holy-priest-alliance-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51115,
+        "class_id": 7,
+        "category": "Holy",
+        "metric": "hps",
+        "faction": "Alliance"
+      },
+      "boss": "Loatheb",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/77573659-2006-20261106T154918.zip",
+      "admitted": 2,
+      "admitted_distinct_players": 2,
+      "refused": 1,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "OPEN: 2 admitted players, fewer than 3"
+    },
+    {
+      "scope": {
+        "encounter_id": 51116,
+        "class_id": 7,
+        "category": "Holy",
+        "metric": "hps",
+        "faction": "Alliance"
+      },
+      "boss": "Maexxna",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/77573659-2006-20261106T154918.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-maexxna-holy-priest-alliance-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51117,
+        "class_id": 7,
+        "category": "Holy",
+        "metric": "hps",
+        "faction": "Alliance"
+      },
+      "boss": "Noth the Plaguebringer",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/77573659-2006-20261106T154918.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-noth-holy-priest-alliance-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51118,
+        "class_id": 7,
+        "category": "Holy",
+        "metric": "hps",
+        "faction": "Alliance"
+      },
+      "boss": "Patchwerk",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/77573659-2006-20261106T154918.zip",
+      "admitted": 2,
+      "admitted_distinct_players": 2,
+      "refused": 1,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "OPEN: 2 admitted players, fewer than 3"
+    },
+    {
+      "scope": {
+        "encounter_id": 51119,
+        "class_id": 7,
+        "category": "Holy",
+        "metric": "hps",
+        "faction": "Alliance"
+      },
+      "boss": "Sapphiron",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/77573659-2006-20261106T154918.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-sapphiron-holy-priest-alliance-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51120,
+        "class_id": 7,
+        "category": "Holy",
+        "metric": "hps",
+        "faction": "Alliance"
+      },
+      "boss": "Thaddius",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/77573659-2006-20261106T154918.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-thaddius-holy-priest-alliance-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51121,
+        "class_id": 7,
+        "category": "Holy",
+        "metric": "hps",
+        "faction": "Alliance"
+      },
+      "boss": "The Four Horsemen",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/77573659-2006-20261106T154918.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-horsemen-holy-priest-alliance-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51107,
+        "class_id": 2,
+        "category": "Restoration",
+        "metric": "hps",
+        "faction": "Horde"
+      },
+      "boss": "Anub'Rekhan",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/77577270-2006-20261103T040708.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-anubrekhan-restoration-druid-horde-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51108,
+        "class_id": 2,
+        "category": "Restoration",
+        "metric": "hps",
+        "faction": "Horde"
+      },
+      "boss": "Gluth",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/77577270-2006-20261103T040708.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-gluth-restoration-druid-horde-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51109,
+        "class_id": 2,
+        "category": "Restoration",
+        "metric": "hps",
+        "faction": "Horde"
+      },
+      "boss": "Gothik the Harvester",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/77577270-2006-20261103T040708.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-gothik-restoration-druid-horde-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51110,
+        "class_id": 2,
+        "category": "Restoration",
+        "metric": "hps",
+        "faction": "Horde"
+      },
+      "boss": "Grand Widow Faerlina",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/77577270-2006-20261103T040708.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-faerlina-restoration-druid-horde-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51111,
+        "class_id": 2,
+        "category": "Restoration",
+        "metric": "hps",
+        "faction": "Horde"
+      },
+      "boss": "Grobbulus",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/77577270-2006-20261103T040708.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-grobbulus-restoration-druid-horde-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51112,
+        "class_id": 2,
+        "category": "Restoration",
+        "metric": "hps",
+        "faction": "Horde"
+      },
+      "boss": "Heigan the Unclean",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/77577270-2006-20261103T040708.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-heigan-restoration-druid-horde-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51113,
+        "class_id": 2,
+        "category": "Restoration",
+        "metric": "hps",
+        "faction": "Horde"
+      },
+      "boss": "Instructor Razuvious",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/77577270-2006-20261103T040708.zip",
+      "admitted": 0,
+      "admitted_distinct_players": 0,
+      "refused": 3,
+      "contradictions": 3,
+      "other_refusals": [],
+      "decision": "OPEN: 3 contradiction(s) retained"
+    },
+    {
+      "scope": {
+        "encounter_id": 51114,
+        "class_id": 2,
+        "category": "Restoration",
+        "metric": "hps",
+        "faction": "Horde"
+      },
+      "boss": "Kel'Thuzad",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/77577270-2006-20261103T040708.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-kelthuzad-restoration-druid-horde-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51115,
+        "class_id": 2,
+        "category": "Restoration",
+        "metric": "hps",
+        "faction": "Horde"
+      },
+      "boss": "Loatheb",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/77577270-2006-20261103T040708.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-loatheb-restoration-druid-horde-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51116,
+        "class_id": 2,
+        "category": "Restoration",
+        "metric": "hps",
+        "faction": "Horde"
+      },
+      "boss": "Maexxna",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/77577270-2006-20261103T040708.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-maexxna-restoration-druid-horde-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51117,
+        "class_id": 2,
+        "category": "Restoration",
+        "metric": "hps",
+        "faction": "Horde"
+      },
+      "boss": "Noth the Plaguebringer",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/77577270-2006-20261103T040708.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-noth-restoration-druid-horde-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51118,
+        "class_id": 2,
+        "category": "Restoration",
+        "metric": "hps",
+        "faction": "Horde"
+      },
+      "boss": "Patchwerk",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/77577270-2006-20261103T040708.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-patchwerk-restoration-druid-horde-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51119,
+        "class_id": 2,
+        "category": "Restoration",
+        "metric": "hps",
+        "faction": "Horde"
+      },
+      "boss": "Sapphiron",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/77577270-2006-20261103T040708.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-sapphiron-restoration-druid-horde-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51120,
+        "class_id": 2,
+        "category": "Restoration",
+        "metric": "hps",
+        "faction": "Horde"
+      },
+      "boss": "Thaddius",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/77577270-2006-20261103T040708.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-thaddius-restoration-druid-horde-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51121,
+        "class_id": 2,
+        "category": "Restoration",
+        "metric": "hps",
+        "faction": "Horde"
+      },
+      "boss": "The Four Horsemen",
+      "archive": "tests/golden/raids/raw/naxx-production-20261111/77577270-2006-20261103T040708.zip",
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
+      "other_refusals": [],
+      "decision": "POLICY",
+      "rule": "naxx-horsemen-restoration-druid-horde-hps-v1"
+    },
+    {
+      "scope": {
+        "encounter_id": 51107,
         "class_id": 10,
         "category": "Destruction",
         "metric": "dps",
@@ -6799,7 +8942,7 @@
       "rule": "naxx-horsemen-frost-mage-alliance-dps-v1"
     }
   ],
-  "policies": 161,
+  "policies": 244,
   "limits": [
     "Raw-to-published arithmetic for exactly each cell scope; no engine emission, product score, grade or COMPLETE cell.",
     "Ownership refusals are unknown, never matches or contradictions.",

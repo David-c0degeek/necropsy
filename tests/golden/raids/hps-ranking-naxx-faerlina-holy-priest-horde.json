@@ -1,0 +1,113 @@
+{
+  "version": 1,
+  "rule": "naxx-faerlina-holy-priest-horde-hps-v1",
+  "scope": {
+    "encounter_id": 51110,
+    "class_id": 7,
+    "category": "Holy",
+    "metric": "hps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77516109-2006-20261107T143644.zip",
+    "sha256": "6261e9d695747c333065fa0655f610a7b7bd0be5015f47f70395edf7e7789eca"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "FaCZ8HqfNB4hJmAX-10-26",
+      "purpose": "policy-scope",
+      "report": "FaCZ8HqfNB4hJmAX",
+      "fight": 10,
+      "actor": 26,
+      "player": "Scented",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51110_Grand_Widow_Faerlina.json",
+      "page": 3,
+      "row": 18,
+      "owned_actor_ids": [],
+      "duration_ms": 53044,
+      "published": "1077.69",
+      "totals": {
+        "raw": 57165,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 57165
+      },
+      "residual": "291/1326100"
+    },
+    {
+      "id": "H1GgPX8D2nzkvr7R-6-11",
+      "purpose": "policy-scope",
+      "report": "H1GgPX8D2nzkvr7R",
+      "fight": 6,
+      "actor": 11,
+      "player": "Notjeff",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51110_Grand_Widow_Faerlina.json",
+      "page": 2,
+      "row": 29,
+      "owned_actor_ids": [],
+      "duration_ms": 49940,
+      "published": "1129.86",
+      "totals": {
+        "raw": 56425,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 56425
+      },
+      "residual": "-521/124850"
+    },
+    {
+      "id": "gjrdMJ8bvLR9kPVD-3-39",
+      "purpose": "policy-scope",
+      "report": "gjrdMJ8bvLR9kPVD",
+      "fight": 3,
+      "actor": 39,
+      "player": "Helena",
+      "realm": "Arcanite Reaper",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51110_Grand_Widow_Faerlina.json",
+      "page": 2,
+      "row": 14,
+      "owned_actor_ids": [],
+      "duration_ms": 34039,
+      "published": "1141.28",
+      "totals": {
+        "raw": 38848,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 38848
+      },
+      "residual": "-748/850975",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 289,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "48731db52040b265d4306ae6d4ed96c7cf4c3b13660fa5e489b5c82dccbbecc4",
+            "52706102276743c24e851bc40cdc4e5a0915987852938055e6768f41b1046cdd"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

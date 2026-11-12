@@ -1,0 +1,103 @@
+{
+  "version": 1,
+  "rule": "naxx-anubrekhan-holy-priest-horde-hps-v1",
+  "scope": {
+    "encounter_id": 51107,
+    "class_id": 7,
+    "category": "Holy",
+    "metric": "hps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77516109-2006-20261107T143644.zip",
+    "sha256": "6261e9d695747c333065fa0655f610a7b7bd0be5015f47f70395edf7e7789eca"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "mQFPh71g4rRcDdGf-2-38",
+      "purpose": "policy-scope",
+      "report": "mQFPh71g4rRcDdGf",
+      "fight": 2,
+      "actor": 38,
+      "player": "Boneita",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51107_Anub_Rekhan.json",
+      "page": 1,
+      "row": 31,
+      "owned_actor_ids": [],
+      "duration_ms": 35657,
+      "published": "945.593",
+      "totals": {
+        "raw": 33717,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 33717
+      },
+      "residual": "-9601/35657000"
+    },
+    {
+      "id": "wjM32vCPfknGa69g-12-29",
+      "purpose": "policy-scope",
+      "report": "wjM32vCPfknGa69g",
+      "fight": 12,
+      "actor": 29,
+      "player": "Smight",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51107_Anub_Rekhan.json",
+      "page": 1,
+      "row": 25,
+      "owned_actor_ids": [],
+      "duration_ms": 47411,
+      "published": "959.355",
+      "totals": {
+        "raw": 45484,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 45484
+      },
+      "residual": "4019/9482200"
+    },
+    {
+      "id": "yrjKd7L6mF1ZvxzR-2-18",
+      "purpose": "policy-scope",
+      "report": "yrjKd7L6mF1ZvxzR",
+      "fight": 2,
+      "actor": 18,
+      "player": "Tjejsarinnan",
+      "realm": "Ashbringer",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51107_Anub_Rekhan.json",
+      "page": 1,
+      "row": 7,
+      "owned_actor_ids": [],
+      "duration_ms": 33259,
+      "published": "1071.38",
+      "totals": {
+        "raw": 35633,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 35633
+      },
+      "residual": "-1371/1662950"
+    }
+  ],
+  "refusals": []
+}

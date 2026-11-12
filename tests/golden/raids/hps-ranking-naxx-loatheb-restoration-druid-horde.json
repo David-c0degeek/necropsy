@@ -1,0 +1,115 @@
+{
+  "version": 1,
+  "rule": "naxx-loatheb-restoration-druid-horde-hps-v1",
+  "scope": {
+    "encounter_id": 51115,
+    "class_id": 2,
+    "category": "Restoration",
+    "metric": "hps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77577270-2006-20261103T040708.zip",
+    "sha256": "f2151316bf0531ee4187a54e5f234c18b29028f9418e3d7d513d83521c2a681d"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "G9YarXpdvnJw27cR-30-14",
+      "purpose": "policy-scope",
+      "report": "G9YarXpdvnJw27cR",
+      "fight": 30,
+      "actor": 14,
+      "player": "断线紫鸢",
+      "realm": "匕首岭",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51115_Loatheb.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 196289,
+      "published": "235.724",
+      "totals": {
+        "raw": 46270,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 46270
+      },
+      "residual": "-7059/49072250",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 160,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "85ef1348f352f5dfb02083fcb89f9e27f000ac0b05cdb8572c1556059484e380",
+            "540427bb184ef4ce7bf88be7e8f7c3349e259131c555fec691e8cda40469480b",
+            "3d824aa1dcdbe0002b6acc34bfc870b088007a31ee56e72f9a5e62125d2fb255",
+            "63103583dd55aed9cba49bf12977148fd6663940209caed64dc306a5a00248d2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "K8tRvbk2Yzaj6y4G-29-7",
+      "purpose": "policy-scope",
+      "report": "K8tRvbk2Yzaj6y4G",
+      "fight": 29,
+      "actor": 7,
+      "player": "加谁倒谁",
+      "realm": "匕首岭",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51115_Loatheb.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 181142,
+      "published": "221.854",
+      "totals": {
+        "raw": 40187,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 40187
+      },
+      "residual": "-19317/45285500"
+    },
+    {
+      "id": "y8DVGmd6atjAbWPJ-35-28",
+      "purpose": "policy-scope",
+      "report": "y8DVGmd6atjAbWPJ",
+      "fight": 35,
+      "actor": 28,
+      "player": "莫灬悲",
+      "realm": "哈霍兰",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51115_Loatheb.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 244403,
+      "published": "215.82",
+      "totals": {
+        "raw": 52747,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 52747
+      },
+      "residual": "-2773/12220150"
+    }
+  ],
+  "refusals": []
+}

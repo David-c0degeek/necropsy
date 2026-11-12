@@ -1,0 +1,356 @@
+{
+  "version": 1,
+  "rule": "naxx-noth-restoration-shaman-horde-hps-v1",
+  "scope": {
+    "encounter_id": 51117,
+    "class_id": 9,
+    "category": "Restoration",
+    "metric": "hps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/62259058-2006-20261109T151537.zip",
+    "sha256": "d6828c7a2256d1cbc284cd828a839d24c088cd11a5429aedc125819e2836756a"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "T8wKPMGNRYnHBxcD-17-17",
+      "purpose": "policy-scope",
+      "report": "T8wKPMGNRYnHBxcD",
+      "fight": 17,
+      "actor": 17,
+      "player": "Blueranger",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51117_Noth_the_Plaguebringer.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 35413,
+      "published": "1818.15",
+      "totals": {
+        "raw": 64386,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 64386
+      },
+      "residual": "-417/101180",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 74,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "cd248271fc80ed9102a912337cc3c80b310f40c41e2a6ddec2fe4b224b546f7d"
+          ]
+        },
+        {
+          "pet": 102,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "cd248271fc80ed9102a912337cc3c80b310f40c41e2a6ddec2fe4b224b546f7d"
+          ]
+        },
+        {
+          "pet": 123,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "cd248271fc80ed9102a912337cc3c80b310f40c41e2a6ddec2fe4b224b546f7d"
+          ]
+        },
+        {
+          "pet": 138,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "cd248271fc80ed9102a912337cc3c80b310f40c41e2a6ddec2fe4b224b546f7d"
+          ]
+        },
+        {
+          "pet": 271,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "cd248271fc80ed9102a912337cc3c80b310f40c41e2a6ddec2fe4b224b546f7d"
+          ]
+        },
+        {
+          "pet": 287,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "cd248271fc80ed9102a912337cc3c80b310f40c41e2a6ddec2fe4b224b546f7d"
+          ]
+        },
+        {
+          "pet": 294,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "cd248271fc80ed9102a912337cc3c80b310f40c41e2a6ddec2fe4b224b546f7d"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "TCPAyRFx14mrakHh-10-45",
+      "purpose": "policy-scope",
+      "report": "TCPAyRFx14mrakHh",
+      "fight": 10,
+      "actor": 45,
+      "player": "Avaz",
+      "realm": "Kurinnaxx",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51117_Noth_the_Plaguebringer.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [
+        132
+      ],
+      "duration_ms": 48169,
+      "published": "1521.81",
+      "totals": {
+        "raw": 73304,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 73304
+      },
+      "residual": "-599/437900",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 58,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "a36304da4291b91b450946daa02d7105444fe4ff2c274e1fbe8dd6759f1f0a8c",
+            "7c98d9e755b5b7b0757f4cb1951e3bd6d64517455cf6a62575878e3e25e198f5"
+          ]
+        },
+        {
+          "pet": 81,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "a36304da4291b91b450946daa02d7105444fe4ff2c274e1fbe8dd6759f1f0a8c",
+            "7c98d9e755b5b7b0757f4cb1951e3bd6d64517455cf6a62575878e3e25e198f5"
+          ]
+        },
+        {
+          "pet": 100,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "a36304da4291b91b450946daa02d7105444fe4ff2c274e1fbe8dd6759f1f0a8c",
+            "7c98d9e755b5b7b0757f4cb1951e3bd6d64517455cf6a62575878e3e25e198f5"
+          ]
+        },
+        {
+          "pet": 112,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "a36304da4291b91b450946daa02d7105444fe4ff2c274e1fbe8dd6759f1f0a8c",
+            "7c98d9e755b5b7b0757f4cb1951e3bd6d64517455cf6a62575878e3e25e198f5"
+          ]
+        },
+        {
+          "pet": 128,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "a36304da4291b91b450946daa02d7105444fe4ff2c274e1fbe8dd6759f1f0a8c",
+            "7c98d9e755b5b7b0757f4cb1951e3bd6d64517455cf6a62575878e3e25e198f5"
+          ]
+        },
+        {
+          "pet": 141,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "a36304da4291b91b450946daa02d7105444fe4ff2c274e1fbe8dd6759f1f0a8c",
+            "7c98d9e755b5b7b0757f4cb1951e3bd6d64517455cf6a62575878e3e25e198f5"
+          ]
+        },
+        {
+          "pet": 188,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "a36304da4291b91b450946daa02d7105444fe4ff2c274e1fbe8dd6759f1f0a8c",
+            "7c98d9e755b5b7b0757f4cb1951e3bd6d64517455cf6a62575878e3e25e198f5"
+          ]
+        },
+        {
+          "pet": 205,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "a36304da4291b91b450946daa02d7105444fe4ff2c274e1fbe8dd6759f1f0a8c",
+            "7c98d9e755b5b7b0757f4cb1951e3bd6d64517455cf6a62575878e3e25e198f5"
+          ]
+        },
+        {
+          "pet": 280,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "a36304da4291b91b450946daa02d7105444fe4ff2c274e1fbe8dd6759f1f0a8c",
+            "7c98d9e755b5b7b0757f4cb1951e3bd6d64517455cf6a62575878e3e25e198f5"
+          ]
+        }
+      ],
+      "fight_active_catalog_units": [
+        {
+          "unit": 80,
+          "rule": "catalog-unit-active-in-fight-v1"
+        }
+      ]
+    },
+    {
+      "id": "yrjKd7L6mF1ZvxzR-10-48",
+      "purpose": "policy-scope",
+      "report": "yrjKd7L6mF1ZvxzR",
+      "fight": 10,
+      "actor": 48,
+      "player": "Dèniro",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51117_Noth_the_Plaguebringer.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 41456,
+      "published": "1494.91",
+      "totals": {
+        "raw": 61973,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 61973
+      },
+      "residual": "69/259100",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 50,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "88a6ec48404f22a7b0d4bf90dd9d08f6efb437d3aa0c0175448b758cd35ceea2",
+            "57fad0661aa3fc98304434c2f9862393c437e151de52dae7f5d9ccd3ea0b2310"
+          ]
+        },
+        {
+          "pet": 56,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "88a6ec48404f22a7b0d4bf90dd9d08f6efb437d3aa0c0175448b758cd35ceea2",
+            "57fad0661aa3fc98304434c2f9862393c437e151de52dae7f5d9ccd3ea0b2310"
+          ]
+        },
+        {
+          "pet": 59,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "88a6ec48404f22a7b0d4bf90dd9d08f6efb437d3aa0c0175448b758cd35ceea2",
+            "57fad0661aa3fc98304434c2f9862393c437e151de52dae7f5d9ccd3ea0b2310"
+          ]
+        },
+        {
+          "pet": 88,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "88a6ec48404f22a7b0d4bf90dd9d08f6efb437d3aa0c0175448b758cd35ceea2",
+            "57fad0661aa3fc98304434c2f9862393c437e151de52dae7f5d9ccd3ea0b2310"
+          ]
+        },
+        {
+          "pet": 133,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "88a6ec48404f22a7b0d4bf90dd9d08f6efb437d3aa0c0175448b758cd35ceea2",
+            "57fad0661aa3fc98304434c2f9862393c437e151de52dae7f5d9ccd3ea0b2310"
+          ]
+        },
+        {
+          "pet": 142,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "88a6ec48404f22a7b0d4bf90dd9d08f6efb437d3aa0c0175448b758cd35ceea2",
+            "57fad0661aa3fc98304434c2f9862393c437e151de52dae7f5d9ccd3ea0b2310"
+          ]
+        },
+        {
+          "pet": 143,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "88a6ec48404f22a7b0d4bf90dd9d08f6efb437d3aa0c0175448b758cd35ceea2",
+            "57fad0661aa3fc98304434c2f9862393c437e151de52dae7f5d9ccd3ea0b2310"
+          ]
+        },
+        {
+          "pet": 185,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "88a6ec48404f22a7b0d4bf90dd9d08f6efb437d3aa0c0175448b758cd35ceea2",
+            "57fad0661aa3fc98304434c2f9862393c437e151de52dae7f5d9ccd3ea0b2310"
+          ]
+        },
+        {
+          "pet": 262,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "88a6ec48404f22a7b0d4bf90dd9d08f6efb437d3aa0c0175448b758cd35ceea2",
+            "57fad0661aa3fc98304434c2f9862393c437e151de52dae7f5d9ccd3ea0b2310"
+          ]
+        },
+        {
+          "pet": 294,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "88a6ec48404f22a7b0d4bf90dd9d08f6efb437d3aa0c0175448b758cd35ceea2",
+            "57fad0661aa3fc98304434c2f9862393c437e151de52dae7f5d9ccd3ea0b2310"
+          ]
+        },
+        {
+          "pet": 296,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "88a6ec48404f22a7b0d4bf90dd9d08f6efb437d3aa0c0175448b758cd35ceea2",
+            "57fad0661aa3fc98304434c2f9862393c437e151de52dae7f5d9ccd3ea0b2310"
+          ]
+        },
+        {
+          "pet": 300,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "88a6ec48404f22a7b0d4bf90dd9d08f6efb437d3aa0c0175448b758cd35ceea2",
+            "57fad0661aa3fc98304434c2f9862393c437e151de52dae7f5d9ccd3ea0b2310"
+          ]
+        },
+        {
+          "pet": 305,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "88a6ec48404f22a7b0d4bf90dd9d08f6efb437d3aa0c0175448b758cd35ceea2",
+            "57fad0661aa3fc98304434c2f9862393c437e151de52dae7f5d9ccd3ea0b2310"
+          ]
+        },
+        {
+          "pet": 307,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "88a6ec48404f22a7b0d4bf90dd9d08f6efb437d3aa0c0175448b758cd35ceea2",
+            "57fad0661aa3fc98304434c2f9862393c437e151de52dae7f5d9ccd3ea0b2310"
+          ]
+        }
+      ],
+      "fight_active_catalog_units": [
+        {
+          "unit": 52,
+          "rule": "catalog-unit-active-in-fight-v1"
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

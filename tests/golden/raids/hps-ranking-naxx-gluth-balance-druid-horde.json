@@ -1,0 +1,113 @@
+{
+  "version": 1,
+  "rule": "naxx-gluth-balance-druid-horde-hps-v1",
+  "scope": {
+    "encounter_id": 51108,
+    "class_id": 2,
+    "category": "Balance",
+    "metric": "hps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261031/76376122-2006-20261028T163059.zip",
+    "sha256": "392bf13fb1350ae468253631895b9be591d46516a40d020a00dcaa568fa1ef4f"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "T1qFB68ytNHW9d2f-158-45",
+      "purpose": "policy-scope",
+      "report": "T1qFB68ytNHW9d2f",
+      "fight": 158,
+      "actor": 45,
+      "player": "背带裤男神",
+      "realm": "伊弗斯",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51108_Gluth.json",
+      "page": 1,
+      "row": 10,
+      "owned_actor_ids": [],
+      "duration_ms": 91253,
+      "published": "142.012",
+      "totals": {
+        "raw": 12959,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 12959
+      },
+      "residual": "-5259/22813250"
+    },
+    {
+      "id": "ac3m8hvC1QMTpAkD-66-22",
+      "purpose": "policy-scope",
+      "report": "ac3m8hvC1QMTpAkD",
+      "fight": 66,
+      "actor": 22,
+      "player": "Lovexd",
+      "realm": "伊弗斯",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51108_Gluth.json",
+      "page": 1,
+      "row": 6,
+      "owned_actor_ids": [],
+      "duration_ms": 106241,
+      "published": "207.547",
+      "totals": {
+        "raw": 22050,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 22050
+      },
+      "residual": "-827/106241000"
+    },
+    {
+      "id": "fZkRgVDQ1hdwMtvb-35-33",
+      "purpose": "policy-scope",
+      "report": "fZkRgVDQ1hdwMtvb",
+      "fight": 35,
+      "actor": 33,
+      "player": "Hedera",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51108_Gluth.json",
+      "page": 1,
+      "row": 12,
+      "owned_actor_ids": [],
+      "duration_ms": 54398,
+      "published": "136.751",
+      "totals": {
+        "raw": 7439,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 7439
+      },
+      "residual": "9551/27199000",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 274,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "c1a90d1d91bf5901dddd07c6dddc7257f07fb1cb6a26b834e22b5cbaf88d6e5c",
+            "77b2ef5e1cfc53602f38122e4432dccb4f8ffa0f4202a77b3b14af2e872dc6ff"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

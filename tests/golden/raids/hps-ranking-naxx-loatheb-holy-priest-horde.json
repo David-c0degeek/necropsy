@@ -1,0 +1,115 @@
+{
+  "version": 1,
+  "rule": "naxx-loatheb-holy-priest-horde-hps-v1",
+  "scope": {
+    "encounter_id": 51115,
+    "class_id": 7,
+    "category": "Holy",
+    "metric": "hps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77516109-2006-20261107T143644.zip",
+    "sha256": "6261e9d695747c333065fa0655f610a7b7bd0be5015f47f70395edf7e7789eca"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "KFPXptmj8Nr6fGha-97-254",
+      "purpose": "policy-scope",
+      "report": "KFPXptmj8Nr6fGha",
+      "fight": 97,
+      "actor": 254,
+      "player": "断线梓鸢",
+      "realm": "匕首岭",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51115_Loatheb.json",
+      "page": 1,
+      "row": 3,
+      "owned_actor_ids": [],
+      "duration_ms": 203208,
+      "published": "271.038",
+      "totals": {
+        "raw": 55077,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 55077
+      },
+      "residual": "-1873/4233500"
+    },
+    {
+      "id": "tYkFgNKTjW97ZrHM-30-10",
+      "purpose": "policy-scope",
+      "report": "tYkFgNKTjW97ZrHM",
+      "fight": 30,
+      "actor": 10,
+      "player": "奶油妹妹",
+      "realm": "哈霍兰",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51115_Loatheb.json",
+      "page": 1,
+      "row": 5,
+      "owned_actor_ids": [],
+      "duration_ms": 193990,
+      "published": "266.271",
+      "totals": {
+        "raw": 51654,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 51654
+      },
+      "residual": "8871/19399000"
+    },
+    {
+      "id": "xCh1NB3MFcaywXzZ-16-22",
+      "purpose": "policy-scope",
+      "report": "xCh1NB3MFcaywXzZ",
+      "fight": 16,
+      "actor": 22,
+      "player": "镰仓",
+      "realm": "哈霍兰",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51115_Loatheb.json",
+      "page": 1,
+      "row": 14,
+      "owned_actor_ids": [],
+      "duration_ms": 213725,
+      "published": "252.572",
+      "totals": {
+        "raw": 53981,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 53981
+      },
+      "residual": "493/2137250",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 269,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "042bd66d13752bb9233e2365737c57522fcc366c7a012a1fab601ca08e0c375c",
+            "cab3da20b86940b6def9b8ae1b87e8e60ca379982d972bd66596be8b66280fc7",
+            "4b77d22899a81ade4e971e14e5e917395d240a68e42c3f008061d33d09c517d0",
+            "ecc8798cfdfbca3c1a26bd73835215a9649c7bb8b04d39129b689c253920dc1a"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

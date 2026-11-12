@@ -1,0 +1,121 @@
+{
+  "version": 1,
+  "rule": "naxx-heigan-restoration-druid-horde-hps-v1",
+  "scope": {
+    "encounter_id": 51112,
+    "class_id": 2,
+    "category": "Restoration",
+    "metric": "hps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77577270-2006-20261103T040708.zip",
+    "sha256": "f2151316bf0531ee4187a54e5f234c18b29028f9418e3d7d513d83521c2a681d"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "1rCMHKwYJzgt34mf-14-9",
+      "purpose": "policy-scope",
+      "report": "1rCMHKwYJzgt34mf",
+      "fight": 14,
+      "actor": 9,
+      "player": "Thorisdottir",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51112_Heigan_the_Unclean.json",
+      "page": 1,
+      "row": 13,
+      "owned_actor_ids": [],
+      "duration_ms": 51964,
+      "published": "576.745",
+      "totals": {
+        "raw": 29970,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 29970
+      },
+      "residual": "1141/2598200",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 178,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "cc35f5c0407d0493c01dfe8a6b57469f86f5a9dcffa61c2bfe21c8c89f633a7a",
+            "09326022f2f3d7a15bb3d82b6f7b2ba1bc38020812ac5edc76c77de091005132"
+          ]
+        },
+        {
+          "pet": 210,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "cc35f5c0407d0493c01dfe8a6b57469f86f5a9dcffa61c2bfe21c8c89f633a7a",
+            "09326022f2f3d7a15bb3d82b6f7b2ba1bc38020812ac5edc76c77de091005132"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "KXFYGywgtDHAZLQ2-29-35",
+      "purpose": "policy-scope",
+      "report": "KXFYGywgtDHAZLQ2",
+      "fight": 29,
+      "actor": 35,
+      "player": "Curly",
+      "realm": "Skullflame",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51112_Heigan_the_Unclean.json",
+      "page": 1,
+      "row": 14,
+      "owned_actor_ids": [],
+      "duration_ms": 76369,
+      "published": "575.718",
+      "totals": {
+        "raw": 43967,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 43967
+      },
+      "residual": "-3971/38184500"
+    },
+    {
+      "id": "qyT7cAzFQL34bVXN-13-40",
+      "purpose": "policy-scope",
+      "report": "qyT7cAzFQL34bVXN",
+      "fight": 13,
+      "actor": 40,
+      "player": "Cylak",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51112_Heigan_the_Unclean.json",
+      "page": 1,
+      "row": 10,
+      "owned_actor_ids": [],
+      "duration_ms": 58822,
+      "published": "578.78",
+      "totals": {
+        "raw": 34045,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 34045
+      },
+      "residual": "71/1470550"
+    }
+  ],
+  "refusals": []
+}

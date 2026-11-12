@@ -1,0 +1,103 @@
+{
+  "version": 1,
+  "rule": "naxx-gluth-holy-priest-alliance-hps-v1",
+  "scope": {
+    "encounter_id": 51108,
+    "class_id": 7,
+    "category": "Holy",
+    "metric": "hps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77573659-2006-20261106T154918.zip",
+    "sha256": "d292ee0e8a3db304a504e98ecc0528b70e43446dd74548afaf5788d8af9d8139"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "9nrZFYWkpQaTDgvf-30-15",
+      "purpose": "policy-scope",
+      "report": "9nrZFYWkpQaTDgvf",
+      "fight": 30,
+      "actor": 15,
+      "player": "Eyianne",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51108_Gluth.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 43024,
+      "published": "1792.07",
+      "totals": {
+        "raw": 77102,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 77102
+      },
+      "residual": "-123/268900"
+    },
+    {
+      "id": "BN1xQ6pRnVXPwv9h-28-44",
+      "purpose": "policy-scope",
+      "report": "BN1xQ6pRnVXPwv9h",
+      "fight": 28,
+      "actor": 44,
+      "player": "Nacyy",
+      "realm": "哈霍兰",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51108_Gluth.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 37538,
+      "published": "1724.17",
+      "totals": {
+        "raw": 64722,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 64722
+      },
+      "residual": "5327/1876900"
+    },
+    {
+      "id": "FxLdcvz93Qjk7THD-27-9",
+      "purpose": "policy-scope",
+      "report": "FxLdcvz93Qjk7THD",
+      "fight": 27,
+      "actor": 9,
+      "player": "Maoainai",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51108_Gluth.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 58526,
+      "published": "2125.91",
+      "totals": {
+        "raw": 124421,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 124421
+      },
+      "residual": "-433/2926300"
+    }
+  ],
+  "refusals": []
+}

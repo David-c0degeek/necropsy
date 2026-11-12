@@ -1,0 +1,121 @@
+{
+  "version": 1,
+  "rule": "naxx-noth-holy-priest-horde-hps-v1",
+  "scope": {
+    "encounter_id": 51117,
+    "class_id": 7,
+    "category": "Holy",
+    "metric": "hps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77516109-2006-20261107T143644.zip",
+    "sha256": "6261e9d695747c333065fa0655f610a7b7bd0be5015f47f70395edf7e7789eca"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "LRrKtPBbAm69XW3Y-9-9",
+      "purpose": "policy-scope",
+      "report": "LRrKtPBbAm69XW3Y",
+      "fight": 9,
+      "actor": 9,
+      "player": "Thelema",
+      "realm": "Anathema",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51117_Noth_the_Plaguebringer.json",
+      "page": 1,
+      "row": 35,
+      "owned_actor_ids": [],
+      "duration_ms": 37629,
+      "published": "1376.54",
+      "totals": {
+        "raw": 51798,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 51798
+      },
+      "residual": "2939/627150"
+    },
+    {
+      "id": "a2fcAQnqxbN86VGB-20-17",
+      "purpose": "policy-scope",
+      "report": "a2fcAQnqxbN86VGB",
+      "fight": 20,
+      "actor": 17,
+      "player": "Shadøwpriest",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51117_Noth_the_Plaguebringer.json",
+      "page": 1,
+      "row": 41,
+      "owned_actor_ids": [],
+      "duration_ms": 36760,
+      "published": "1330.06",
+      "totals": {
+        "raw": 48893,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 48893
+      },
+      "residual": "-7/45950",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 89,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "095521ea5987c887154706ee720a6379c0a9048c3b5dc62603d5163a3ed60aee",
+            "eecbb6d4c41968da224906b3cff5528ec7d92d3cba1c91bb6866f061a6f3a1bd"
+          ]
+        },
+        {
+          "pet": 209,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "095521ea5987c887154706ee720a6379c0a9048c3b5dc62603d5163a3ed60aee",
+            "eecbb6d4c41968da224906b3cff5528ec7d92d3cba1c91bb6866f061a6f3a1bd"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nbTB6DQXZvj9fzgt-9-36",
+      "purpose": "policy-scope",
+      "report": "nbTB6DQXZvj9fzgt",
+      "fight": 9,
+      "actor": 36,
+      "player": "虚无的花",
+      "realm": "哈霍兰",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51117_Noth_the_Plaguebringer.json",
+      "page": 1,
+      "row": 39,
+      "owned_actor_ids": [],
+      "duration_ms": 45483,
+      "published": "1341.6",
+      "totals": {
+        "raw": 61020,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 61020
+      },
+      "residual": "12/75805"
+    }
+  ],
+  "refusals": []
+}

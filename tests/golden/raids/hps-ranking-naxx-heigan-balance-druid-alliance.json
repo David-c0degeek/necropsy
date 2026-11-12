@@ -1,0 +1,103 @@
+{
+  "version": 1,
+  "rule": "naxx-heigan-balance-druid-alliance-hps-v1",
+  "scope": {
+    "encounter_id": 51112,
+    "class_id": 2,
+    "category": "Balance",
+    "metric": "hps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261031/65603754-2006-20261027T195031.zip",
+    "sha256": "f439dc7db47a18dcda8d5db7264be0990cd042124900315b93fff583bf2220be"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "7nVPpTQFaA38tCNj-12-2",
+      "purpose": "policy-scope",
+      "report": "7nVPpTQFaA38tCNj",
+      "fight": 12,
+      "actor": 2,
+      "player": "Arasuruv",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51112_Heigan_the_Unclean.json",
+      "page": 1,
+      "row": 5,
+      "owned_actor_ids": [],
+      "duration_ms": 53388,
+      "published": "105.005",
+      "totals": {
+        "raw": 5606,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 5606
+      },
+      "residual": "-347/2669400"
+    },
+    {
+      "id": "Pg9wYkc3GLdZCf4n-13-27",
+      "purpose": "policy-scope",
+      "report": "Pg9wYkc3GLdZCf4n",
+      "fight": 13,
+      "actor": 27,
+      "player": "丶王雪球丶",
+      "realm": "哈霍兰",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51112_Heigan_the_Unclean.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 180301,
+      "published": "174.392",
+      "totals": {
+        "raw": 31443,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 31443
+      },
+      "residual": "-6499/22537625"
+    },
+    {
+      "id": "TZ8qvByKFjbzD7m9-13-7",
+      "purpose": "policy-scope",
+      "report": "TZ8qvByKFjbzD7m9",
+      "fight": 13,
+      "actor": 7,
+      "player": "白航之德",
+      "realm": "匕首岭",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51112_Heigan_the_Unclean.json",
+      "page": 1,
+      "row": 6,
+      "owned_actor_ids": [],
+      "duration_ms": 143520,
+      "published": "98.2163",
+      "totals": {
+        "raw": 14096,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 14096
+      },
+      "residual": "-211/8970000"
+    }
+  ],
+  "refusals": []
+}

@@ -1,0 +1,103 @@
+{
+  "version": 1,
+  "rule": "naxx-sapphiron-restoration-druid-alliance-hps-v1",
+  "scope": {
+    "encounter_id": 51119,
+    "class_id": 2,
+    "category": "Restoration",
+    "metric": "hps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/60117765-2006-20261102T031646.zip",
+    "sha256": "5bb2468398c6b371d012ee717af46b5c52a4de0da78d7993f4b84dc2e8e50277"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "LKf861Wbp3RkhTMz-33-10",
+      "purpose": "policy-scope",
+      "report": "LKf861Wbp3RkhTMz",
+      "fight": 33,
+      "actor": 10,
+      "player": "天生凉薄",
+      "realm": "哈霍兰",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51119_Sapphiron.json",
+      "page": 1,
+      "row": 5,
+      "owned_actor_ids": [],
+      "duration_ms": 23021,
+      "published": "1509.53",
+      "totals": {
+        "raw": 34751,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 34751
+      },
+      "residual": "10987/2302100"
+    },
+    {
+      "id": "nqV7TZrKRBk89b6D-32-12",
+      "purpose": "policy-scope",
+      "report": "nqV7TZrKRBk89b6D",
+      "fight": 32,
+      "actor": 12,
+      "player": "山葵葵",
+      "realm": "哈霍兰",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51119_Sapphiron.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 20224,
+      "published": "1689.68",
+      "totals": {
+        "raw": 34172,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 34172
+      },
+      "residual": "-69/15800"
+    },
+    {
+      "id": "zM18hVTcLw4jC2da-30-11",
+      "purpose": "policy-scope",
+      "report": "zM18hVTcLw4jC2da",
+      "fight": 30,
+      "actor": 11,
+      "player": "山葵",
+      "realm": "哈霍兰",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51119_Sapphiron.json",
+      "page": 1,
+      "row": 3,
+      "owned_actor_ids": [],
+      "duration_ms": 22357,
+      "published": "1590.64",
+      "totals": {
+        "raw": 35562,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 35562
+      },
+      "residual": "1538/558925"
+    }
+  ],
+  "refusals": []
+}

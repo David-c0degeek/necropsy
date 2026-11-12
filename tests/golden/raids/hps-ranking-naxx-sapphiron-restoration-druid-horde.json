@@ -1,0 +1,128 @@
+{
+  "version": 1,
+  "rule": "naxx-sapphiron-restoration-druid-horde-hps-v1",
+  "scope": {
+    "encounter_id": 51119,
+    "class_id": 2,
+    "category": "Restoration",
+    "metric": "hps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77577270-2006-20261103T040708.zip",
+    "sha256": "f2151316bf0531ee4187a54e5f234c18b29028f9418e3d7d513d83521c2a681d"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "8zHCv3FYGcJhRabV-61-25",
+      "purpose": "policy-scope",
+      "report": "8zHCv3FYGcJhRabV",
+      "fight": 61,
+      "actor": 25,
+      "player": "Tilopa",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51119_Sapphiron.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 29157,
+      "published": "1657.44",
+      "totals": {
+        "raw": 48326,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 48326
+      },
+      "residual": "548/728925",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 115,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "aac7860029a7e9043a7f98e086feb74486db0cf06b21383148a9d2a82903f37e"
+          ]
+        },
+        {
+          "pet": 212,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "aac7860029a7e9043a7f98e086feb74486db0cf06b21383148a9d2a82903f37e"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b1vNDBtARPcjCm4Z-26-14",
+      "purpose": "policy-scope",
+      "report": "b1vNDBtARPcjCm4Z",
+      "fight": 26,
+      "actor": 14,
+      "player": "Thorisdottir",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51119_Sapphiron.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 23323,
+      "published": "1594.91",
+      "totals": {
+        "raw": 37198,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 37198
+      },
+      "residual": "-8593/2332300",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 188,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "90729d122b2949f283e5e3d73b9dcfc58259f38a03ff5a6dcfe2e2dc20181ff7"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vQ3cC2dzXnjYVNhZ-34-3",
+      "purpose": "policy-scope",
+      "report": "vQ3cC2dzXnjYVNhZ",
+      "fight": 34,
+      "actor": 3,
+      "player": "Cylak",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51119_Sapphiron.json",
+      "page": 1,
+      "row": 9,
+      "owned_actor_ids": [],
+      "duration_ms": 22894,
+      "published": "1294.62",
+      "totals": {
+        "raw": 29639,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 29639
+      },
+      "residual": "-757/572350"
+    }
+  ],
+  "refusals": []
+}

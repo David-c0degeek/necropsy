@@ -1,4 +1,4 @@
-"""The scoped Naxx DPS policies are re-proved from raw archive bytes.
+"""The scoped Naxx DPS and HPS policies are re-proved from raw archive bytes.
 
 Expected values come from the policy evidence; every amount is re-enumerated
 here from raw pages with exact rational arithmetic, without analyzer, metric or
@@ -31,11 +31,8 @@ from scripts.raw_projection import verify_projection
 pytestmark = pytest.mark.golden
 REPO = Path(__file__).parents[2]
 ZONE = load_rules("classic_era", "zones/naxxramas")
-POLICIES = {
-    p["rule"]: p
-    for p in ZONE["ranking_metric_policies"]
-    if p["scope"]["metric"] == "dps" and p["rule"].startswith("naxx-")
-}
+POLICIES = {p["rule"]: p for p in ZONE["ranking_metric_policies"] if p["rule"].startswith("naxx-")}
+EFFECTS = {"dps": frozenset({"damage"}), "hps": frozenset({"heal", "absorbed"})}
 MINIMUM_ADMITTED = 3
 # The first admitted row with positive owned-unit damage: Frelserboom's Servant of
 # Weldon Barov (actor 81) on Maexxna. Hunter and Warlock policies add more.
@@ -154,8 +151,12 @@ def _owned_units(
 
 
 def _measure(
-    archive: dict[str, Any], row: dict[str, Any], excluded_ids: frozenset[int] = frozenset()
+    archive: dict[str, Any],
+    row: dict[str, Any],
+    excluded_ids: frozenset[int] = frozenset(),
+    metric: str = "dps",
 ) -> dict[str, Any]:
+    effects = EFFECTS[metric]
     path = REPO / archive["path"]
     assert hashlib.sha256(path.read_bytes()).hexdigest() == archive["sha256"]
     with zipfile.ZipFile(path) as z:
@@ -205,7 +206,7 @@ def _measure(
                 continue
             counter: Counter[str] = Counter()
             for event in _stream_pages(z, snapshot, fight, report, stream):
-                if event.get("type") != "damage" or event.get("sourceID") != stream["actor_id"]:
+                if event.get("type") not in effects or event.get("sourceID") != stream["actor_id"]:
                     continue
                 assert type(event["targetID"]) is int and type(event["amount"]) is int
                 assert event["amount"] >= 0
@@ -221,13 +222,14 @@ def _measure(
         for counter in observations:
             merged |= counter  # maximum multiplicity: a row seen in both directions counts once
         for event in scope_events:  # D028: each page event once, no requested stream
-            if event.get("type") == "damage" and event.get("sourceID") in active:
+            if event.get("type") in effects and event.get("sourceID") in active:
                 assert _key(event) not in merged
                 merged[_key(event)] += 1
         events = [(json.loads(k), n) for k, n in merged.items()]
         board = _read(z, row["leaderboard_member"])
         page = next(p for p in board["pages"] if p["page"] == row["page"])
         published = page["characterRankings"]["rankings"][row["row"]]
+        friendly = set(fight["friendlyPlayers"]) | {p["id"] for p in fight["friendlyPets"]} | known
     by_target: Counter[int] = Counter()
     by_source: Counter[int] = Counter()
     for event, n in events:
@@ -235,13 +237,23 @@ def _measure(
         if event["targetID"] not in known:
             by_target[actors[event["targetID"]].get("gameID")] += event["amount"] * n
     raw = sum(by_source.values())
-    others = sum(by_target.values())
-    excluded = sum(v for g, v in by_target.items() if g in excluded_ids)
-    ranked = others - excluded
+    if metric == "hps":
+        # HPS: every effect on a friendly recipient, the actor itself included; no
+        # target exclusions. Overheal is never in "amount".
+        assert not excluded_ids
+        ranked = sum(e["amount"] * n for e, n in events if e["targetID"] in friendly)
+        totals = {"raw": raw, "self": 0, "excluded": raw - ranked, "ranked": ranked}
+    else:
+        others = sum(by_target.values())
+        excluded = sum(v for g, v in by_target.items() if g in excluded_ids)
+        ranked = others - excluded
+        totals = {"raw": raw, "self": raw - others, "excluded": excluded, "ranked": ranked}
     return {
         "details": details,
         "owned": sorted(owned),
-        "totals": {"raw": raw, "self": raw - others, "excluded": excluded, "ranked": ranked},
+        "totals": totals,
+        "absorbed": sum(e["amount"] * n for e, n in events if e["type"] == "absorbed"),
+        "overheal": sum(e.get("overheal", 0) * n for e, n in events if e["type"] == "heal"),
         "owned_damage": sum(v for s, v in by_source.items() if s != actor),
         "by_target": by_target,
         "duration_ms": fight["endTime"] - fight["startTime"],
@@ -265,6 +277,10 @@ def test_policy_scope_matches_its_frozen_evidence(rule: str) -> None:
         assert len(witnesses) >= MINIMUM_ADMITTED
         assert all(w["totals"]["excluded"] > 0 for w in witnesses)
         assert all(r["excluded_game_ids"] == policy["tested_exclusions"] for r in evidence["rows"])
+    elif policy["scope"]["metric"] == "hps":
+        # D029: production lists name damage targets; HPS takes none at any boss.
+        assert set(policy["conditions"]) == POLICY_CONDITIONS["hps"]
+        assert "tested_exclusions" not in policy
     else:
         assert set(policy["conditions"]) == POLICY_CONDITIONS["dps"]
         # The no-exclusions condition holds in the production rules this policy sits beside.
@@ -286,12 +302,14 @@ def test_policy_scope_matches_its_frozen_evidence(rule: str) -> None:
 @pytest.mark.parametrize(
     ("rule", "row"), ALL_ROWS, ids=lambda v: v if isinstance(v, str) else v["id"]
 )
-def test_published_dps_matches_raw_owner_and_owned_unit_damage(
+def test_published_amount_matches_raw_owner_and_owned_unit_effects(
     rule: str, row: dict[str, Any]
 ) -> None:
     policy = POLICIES[rule]
     scope = policy["scope"]
-    m = _measure(_evidence(rule)["archive"], row, _production_exclusions(scope["encounter_id"]))
+    hps = scope["metric"] == "hps"
+    listed = frozenset() if hps else _production_exclusions(scope["encounter_id"])
+    m = _measure(_evidence(rule)["archive"], row, listed, scope["metric"])
     class_name = CLASS_NAMES[scope["class_id"]]
     externals = load_rules("classic_era", "externals")["factions"]
     faction = {int(k) for k, v in externals.items() if v == scope["faction"]}
@@ -317,10 +335,17 @@ def test_published_dps_matches_raw_owner_and_owned_unit_damage(
     assert _consistent(ranked, duration, amount)
     # Each wrong policy must fail on its own.
     assert not _consistent(ranked, duration + 1000, amount)
-    if m["totals"]["self"]:
-        assert not _consistent(m["totals"]["raw"], duration, amount)
     if m["owned_damage"]:
         assert not _consistent(ranked - m["owned_damage"], duration, amount)
+    if hps:
+        assert m["totals"]["excluded"] == 0, "healing on a non-friendly recipient"
+        if m["overheal"]:
+            assert not _consistent(ranked + m["overheal"], duration, amount)
+        if m["absorbed"]:
+            assert not _consistent(ranked - m["absorbed"], duration, amount)
+        return
+    if m["totals"]["self"]:
+        assert not _consistent(m["totals"]["raw"], duration, amount)
     if m["totals"]["excluded"]:
         assert not _consistent(ranked + m["totals"]["excluded"], duration, amount)
     bosses = set(_encounter(policy["scope"]["encounter_id"])["boss_game_ids"])
@@ -352,6 +377,7 @@ def test_every_wrong_policy_is_exercised_by_some_admitted_row() -> None:
     measured = {
         (row["report"], row["fight"]): _measure(_evidence(rule)["archive"], row)
         for rule, row in ALL_ROWS
+        if POLICIES[rule]["scope"]["metric"] == "dps"
     }
     self_damage = [k for k, m in measured.items() if m["totals"]["self"]]
     owned = [(k, m["owned_damage"]) for k, m in measured.items() if m["owned_damage"]]
@@ -363,9 +389,25 @@ def test_every_wrong_policy_is_exercised_by_some_admitted_row() -> None:
     assert multi_target
 
 
+def test_every_wrong_hps_policy_is_exercised_by_some_admitted_row() -> None:
+    """Overheal, absorbs and owned-unit healing each decide some HPS row."""
+    measured = [
+        _measure(_evidence(rule)["archive"], row, frozenset(), "hps")
+        for rule, row in ALL_ROWS
+        if POLICIES[rule]["scope"]["metric"] == "hps"
+    ]
+    assert measured
+    assert any(m["overheal"] for m in measured)
+    assert any(m["absorbed"] for m in measured)
+    assert any(m["owned_damage"] for m in measured)  # owned units' healing
+
+
 def _witness_inputs() -> tuple[Any, dict[str, Any], dict[int, dict[str, Any]], int]:
     rule, row = next(
-        (rule, row) for rule, row in ALL_ROWS if (row["report"], row["fight"]) == OWNED_WITNESS[:2]
+        (rule, row)
+        for rule, row in ALL_ROWS
+        if (row["report"], row["fight"]) == OWNED_WITNESS[:2]
+        and POLICIES[rule]["scope"]["metric"] == "dps"
     )
     archive = _evidence(rule)["archive"]
     with zipfile.ZipFile(REPO / archive["path"]) as z:

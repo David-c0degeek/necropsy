@@ -1,0 +1,139 @@
+{
+  "version": 1,
+  "rule": "naxx-grobbulus-holy-paladin-alliance-hps-v1",
+  "scope": {
+    "encounter_id": 51111,
+    "class_id": 6,
+    "category": "Holy",
+    "metric": "hps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77152471-2006-20261105T150116.zip",
+    "sha256": "566899fe83351370211b425ae94f48a0d367fbb9ecd0d26ca7d870df76838618"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "KPLztdkFhmBqgDXw-38-33",
+      "purpose": "policy-scope",
+      "report": "KPLztdkFhmBqgDXw",
+      "fight": 38,
+      "actor": 33,
+      "player": "Ppqq",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51111_Grobbulus.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 82244,
+      "published": "752.225",
+      "totals": {
+        "raw": 61866,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 61866
+      },
+      "residual": "71/822440"
+    },
+    {
+      "id": "pQDyRh3z6nH1MX9C-75-222",
+      "purpose": "policy-scope",
+      "report": "pQDyRh3z6nH1MX9C",
+      "fight": 75,
+      "actor": 222,
+      "player": "Qlimaxx",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51111_Grobbulus.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 61738,
+      "published": "794.049",
+      "totals": {
+        "raw": 49023,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 49023
+      },
+      "residual": "1419/30869000",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 273,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "896c6a68bd6639cb61fde0a045dfb98c17501617fb3ffa0add634d05a62c65df",
+            "daa51c2bd92e8b59c178743a5ee7a78727bc284a767c30705cfa4413c83ccb53"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tnwq4yzVQbPGWrN6-25-17",
+      "purpose": "policy-scope",
+      "report": "tnwq4yzVQbPGWrN6",
+      "fight": 25,
+      "actor": 17,
+      "player": "Stimorol",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51111_Grobbulus.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 73082,
+      "published": "1441.89",
+      "totals": {
+        "raw": 105376,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 105376
+      },
+      "residual": "-10249/3654100",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 80,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "0182159e8189c8ec0c013d1d4f651d606b0d666fa51f12db634527a294e813b1",
+            "492b60ae893dd49242b48f856137070ae6a65563ebf7b105b9ccec6dad53b939"
+          ]
+        },
+        {
+          "pet": 81,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "0182159e8189c8ec0c013d1d4f651d606b0d666fa51f12db634527a294e813b1",
+            "492b60ae893dd49242b48f856137070ae6a65563ebf7b105b9ccec6dad53b939"
+          ]
+        },
+        {
+          "pet": 88,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "0182159e8189c8ec0c013d1d4f651d606b0d666fa51f12db634527a294e813b1",
+            "492b60ae893dd49242b48f856137070ae6a65563ebf7b105b9ccec6dad53b939"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

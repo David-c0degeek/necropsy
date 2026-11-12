@@ -1,0 +1,114 @@
+{
+  "version": 1,
+  "rule": "naxx-thaddius-restoration-druid-alliance-hps-v1",
+  "scope": {
+    "encounter_id": 51120,
+    "class_id": 2,
+    "category": "Restoration",
+    "metric": "hps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/60117765-2006-20261102T031646.zip",
+    "sha256": "5bb2468398c6b371d012ee717af46b5c52a4de0da78d7993f4b84dc2e8e50277"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "1jVp2G7gwZ3RcFqb-26-11",
+      "purpose": "policy-scope",
+      "report": "1jVp2G7gwZ3RcFqb",
+      "fight": 26,
+      "actor": 11,
+      "player": "Healing",
+      "realm": "Golemagg",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51120_Thaddius.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 142498,
+      "published": "719.231",
+      "totals": {
+        "raw": 102489,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 102489
+      },
+      "residual": "10481/71249000"
+    },
+    {
+      "id": "B8zckAF9RqYpvNG6-31-11",
+      "purpose": "policy-scope",
+      "report": "B8zckAF9RqYpvNG6",
+      "fight": 31,
+      "actor": 11,
+      "player": "Silverpaws",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51120_Thaddius.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 151173,
+      "published": "643.21",
+      "totals": {
+        "raw": 97236,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 97236
+      },
+      "residual": "163/1679700",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 126,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "40c15e6941ca54574bfd49a08975187298c0c2423e1f3a537c46d276dcdcf178",
+            "ef9ff7ef07301db272f432bff8073145036b4f89dd844ca82abd37ed338370e5",
+            "7af3940ed126ba7e70f39c153fad211a262625d82ea6811a96fe94be6371e46b"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cjYWVCHBxkK8AR9P-79-23",
+      "purpose": "policy-scope",
+      "report": "cjYWVCHBxkK8AR9P",
+      "fight": 79,
+      "actor": 23,
+      "player": "Didu",
+      "realm": "Heartstriker",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51120_Thaddius.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 189923,
+      "published": "633.209",
+      "totals": {
+        "raw": 120261,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 120261
+      },
+      "residual": "47093/189923000"
+    }
+  ],
+  "refusals": []
+}

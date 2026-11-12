@@ -1,0 +1,122 @@
+{
+  "version": 1,
+  "rule": "naxx-faerlina-restoration-druid-alliance-hps-v1",
+  "scope": {
+    "encounter_id": 51110,
+    "class_id": 2,
+    "category": "Restoration",
+    "metric": "hps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/60117765-2006-20261102T031646.zip",
+    "sha256": "5bb2468398c6b371d012ee717af46b5c52a4de0da78d7993f4b84dc2e8e50277"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "41f7WNyYvDaRmxkK-5-18",
+      "purpose": "policy-scope",
+      "report": "41f7WNyYvDaRmxkK",
+      "fight": 5,
+      "actor": 18,
+      "player": "Tatey",
+      "realm": "Ashkandi",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51110_Grand_Widow_Faerlina.json",
+      "page": 1,
+      "row": 3,
+      "owned_actor_ids": [],
+      "duration_ms": 36515,
+      "published": "1252.77",
+      "totals": {
+        "raw": 45745,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 45745
+      },
+      "residual": "2069/730300"
+    },
+    {
+      "id": "7vgnhRxy3AmfzCjG-21-2",
+      "purpose": "policy-scope",
+      "report": "7vgnhRxy3AmfzCjG",
+      "fight": 21,
+      "actor": 2,
+      "player": "Silverpaws",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51110_Grand_Widow_Faerlina.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 41630,
+      "published": "1277.42",
+      "totals": {
+        "raw": 53179,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 53179
+      },
+      "residual": "27/208150",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 59,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "5c811cf1305570cb859724480cf3cceebbe04cad5e1466022a344c78ba4bec10",
+            "9e8faf7004966ba0b0e988fb7b6d44b21cb7e47112298f34b189aac51f898de2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vm7Vf2GDgnZMWkr8-7-6",
+      "purpose": "policy-scope",
+      "report": "vm7Vf2GDgnZMWkr8",
+      "fight": 7,
+      "actor": 6,
+      "player": "Kriegtier",
+      "realm": "Westfall",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51110_Grand_Widow_Faerlina.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 40095,
+      "published": "1388.25",
+      "totals": {
+        "raw": 55662,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 55662
+      },
+      "residual": "31/10692",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 164,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "620d64939847bab19bdcf225172609f8c44864ff31db62d22c653d97d0ee2f8b"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

@@ -1,0 +1,119 @@
+{
+  "version": 1,
+  "rule": "naxx-maexxna-holy-priest-alliance-hps-v1",
+  "scope": {
+    "encounter_id": 51116,
+    "class_id": 7,
+    "category": "Holy",
+    "metric": "hps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77573659-2006-20261106T154918.zip",
+    "sha256": "d292ee0e8a3db304a504e98ecc0528b70e43446dd74548afaf5788d8af9d8139"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "L6hKXVafgzD3FmPn-5-8",
+      "purpose": "policy-scope",
+      "report": "L6hKXVafgzD3FmPn",
+      "fight": 5,
+      "actor": 8,
+      "player": "Minicutie",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51116_Maexxna.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 35563,
+      "published": "943.959",
+      "totals": {
+        "raw": 33570,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 33570
+      },
+      "residual": "-13917/35563000"
+    },
+    {
+      "id": "mkcjNbq8GRBDfCHw-5-39",
+      "purpose": "policy-scope",
+      "report": "mkcjNbq8GRBDfCHw",
+      "fight": 5,
+      "actor": 39,
+      "player": "Sakrize",
+      "realm": "Ashbringer",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51116_Maexxna.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 36152,
+      "published": "1050.81",
+      "totals": {
+        "raw": 37989,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 37989
+      },
+      "residual": "1461/451900"
+    },
+    {
+      "id": "nXPNZcY9fqWaB86G-5-5",
+      "purpose": "policy-scope",
+      "report": "nXPNZcY9fqWaB86G",
+      "fight": 5,
+      "actor": 5,
+      "player": "Immateriall",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51116_Maexxna.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 34363,
+      "published": "1009.2",
+      "totals": {
+        "raw": 34679,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 34679
+      },
+      "residual": "-698/171815",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 162,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "e35ab00ca9c4da3fa321ba6a1ce2158b4f53bfe7f26b113359e1ac1894b77b79"
+          ]
+        },
+        {
+          "pet": 236,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "e35ab00ca9c4da3fa321ba6a1ce2158b4f53bfe7f26b113359e1ac1894b77b79"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

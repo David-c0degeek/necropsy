@@ -1,0 +1,112 @@
+{
+  "version": 1,
+  "rule": "naxx-sapphiron-holy-paladin-alliance-hps-v1",
+  "scope": {
+    "encounter_id": 51119,
+    "class_id": 6,
+    "category": "Holy",
+    "metric": "hps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77152471-2006-20261105T150116.zip",
+    "sha256": "566899fe83351370211b425ae94f48a0d367fbb9ecd0d26ca7d870df76838618"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "4FmZM8BrbGzcCnW1-31-5",
+      "purpose": "policy-scope",
+      "report": "4FmZM8BrbGzcCnW1",
+      "fight": 31,
+      "actor": 5,
+      "player": "冖六六冖",
+      "realm": "哈霍兰",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51119_Sapphiron.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 18844,
+      "published": "2008.76",
+      "totals": {
+        "raw": 37853,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 37853
+      },
+      "residual": "-459/117775"
+    },
+    {
+      "id": "CRjm6APy4dFzqhLW-33-6",
+      "purpose": "policy-scope",
+      "report": "CRjm6APy4dFzqhLW",
+      "fight": 33,
+      "actor": 6,
+      "player": "晓枫残月丶",
+      "realm": "哈霍兰",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51119_Sapphiron.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 22278,
+      "published": "1803.44",
+      "totals": {
+        "raw": 40177,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 40177
+      },
+      "residual": "-454/278475"
+    },
+    {
+      "id": "ZJ7YCVnBRd3b1fM8-36-9",
+      "purpose": "policy-scope",
+      "report": "ZJ7YCVnBRd3b1fM8",
+      "fight": 36,
+      "actor": 9,
+      "player": "Divum",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51119_Sapphiron.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 20978,
+      "published": "1781.06",
+      "totals": {
+        "raw": 37363,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 37363
+      },
+      "residual": "-1917/524450",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 154,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "d2c76307d0eed585bd2c7696586fa3c70074d99939935f77f28cce29db837af6"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

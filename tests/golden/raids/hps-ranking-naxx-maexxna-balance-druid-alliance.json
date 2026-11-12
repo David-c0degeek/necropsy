@@ -1,0 +1,112 @@
+{
+  "version": 1,
+  "rule": "naxx-maexxna-balance-druid-alliance-hps-v1",
+  "scope": {
+    "encounter_id": 51116,
+    "class_id": 2,
+    "category": "Balance",
+    "metric": "hps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261031/65603754-2006-20261027T195031.zip",
+    "sha256": "f439dc7db47a18dcda8d5db7264be0990cd042124900315b93fff583bf2220be"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "BxFCb6K4WNL3ADgM-160-4",
+      "purpose": "policy-scope",
+      "report": "BxFCb6K4WNL3ADgM",
+      "fight": 160,
+      "actor": 4,
+      "player": "山丶葵",
+      "realm": "伊弗斯",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51116_Maexxna.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 147742,
+      "published": "425.654",
+      "totals": {
+        "raw": 62887,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 62887
+      },
+      "residual": "6683/36935500"
+    },
+    {
+      "id": "RpaY2qBjJT1Z3QHF-8-26",
+      "purpose": "policy-scope",
+      "report": "RpaY2qBjJT1Z3QHF",
+      "fight": 8,
+      "actor": 26,
+      "player": "Pissdoff",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51116_Maexxna.json",
+      "page": 1,
+      "row": 9,
+      "owned_actor_ids": [],
+      "duration_ms": 32894,
+      "published": "113.212",
+      "totals": {
+        "raw": 3724,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 3724
+      },
+      "residual": "559/4111750",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 157,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "6ef4d113ea777a07fababc5df55cc243fef69e7a2de447f9468f4204163a8445"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "W3ADmR8MHLYzdyZ9-8-13",
+      "purpose": "policy-scope",
+      "report": "W3ADmR8MHLYzdyZ9",
+      "fight": 8,
+      "actor": 13,
+      "player": "Calimay",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51116_Maexxna.json",
+      "page": 1,
+      "row": 6,
+      "owned_actor_ids": [],
+      "duration_ms": 36706,
+      "published": "131.341",
+      "totals": {
+        "raw": 4821,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 4821
+      },
+      "residual": "-1373/18353000"
+    }
+  ],
+  "refusals": []
+}

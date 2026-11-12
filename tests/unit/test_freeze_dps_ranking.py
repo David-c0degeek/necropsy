@@ -44,9 +44,14 @@ def case(tmp_path: Path, mutation: str = "") -> dict[str, Any]:
     if mutation == "ownership":
         pet["petOwner"] = 2
 
-    def event(source: int, target: int, amount: Any, stamp: int = 200) -> dict[str, Any]:
+    hps = mutation.startswith("hps")
+    effect = "heal" if hps else "damage"
+
+    def event(
+        source: int, target: int, amount: Any, stamp: int = 200, kind: str = ""
+    ) -> dict[str, Any]:
         return {
-            "type": "damage",
+            "type": kind or effect,
             "sourceID": source,
             "targetID": target,
             "amount": amount,
@@ -58,6 +63,16 @@ def case(tmp_path: Path, mutation: str = "") -> dict[str, Any]:
     repeated = event(1, 3, 100)
     source_rows = [repeated, repeated, event(1, 1, 10, 300), event(1, 4, 30, 400)]
     target_rows = [repeated, event(1, 1, 10, 300)]
+    pet_rows = [event(6, 3, 40)]
+    if hps:
+        # Self-heal twice, an absorb on the pet, a heal on an enemy NPC, the pet healing
+        # its owner: 250 healing to friendly units over 10 s.
+        repeated = event(1, 1, 100)
+        source_rows = [repeated, repeated, event(1, 6, 10, 300, "absorbed"), event(1, 3, 30, 400)]
+        target_rows = [repeated, event(6, 1, 40)]
+        pet_rows = [event(6, 1, 40)]
+        if mutation == "hps_damage_only":
+            source_rows.append(event(1, 3, 5000, 500, "damage"))
     if mutation == "amount_missing":
         source_rows[0].pop("amount")
     if mutation == "amount_float":
@@ -74,7 +89,7 @@ def case(tmp_path: Path, mutation: str = "") -> dict[str, Any]:
     proofs = []
     for identity, role, outgoing, incoming in (
         (1, "player", source_rows, target_rows),
-        (6, "pet", [event(6, 3, 40)], [event(6, 3, 40)]),
+        (6, "pet", pet_rows, pet_rows),
     ):
         folder = f"events/ABC/fight_7/{role}_{identity}_Example"
         for direction, rows in (("source", outgoing), ("target", incoming)):
@@ -124,8 +139,8 @@ def case(tmp_path: Path, mutation: str = "") -> dict[str, Any]:
         k: {"status": "enforced", "value": v}
         for k, v in {
             "class_name": "Druid",
-            "spec": "Balance",
-            "role": "balance-dps",
+            "spec": "Restoration" if hps else "Balance",
+            "role": "restoration" if hps else "balance-dps",
             "partition": 1,
         }.items()
     }
@@ -140,7 +155,7 @@ def case(tmp_path: Path, mutation: str = "") -> dict[str, Any]:
                     {
                         "player": "Example",
                         "server": realm,
-                        "spec": "Balance",
+                        "spec": "Restoration" if hps else "Balance",
                         "encounterID": 51118,
                     }
                 ],
@@ -168,9 +183,9 @@ def case(tmp_path: Path, mutation: str = "") -> dict[str, Any]:
         "name": "Example",
         "server": {"name": realm},
         "class": "Druid",
-        "spec": "Balance",
+        "spec": "Restoration" if hps else "Balance",
         "duration": 10000,
-        "amount": 24.0,
+        "amount": 25.0 if hps else 24.0,
     }
     if mutation == "published_identity":
         row["name"] = "SomeoneElse"
@@ -178,6 +193,8 @@ def case(tmp_path: Path, mutation: str = "") -> dict[str, Any]:
         row["duration"] = 10001
     if mutation == "published_amount":
         row["amount"] = 25.0
+    if mutation == "hps_wrong_amount":
+        row["amount"] = 28.0  # the enemy heal counted
     write(
         "leaderboards/51118_Patchwerk.json",
         {
@@ -199,10 +216,10 @@ def case(tmp_path: Path, mutation: str = "") -> dict[str, Any]:
         "player": "Example",
         "realm": realm,
         "class": "Druid",
-        "category": "Balance",
-        "role": "balance-dps",
+        "category": "Restoration" if hps else "Balance",
+        "role": "restoration" if hps else "balance-dps",
         "encounter": 51118,
-        "excluded_game_ids": [999],
+        "excluded_game_ids": [] if hps else [999],
         "leaderboard_member": "leaderboards/51118_Patchwerk.json",
         "page": 1,
         "row": 0,
@@ -260,6 +277,36 @@ def test_a_different_catalog_realm_is_still_refused(tmp_path: Path) -> None:
     spec = case(tmp_path, "other_catalog_realm")
     with pytest.raises(ValueError, match="wrong owner identity"):
         dps.compute(spec, tmp_path)
+
+
+def test_hps_counts_heals_and_absorbs_on_friendly_units_only(tmp_path: Path) -> None:
+    spec = case(tmp_path, "hps")
+    result = dps.compute(spec, tmp_path, metric="hps")
+    assert result["totals"] == {"raw": 280, "self": 0, "excluded": 30, "ranked": 250}
+    assert result["source_damage"] == {"1": 240, "6": 40}
+    assert result["published"] == "25.0" and result["residual"] == "0"
+    assert dps.compute_hps(spec, tmp_path)["totals"] == result["totals"]
+    kinds = {e["raw"]["type"] for e in result["events"]}
+    assert kinds == {"heal", "absorbed"}
+
+
+def test_hps_ignores_damage_events(tmp_path: Path) -> None:
+    spec = case(tmp_path, "hps_damage_only")
+    assert dps.compute(spec, tmp_path, metric="hps")["totals"]["ranked"] == 250
+
+
+def test_hps_refuses_contradictions_exclusions_and_dps_roles(tmp_path: Path) -> None:
+    spec = case(tmp_path, "hps_wrong_amount")
+    with pytest.raises(ValueError, match="published HPS contradicts raw"):
+        dps.compute(spec, tmp_path, metric="hps")
+    (tmp_path / "good").mkdir()
+    good = case(tmp_path / "good", "hps")
+    with pytest.raises(ValueError, match="HPS takes no target exclusions"):
+        dps.compute(good | {"excluded_game_ids": [999]}, tmp_path / "good", metric="hps")
+    with pytest.raises(ValueError):
+        dps.compute(good | {"role": "balance-dps"}, tmp_path / "good", metric="hps")
+    with pytest.raises(ValueError):
+        dps.compute(good, tmp_path / "good")  # a healer row is not a DPS row
 
 
 def test_hash_aliases_unknown_fields_and_healer_roles_are_refused(tmp_path: Path) -> None:

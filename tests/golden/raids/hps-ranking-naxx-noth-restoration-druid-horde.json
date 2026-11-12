@@ -1,0 +1,128 @@
+{
+  "version": 1,
+  "rule": "naxx-noth-restoration-druid-horde-hps-v1",
+  "scope": {
+    "encounter_id": 51117,
+    "class_id": 2,
+    "category": "Restoration",
+    "metric": "hps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77577270-2006-20261103T040708.zip",
+    "sha256": "f2151316bf0531ee4187a54e5f234c18b29028f9418e3d7d513d83521c2a681d"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "BcbTPFzNKtkYJWDG-12-24",
+      "purpose": "policy-scope",
+      "report": "BcbTPFzNKtkYJWDG",
+      "fight": 12,
+      "actor": 24,
+      "player": "Karakorn",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51117_Noth_the_Plaguebringer.json",
+      "page": 1,
+      "row": 5,
+      "owned_actor_ids": [],
+      "duration_ms": 36418,
+      "published": "881.487",
+      "totals": {
+        "raw": 32102,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 32102
+      },
+      "residual": "3217/18209000"
+    },
+    {
+      "id": "T3W2CL9afBrvdm6t-9-7",
+      "purpose": "policy-scope",
+      "report": "T3W2CL9afBrvdm6t",
+      "fight": 9,
+      "actor": 7,
+      "player": "Thorisdottir",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51117_Noth_the_Plaguebringer.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 33734,
+      "published": "1211.72",
+      "totals": {
+        "raw": 40876,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 40876
+      },
+      "residual": "-2031/421675",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 185,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "588dba3e7a078d93e92988d67fb147134f5a93852cf15cd1106233de29e216bc"
+          ]
+        },
+        {
+          "pet": 268,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "588dba3e7a078d93e92988d67fb147134f5a93852cf15cd1106233de29e216bc"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f9VAyPJM1CHQ3Kkz-11-38",
+      "purpose": "policy-scope",
+      "report": "f9VAyPJM1CHQ3Kkz",
+      "fight": 11,
+      "actor": 38,
+      "player": "Tilopa",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51117_Noth_the_Plaguebringer.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 41670,
+      "published": "1056.32",
+      "totals": {
+        "raw": 44017,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 44017
+      },
+      "residual": "364/104175",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 272,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "da431e3bd99d6e162e528b61f6fd78283dfb4c31f35fca17394fc31680136ecb"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

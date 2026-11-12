@@ -1,0 +1,103 @@
+{
+  "version": 1,
+  "rule": "naxx-gluth-holy-paladin-alliance-hps-v1",
+  "scope": {
+    "encounter_id": 51108,
+    "class_id": 6,
+    "category": "Holy",
+    "metric": "hps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77152471-2006-20261105T150116.zip",
+    "sha256": "566899fe83351370211b425ae94f48a0d367fbb9ecd0d26ca7d870df76838618"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "T9trCcjnwkxLFJfh-51-2",
+      "purpose": "policy-scope",
+      "report": "T9trCcjnwkxLFJfh",
+      "fight": 51,
+      "actor": 2,
+      "player": "Flekpul",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51108_Gluth.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 64453,
+      "published": "886.832",
+      "totals": {
+        "raw": 57159,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 57159
+      },
+      "residual": "2138/8056625"
+    },
+    {
+      "id": "YfMBhHzQ17WTdApk-62-30",
+      "purpose": "policy-scope",
+      "report": "YfMBhHzQ17WTdApk",
+      "fight": 62,
+      "actor": 30,
+      "player": "Eqt",
+      "realm": "Mograine",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51108_Gluth.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 69242,
+      "published": "817.813",
+      "totals": {
+        "raw": 56627,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 56627
+      },
+      "residual": "-3873/34621000"
+    },
+    {
+      "id": "zRJZDy1NFKgwjAdV-47-32",
+      "purpose": "policy-scope",
+      "report": "zRJZDy1NFKgwjAdV",
+      "fight": 47,
+      "actor": 32,
+      "player": "Glowork",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51108_Gluth.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 53306,
+      "published": "786.628",
+      "totals": {
+        "raw": 41932,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 41932
+      },
+      "residual": "89/605750"
+    }
+  ],
+  "refusals": []
+}

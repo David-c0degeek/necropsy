@@ -453,6 +453,204 @@ ranking_metric_policies:
   validated: 5 admitted of 5 in-scope The Four Horsemen Balance Druid Horde rows (5 distinct
     non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-horsemen-balance-druid-horde.json
+- rule: naxx-anubrekhan-balance-druid-alliance-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51107
+    class_id: 2
+    category: Balance
+    metric: hps
+    faction: Alliance
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Anub'Rekhan Balance Druid Alliance rows (3 distinct
+    non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-anubrekhan-balance-druid-alliance.json
+- rule: naxx-gothik-balance-druid-alliance-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51109
+    class_id: 2
+    category: Balance
+    metric: hps
+    faction: Alliance
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Gothik the Harvester Balance Druid Alliance rows (3
+    distinct non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-gothik-balance-druid-alliance.json
+- rule: naxx-grobbulus-balance-druid-alliance-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51111
+    class_id: 2
+    category: Balance
+    metric: hps
+    faction: Alliance
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Grobbulus Balance Druid Alliance rows (3 distinct non-subject
+    players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-grobbulus-balance-druid-alliance.json
+- rule: naxx-heigan-balance-druid-alliance-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51112
+    class_id: 2
+    category: Balance
+    metric: hps
+    faction: Alliance
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Heigan the Unclean Balance Druid Alliance rows (3 distinct
+    non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-heigan-balance-druid-alliance.json
+- rule: naxx-kelthuzad-balance-druid-alliance-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51114
+    class_id: 2
+    category: Balance
+    metric: hps
+    faction: Alliance
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Kel'Thuzad Balance Druid Alliance rows (3 distinct non-subject
+    players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-kelthuzad-balance-druid-alliance.json
+- rule: naxx-maexxna-balance-druid-alliance-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51116
+    class_id: 2
+    category: Balance
+    metric: hps
+    faction: Alliance
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Maexxna Balance Druid Alliance rows (3 distinct non-subject
+    players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-maexxna-balance-druid-alliance.json
+- rule: naxx-noth-balance-druid-alliance-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51117
+    class_id: 2
+    category: Balance
+    metric: hps
+    faction: Alliance
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Noth the Plaguebringer Balance Druid Alliance rows (3
+    distinct non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-noth-balance-druid-alliance.json
+- rule: naxx-sapphiron-balance-druid-alliance-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51119
+    class_id: 2
+    category: Balance
+    metric: hps
+    faction: Alliance
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Sapphiron Balance Druid Alliance rows (3 distinct non-subject
+    players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-sapphiron-balance-druid-alliance.json
+- rule: naxx-horsemen-balance-druid-alliance-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51121
+    class_id: 2
+    category: Balance
+    metric: hps
+    faction: Alliance
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope The Four Horsemen Balance Druid Alliance rows (3 distinct
+    non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-horsemen-balance-druid-alliance.json
 - rule: naxx-gothik-feral-druid-alliance-dps-v1
   basis: empirical
   scope:
@@ -607,6 +805,160 @@ ranking_metric_policies:
   validated: 3 admitted of 3 in-scope The Four Horsemen Feral Druid Alliance rows (3 distinct
     non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-horsemen-feral-druid-alliance.json
+- rule: naxx-gluth-balance-druid-horde-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51108
+    class_id: 2
+    category: Balance
+    metric: hps
+    faction: Horde
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Gluth Balance Druid Horde rows (3 distinct non-subject
+    players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-gluth-balance-druid-horde.json
+- rule: naxx-gothik-balance-druid-horde-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51109
+    class_id: 2
+    category: Balance
+    metric: hps
+    faction: Horde
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Gothik the Harvester Balance Druid Horde rows (3 distinct
+    non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-gothik-balance-druid-horde.json
+- rule: naxx-grobbulus-balance-druid-horde-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51111
+    class_id: 2
+    category: Balance
+    metric: hps
+    faction: Horde
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Grobbulus Balance Druid Horde rows (3 distinct non-subject
+    players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-grobbulus-balance-druid-horde.json
+- rule: naxx-heigan-balance-druid-horde-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51112
+    class_id: 2
+    category: Balance
+    metric: hps
+    faction: Horde
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Heigan the Unclean Balance Druid Horde rows (3 distinct
+    non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-heigan-balance-druid-horde.json
+- rule: naxx-kelthuzad-balance-druid-horde-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51114
+    class_id: 2
+    category: Balance
+    metric: hps
+    faction: Horde
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Kel'Thuzad Balance Druid Horde rows (3 distinct non-subject
+    players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-kelthuzad-balance-druid-horde.json
+- rule: naxx-noth-balance-druid-horde-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51117
+    class_id: 2
+    category: Balance
+    metric: hps
+    faction: Horde
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Noth the Plaguebringer Balance Druid Horde rows (3 distinct
+    non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-noth-balance-druid-horde.json
+- rule: naxx-patchwerk-balance-druid-horde-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51118
+    class_id: 2
+    category: Balance
+    metric: hps
+    faction: Horde
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Patchwerk Balance Druid Horde rows (3 distinct non-subject
+    players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-patchwerk-balance-druid-horde.json
 - rule: naxx-gothik-feral-druid-horde-dps-v1
   basis: empirical
   scope:
@@ -893,6 +1245,248 @@ ranking_metric_policies:
   validated: 3 admitted of 3 in-scope The Four Horsemen Guardian Druid Alliance rows (3 distinct
     non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-horsemen-guardian-druid-alliance.json
+- rule: naxx-anubrekhan-restoration-druid-alliance-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51107
+    class_id: 2
+    category: Restoration
+    metric: hps
+    faction: Alliance
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Anub'Rekhan Restoration Druid Alliance rows (3 distinct
+    non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-anubrekhan-restoration-druid-alliance.json
+- rule: naxx-gluth-restoration-druid-alliance-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51108
+    class_id: 2
+    category: Restoration
+    metric: hps
+    faction: Alliance
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Gluth Restoration Druid Alliance rows (3 distinct non-subject
+    players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-gluth-restoration-druid-alliance.json
+- rule: naxx-gothik-restoration-druid-alliance-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51109
+    class_id: 2
+    category: Restoration
+    metric: hps
+    faction: Alliance
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Gothik the Harvester Restoration Druid Alliance rows
+    (3 distinct non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-gothik-restoration-druid-alliance.json
+- rule: naxx-faerlina-restoration-druid-alliance-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51110
+    class_id: 2
+    category: Restoration
+    metric: hps
+    faction: Alliance
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Grand Widow Faerlina Restoration Druid Alliance rows
+    (3 distinct non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-faerlina-restoration-druid-alliance.json
+- rule: naxx-grobbulus-restoration-druid-alliance-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51111
+    class_id: 2
+    category: Restoration
+    metric: hps
+    faction: Alliance
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Grobbulus Restoration Druid Alliance rows (3 distinct
+    non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-grobbulus-restoration-druid-alliance.json
+- rule: naxx-heigan-restoration-druid-alliance-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51112
+    class_id: 2
+    category: Restoration
+    metric: hps
+    faction: Alliance
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Heigan the Unclean Restoration Druid Alliance rows (3
+    distinct non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-heigan-restoration-druid-alliance.json
+- rule: naxx-kelthuzad-restoration-druid-alliance-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51114
+    class_id: 2
+    category: Restoration
+    metric: hps
+    faction: Alliance
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Kel'Thuzad Restoration Druid Alliance rows (3 distinct
+    non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-kelthuzad-restoration-druid-alliance.json
+- rule: naxx-noth-restoration-druid-alliance-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51117
+    class_id: 2
+    category: Restoration
+    metric: hps
+    faction: Alliance
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Noth the Plaguebringer Restoration Druid Alliance rows
+    (3 distinct non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-noth-restoration-druid-alliance.json
+- rule: naxx-sapphiron-restoration-druid-alliance-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51119
+    class_id: 2
+    category: Restoration
+    metric: hps
+    faction: Alliance
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Sapphiron Restoration Druid Alliance rows (3 distinct
+    non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-sapphiron-restoration-druid-alliance.json
+- rule: naxx-thaddius-restoration-druid-alliance-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51120
+    class_id: 2
+    category: Restoration
+    metric: hps
+    faction: Alliance
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Thaddius Restoration Druid Alliance rows (3 distinct
+    non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-thaddius-restoration-druid-alliance.json
+- rule: naxx-horsemen-restoration-druid-alliance-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51121
+    class_id: 2
+    category: Restoration
+    metric: hps
+    faction: Alliance
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope The Four Horsemen Restoration Druid Alliance rows (3
+    distinct non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-horsemen-restoration-druid-alliance.json
 - rule: naxx-gothik-protection-warrior-horde-dps-v1
   basis: empirical
   scope:
@@ -1223,6 +1817,248 @@ ranking_metric_policies:
   validated: 3 admitted of 3 in-scope The Four Horsemen Assassination Rogue Horde rows (3
     distinct non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-horsemen-assassination-rogue-horde.json
+- rule: naxx-gluth-restoration-shaman-horde-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51108
+    class_id: 9
+    category: Restoration
+    metric: hps
+    faction: Horde
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Gluth Restoration Shaman Horde rows (3 distinct non-subject
+    players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-gluth-restoration-shaman-horde.json
+- rule: naxx-gothik-restoration-shaman-horde-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51109
+    class_id: 9
+    category: Restoration
+    metric: hps
+    faction: Horde
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Gothik the Harvester Restoration Shaman Horde rows (3
+    distinct non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-gothik-restoration-shaman-horde.json
+- rule: naxx-faerlina-restoration-shaman-horde-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51110
+    class_id: 9
+    category: Restoration
+    metric: hps
+    faction: Horde
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Grand Widow Faerlina Restoration Shaman Horde rows (3
+    distinct non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-faerlina-restoration-shaman-horde.json
+- rule: naxx-grobbulus-restoration-shaman-horde-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51111
+    class_id: 9
+    category: Restoration
+    metric: hps
+    faction: Horde
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Grobbulus Restoration Shaman Horde rows (3 distinct
+    non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-grobbulus-restoration-shaman-horde.json
+- rule: naxx-heigan-restoration-shaman-horde-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51112
+    class_id: 9
+    category: Restoration
+    metric: hps
+    faction: Horde
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Heigan the Unclean Restoration Shaman Horde rows (3
+    distinct non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-heigan-restoration-shaman-horde.json
+- rule: naxx-kelthuzad-restoration-shaman-horde-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51114
+    class_id: 9
+    category: Restoration
+    metric: hps
+    faction: Horde
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Kel'Thuzad Restoration Shaman Horde rows (3 distinct
+    non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-kelthuzad-restoration-shaman-horde.json
+- rule: naxx-maexxna-restoration-shaman-horde-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51116
+    class_id: 9
+    category: Restoration
+    metric: hps
+    faction: Horde
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Maexxna Restoration Shaman Horde rows (3 distinct non-subject
+    players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-maexxna-restoration-shaman-horde.json
+- rule: naxx-noth-restoration-shaman-horde-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51117
+    class_id: 9
+    category: Restoration
+    metric: hps
+    faction: Horde
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Noth the Plaguebringer Restoration Shaman Horde rows
+    (3 distinct non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-noth-restoration-shaman-horde.json
+- rule: naxx-sapphiron-restoration-shaman-horde-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51119
+    class_id: 9
+    category: Restoration
+    metric: hps
+    faction: Horde
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Sapphiron Restoration Shaman Horde rows (3 distinct
+    non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-sapphiron-restoration-shaman-horde.json
+- rule: naxx-thaddius-restoration-shaman-horde-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51120
+    class_id: 9
+    category: Restoration
+    metric: hps
+    faction: Horde
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Thaddius Restoration Shaman Horde rows (3 distinct non-subject
+    players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-thaddius-restoration-shaman-horde.json
+- rule: naxx-horsemen-restoration-shaman-horde-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51121
+    class_id: 9
+    category: Restoration
+    metric: hps
+    faction: Horde
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope The Four Horsemen Restoration Shaman Horde rows (3 distinct
+    non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-horsemen-restoration-shaman-horde.json
 - rule: naxx-gothik-marksmanship-hunter-horde-dps-v1
   basis: empirical
   scope:
@@ -3161,6 +3997,996 @@ ranking_metric_policies:
   validated: 3 admitted of 3 in-scope The Four Horsemen Shadow Priest Alliance rows (3 distinct
     non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-horsemen-shadow-priest-alliance.json
+- rule: naxx-gluth-holy-paladin-alliance-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51108
+    class_id: 6
+    category: Holy
+    metric: hps
+    faction: Alliance
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Gluth Holy Paladin Alliance rows (3 distinct non-subject
+    players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-gluth-holy-paladin-alliance.json
+- rule: naxx-gothik-holy-paladin-alliance-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51109
+    class_id: 6
+    category: Holy
+    metric: hps
+    faction: Alliance
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Gothik the Harvester Holy Paladin Alliance rows (3 distinct
+    non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-gothik-holy-paladin-alliance.json
+- rule: naxx-faerlina-holy-paladin-alliance-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51110
+    class_id: 6
+    category: Holy
+    metric: hps
+    faction: Alliance
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Grand Widow Faerlina Holy Paladin Alliance rows (3 distinct
+    non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-faerlina-holy-paladin-alliance.json
+- rule: naxx-grobbulus-holy-paladin-alliance-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51111
+    class_id: 6
+    category: Holy
+    metric: hps
+    faction: Alliance
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Grobbulus Holy Paladin Alliance rows (3 distinct non-subject
+    players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-grobbulus-holy-paladin-alliance.json
+- rule: naxx-heigan-holy-paladin-alliance-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51112
+    class_id: 6
+    category: Holy
+    metric: hps
+    faction: Alliance
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Heigan the Unclean Holy Paladin Alliance rows (3 distinct
+    non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-heigan-holy-paladin-alliance.json
+- rule: naxx-maexxna-holy-paladin-alliance-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51116
+    class_id: 6
+    category: Holy
+    metric: hps
+    faction: Alliance
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Maexxna Holy Paladin Alliance rows (3 distinct non-subject
+    players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-maexxna-holy-paladin-alliance.json
+- rule: naxx-sapphiron-holy-paladin-alliance-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51119
+    class_id: 6
+    category: Holy
+    metric: hps
+    faction: Alliance
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Sapphiron Holy Paladin Alliance rows (3 distinct non-subject
+    players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-sapphiron-holy-paladin-alliance.json
+- rule: naxx-thaddius-holy-paladin-alliance-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51120
+    class_id: 6
+    category: Holy
+    metric: hps
+    faction: Alliance
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Thaddius Holy Paladin Alliance rows (3 distinct non-subject
+    players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-thaddius-holy-paladin-alliance.json
+- rule: naxx-horsemen-holy-paladin-alliance-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51121
+    class_id: 6
+    category: Holy
+    metric: hps
+    faction: Alliance
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope The Four Horsemen Holy Paladin Alliance rows (3 distinct
+    non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-horsemen-holy-paladin-alliance.json
+- rule: naxx-anubrekhan-holy-priest-horde-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51107
+    class_id: 7
+    category: Holy
+    metric: hps
+    faction: Horde
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Anub'Rekhan Holy Priest Horde rows (3 distinct non-subject
+    players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-anubrekhan-holy-priest-horde.json
+- rule: naxx-gluth-holy-priest-horde-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51108
+    class_id: 7
+    category: Holy
+    metric: hps
+    faction: Horde
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Gluth Holy Priest Horde rows (3 distinct non-subject
+    players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-gluth-holy-priest-horde.json
+- rule: naxx-gothik-holy-priest-horde-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51109
+    class_id: 7
+    category: Holy
+    metric: hps
+    faction: Horde
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Gothik the Harvester Holy Priest Horde rows (3 distinct
+    non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-gothik-holy-priest-horde.json
+- rule: naxx-faerlina-holy-priest-horde-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51110
+    class_id: 7
+    category: Holy
+    metric: hps
+    faction: Horde
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Grand Widow Faerlina Holy Priest Horde rows (3 distinct
+    non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-faerlina-holy-priest-horde.json
+- rule: naxx-heigan-holy-priest-horde-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51112
+    class_id: 7
+    category: Holy
+    metric: hps
+    faction: Horde
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Heigan the Unclean Holy Priest Horde rows (3 distinct
+    non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-heigan-holy-priest-horde.json
+- rule: naxx-kelthuzad-holy-priest-horde-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51114
+    class_id: 7
+    category: Holy
+    metric: hps
+    faction: Horde
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Kel'Thuzad Holy Priest Horde rows (3 distinct non-subject
+    players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-kelthuzad-holy-priest-horde.json
+- rule: naxx-loatheb-holy-priest-horde-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51115
+    class_id: 7
+    category: Holy
+    metric: hps
+    faction: Horde
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Loatheb Holy Priest Horde rows (3 distinct non-subject
+    players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-loatheb-holy-priest-horde.json
+- rule: naxx-maexxna-holy-priest-horde-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51116
+    class_id: 7
+    category: Holy
+    metric: hps
+    faction: Horde
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Maexxna Holy Priest Horde rows (3 distinct non-subject
+    players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-maexxna-holy-priest-horde.json
+- rule: naxx-noth-holy-priest-horde-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51117
+    class_id: 7
+    category: Holy
+    metric: hps
+    faction: Horde
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Noth the Plaguebringer Holy Priest Horde rows (3 distinct
+    non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-noth-holy-priest-horde.json
+- rule: naxx-thaddius-holy-priest-horde-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51120
+    class_id: 7
+    category: Holy
+    metric: hps
+    faction: Horde
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Thaddius Holy Priest Horde rows (3 distinct non-subject
+    players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-thaddius-holy-priest-horde.json
+- rule: naxx-horsemen-holy-priest-horde-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51121
+    class_id: 7
+    category: Holy
+    metric: hps
+    faction: Horde
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope The Four Horsemen Holy Priest Horde rows (3 distinct
+    non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-horsemen-holy-priest-horde.json
+- rule: naxx-gluth-holy-priest-alliance-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51108
+    class_id: 7
+    category: Holy
+    metric: hps
+    faction: Alliance
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Gluth Holy Priest Alliance rows (3 distinct non-subject
+    players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-gluth-holy-priest-alliance.json
+- rule: naxx-gothik-holy-priest-alliance-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51109
+    class_id: 7
+    category: Holy
+    metric: hps
+    faction: Alliance
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Gothik the Harvester Holy Priest Alliance rows (3 distinct
+    non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-gothik-holy-priest-alliance.json
+- rule: naxx-faerlina-holy-priest-alliance-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51110
+    class_id: 7
+    category: Holy
+    metric: hps
+    faction: Alliance
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Grand Widow Faerlina Holy Priest Alliance rows (3 distinct
+    non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-faerlina-holy-priest-alliance.json
+- rule: naxx-grobbulus-holy-priest-alliance-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51111
+    class_id: 7
+    category: Holy
+    metric: hps
+    faction: Alliance
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Grobbulus Holy Priest Alliance rows (3 distinct non-subject
+    players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-grobbulus-holy-priest-alliance.json
+- rule: naxx-heigan-holy-priest-alliance-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51112
+    class_id: 7
+    category: Holy
+    metric: hps
+    faction: Alliance
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Heigan the Unclean Holy Priest Alliance rows (3 distinct
+    non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-heigan-holy-priest-alliance.json
+- rule: naxx-kelthuzad-holy-priest-alliance-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51114
+    class_id: 7
+    category: Holy
+    metric: hps
+    faction: Alliance
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Kel'Thuzad Holy Priest Alliance rows (3 distinct non-subject
+    players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-kelthuzad-holy-priest-alliance.json
+- rule: naxx-maexxna-holy-priest-alliance-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51116
+    class_id: 7
+    category: Holy
+    metric: hps
+    faction: Alliance
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Maexxna Holy Priest Alliance rows (3 distinct non-subject
+    players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-maexxna-holy-priest-alliance.json
+- rule: naxx-noth-holy-priest-alliance-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51117
+    class_id: 7
+    category: Holy
+    metric: hps
+    faction: Alliance
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Noth the Plaguebringer Holy Priest Alliance rows (3
+    distinct non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-noth-holy-priest-alliance.json
+- rule: naxx-sapphiron-holy-priest-alliance-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51119
+    class_id: 7
+    category: Holy
+    metric: hps
+    faction: Alliance
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Sapphiron Holy Priest Alliance rows (3 distinct non-subject
+    players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-sapphiron-holy-priest-alliance.json
+- rule: naxx-thaddius-holy-priest-alliance-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51120
+    class_id: 7
+    category: Holy
+    metric: hps
+    faction: Alliance
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Thaddius Holy Priest Alliance rows (3 distinct non-subject
+    players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-thaddius-holy-priest-alliance.json
+- rule: naxx-horsemen-holy-priest-alliance-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51121
+    class_id: 7
+    category: Holy
+    metric: hps
+    faction: Alliance
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope The Four Horsemen Holy Priest Alliance rows (3 distinct
+    non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-horsemen-holy-priest-alliance.json
+- rule: naxx-anubrekhan-restoration-druid-horde-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51107
+    class_id: 2
+    category: Restoration
+    metric: hps
+    faction: Horde
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Anub'Rekhan Restoration Druid Horde rows (3 distinct
+    non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-anubrekhan-restoration-druid-horde.json
+- rule: naxx-gluth-restoration-druid-horde-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51108
+    class_id: 2
+    category: Restoration
+    metric: hps
+    faction: Horde
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Gluth Restoration Druid Horde rows (3 distinct non-subject
+    players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-gluth-restoration-druid-horde.json
+- rule: naxx-gothik-restoration-druid-horde-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51109
+    class_id: 2
+    category: Restoration
+    metric: hps
+    faction: Horde
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Gothik the Harvester Restoration Druid Horde rows (3
+    distinct non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-gothik-restoration-druid-horde.json
+- rule: naxx-faerlina-restoration-druid-horde-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51110
+    class_id: 2
+    category: Restoration
+    metric: hps
+    faction: Horde
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Grand Widow Faerlina Restoration Druid Horde rows (3
+    distinct non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-faerlina-restoration-druid-horde.json
+- rule: naxx-grobbulus-restoration-druid-horde-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51111
+    class_id: 2
+    category: Restoration
+    metric: hps
+    faction: Horde
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Grobbulus Restoration Druid Horde rows (3 distinct non-subject
+    players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-grobbulus-restoration-druid-horde.json
+- rule: naxx-heigan-restoration-druid-horde-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51112
+    class_id: 2
+    category: Restoration
+    metric: hps
+    faction: Horde
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Heigan the Unclean Restoration Druid Horde rows (3 distinct
+    non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-heigan-restoration-druid-horde.json
+- rule: naxx-kelthuzad-restoration-druid-horde-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51114
+    class_id: 2
+    category: Restoration
+    metric: hps
+    faction: Horde
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Kel'Thuzad Restoration Druid Horde rows (3 distinct
+    non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-kelthuzad-restoration-druid-horde.json
+- rule: naxx-loatheb-restoration-druid-horde-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51115
+    class_id: 2
+    category: Restoration
+    metric: hps
+    faction: Horde
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Loatheb Restoration Druid Horde rows (3 distinct non-subject
+    players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-loatheb-restoration-druid-horde.json
+- rule: naxx-maexxna-restoration-druid-horde-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51116
+    class_id: 2
+    category: Restoration
+    metric: hps
+    faction: Horde
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Maexxna Restoration Druid Horde rows (3 distinct non-subject
+    players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-maexxna-restoration-druid-horde.json
+- rule: naxx-noth-restoration-druid-horde-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51117
+    class_id: 2
+    category: Restoration
+    metric: hps
+    faction: Horde
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Noth the Plaguebringer Restoration Druid Horde rows
+    (3 distinct non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-noth-restoration-druid-horde.json
+- rule: naxx-patchwerk-restoration-druid-horde-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51118
+    class_id: 2
+    category: Restoration
+    metric: hps
+    faction: Horde
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Patchwerk Restoration Druid Horde rows (3 distinct non-subject
+    players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-patchwerk-restoration-druid-horde.json
+- rule: naxx-sapphiron-restoration-druid-horde-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51119
+    class_id: 2
+    category: Restoration
+    metric: hps
+    faction: Horde
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Sapphiron Restoration Druid Horde rows (3 distinct non-subject
+    players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-sapphiron-restoration-druid-horde.json
+- rule: naxx-thaddius-restoration-druid-horde-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51120
+    class_id: 2
+    category: Restoration
+    metric: hps
+    faction: Horde
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Thaddius Restoration Druid Horde rows (3 distinct non-subject
+    players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-thaddius-restoration-druid-horde.json
+- rule: naxx-horsemen-restoration-druid-horde-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51121
+    class_id: 2
+    category: Restoration
+    metric: hps
+    faction: Horde
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients, divided by the fight
+    duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope The Four Horsemen Restoration Druid Horde rows (3 distinct
+    non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-horsemen-restoration-druid-horde.json
 - rule: naxx-gothik-destruction-warlock-alliance-dps-v1
   basis: empirical
   scope:

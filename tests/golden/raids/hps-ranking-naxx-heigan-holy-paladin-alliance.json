@@ -1,0 +1,103 @@
+{
+  "version": 1,
+  "rule": "naxx-heigan-holy-paladin-alliance-hps-v1",
+  "scope": {
+    "encounter_id": 51112,
+    "class_id": 6,
+    "category": "Holy",
+    "metric": "hps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77152471-2006-20261105T150116.zip",
+    "sha256": "566899fe83351370211b425ae94f48a0d367fbb9ecd0d26ca7d870df76838618"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "Yt79N8rxvyPT3q1V-10-39",
+      "purpose": "policy-scope",
+      "report": "Yt79N8rxvyPT3q1V",
+      "fight": 10,
+      "actor": 39,
+      "player": "Tsirbulapala",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51112_Heigan_the_Unclean.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 48664,
+      "published": "680.462",
+      "totals": {
+        "raw": 33114,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 33114
+      },
+      "residual": "-173/3041500"
+    },
+    {
+      "id": "cDL2C3RPATntxfkj-18-41",
+      "purpose": "policy-scope",
+      "report": "cDL2C3RPATntxfkj",
+      "fight": 18,
+      "actor": 41,
+      "player": "Rarlin",
+      "realm": "Mankrik",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51112_Heigan_the_Unclean.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 83052,
+      "published": "777.982",
+      "totals": {
+        "raw": 64613,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 64613
+      },
+      "residual": "4867/10381500"
+    },
+    {
+      "id": "kdB4GpKQjMc7Ar8n-16-29",
+      "purpose": "policy-scope",
+      "report": "kdB4GpKQjMc7Ar8n",
+      "fight": 16,
+      "actor": 29,
+      "player": "Chapo",
+      "realm": "Smolderweb",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51112_Heigan_the_Unclean.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 46257,
+      "published": "846.575",
+      "totals": {
+        "raw": 39160,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 39160
+      },
+      "residual": "-791/1850280"
+    }
+  ],
+  "refusals": []
+}

@@ -1,0 +1,103 @@
+{
+  "version": 1,
+  "rule": "naxx-grobbulus-restoration-druid-alliance-hps-v1",
+  "scope": {
+    "encounter_id": 51111,
+    "class_id": 2,
+    "category": "Restoration",
+    "metric": "hps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/60117765-2006-20261102T031646.zip",
+    "sha256": "5bb2468398c6b371d012ee717af46b5c52a4de0da78d7993f4b84dc2e8e50277"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "cxbHJNZrA6vypqR1-100-22",
+      "purpose": "policy-scope",
+      "report": "cxbHJNZrA6vypqR1",
+      "fight": 100,
+      "actor": 22,
+      "player": "Elefina",
+      "realm": "Pagle",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51111_Grobbulus.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 139454,
+      "published": "889.49",
+      "totals": {
+        "raw": 124043,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 124043
+      },
+      "residual": "3077/6972700"
+    },
+    {
+      "id": "t7YNJrd6GQv9KFkh-93-22",
+      "purpose": "policy-scope",
+      "report": "t7YNJrd6GQv9KFkh",
+      "fight": 93,
+      "actor": 22,
+      "player": "Miryä",
+      "realm": "Auberdine",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51111_Grobbulus.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 114934,
+      "published": "891.346",
+      "totals": {
+        "raw": 102446,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 102446
+      },
+      "residual": "9709/28733500"
+    },
+    {
+      "id": "vKWcybQRDLamVwt1-17-4",
+      "purpose": "policy-scope",
+      "report": "vKWcybQRDLamVwt1",
+      "fight": 17,
+      "actor": 4,
+      "player": "Calima",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51111_Grobbulus.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 52994,
+      "published": "880.326",
+      "totals": {
+        "raw": 46652,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 46652
+      },
+      "residual": "989/13248500"
+    }
+  ],
+  "refusals": []
+}

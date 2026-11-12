@@ -1,0 +1,103 @@
+{
+  "version": 1,
+  "rule": "naxx-patchwerk-balance-druid-horde-hps-v1",
+  "scope": {
+    "encounter_id": 51118,
+    "class_id": 2,
+    "category": "Balance",
+    "metric": "hps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261031/76376122-2006-20261028T163059.zip",
+    "sha256": "392bf13fb1350ae468253631895b9be591d46516a40d020a00dcaa568fa1ef4f"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "1yJFrtX4hg6VfGcZ-21-56",
+      "purpose": "policy-scope",
+      "report": "1yJFrtX4hg6VfGcZ",
+      "fight": 21,
+      "actor": 56,
+      "player": "部落神牛",
+      "realm": "伊弗斯",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51118_Patchwerk.json",
+      "page": 1,
+      "row": 15,
+      "owned_actor_ids": [],
+      "duration_ms": 211848,
+      "published": "43.0214",
+      "totals": {
+        "raw": 9114,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 9114
+      },
+      "residual": "73/6305000"
+    },
+    {
+      "id": "PxWpYc4Q6BCAkFz1-25-68",
+      "purpose": "policy-scope",
+      "report": "PxWpYc4Q6BCAkFz1",
+      "fight": 25,
+      "actor": 68,
+      "player": "惡魔的回响",
+      "realm": "哈霍兰",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51118_Patchwerk.json",
+      "page": 1,
+      "row": 7,
+      "owned_actor_ids": [],
+      "duration_ms": 201487,
+      "published": "107.317",
+      "totals": {
+        "raw": 21623,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 21623
+      },
+      "residual": "19621/201487000"
+    },
+    {
+      "id": "p4hPJmjL2VxtadGX-23-52",
+      "purpose": "policy-scope",
+      "report": "p4hPJmjL2VxtadGX",
+      "fight": 23,
+      "actor": 52,
+      "player": "呆呆康巴得",
+      "realm": "哈霍兰",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51118_Patchwerk.json",
+      "page": 1,
+      "row": 6,
+      "owned_actor_ids": [],
+      "duration_ms": 187271,
+      "published": "153.895",
+      "totals": {
+        "raw": 28820,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 28820
+      },
+      "residual": "-14109/37454200"
+    }
+  ],
+  "refusals": []
+}

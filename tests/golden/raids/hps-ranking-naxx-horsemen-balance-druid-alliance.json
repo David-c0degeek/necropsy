@@ -1,0 +1,103 @@
+{
+  "version": 1,
+  "rule": "naxx-horsemen-balance-druid-alliance-hps-v1",
+  "scope": {
+    "encounter_id": 51121,
+    "class_id": 2,
+    "category": "Balance",
+    "metric": "hps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261031/65603754-2006-20261027T195031.zip",
+    "sha256": "f439dc7db47a18dcda8d5db7264be0990cd042124900315b93fff583bf2220be"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "L37hmKXZQDA1PcTg-146-27",
+      "purpose": "policy-scope",
+      "report": "L37hmKXZQDA1PcTg",
+      "fight": 146,
+      "actor": 27,
+      "player": "有德有思",
+      "realm": "哈霍兰",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51121_The_Four_Horsemen.json",
+      "page": 1,
+      "row": 5,
+      "owned_actor_ids": [],
+      "duration_ms": 333554,
+      "published": "171.244",
+      "totals": {
+        "raw": 57119,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 57119
+      },
+      "residual": "-15147/41694250"
+    },
+    {
+      "id": "bCpt37KRMj12LqYX-128-44",
+      "purpose": "policy-scope",
+      "report": "bCpt37KRMj12LqYX",
+      "fight": 128,
+      "actor": 44,
+      "player": "沐星儿",
+      "realm": "湖畔镇",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51121_The_Four_Horsemen.json",
+      "page": 1,
+      "row": 7,
+      "owned_actor_ids": [],
+      "duration_ms": 383347,
+      "published": "149.603",
+      "totals": {
+        "raw": 57350,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 57350
+      },
+      "residual": "138759/383347000"
+    },
+    {
+      "id": "bkdNn4Q62VXTBYZv-223-42",
+      "purpose": "policy-scope",
+      "report": "bkdNn4Q62VXTBYZv",
+      "fight": 223,
+      "actor": 42,
+      "player": "找家小猫",
+      "realm": "哈霍兰",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51121_The_Four_Horsemen.json",
+      "page": 1,
+      "row": 11,
+      "owned_actor_ids": [],
+      "duration_ms": 543959,
+      "published": "137.705",
+      "totals": {
+        "raw": 74906,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 74906
+      },
+      "residual": "1937/8368600"
+    }
+  ],
+  "refusals": []
+}

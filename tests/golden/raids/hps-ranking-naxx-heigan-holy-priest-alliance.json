@@ -1,0 +1,103 @@
+{
+  "version": 1,
+  "rule": "naxx-heigan-holy-priest-alliance-hps-v1",
+  "scope": {
+    "encounter_id": 51112,
+    "class_id": 7,
+    "category": "Holy",
+    "metric": "hps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77573659-2006-20261106T154918.zip",
+    "sha256": "d292ee0e8a3db304a504e98ecc0528b70e43446dd74548afaf5788d8af9d8139"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "WkaHNDg9jfJKGxr1-38-13",
+      "purpose": "policy-scope",
+      "report": "WkaHNDg9jfJKGxr1",
+      "fight": 38,
+      "actor": 13,
+      "player": "Mathiheal",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51112_Heigan_the_Unclean.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 58877,
+      "published": "919.374",
+      "totals": {
+        "raw": 54130,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 54130
+      },
+      "residual": "8501/29438500"
+    },
+    {
+      "id": "XvChdHLFDB4TQ6k9-20-17",
+      "purpose": "policy-scope",
+      "report": "XvChdHLFDB4TQ6k9",
+      "fight": 20,
+      "actor": 17,
+      "player": "Almsíví",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51112_Heigan_the_Unclean.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 72110,
+      "published": "914.852",
+      "totals": {
+        "raw": 65970,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 65970
+      },
+      "residual": "557/1802750"
+    },
+    {
+      "id": "mn9zTYQAL4K1cpF2-26-4",
+      "purpose": "policy-scope",
+      "report": "mn9zTYQAL4K1cpF2",
+      "fight": 26,
+      "actor": 4,
+      "player": "Rðn",
+      "realm": "Ashbringer",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51112_Heigan_the_Unclean.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 55787,
+      "published": "874.523",
+      "totals": {
+        "raw": 48787,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 48787
+      },
+      "residual": "-14601/55787000"
+    }
+  ],
+  "refusals": []
+}

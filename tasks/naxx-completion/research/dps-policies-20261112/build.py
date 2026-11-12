@@ -1,4 +1,4 @@
-"""Build cell-scoped Naxx DPS ranking policies for every captured configuration.
+"""Build cell-scoped Naxx DPS and HPS ranking policies for every captured configuration.
 
 This generalizes the C1 matrix (`../c1-dps-policy-matrix/`) from one
 configuration to every DPS archive in the comparison follow-up register. The
@@ -7,8 +7,10 @@ admission is exactly the register's: `comparison_followup.cells` runs
 This builder only records the freezer result of each admitted row and applies
 the C1 decision rule per cell:
 
-- a boss with production `ranking_exclusions` stays OPEN (untested by policy
-  evidence; D025 admission is for the register only);
+- a DPS cell at a boss with production `ranking_exclusions` stays OPEN here
+  (untested by this evidence; `../dps-exclusion-policies-20261112/` covers it,
+  D027). The lists name damage targets only: HPS takes no target exclusions, so
+  an HPS cell is decided at every boss (D029);
 - a cell already covered by a committed policy is left as it is;
 - a cell stays OPEN with any arithmetic contradiction, with any refusal that is
   not about pet ownership, or with fewer than the packaged minimum of distinct
@@ -43,6 +45,7 @@ from necropsy.analysis.class_catalog import CLASS_NAMES  # noqa: E402
 from necropsy.rules import load_rules  # noqa: E402
 from scripts import comparison_followup as followup  # noqa: E402
 from scripts import freeze_dps_ranking as dps  # noqa: E402
+from scripts.check_raid_coverage import POLICY_CONDITIONS  # noqa: E402
 
 HERE = Path(__file__).resolve().parent
 REGISTER = ROOT / "tasks/naxx-completion/followup-comparisons.json"
@@ -62,6 +65,18 @@ FORMULA = (
     "damage to the actor or its owned units, divided by the fight duration. No "
     "target exclusions."
 )
+HPS_CONDITIONS = [
+    "unique-name-realm-identity",
+    "complete-source-target-streams",
+    "owned-unit-listing-present",
+    "friendly-recipients-only",
+    "ranking-duration-equals-fight-duration",
+]
+HPS_FORMULA = (
+    "WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed "
+    "events plus the same for its listed owned units, on friendly recipients, divided "
+    "by the fight duration. No target exclusions."
+)
 BOUND = (
     "Within one unit of the published last decimal place; the upstream rounding "
     "mode is not established."
@@ -74,6 +89,7 @@ METHOD = (
     "ranking duration equals the fight duration."
 )
 CONTRADICTION = "published DPS contradicts raw"
+CONTRADICTIONS = {CONTRADICTION, "published HPS contradicts raw"}
 OWNERSHIP = "pet listings disagree"
 SLUGS = {
     51107: "anubrekhan",
@@ -127,8 +143,8 @@ def admitted_results(archives: list[str]) -> tuple[list[dict[str, Any]], dict[tu
     captured: dict[tuple, dict[str, Any]] = {}
     original = dps.compute
 
-    def recording(spec: dict[str, Any], base: Path) -> dict[str, Any]:
-        result = original(spec, base)
+    def recording(spec: dict[str, Any], base: Path, metric: str = "dps") -> dict[str, Any]:
+        result = original(spec, base, metric=metric)
         key = (spec["sha256"], spec["report"], spec["fight"], spec["player"], spec["realm"])
         captured[key] = result
         return result
@@ -176,16 +192,23 @@ def build() -> dict[Path, str]:
         }
         key = tuple(scope.values())
         refused = cell["refused"]
-        contradictions = [r for r in refused if r["reason"] == CONTRADICTION]
+        contradictions = [r for r in refused if r["reason"] in CONTRADICTIONS]
         other = [
             r
             for r in refused
-            if r["reason"] != CONTRADICTION and not ownership_refusal(r["reason"])
+            if r["reason"] not in CONTRADICTIONS and not ownership_refusal(r["reason"])
         ]
         distinct = cell["admitted_distinct_players"]
-        if config["metric"] != "dps":
-            decision = "OPEN: no HPS policy shape"
-        elif exclusions[encounter]:
+        metric = config["metric"]
+        # HPS: an admitted row with healing on a non-friendly recipient is not explained.
+        stray = [
+            a
+            for a in cell["admitted"]
+            if captured[
+                (cell["archive"]["sha256"], a["report"], a["fight"], a["player"], a["realm"])
+            ]["totals"]["excluded"]
+        ]
+        if metric == "dps" and exclusions[encounter]:
             decision = "OPEN: production ranking exclusions untested by policy evidence"
         elif key in existing:
             decision = "EXISTING: committed policy"
@@ -193,6 +216,8 @@ def build() -> dict[Path, str]:
             decision = f"OPEN: {len(contradictions)} contradiction(s) retained"
         elif other:
             decision = f"OPEN: {len(other)} non-ownership refusal(s) retained"
+        elif metric == "hps" and stray:
+            decision = f"OPEN: {len(stray)} row(s) heal a non-friendly recipient"
         elif distinct < floor:
             decision = f"OPEN: {distinct} admitted players, fewer than {floor}"
         else:
@@ -212,15 +237,16 @@ def build() -> dict[Path, str]:
             slug = "-".join(
                 (SLUGS[encounter], config["category"], config["class"], config["faction"])
             ).lower()
-            rule = f"naxx-{slug}-dps-v1"
-            evidence_path = EVIDENCE / f"dps-ranking-naxx-{slug}.json"
+            rule = f"naxx-{slug}-{metric}-v1"
+            evidence_path = EVIDENCE / f"{metric}-ranking-naxx-{slug}.json"
             rows = []
             for a in cell["admitted"]:
                 result = captured[
                     (cell["archive"]["sha256"], a["report"], a["fight"], a["player"], a["realm"])
                 ]
                 spec = result["spec"]
-                require(result["totals"]["excluded"] == 0, f"{rule}: excluded damage")
+                # DPS: no excluded damage; HPS: no effect on a non-friendly recipient.
+                require(result["totals"]["excluded"] == 0, f"{rule}: excluded amount")
                 row = {
                     "id": f"{a['report']}-{a['fight']}-{spec['actor']}",
                     "purpose": "policy-scope",
@@ -269,8 +295,8 @@ def build() -> dict[Path, str]:
                     "rule": rule,
                     "basis": "empirical",
                     "scope": scope,
-                    "formula": FORMULA,
-                    "conditions": CONDITIONS,
+                    "formula": FORMULA if metric == "dps" else HPS_FORMULA,
+                    "conditions": CONDITIONS if metric == "dps" else HPS_CONDITIONS,
                     "bound": BOUND,
                     "validated": (
                         f"{len(rows)} admitted of {n} in-scope {label} rows ({distinct} distinct "
@@ -282,8 +308,10 @@ def build() -> dict[Path, str]:
             )
             entry["rule"] = rule
         matrix_cells.append(entry)
+    require(set(CONDITIONS) == POLICY_CONDITIONS["dps"], "DPS condition shape drifted")
+    require(set(HPS_CONDITIONS) == POLICY_CONDITIONS["hps"], "HPS condition shape drifted")
     matrix = {
-        "kind": "Naxx cell-scoped DPS policy matrix; every register configuration",
+        "kind": "Naxx cell-scoped DPS and HPS policy matrix; every register configuration",
         "inputs": {
             "register_sha256": sha256(REGISTER),
             "builder_sha256": sha256(Path(__file__)),

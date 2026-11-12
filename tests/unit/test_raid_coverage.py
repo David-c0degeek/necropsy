@@ -95,13 +95,12 @@ def test_inventory_preserves_every_missing_obligation() -> None:
 NAXX_BALANCE_DPS_POLICY_ENCOUNTERS = (51109, 51111, 51114, 51116, 51117, 51119, 51120, 51121)
 
 
-def _naxx_dps_policy_cells() -> set[str]:
-    """Cell keys of every committed Naxx DPS policy scope."""
+def _naxx_policy_cells() -> set[str]:
+    """Cell keys of every committed Naxx DPS or HPS policy scope."""
     zone = load_rules("classic_era", "zones/naxxramas")
     return {
         "naxxramas/{encounter_id}/{class_id}/{category}/{metric}/{faction}".format(**p["scope"])
         for p in zone["ranking_metric_policies"]
-        if p["scope"]["metric"] == "dps"
     }
 
 
@@ -111,7 +110,7 @@ def test_a_raid_wide_ranking_rule_never_reconciles_a_cell() -> None:
     assert load_rules("classic_era", "zones/naxxramas")["ranking_exclusions_rule"]["basis"] == (
         "empirical"
     )
-    scoped = _naxx_dps_policy_cells()
+    scoped = _naxx_policy_cells()
     assert {coverage_check.ranking_problem(c) for c in naxx if c.key not in scoped} == {
         "ranking policy remains unvalidated"
     }
@@ -162,7 +161,7 @@ def test_content_audit_passes_the_exact_cell_category_to_strategy(
             cell.configuration.category != "Guardian"
         )
         assert ("ranking policy remains unvalidated" in problems) is (
-            cell.key not in _naxx_dps_policy_cells()
+            cell.key not in _naxx_policy_cells()
         )
 
 
@@ -230,10 +229,13 @@ def test_scoped_hps_policy_validates_only_its_exact_cell() -> None:
 def test_scoped_dps_policy_validates_only_its_exact_cell() -> None:
     for encounter in NAXX_BALANCE_DPS_POLICY_ENCOUNTERS:
         assert coverage_check.ranking_problem(_cell(DPS_CELL.format(encounter))) is None
+    # D029: an HPS policy at Gothik, and at an exclusion boss (lists name damage only).
+    for key in ("naxxramas/51109/2/Balance/hps/Alliance", "naxxramas/51107/2/Balance/hps/Alliance"):
+        assert coverage_check.ranking_problem(_cell(key)) is None
     for key in (
         "naxxramas/51115/2/Balance/dps/Horde",  # Loatheb: 2 admitted players
         "naxxramas/51118/2/Feral/dps/Alliance",  # Patchwerk: 2 admitted players
-        "naxxramas/51109/2/Balance/hps/Alliance",
+        "naxxramas/51115/2/Balance/hps/Alliance",  # Loatheb HPS: 2 admitted players
         "naxxramas/51108/4/Fire/dps/Alliance",  # Gluth: Fire contradictions, stays open
         "naxxramas/51118/2/Balance/dps/Alliance",  # Patchwerk: no admitted row
     ):

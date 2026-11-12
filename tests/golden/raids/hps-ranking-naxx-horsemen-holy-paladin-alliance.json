@@ -1,0 +1,140 @@
+{
+  "version": 1,
+  "rule": "naxx-horsemen-holy-paladin-alliance-hps-v1",
+  "scope": {
+    "encounter_id": 51121,
+    "class_id": 6,
+    "category": "Holy",
+    "metric": "hps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77152471-2006-20261105T150116.zip",
+    "sha256": "566899fe83351370211b425ae94f48a0d367fbb9ecd0d26ca7d870df76838618"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "Mn9W2jCpgtLhcFZf-46-1",
+      "purpose": "policy-scope",
+      "report": "Mn9W2jCpgtLhcFZf",
+      "fight": 46,
+      "actor": 1,
+      "player": "Stimorol",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51121_The_Four_Horsemen.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 185646,
+      "published": "726.016",
+      "totals": {
+        "raw": 134782,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 134782
+      },
+      "residual": "2104/11602875",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 95,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "6bde45a9245bb621128e69013aca17868e6ac0c584584b7a6fdddeffe51f3a4b",
+            "ce36b6066e5f84417d33b199728b1777ebe01f3c8f992333def7e6968f2ca09a",
+            "1d9e8939d622ddef56b59f6f20f5d88e21d3715a1a4dd343d2cc69fa682b0a07"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "k3FpY7vydmKbgZza-21-5",
+      "purpose": "policy-scope",
+      "report": "k3FpY7vydmKbgZza",
+      "fight": 21,
+      "actor": 5,
+      "player": "晓枫残月丶",
+      "realm": "哈霍兰",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51121_The_Four_Horsemen.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 108928,
+      "published": "752.212",
+      "totals": {
+        "raw": 81937,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 81937
+      },
+      "residual": "801/1702000"
+    },
+    {
+      "id": "kPfJyA9ph4jW8XTF-39-26",
+      "purpose": "policy-scope",
+      "report": "kPfJyA9ph4jW8XTF",
+      "fight": 39,
+      "actor": 26,
+      "player": "Helfdane",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51121_The_Four_Horsemen.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 83293,
+      "published": "699.591",
+      "totals": {
+        "raw": 58271,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 58271
+      },
+      "residual": "-33163/83293000",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 112,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "38f50ae275a877c1b7b67297986d5065f6cfd3a0ba62bb469aa579dbfdcec160",
+            "e10dd3a17a22d8bfd58bc531b014388b3d17d74246fd2e4b0fab8417765d516a"
+          ]
+        },
+        {
+          "pet": 149,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "38f50ae275a877c1b7b67297986d5065f6cfd3a0ba62bb469aa579dbfdcec160",
+            "e10dd3a17a22d8bfd58bc531b014388b3d17d74246fd2e4b0fab8417765d516a"
+          ]
+        },
+        {
+          "pet": 208,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "38f50ae275a877c1b7b67297986d5065f6cfd3a0ba62bb469aa579dbfdcec160",
+            "e10dd3a17a22d8bfd58bc531b014388b3d17d74246fd2e4b0fab8417765d516a"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

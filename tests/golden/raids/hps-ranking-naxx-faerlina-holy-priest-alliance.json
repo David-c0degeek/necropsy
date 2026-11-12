@@ -1,0 +1,112 @@
+{
+  "version": 1,
+  "rule": "naxx-faerlina-holy-priest-alliance-hps-v1",
+  "scope": {
+    "encounter_id": 51110,
+    "class_id": 7,
+    "category": "Holy",
+    "metric": "hps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77573659-2006-20261106T154918.zip",
+    "sha256": "d292ee0e8a3db304a504e98ecc0528b70e43446dd74548afaf5788d8af9d8139"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "A4NR9dyvXVkMK7wF-6-17",
+      "purpose": "policy-scope",
+      "report": "A4NR9dyvXVkMK7wF",
+      "fight": 6,
+      "actor": 17,
+      "player": "Wwamb",
+      "realm": "Westfall",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51110_Grand_Widow_Faerlina.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 42990,
+      "published": "1575.95",
+      "totals": {
+        "raw": 67750,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 67750
+      },
+      "residual": "-181/85980"
+    },
+    {
+      "id": "QLCx9KDGFwnBmjAg-8-4",
+      "purpose": "policy-scope",
+      "report": "QLCx9KDGFwnBmjAg",
+      "fight": 8,
+      "actor": 4,
+      "player": "Almsíví",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51110_Grand_Widow_Faerlina.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 41063,
+      "published": "1855.88",
+      "totals": {
+        "raw": 76208,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 76208
+      },
+      "residual": "-1/93325",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 99,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "4919a1e00c54b5a0020b269be51af178311a0f84a98be6d1f5a502421634c3d2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aVQgxmbRjpw12A3L-4-15",
+      "purpose": "policy-scope",
+      "report": "aVQgxmbRjpw12A3L",
+      "fight": 4,
+      "actor": 15,
+      "player": "Sifu",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51110_Grand_Widow_Faerlina.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 36124,
+      "published": "1858.04",
+      "totals": {
+        "raw": 67120,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 67120
+      },
+      "residual": "1019/225775"
+    }
+  ],
+  "refusals": []
+}

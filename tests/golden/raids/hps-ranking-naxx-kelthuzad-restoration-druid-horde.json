@@ -1,0 +1,103 @@
+{
+  "version": 1,
+  "rule": "naxx-kelthuzad-restoration-druid-horde-hps-v1",
+  "scope": {
+    "encounter_id": 51114,
+    "class_id": 2,
+    "category": "Restoration",
+    "metric": "hps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77577270-2006-20261103T040708.zip",
+    "sha256": "f2151316bf0531ee4187a54e5f234c18b29028f9418e3d7d513d83521c2a681d"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "PpF1T8GLJKvHVRCz-60-23",
+      "purpose": "policy-scope",
+      "report": "PpF1T8GLJKvHVRCz",
+      "fight": 60,
+      "actor": 23,
+      "player": "牛貝貝",
+      "realm": "哈霍兰",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51114_Kel_Thuzad.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 12928,
+      "published": "826.733",
+      "totals": {
+        "raw": 10688,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 10688
+      },
+      "residual": "-33/101000"
+    },
+    {
+      "id": "PpF1T8GLJKvHVRCz-60-25",
+      "purpose": "policy-scope",
+      "report": "PpF1T8GLJKvHVRCz",
+      "fight": 60,
+      "actor": 25,
+      "player": "第三的德",
+      "realm": "哈霍兰",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51114_Kel_Thuzad.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 12928,
+      "published": "783.261",
+      "totals": {
+        "raw": 10126,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 10126
+      },
+      "residual": "7/50500"
+    },
+    {
+      "id": "vZ2H1aVTMxN9rbfD-35-4",
+      "purpose": "policy-scope",
+      "report": "vZ2H1aVTMxN9rbfD",
+      "fight": 35,
+      "actor": 4,
+      "player": "Thorisdottir",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51114_Kel_Thuzad.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 111790,
+      "published": "743.054",
+      "totals": {
+        "raw": 83066,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 83066
+      },
+      "residual": "-333/5589500"
+    }
+  ],
+  "refusals": []
+}

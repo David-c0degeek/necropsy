@@ -1,0 +1,119 @@
+{
+  "version": 1,
+  "rule": "naxx-gluth-restoration-druid-horde-hps-v1",
+  "scope": {
+    "encounter_id": 51108,
+    "class_id": 2,
+    "category": "Restoration",
+    "metric": "hps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77577270-2006-20261103T040708.zip",
+    "sha256": "f2151316bf0531ee4187a54e5f234c18b29028f9418e3d7d513d83521c2a681d"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "2FJHt4fdnTyawbQB-29-39",
+      "purpose": "policy-scope",
+      "report": "2FJHt4fdnTyawbQB",
+      "fight": 29,
+      "actor": 39,
+      "player": "Eñ",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51108_Gluth.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 42506,
+      "published": "1376.82",
+      "totals": {
+        "raw": 58523,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 58523
+      },
+      "residual": "-2773/1062650"
+    },
+    {
+      "id": "DxzkR6hJQ3AbdXYa-29-13",
+      "purpose": "policy-scope",
+      "report": "DxzkR6hJQ3AbdXYa",
+      "fight": 29,
+      "actor": 13,
+      "player": "Hcistoohard",
+      "realm": "Mograine",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51108_Gluth.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 57547,
+      "published": "1247.8",
+      "totals": {
+        "raw": 71807,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 71807
+      },
+      "residual": "-733/287735"
+    },
+    {
+      "id": "gKqmFjr963XBLwWJ-27-3",
+      "purpose": "policy-scope",
+      "report": "gKqmFjr963XBLwWJ",
+      "fight": 27,
+      "actor": 3,
+      "player": "Thorisdottir",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51108_Gluth.json",
+      "page": 1,
+      "row": 3,
+      "owned_actor_ids": [],
+      "duration_ms": 40267,
+      "published": "1244.24",
+      "totals": {
+        "raw": 50102,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 50102
+      },
+      "residual": "4698/1006675",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 174,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "c70fd9c9c812ce9efd40e05feda6524a2795d832c44fd34723e852f473d6b711"
+          ]
+        },
+        {
+          "pet": 239,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "c70fd9c9c812ce9efd40e05feda6524a2795d832c44fd34723e852f473d6b711"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

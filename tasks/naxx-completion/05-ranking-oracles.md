@@ -100,3 +100,10 @@ fight's friendlyPets omit but its encounter-All pages name is the owner's unit
 there (Shaman totems). "Pet listings disagree" is gone from the register;
 policies rebuilt: 268 Naxx DPS policies of 390 DPS cells. Open: 84 below the
 minimum, 38 with contradictions (27 Mage Fire). Golden re-proof: 1,195 checks.
+
+2026-11-12 · D029 HPS admission and policies · The freezer gains an HPS mode
+(heal plus absorbed amounts by the actor and its owned units on friendly
+recipients; no target exclusions). The register admits the 8 HPS
+configurations (120 cells, 299 rows) and `research/dps-policies-20261112/`
+adds 83 HPS policies at all bosses, exclusion bosses included. Golden re-proof
+of every row: 1,528 checks.

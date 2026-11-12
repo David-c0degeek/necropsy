@@ -1,0 +1,112 @@
+{
+  "version": 1,
+  "rule": "naxx-faerlina-restoration-druid-horde-hps-v1",
+  "scope": {
+    "encounter_id": 51110,
+    "class_id": 2,
+    "category": "Restoration",
+    "metric": "hps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77577270-2006-20261103T040708.zip",
+    "sha256": "f2151316bf0531ee4187a54e5f234c18b29028f9418e3d7d513d83521c2a681d"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "CyaJzrxdptXYnqPN-5-1",
+      "purpose": "policy-scope",
+      "report": "CyaJzrxdptXYnqPN",
+      "fight": 5,
+      "actor": 1,
+      "player": "Thorisdottir",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51110_Grand_Widow_Faerlina.json",
+      "page": 1,
+      "row": 30,
+      "owned_actor_ids": [],
+      "duration_ms": 39071,
+      "published": "962.197",
+      "totals": {
+        "raw": 37594,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 37594
+      },
+      "residual": "1013/39071000"
+    },
+    {
+      "id": "M3LAfwzJ1NZpxndB-41-17",
+      "purpose": "policy-scope",
+      "report": "M3LAfwzJ1NZpxndB",
+      "fight": 41,
+      "actor": 17,
+      "player": "Kopitar",
+      "realm": "Fairbanks",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51110_Grand_Widow_Faerlina.json",
+      "page": 1,
+      "row": 17,
+      "owned_actor_ids": [],
+      "duration_ms": 76034,
+      "published": "1018.39",
+      "totals": {
+        "raw": 77432,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 77432
+      },
+      "residual": "-13263/3801700"
+    },
+    {
+      "id": "z1bpX9rndQZV7kvx-7-10",
+      "purpose": "policy-scope",
+      "report": "z1bpX9rndQZV7kvx",
+      "fight": 7,
+      "actor": 10,
+      "player": "Karakorn",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51110_Grand_Widow_Faerlina.json",
+      "page": 1,
+      "row": 9,
+      "owned_actor_ids": [],
+      "duration_ms": 31456,
+      "published": "1087.9",
+      "totals": {
+        "raw": 34221,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 34221
+      },
+      "residual": "11/19660",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 124,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "06ab85cf56df1728d8f9bd3ed41db954ca7d4c87b0f52158e8237260c15b9f92"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

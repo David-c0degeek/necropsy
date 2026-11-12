@@ -1,0 +1,113 @@
+{
+  "version": 1,
+  "rule": "naxx-noth-balance-druid-horde-hps-v1",
+  "scope": {
+    "encounter_id": 51117,
+    "class_id": 2,
+    "category": "Balance",
+    "metric": "hps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261031/76376122-2006-20261028T163059.zip",
+    "sha256": "392bf13fb1350ae468253631895b9be591d46516a40d020a00dcaa568fa1ef4f"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "38br4AWZFY1mqHnf-27-37",
+      "purpose": "policy-scope",
+      "report": "38br4AWZFY1mqHnf",
+      "fight": 27,
+      "actor": 37,
+      "player": "Tares",
+      "realm": "Blaumeux",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51117_Noth_the_Plaguebringer.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 56324,
+      "published": "205.419",
+      "totals": {
+        "raw": 11570,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 11570
+      },
+      "residual": "-4939/14081000"
+    },
+    {
+      "id": "8KJhjFznLbtYH6Pa-210-199",
+      "purpose": "policy-scope",
+      "report": "8KJhjFznLbtYH6Pa",
+      "fight": 210,
+      "actor": 199,
+      "player": "张本",
+      "realm": "法琳娜",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51117_Noth_the_Plaguebringer.json",
+      "page": 1,
+      "row": 19,
+      "owned_actor_ids": [],
+      "duration_ms": 88894,
+      "published": "72.0746",
+      "totals": {
+        "raw": 6407,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 6407
+      },
+      "residual": "1269/222235000",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 279,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "f9e44a1fff9b0a5d090382ad9c37e1686ffacd59800b4eb31cd8c960eccccab8",
+            "81b26e01f2072180b6339d9154c33cd29982651eb198f5e9ac01da13e74a774f"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "j7CD9cFn8aYRvTZA-10-45",
+      "purpose": "policy-scope",
+      "report": "j7CD9cFn8aYRvTZA",
+      "fight": 10,
+      "actor": 45,
+      "player": "道委王道长",
+      "realm": "哈霍兰",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51117_Noth_the_Plaguebringer.json",
+      "page": 1,
+      "row": 4,
+      "owned_actor_ids": [],
+      "duration_ms": 78915,
+      "published": "151.809",
+      "totals": {
+        "raw": 11980,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 11980
+      },
+      "residual": "-1447/15783000"
+    }
+  ],
+  "refusals": []
+}

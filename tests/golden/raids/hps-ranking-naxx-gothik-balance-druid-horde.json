@@ -1,0 +1,103 @@
+{
+  "version": 1,
+  "rule": "naxx-gothik-balance-druid-horde-hps-v1",
+  "scope": {
+    "encounter_id": 51109,
+    "class_id": 2,
+    "category": "Balance",
+    "metric": "hps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261031/76376122-2006-20261028T163059.zip",
+    "sha256": "392bf13fb1350ae468253631895b9be591d46516a40d020a00dcaa568fa1ef4f"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "T1qFB68ytNHW9d2f-100-45",
+      "purpose": "policy-scope",
+      "report": "T1qFB68ytNHW9d2f",
+      "fight": 100,
+      "actor": 45,
+      "player": "背带裤男神",
+      "realm": "伊弗斯",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51109_Gothik_the_Harvester.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 316355,
+      "published": "241.978",
+      "totals": {
+        "raw": 76551,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 76551
+      },
+      "residual": "4981/31635500"
+    },
+    {
+      "id": "tQGj2DvLrKhZBdPc-159-27",
+      "purpose": "policy-scope",
+      "report": "tQGj2DvLrKhZBdPc",
+      "fight": 159,
+      "actor": 27,
+      "player": "小噹噹",
+      "realm": "哈霍兰",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51109_Gothik_the_Harvester.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 309545,
+      "published": "160.016",
+      "totals": {
+        "raw": 49532,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 49532
+      },
+      "residual": "-3818/7738625"
+    },
+    {
+      "id": "z6ByD7MvAfLQG4qF-273-10",
+      "purpose": "policy-scope",
+      "report": "z6ByD7MvAfLQG4qF",
+      "fight": 273,
+      "actor": 10,
+      "player": "魂斗罗少女",
+      "realm": "哈霍兰",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51109_Gothik_the_Harvester.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 305745,
+      "published": "175.722",
+      "totals": {
+        "raw": 53726,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 53726
+      },
+      "residual": "-12289/30574500"
+    }
+  ],
+  "refusals": []
+}

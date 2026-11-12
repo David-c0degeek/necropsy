@@ -1,4 +1,4 @@
-# Naxx DPS policies for every captured configuration, 2026-11-12
+# Naxx DPS and HPS policies for every captured configuration, 2026-11-12
 
 `build.py` generalizes the C1 matrix (`../c1-dps-policy-matrix/`) from Druid
 Balance DPS Alliance to every DPS configuration in the comparison follow-up
@@ -51,6 +51,29 @@ policies; 169 at bosses without exclusions.
 No other refusal type occurred. Contradictions concentrate in Mage Fire. The
 first build (before D028) had 142 policies; the Shaman configurations then had
 none because every totem-owning comparison was refused.
+
+## HPS cells (D029)
+
+The register now also admits the 8 HPS configurations (120 cells): the freezer's
+HPS mode counts heal and absorbed amounts (overheal is never in `amount`) by the
+actor and its owned units on friendly recipients, with no target exclusions.
+The production exclusion lists name damage targets only, so HPS cells are
+decided at every boss. The rule is the same as for DPS, plus one guard: an
+admitted row with healing on a non-friendly recipient keeps the cell OPEN.
+Policies are `naxx-<boss>-<spec>-<class>-<faction>-hps-v1` with evidence
+`tests/golden/raids/hps-ranking-naxx-<...>.json`.
+
+| HPS decision | Cells |
+|---|---|
+| New policy | 83 |
+| OPEN: fewer than 3 admitted players | 18 |
+| OPEN: contradiction retained ("published HPS contradicts raw") | 9 |
+| OPEN: other refusal retained ("wrong encounter or not a kill") | 9 |
+| OPEN: a row heals a non-friendly recipient | 1 |
+
+299 HPS rows are admitted. The golden test re-proves every HPS row from raw
+pages and checks that adding overheal, dropping absorbs, dropping owned-unit
+healing or a wrong duration each fails on some row (1,528 checks in all).
 
 ## Limits
 

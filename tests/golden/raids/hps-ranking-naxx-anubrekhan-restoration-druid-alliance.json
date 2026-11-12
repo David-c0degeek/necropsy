@@ -1,0 +1,103 @@
+{
+  "version": 1,
+  "rule": "naxx-anubrekhan-restoration-druid-alliance-hps-v1",
+  "scope": {
+    "encounter_id": 51107,
+    "class_id": 2,
+    "category": "Restoration",
+    "metric": "hps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/60117765-2006-20261102T031646.zip",
+    "sha256": "5bb2468398c6b371d012ee717af46b5c52a4de0da78d7993f4b84dc2e8e50277"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "76qJd4VQmxXy3rjH-75-15",
+      "purpose": "policy-scope",
+      "report": "76qJd4VQmxXy3rjH",
+      "fight": 75,
+      "actor": 15,
+      "player": "Evandre",
+      "realm": "Westfall",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51107_Anub_Rekhan.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 62912,
+      "published": "961.168",
+      "totals": {
+        "raw": 60469,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 60469
+      },
+      "residual": "-19/983000"
+    },
+    {
+      "id": "9zw2HpkXA7tgjMG1-3-35",
+      "purpose": "policy-scope",
+      "report": "9zw2HpkXA7tgjMG1",
+      "fight": 3,
+      "actor": 35,
+      "player": "Mujo",
+      "realm": "Mankrik",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51107_Anub_Rekhan.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 46822,
+      "published": "922.067",
+      "totals": {
+        "raw": 43173,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 43173
+      },
+      "residual": "-257/571000"
+    },
+    {
+      "id": "d63BHCnag2GJcAby-39-13",
+      "purpose": "policy-scope",
+      "report": "d63BHCnag2GJcAby",
+      "fight": 39,
+      "actor": 13,
+      "player": "小雨归来",
+      "realm": "伊弗斯",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51107_Anub_Rekhan.json",
+      "page": 1,
+      "row": 3,
+      "owned_actor_ids": [],
+      "duration_ms": 79790,
+      "published": "908.435",
+      "totals": {
+        "raw": 72484,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 72484
+      },
+      "residual": "-573/1595800"
+    }
+  ],
+  "refusals": []
+}

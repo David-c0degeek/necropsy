@@ -1,0 +1,141 @@
+{
+  "version": 1,
+  "rule": "naxx-grobbulus-holy-priest-alliance-hps-v1",
+  "scope": {
+    "encounter_id": 51111,
+    "class_id": 7,
+    "category": "Holy",
+    "metric": "hps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77573659-2006-20261106T154918.zip",
+    "sha256": "d292ee0e8a3db304a504e98ecc0528b70e43446dd74548afaf5788d8af9d8139"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "Cw6b9hkLpdmGtZ1v-21-5",
+      "purpose": "policy-scope",
+      "report": "Cw6b9hkLpdmGtZ1v",
+      "fight": 21,
+      "actor": 5,
+      "player": "Immateriall",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51111_Grobbulus.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 62314,
+      "published": "1332.88",
+      "totals": {
+        "raw": 83057,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 83057
+      },
+      "residual": "-1054/778925",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 218,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "7504617f85c0b30d8717e027a265fe13d8fb8cdde86a049e0fee1175aef0d5d1",
+            "4e161ee5d7f0dc20cf15215f6b9d580503c45577ccf93bc4f96ff3f2eb349f12"
+          ]
+        },
+        {
+          "pet": 230,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "7504617f85c0b30d8717e027a265fe13d8fb8cdde86a049e0fee1175aef0d5d1",
+            "4e161ee5d7f0dc20cf15215f6b9d580503c45577ccf93bc4f96ff3f2eb349f12"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "XVphtJRPMdb3cBF2-30-29",
+      "purpose": "policy-scope",
+      "report": "XVphtJRPMdb3cBF2",
+      "fight": 30,
+      "actor": 29,
+      "player": "Sifu",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51111_Grobbulus.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 67234,
+      "published": "1310.23",
+      "totals": {
+        "raw": 88092,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 88092
+      },
+      "residual": "-191/3361700",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 158,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "7eedaddca316a9c9d9f449e9afc27c66a1733348f44f174dcbc419045b056da6",
+            "7a3eca03232df1a23139697c00ca8cbfc519dc53e2b9e206b376f12ff436ca74"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "k1J6rKpVNfQgX7dW-39-17",
+      "purpose": "policy-scope",
+      "report": "k1J6rKpVNfQgX7dW",
+      "fight": 39,
+      "actor": 17,
+      "player": "Almsíví",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51111_Grobbulus.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 100763,
+      "published": "1358.5",
+      "totals": {
+        "raw": 136887,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 136887
+      },
+      "residual": "929/201526",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 230,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "de9e3e26608f255f14fed88e07f1b6569e60b35d722541d031566238883faae8",
+            "e6b757334d2ad231bb2fb78b8c6bf4c72ce96b8e93964750c47d7d2e53a01268"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

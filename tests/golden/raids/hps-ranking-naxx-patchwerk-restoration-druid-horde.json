@@ -1,0 +1,114 @@
+{
+  "version": 1,
+  "rule": "naxx-patchwerk-restoration-druid-horde-hps-v1",
+  "scope": {
+    "encounter_id": 51118,
+    "class_id": 2,
+    "category": "Restoration",
+    "metric": "hps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77577270-2006-20261103T040708.zip",
+    "sha256": "f2151316bf0531ee4187a54e5f234c18b29028f9418e3d7d513d83521c2a681d"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "Q9F2pGKCLyXYjkP8-49-143",
+      "purpose": "policy-scope",
+      "report": "Q9F2pGKCLyXYjkP8",
+      "fight": 49,
+      "actor": 143,
+      "player": "Sa",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51118_Patchwerk.json",
+      "page": 1,
+      "row": 48,
+      "owned_actor_ids": [],
+      "duration_ms": 147551,
+      "published": "807.362",
+      "totals": {
+        "raw": 119127,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 119127
+      },
+      "residual": "-35231/73775500",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 246,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "1ca7e83b454589dabc92d2d4bad87f7f65ef75aa3f23975bf0a06854b1cebea0",
+            "035a260e7602a947660f2244bc2d2f406df3d462d8e4abcb417e01f6c0f3495a",
+            "5aa19127c7f3d4d2a3235c3a6fb691947da8b79519da77abe7fb298a6b754d6a"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bZkvqFGD1myMPjJB-56-40",
+      "purpose": "policy-scope",
+      "report": "bZkvqFGD1myMPjJB",
+      "fight": 56,
+      "actor": 40,
+      "player": "Zeejimme",
+      "realm": "Noggenfogger",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51118_Patchwerk.json",
+      "page": 1,
+      "row": 18,
+      "owned_actor_ids": [],
+      "duration_ms": 163660,
+      "published": "873.146",
+      "totals": {
+        "raw": 142899,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 142899
+      },
+      "residual": "-1859/4091500"
+    },
+    {
+      "id": "r13LDMZvdJ4VcAB9-44-40",
+      "purpose": "policy-scope",
+      "report": "r13LDMZvdJ4VcAB9",
+      "fight": 44,
+      "actor": 40,
+      "player": "Pyroc",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51118_Patchwerk.json",
+      "page": 1,
+      "row": 53,
+      "owned_actor_ids": [],
+      "duration_ms": 140963,
+      "published": "799.522",
+      "totals": {
+        "raw": 112703,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 112703
+      },
+      "residual": "-9843/70481500"
+    }
+  ],
+  "refusals": []
+}

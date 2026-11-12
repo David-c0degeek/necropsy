@@ -1,0 +1,114 @@
+{
+  "version": 1,
+  "rule": "naxx-horsemen-restoration-druid-alliance-hps-v1",
+  "scope": {
+    "encounter_id": 51121,
+    "class_id": 2,
+    "category": "Restoration",
+    "metric": "hps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/60117765-2006-20261102T031646.zip",
+    "sha256": "5bb2468398c6b371d012ee717af46b5c52a4de0da78d7993f4b84dc2e8e50277"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "kJ6PX9b8waTnQrxz-30-5",
+      "purpose": "policy-scope",
+      "report": "kJ6PX9b8waTnQrxz",
+      "fight": 30,
+      "actor": 5,
+      "player": "Rejuvs",
+      "realm": "Ashkandi",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51121_The_Four_Horsemen.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 104491,
+      "published": "943.689",
+      "totals": {
+        "raw": 98607,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 98607
+      },
+      "residual": "-7299/104491000",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 206,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "b9ee98bad0fd995ed35314f892088c2b8d377bad969fd8ce27947dd7cb81b95e",
+            "526406cbb5b36b03dcafba882651f8a94fa4d1431809d1cdbcd002725eafe592",
+            "cc78b438822ea7b469f2a2e1e0a3df5e1d1860918367b9fa51cc414a9bbcaeb6"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "m6BbFJtWAY2p8qVx-26-37",
+      "purpose": "policy-scope",
+      "report": "m6BbFJtWAY2p8qVx",
+      "fight": 26,
+      "actor": 37,
+      "player": "Tatey",
+      "realm": "Ashkandi",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51121_The_Four_Horsemen.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 108400,
+      "published": "1112.98",
+      "totals": {
+        "raw": 120647,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 120647
+      },
+      "residual": "-2/6775"
+    },
+    {
+      "id": "pwZ3QWVMvFx9cNd7-24-20",
+      "purpose": "policy-scope",
+      "report": "pwZ3QWVMvFx9cNd7",
+      "fight": 24,
+      "actor": 20,
+      "player": "Eblis",
+      "realm": "Pagle",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51121_The_Four_Horsemen.json",
+      "page": 1,
+      "row": 3,
+      "owned_actor_ids": [],
+      "duration_ms": 92006,
+      "published": "912.408",
+      "totals": {
+        "raw": 83947,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 83947
+      },
+      "residual": "-653/5750375"
+    }
+  ],
+  "refusals": []
+}

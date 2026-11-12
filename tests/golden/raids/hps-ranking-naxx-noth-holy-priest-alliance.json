@@ -1,0 +1,112 @@
+{
+  "version": 1,
+  "rule": "naxx-noth-holy-priest-alliance-hps-v1",
+  "scope": {
+    "encounter_id": 51117,
+    "class_id": 7,
+    "category": "Holy",
+    "metric": "hps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77573659-2006-20261106T154918.zip",
+    "sha256": "d292ee0e8a3db304a504e98ecc0528b70e43446dd74548afaf5788d8af9d8139"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "9v6hPwaWmXG8fCRd-12-37",
+      "purpose": "policy-scope",
+      "report": "9v6hPwaWmXG8fCRd",
+      "fight": 12,
+      "actor": 37,
+      "player": "Almsivi",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51117_Noth_the_Plaguebringer.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 37709,
+      "published": "1926.46",
+      "totals": {
+        "raw": 72645,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 72645
+      },
+      "residual": "5993/1885450",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 224,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "45cf296cb4471bffe9c66c63f3bc92e846463c64c59491d6e7f60a759b0fcdcb"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "9v6hPwaWmXG8fCRd-12-4",
+      "purpose": "policy-scope",
+      "report": "9v6hPwaWmXG8fCRd",
+      "fight": 12,
+      "actor": 4,
+      "player": "Sakrize",
+      "realm": "Ashbringer",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51117_Noth_the_Plaguebringer.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 37709,
+      "published": "1894.91",
+      "totals": {
+        "raw": 71455,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 71455
+      },
+      "residual": "-16119/3770900"
+    },
+    {
+      "id": "H8TJxZMhX62rnqmA-12-19",
+      "purpose": "policy-scope",
+      "report": "H8TJxZMhX62rnqmA",
+      "fight": 12,
+      "actor": 19,
+      "player": "Sindoray",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51117_Noth_the_Plaguebringer.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 52602,
+      "published": "1857.8",
+      "totals": {
+        "raw": 97724,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 97724
+      },
+      "residual": "1/11955"
+    }
+  ],
+  "refusals": []
+}

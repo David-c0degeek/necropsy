@@ -1,0 +1,103 @@
+{
+  "version": 1,
+  "rule": "naxx-kelthuzad-holy-priest-horde-hps-v1",
+  "scope": {
+    "encounter_id": 51114,
+    "class_id": 7,
+    "category": "Holy",
+    "metric": "hps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77516109-2006-20261107T143644.zip",
+    "sha256": "6261e9d695747c333065fa0655f610a7b7bd0be5015f47f70395edf7e7789eca"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "r2awzngH4BAmFf3Y-23-49",
+      "purpose": "policy-scope",
+      "report": "r2awzngH4BAmFf3Y",
+      "fight": 23,
+      "actor": 49,
+      "player": "梦中之梦",
+      "realm": "哈霍兰",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51114_Kel_Thuzad.json",
+      "page": 1,
+      "row": 27,
+      "owned_actor_ids": [],
+      "duration_ms": 27135,
+      "published": "950.286",
+      "totals": {
+        "raw": 25786,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 25786
+      },
+      "residual": "-1061/2713500"
+    },
+    {
+      "id": "xGFptfny49BTMPrL-72-13",
+      "purpose": "policy-scope",
+      "report": "xGFptfny49BTMPrL",
+      "fight": 72,
+      "actor": 13,
+      "player": "小卷熊",
+      "realm": "哈霍兰",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51114_Kel_Thuzad.json",
+      "page": 1,
+      "row": 11,
+      "owned_actor_ids": [],
+      "duration_ms": 22888,
+      "published": "998.602",
+      "totals": {
+        "raw": 22856,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 22856
+      },
+      "residual": "-161/1430500"
+    },
+    {
+      "id": "zDAVbmGX1x3TpL6P-74-49",
+      "purpose": "policy-scope",
+      "report": "zDAVbmGX1x3TpL6P",
+      "fight": 74,
+      "actor": 49,
+      "player": "何必离别",
+      "realm": "哈霍兰",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51114_Kel_Thuzad.json",
+      "page": 1,
+      "row": 28,
+      "owned_actor_ids": [],
+      "duration_ms": 25758,
+      "published": "949.763",
+      "totals": {
+        "raw": 24464,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 24464
+      },
+      "residual": "2323/12879000"
+    }
+  ],
+  "refusals": []
+}

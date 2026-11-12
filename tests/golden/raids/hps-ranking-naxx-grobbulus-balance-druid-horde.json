@@ -1,0 +1,103 @@
+{
+  "version": 1,
+  "rule": "naxx-grobbulus-balance-druid-horde-hps-v1",
+  "scope": {
+    "encounter_id": 51111,
+    "class_id": 2,
+    "category": "Balance",
+    "metric": "hps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261031/76376122-2006-20261028T163059.zip",
+    "sha256": "392bf13fb1350ae468253631895b9be591d46516a40d020a00dcaa568fa1ef4f"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "6W8dnTAP2xhbjFtg-26-5",
+      "purpose": "policy-scope",
+      "report": "6W8dnTAP2xhbjFtg",
+      "fight": 26,
+      "actor": 5,
+      "player": "Nikimaru",
+      "realm": "哈霍兰",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51111_Grobbulus.json",
+      "page": 1,
+      "row": 14,
+      "owned_actor_ids": [],
+      "duration_ms": 105453,
+      "published": "171.716",
+      "totals": {
+        "raw": 18108,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 18108
+      },
+      "residual": "907/2929250"
+    },
+    {
+      "id": "QWcCvpFGb12azYKm-23-4",
+      "purpose": "policy-scope",
+      "report": "QWcCvpFGb12azYKm",
+      "fight": 23,
+      "actor": 4,
+      "player": "Kumpir",
+      "realm": "Earthshaker",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51111_Grobbulus.json",
+      "page": 1,
+      "row": 11,
+      "owned_actor_ids": [],
+      "duration_ms": 72268,
+      "published": "193.654",
+      "totals": {
+        "raw": 13995,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 13995
+      },
+      "residual": "1591/9033500"
+    },
+    {
+      "id": "vRmh8HXbQwK2xCWk-73-240",
+      "purpose": "policy-scope",
+      "report": "vRmh8HXbQwK2xCWk",
+      "fight": 73,
+      "actor": 240,
+      "player": "饥饿之寒喊",
+      "realm": "哈霍兰",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51111_Grobbulus.json",
+      "page": 1,
+      "row": 15,
+      "owned_actor_ids": [],
+      "duration_ms": 100530,
+      "published": "171.551",
+      "totals": {
+        "raw": 17246,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 17246
+      },
+      "residual": "-2203/10053000"
+    }
+  ],
+  "refusals": []
+}

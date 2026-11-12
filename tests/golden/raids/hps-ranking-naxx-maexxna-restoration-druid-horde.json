@@ -1,0 +1,119 @@
+{
+  "version": 1,
+  "rule": "naxx-maexxna-restoration-druid-horde-hps-v1",
+  "scope": {
+    "encounter_id": 51116,
+    "class_id": 2,
+    "category": "Restoration",
+    "metric": "hps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77577270-2006-20261103T040708.zip",
+    "sha256": "f2151316bf0531ee4187a54e5f234c18b29028f9418e3d7d513d83521c2a681d"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "2RXQ1YkAwztL8BDr-29-33",
+      "purpose": "policy-scope",
+      "report": "2RXQ1YkAwztL8BDr",
+      "fight": 29,
+      "actor": 33,
+      "player": "夜文梧桐",
+      "realm": "哈霍兰",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51116_Maexxna.json",
+      "page": 1,
+      "row": 3,
+      "owned_actor_ids": [],
+      "duration_ms": 69662,
+      "published": "643.321",
+      "totals": {
+        "raw": 44815,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 44815
+      },
+      "residual": "-13751/34831000"
+    },
+    {
+      "id": "GJbywBFKgrQxW47j-7-14",
+      "purpose": "policy-scope",
+      "report": "GJbywBFKgrQxW47j",
+      "fight": 7,
+      "actor": 14,
+      "player": "Thorisdottir",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51116_Maexxna.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 35908,
+      "published": "998.663",
+      "totals": {
+        "raw": 35860,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 35860
+      },
+      "residual": "2249/8977000",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 189,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "302a37c8b4c95e2a48161905c4ba2d2ee1e504b6511abaf801a528209c37485f"
+          ]
+        },
+        {
+          "pet": 259,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "302a37c8b4c95e2a48161905c4ba2d2ee1e504b6511abaf801a528209c37485f"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "xVvYa4y71gRHjfpr-5-3",
+      "purpose": "policy-scope",
+      "report": "xVvYa4y71gRHjfpr",
+      "fight": 5,
+      "actor": 3,
+      "player": "Cylak",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51116_Maexxna.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 32340,
+      "published": "731.323",
+      "totals": {
+        "raw": 23651,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 23651
+      },
+      "residual": "709/1617000"
+    }
+  ],
+  "refusals": []
+}

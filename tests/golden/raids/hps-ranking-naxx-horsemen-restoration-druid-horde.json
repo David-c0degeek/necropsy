@@ -1,0 +1,121 @@
+{
+  "version": 1,
+  "rule": "naxx-horsemen-restoration-druid-horde-hps-v1",
+  "scope": {
+    "encounter_id": 51121,
+    "class_id": 2,
+    "category": "Restoration",
+    "metric": "hps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77577270-2006-20261103T040708.zip",
+    "sha256": "f2151316bf0531ee4187a54e5f234c18b29028f9418e3d7d513d83521c2a681d"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "VQyZ2Mc39Lf4TmvR-25-41",
+      "purpose": "policy-scope",
+      "report": "VQyZ2Mc39Lf4TmvR",
+      "fight": 25,
+      "actor": 41,
+      "player": "Karakorn",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51121_The_Four_Horsemen.json",
+      "page": 1,
+      "row": 6,
+      "owned_actor_ids": [],
+      "duration_ms": 101076,
+      "published": "774.546",
+      "totals": {
+        "raw": 78288,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 78288
+      },
+      "residual": "-479/4211500"
+    },
+    {
+      "id": "bzK64yd3JcTfMGgB-22-5",
+      "purpose": "policy-scope",
+      "report": "bzK64yd3JcTfMGgB",
+      "fight": 22,
+      "actor": 5,
+      "player": "Thorisdottir",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51121_The_Four_Horsemen.json",
+      "page": 1,
+      "row": 9,
+      "owned_actor_ids": [],
+      "duration_ms": 93109,
+      "published": "686.733",
+      "totals": {
+        "raw": 63941,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 63941
+      },
+      "residual": "-22897/93109000",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 184,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "c1f58ae8a860a5c5cb249ee67bbd2c4a1fa4e37c765a1c3a54f211c3ff909365",
+            "5a5070ba1c59bd2578bf0e314c0cec2d2154e64c2ca5c0ca38292419a9145e66"
+          ]
+        },
+        {
+          "pet": 261,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "c1f58ae8a860a5c5cb249ee67bbd2c4a1fa4e37c765a1c3a54f211c3ff909365",
+            "5a5070ba1c59bd2578bf0e314c0cec2d2154e64c2ca5c0ca38292419a9145e66"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vmWJta8BKNw9jQxh-28-70",
+      "purpose": "policy-scope",
+      "report": "vmWJta8BKNw9jQxh",
+      "fight": 28,
+      "actor": 70,
+      "player": "Eñ",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51121_The_Four_Horsemen.json",
+      "page": 1,
+      "row": 4,
+      "owned_actor_ids": [],
+      "duration_ms": 168438,
+      "published": "801.595",
+      "totals": {
+        "raw": 135019,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 135019
+      },
+      "residual": "-5861/16843800"
+    }
+  ],
+  "refusals": []
+}

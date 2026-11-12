@@ -1,0 +1,103 @@
+{
+  "version": 1,
+  "rule": "naxx-thaddius-holy-priest-horde-hps-v1",
+  "scope": {
+    "encounter_id": 51120,
+    "class_id": 7,
+    "category": "Holy",
+    "metric": "hps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77516109-2006-20261107T143644.zip",
+    "sha256": "6261e9d695747c333065fa0655f610a7b7bd0be5015f47f70395edf7e7789eca"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "3BC7jqtfAQbPGK1H-107-185",
+      "purpose": "policy-scope",
+      "report": "3BC7jqtfAQbPGK1H",
+      "fight": 107,
+      "actor": 185,
+      "player": "Chibbytwocap",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51120_Thaddius.json",
+      "page": 3,
+      "row": 17,
+      "owned_actor_ids": [],
+      "duration_ms": 281493,
+      "published": "657.697",
+      "totals": {
+        "raw": 185137,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 185137
+      },
+      "residual": "-101621/281493000"
+    },
+    {
+      "id": "9qW4RFrzLCn7BvHf-18-8",
+      "purpose": "policy-scope",
+      "report": "9qW4RFrzLCn7BvHf",
+      "fight": 18,
+      "actor": 8,
+      "player": "丨其徐如林丨",
+      "realm": "厄运之槌",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51120_Thaddius.json",
+      "page": 3,
+      "row": 74,
+      "owned_actor_ids": [],
+      "duration_ms": 190653,
+      "published": "648.172",
+      "totals": {
+        "raw": 123576,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 123576
+      },
+      "residual": "5307/15887750"
+    },
+    {
+      "id": "Pky8TVQmjAg9XhHp-22-35",
+      "purpose": "policy-scope",
+      "report": "Pky8TVQmjAg9XhHp",
+      "fight": 22,
+      "actor": 35,
+      "player": "宙斯丶之翼",
+      "realm": "哈霍兰",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51120_Thaddius.json",
+      "page": 4,
+      "row": 26,
+      "owned_actor_ids": [],
+      "duration_ms": 325390,
+      "published": "638.698",
+      "totals": {
+        "raw": 207826,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 207826
+      },
+      "residual": "2889/16269500"
+    }
+  ],
+  "refusals": []
+}

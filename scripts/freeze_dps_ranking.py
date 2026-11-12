@@ -1,4 +1,4 @@
-"""Freeze/check independent actor-scoped DPS arithmetic against one published row.
+"""Freeze/check independent actor-scoped DPS or HPS arithmetic against one published row.
 
 An explicit JSON spec pins a capture and identifies a leaderboard row and the
 owner. Exclusions are inputs, never fitted. Output is research, not a validated
@@ -124,7 +124,15 @@ def consistent(amount: int, duration: int, published: str) -> bool:
     return abs(Fraction(amount * 1000, duration) - Fraction(published)) < Fraction(1, 10**decimals)
 
 
-def validate_spec(spec: dict[str, Any]) -> None:
+EFFECT_TYPES = {"dps": frozenset({"damage"}), "hps": frozenset({"heal", "absorbed"})}
+"""Counted event types. A heal event's amount excludes overheal."""
+ROLES = {
+    "dps": frozenset({"balance-dps", "feral-dps", "feral-tank", "dps", "tank"}),
+    "hps": frozenset({"restoration", "healer"}),
+}
+
+
+def validate_spec(spec: dict[str, Any], metric: str = "dps") -> None:
     keys = {
         "archive",
         "sha256",
@@ -151,8 +159,10 @@ def validate_spec(spec: dict[str, Any]) -> None:
         require(type(spec[key]) is str and bool(spec[key]), f"missing {key}")
     require(bool(re.fullmatch(r"[A-Za-z0-9]+", spec["report"])), "invalid report code")
     require(
-        spec["role"] in {"balance-dps", "feral-dps", "feral-tank", "dps", "tank"},
-        "unsupported DPS role; do not use healer ranking caches",
+        spec["role"] in ROLES[metric],
+        "unsupported DPS role; do not use healer ranking caches"
+        if metric == "dps"
+        else "unsupported HPS role",
     )
     excluded = spec["excluded_game_ids"]
     require(
@@ -161,10 +171,21 @@ def validate_spec(spec: dict[str, Any]) -> None:
         and len(excluded) == len(set(excluded)),
         "invalid or duplicate exclusion IDs",
     )
+    # Production exclusion lists name damage targets; healing has none.
+    require(metric == "dps" or not excluded, "HPS takes no target exclusions")
 
 
-def compute(spec: dict[str, Any], base: Path) -> dict[str, Any]:
-    validate_spec(spec)
+def compute_hps(spec: dict[str, Any], base: Path) -> dict[str, Any]:
+    """HPS: the owner's and its owned units' heal and absorbed amounts on friendly
+    recipients over the fight duration (overheal excluded). Recipients outside the
+    fight's friendly players and pets are recorded as excluded, never counted."""
+    return compute(spec, base, metric="hps")
+
+
+def compute(spec: dict[str, Any], base: Path, metric: str = "dps") -> dict[str, Any]:
+    require(metric in EFFECT_TYPES, "unknown metric")
+    validate_spec(spec, metric)
+    effects = EFFECT_TYPES[metric]
     archive_path = base / spec["archive"]
     require(archive_path.stat().st_size <= 256 * 1024 * 1024, "archive size cap")
     raw = archive_path.read_bytes()
@@ -551,7 +572,7 @@ def compute(spec: dict[str, Any], base: Path) -> dict[str, Any]:
                 located = pages._pages(z, f"{stream_folder}/{direction}_", start, end, fid)
                 counts: Counter[str] = Counter()
                 for event, name, index in located:
-                    if event.get("type") != "damage":
+                    if event.get("type") not in effects:
                         continue
                     require(type(event.get("sourceID")) is int, "damage source unresolved")
                     if event["sourceID"] != source:
@@ -582,7 +603,7 @@ def compute(spec: dict[str, Any], base: Path) -> dict[str, Any]:
             # pages hold each of its events exactly once.
             counts = Counter()
             for event, name, index in scope:
-                if event.get("type") != "damage" or event.get("sourceID") != source:
+                if event.get("type") not in effects or event.get("sourceID") != source:
                     continue
                 require(
                     type(event.get("targetID")) is int and event["targetID"] in actors,
@@ -602,20 +623,26 @@ def compute(spec: dict[str, Any], base: Path) -> dict[str, Any]:
             combined.update(counts)
 
         own = {owner, *pet_ids, *active}
+        friendly = (
+            {x for x in fight["friendlyPlayers"]} | {p["id"] for p in fight["friendlyPets"]} | own
+        )
         totals = {"raw": 0, "self": 0, "excluded": 0, "ranked": 0}
         events = []
         for key, count in sorted(combined.items()):
             event = read_json(key.encode())
             target = event["targetID"]
-            disposition = (
-                "self"
-                if target in own
-                else (
-                    "excluded"
-                    if actors[target]["gameID"] in spec["excluded_game_ids"]
-                    else "ranked"
+            if metric == "hps":
+                disposition = "ranked" if target in friendly else "excluded"
+            else:
+                disposition = (
+                    "self"
+                    if target in own
+                    else (
+                        "excluded"
+                        if actors[target]["gameID"] in spec["excluded_game_ids"]
+                        else "ranked"
+                    )
                 )
-            )
             totals["raw"] += event["amount"] * count
             totals[disposition] += event["amount"] * count
             events.append(
@@ -626,7 +653,10 @@ def compute(spec: dict[str, Any], base: Path) -> dict[str, Any]:
                     "locators": observations[key],
                 }
             )
-        require(bool(events), "no observed outgoing damage")
+        require(
+            bool(events),
+            "no observed outgoing damage" if metric == "dps" else "no observed healing",
+        )
         published_page = read(spec["leaderboard_member"], decimals=True)
         require(
             type(published_page.get("partition")) is int and published_page["partition"] == 1,
@@ -668,7 +698,7 @@ def compute(spec: dict[str, Any], base: Path) -> dict[str, Any]:
         require(type(amount) in (str, int), "invalid published amount")
         published = str(amount)
         if not consistent(totals["ranked"], end - start, published):
-            raise ArithmeticMismatch("published DPS contradicts raw")
+            raise ArithmeticMismatch(f"published {metric.upper()} contradicts raw")
         result = {
             "version": 1,
             "status": "draft actor-scoped arithmetic; not a validated cell policy",

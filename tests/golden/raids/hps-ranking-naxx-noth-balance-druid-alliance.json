@@ -1,0 +1,119 @@
+{
+  "version": 1,
+  "rule": "naxx-noth-balance-druid-alliance-hps-v1",
+  "scope": {
+    "encounter_id": 51117,
+    "class_id": 2,
+    "category": "Balance",
+    "metric": "hps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261031/65603754-2006-20261027T195031.zip",
+    "sha256": "f439dc7db47a18dcda8d5db7264be0990cd042124900315b93fff583bf2220be"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "Cw6b9hkLpdmGtZ1v-8-7",
+      "purpose": "policy-scope",
+      "report": "Cw6b9hkLpdmGtZ1v",
+      "fight": 8,
+      "actor": 7,
+      "player": "Bonnibelle",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51117_Noth_the_Plaguebringer.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 38177,
+      "published": "162.952",
+      "totals": {
+        "raw": 6221,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 6221
+      },
+      "residual": "-2313/4772125",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 219,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "6479e6fd66ab185a3ee767c210f0c156bbd0feb59461335168b8205cf38b1270"
+          ]
+        },
+        {
+          "pet": 231,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "6479e6fd66ab185a3ee767c210f0c156bbd0feb59461335168b8205cf38b1270"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Gnq3Jb2XQDfvBdK1-42-33",
+      "purpose": "policy-scope",
+      "report": "Gnq3Jb2XQDfvBdK1",
+      "fight": 42,
+      "actor": 33,
+      "player": "Saxons",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51117_Noth_the_Plaguebringer.json",
+      "page": 1,
+      "row": 3,
+      "owned_actor_ids": [],
+      "duration_ms": 83119,
+      "published": "153.792",
+      "totals": {
+        "raw": 12783,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 12783
+      },
+      "residual": "-4656/10389875"
+    },
+    {
+      "id": "RYqzh9Qg6kdKBM8X-21-1",
+      "purpose": "policy-scope",
+      "report": "RYqzh9Qg6kdKBM8X",
+      "fight": 21,
+      "actor": 1,
+      "player": "Teris",
+      "realm": "Mankrik",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51117_Noth_the_Plaguebringer.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 52041,
+      "published": "160.604",
+      "totals": {
+        "raw": 8358,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 8358
+      },
+      "residual": "603/4336750"
+    }
+  ],
+  "refusals": []
+}

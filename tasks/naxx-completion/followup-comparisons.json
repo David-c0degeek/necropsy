@@ -1856,6 +1856,652 @@
   {
    "configuration": {
     "class": "Druid",
+    "category": "Balance",
+    "metric": "hps",
+    "faction": "Alliance"
+   },
+   "encounter_id": 51107,
+   "boss": "Anub'Rekhan",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261031/65603754-2006-20261027T195031.zip",
+    "sha256": "f439dc7db47a18dcda8d5db7264be0990cd042124900315b93fff583bf2220be"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "6g39CxdHRMzcYbX8",
+     "fight": 128,
+     "player": "Outofshape",
+     "realm": "Golemagg"
+    },
+    {
+     "report": "kAMV1rpYbNgPn97C",
+     "fight": 4,
+     "player": "豹琴玉",
+     "realm": "匕首岭"
+    },
+    {
+     "report": "xTD6VvH1XbZK3mJF",
+     "fight": 10,
+     "player": "花妹妹",
+     "realm": "哈霍兰"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Druid",
+    "category": "Balance",
+    "metric": "hps",
+    "faction": "Alliance"
+   },
+   "encounter_id": 51108,
+   "boss": "Gluth",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261031/65603754-2006-20261027T195031.zip",
+    "sha256": "f439dc7db47a18dcda8d5db7264be0990cd042124900315b93fff583bf2220be"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "6g39CxdHRMzcYbX8",
+     "fight": 126,
+     "player": "Outofshape",
+     "realm": "Golemagg"
+    }
+   ],
+   "refused": [
+    {
+     "report": "mT9LYHy73kA6NRjq",
+     "fight": 308,
+     "player": "熊爪爪",
+     "realm": "伊弗斯",
+     "reason": "wrong encounter or not a kill"
+    },
+    {
+     "report": "mT9LYHy73kA6NRjq",
+     "fight": 308,
+     "player": "东篱",
+     "realm": "伊弗斯",
+     "reason": "wrong encounter or not a kill"
+    }
+   ],
+   "unverified": [],
+   "admitted_distinct_players": 1,
+   "minimum": 3,
+   "needs_followup": true,
+   "followup": "more-comparisons",
+   "reason": "1 admitted comparisons, fewer than 3"
+  },
+  {
+   "configuration": {
+    "class": "Druid",
+    "category": "Balance",
+    "metric": "hps",
+    "faction": "Alliance"
+   },
+   "encounter_id": 51109,
+   "boss": "Gothik the Harvester",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261031/65603754-2006-20261027T195031.zip",
+    "sha256": "f439dc7db47a18dcda8d5db7264be0990cd042124900315b93fff583bf2220be"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "AcBfmTNxZCHr2hQK",
+     "fight": 33,
+     "player": "Naizu",
+     "realm": "Whitemane"
+    },
+    {
+     "report": "BxFCb6K4WNL3ADgM",
+     "fight": 143,
+     "player": "山丶葵",
+     "realm": "伊弗斯"
+    },
+    {
+     "report": "J8L3jAVdFXDxWbhw",
+     "fight": 85,
+     "player": "Saxons",
+     "realm": "Whitemane"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Druid",
+    "category": "Balance",
+    "metric": "hps",
+    "faction": "Alliance"
+   },
+   "encounter_id": 51110,
+   "boss": "Grand Widow Faerlina",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261031/65603754-2006-20261027T195031.zip",
+    "sha256": "f439dc7db47a18dcda8d5db7264be0990cd042124900315b93fff583bf2220be"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "6g39CxdHRMzcYbX8",
+     "fight": 133,
+     "player": "Outofshape",
+     "realm": "Golemagg"
+    },
+    {
+     "report": "BxFCb6K4WNL3ADgM",
+     "fight": 154,
+     "player": "可莉害了",
+     "realm": "伊弗斯"
+    }
+   ],
+   "refused": [
+    {
+     "report": "BxFCb6K4WNL3ADgM",
+     "fight": 154,
+     "player": "山丶葵",
+     "realm": "伊弗斯",
+     "reason": "published HPS contradicts raw"
+    }
+   ],
+   "unverified": [],
+   "admitted_distinct_players": 2,
+   "minimum": 3,
+   "needs_followup": true,
+   "followup": "more-comparisons",
+   "reason": "2 admitted comparisons, fewer than 3"
+  },
+  {
+   "configuration": {
+    "class": "Druid",
+    "category": "Balance",
+    "metric": "hps",
+    "faction": "Alliance"
+   },
+   "encounter_id": 51111,
+   "boss": "Grobbulus",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261031/65603754-2006-20261027T195031.zip",
+    "sha256": "f439dc7db47a18dcda8d5db7264be0990cd042124900315b93fff583bf2220be"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "6g39CxdHRMzcYbX8",
+     "fight": 123,
+     "player": "Outofshape",
+     "realm": "Golemagg"
+    },
+    {
+     "report": "MDvc1q2nQWGNXZKL",
+     "fight": 33,
+     "player": "Maliju",
+     "realm": "Firemaw"
+    },
+    {
+     "report": "Rzf3gVvYQ78ap2B6",
+     "fight": 15,
+     "player": "乐在骑中矣",
+     "realm": "哈霍兰"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Druid",
+    "category": "Balance",
+    "metric": "hps",
+    "faction": "Alliance"
+   },
+   "encounter_id": 51112,
+   "boss": "Heigan the Unclean",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261031/65603754-2006-20261027T195031.zip",
+    "sha256": "f439dc7db47a18dcda8d5db7264be0990cd042124900315b93fff583bf2220be"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "7nVPpTQFaA38tCNj",
+     "fight": 12,
+     "player": "Arasuruv",
+     "realm": "Firemaw"
+    },
+    {
+     "report": "Pg9wYkc3GLdZCf4n",
+     "fight": 13,
+     "player": "丶王雪球丶",
+     "realm": "哈霍兰"
+    },
+    {
+     "report": "TZ8qvByKFjbzD7m9",
+     "fight": 13,
+     "player": "白航之德",
+     "realm": "匕首岭"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Druid",
+    "category": "Balance",
+    "metric": "hps",
+    "faction": "Alliance"
+   },
+   "encounter_id": 51113,
+   "boss": "Instructor Razuvious",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261031/65603754-2006-20261027T195031.zip",
+    "sha256": "f439dc7db47a18dcda8d5db7264be0990cd042124900315b93fff583bf2220be"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "X7W2nP3rtcYANTjd",
+     "fight": 14,
+     "player": "Bonnibelle",
+     "realm": "Whitemane"
+    }
+   ],
+   "refused": [
+    {
+     "report": "9PwYrVNb6tLczD7R",
+     "fight": 145,
+     "player": "冰河的雨",
+     "realm": "哈霍兰",
+     "reason": "published HPS contradicts raw"
+    },
+    {
+     "report": "HtzdYPpAxK2ZLqFg",
+     "fight": 64,
+     "player": "浅素素",
+     "realm": "哈霍兰",
+     "reason": "published HPS contradicts raw"
+    }
+   ],
+   "unverified": [],
+   "admitted_distinct_players": 1,
+   "minimum": 3,
+   "needs_followup": true,
+   "followup": "more-comparisons",
+   "reason": "1 admitted comparisons, fewer than 3"
+  },
+  {
+   "configuration": {
+    "class": "Druid",
+    "category": "Balance",
+    "metric": "hps",
+    "faction": "Alliance"
+   },
+   "encounter_id": 51114,
+   "boss": "Kel'Thuzad",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261031/65603754-2006-20261027T195031.zip",
+    "sha256": "f439dc7db47a18dcda8d5db7264be0990cd042124900315b93fff583bf2220be"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "R7XJfjcdbAxawpk6",
+     "fight": 8,
+     "player": "溪荇",
+     "realm": "哈霍兰"
+    },
+    {
+     "report": "kD8y9dKj2WzXF6H1",
+     "fight": 75,
+     "player": "豆包小富婆",
+     "realm": "匕首岭"
+    },
+    {
+     "report": "zpWh4vQkGtngaPD9",
+     "fight": 73,
+     "player": "果冻小甜心",
+     "realm": "德姆塞卡尔"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Druid",
+    "category": "Balance",
+    "metric": "hps",
+    "faction": "Alliance"
+   },
+   "encounter_id": 51115,
+   "boss": "Loatheb",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261031/65603754-2006-20261027T195031.zip",
+    "sha256": "f439dc7db47a18dcda8d5db7264be0990cd042124900315b93fff583bf2220be"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "MHnCPZr7zJ3xRvcy",
+     "fight": 21,
+     "player": "Sellene",
+     "realm": "Pyrewood Village"
+    },
+    {
+     "report": "qGWp6BY4wtkP9Rvj",
+     "fight": 40,
+     "player": "绾琬",
+     "realm": "哈霍兰"
+    }
+   ],
+   "refused": [
+    {
+     "report": "Pr3aMNydjwtzhBpC",
+     "fight": 62,
+     "player": "子禾集团",
+     "realm": "哈霍兰",
+     "reason": "\"There is no item named 'events/Pr3aMNydjwtzhBpC/fight_62/player_34_x/pets.json' in the archive\""
+    }
+   ],
+   "unverified": [],
+   "admitted_distinct_players": 2,
+   "minimum": 3,
+   "needs_followup": true,
+   "followup": "more-comparisons",
+   "reason": "2 admitted comparisons, fewer than 3"
+  },
+  {
+   "configuration": {
+    "class": "Druid",
+    "category": "Balance",
+    "metric": "hps",
+    "faction": "Alliance"
+   },
+   "encounter_id": 51116,
+   "boss": "Maexxna",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261031/65603754-2006-20261027T195031.zip",
+    "sha256": "f439dc7db47a18dcda8d5db7264be0990cd042124900315b93fff583bf2220be"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "BxFCb6K4WNL3ADgM",
+     "fight": 160,
+     "player": "山丶葵",
+     "realm": "伊弗斯"
+    },
+    {
+     "report": "RpaY2qBjJT1Z3QHF",
+     "fight": 8,
+     "player": "Pissdoff",
+     "realm": "Whitemane"
+    },
+    {
+     "report": "W3ADmR8MHLYzdyZ9",
+     "fight": 8,
+     "player": "Calimay",
+     "realm": "Firemaw"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Druid",
+    "category": "Balance",
+    "metric": "hps",
+    "faction": "Alliance"
+   },
+   "encounter_id": 51117,
+   "boss": "Noth the Plaguebringer",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261031/65603754-2006-20261027T195031.zip",
+    "sha256": "f439dc7db47a18dcda8d5db7264be0990cd042124900315b93fff583bf2220be"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "Cw6b9hkLpdmGtZ1v",
+     "fight": 8,
+     "player": "Bonnibelle",
+     "realm": "Whitemane"
+    },
+    {
+     "report": "Gnq3Jb2XQDfvBdK1",
+     "fight": 42,
+     "player": "Saxons",
+     "realm": "Whitemane"
+    },
+    {
+     "report": "RYqzh9Qg6kdKBM8X",
+     "fight": 21,
+     "player": "Teris",
+     "realm": "Mankrik"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Druid",
+    "category": "Balance",
+    "metric": "hps",
+    "faction": "Alliance"
+   },
+   "encounter_id": 51118,
+   "boss": "Patchwerk",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261031/65603754-2006-20261027T195031.zip",
+    "sha256": "f439dc7db47a18dcda8d5db7264be0990cd042124900315b93fff583bf2220be"
+   },
+   "archive_depth": 3,
+   "admitted": [],
+   "refused": [
+    {
+     "report": "mT9LYHy73kA6NRjq",
+     "fight": 297,
+     "player": "熊爪爪",
+     "realm": "伊弗斯",
+     "reason": "wrong encounter or not a kill"
+    },
+    {
+     "report": "mT9LYHy73kA6NRjq",
+     "fight": 297,
+     "player": "东篱",
+     "realm": "伊弗斯",
+     "reason": "wrong encounter or not a kill"
+    },
+    {
+     "report": "mT9LYHy73kA6NRjq",
+     "fight": 297,
+     "player": "王德德",
+     "realm": "伊弗斯",
+     "reason": "wrong encounter or not a kill"
+    }
+   ],
+   "unverified": [],
+   "admitted_distinct_players": 0,
+   "minimum": 3,
+   "needs_followup": true,
+   "followup": "more-comparisons",
+   "reason": "0 admitted comparisons, fewer than 3"
+  },
+  {
+   "configuration": {
+    "class": "Druid",
+    "category": "Balance",
+    "metric": "hps",
+    "faction": "Alliance"
+   },
+   "encounter_id": 51119,
+   "boss": "Sapphiron",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261031/65603754-2006-20261027T195031.zip",
+    "sha256": "f439dc7db47a18dcda8d5db7264be0990cd042124900315b93fff583bf2220be"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "Nfd8aGgkmD7vqQR4",
+     "fight": 70,
+     "player": "得的德德",
+     "realm": "哈霍兰"
+    },
+    {
+     "report": "q9DjzyVcRWZx3PH6",
+     "fight": 35,
+     "player": "Fjaeriefire",
+     "realm": "Skullflame"
+    },
+    {
+     "report": "xpg8XLHjYTJFGycm",
+     "fight": 39,
+     "player": "Init",
+     "realm": "Whitemane"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Druid",
+    "category": "Balance",
+    "metric": "hps",
+    "faction": "Alliance"
+   },
+   "encounter_id": 51120,
+   "boss": "Thaddius",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261031/65603754-2006-20261027T195031.zip",
+    "sha256": "f439dc7db47a18dcda8d5db7264be0990cd042124900315b93fff583bf2220be"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "6g39CxdHRMzcYbX8",
+     "fight": 127,
+     "player": "Outofshape",
+     "realm": "Golemagg"
+    }
+   ],
+   "refused": [
+    {
+     "report": "mT9LYHy73kA6NRjq",
+     "fight": 310,
+     "player": "王德德",
+     "realm": "伊弗斯",
+     "reason": "wrong encounter or not a kill"
+    },
+    {
+     "report": "mT9LYHy73kA6NRjq",
+     "fight": 310,
+     "player": "东篱",
+     "realm": "伊弗斯",
+     "reason": "wrong encounter or not a kill"
+    }
+   ],
+   "unverified": [],
+   "admitted_distinct_players": 1,
+   "minimum": 3,
+   "needs_followup": true,
+   "followup": "more-comparisons",
+   "reason": "1 admitted comparisons, fewer than 3"
+  },
+  {
+   "configuration": {
+    "class": "Druid",
+    "category": "Balance",
+    "metric": "hps",
+    "faction": "Alliance"
+   },
+   "encounter_id": 51121,
+   "boss": "The Four Horsemen",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261031/65603754-2006-20261027T195031.zip",
+    "sha256": "f439dc7db47a18dcda8d5db7264be0990cd042124900315b93fff583bf2220be"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "L37hmKXZQDA1PcTg",
+     "fight": 146,
+     "player": "有德有思",
+     "realm": "哈霍兰"
+    },
+    {
+     "report": "bCpt37KRMj12LqYX",
+     "fight": 128,
+     "player": "沐星儿",
+     "realm": "湖畔镇"
+    },
+    {
+     "report": "bkdNn4Q62VXTBYZv",
+     "fight": 223,
+     "player": "找家小猫",
+     "realm": "哈霍兰"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Druid",
     "category": "Feral",
     "metric": "dps",
     "faction": "Alliance"
@@ -2555,6 +3201,653 @@
    "needs_followup": false,
    "followup": null,
    "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Druid",
+    "category": "Balance",
+    "metric": "hps",
+    "faction": "Horde"
+   },
+   "encounter_id": 51107,
+   "boss": "Anub'Rekhan",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261031/76376122-2006-20261028T163059.zip",
+    "sha256": "392bf13fb1350ae468253631895b9be591d46516a40d020a00dcaa568fa1ef4f"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "CjZANgBRcqL1r6Hp",
+     "fight": 24,
+     "player": "妍初",
+     "realm": "哈霍兰"
+    },
+    {
+     "report": "fk1MQChc9dDLV6G2",
+     "fight": 2,
+     "player": "Rosbif",
+     "realm": "Whitemane"
+    }
+   ],
+   "refused": [
+    {
+     "report": "x7ZmKwt2YFVDCydr",
+     "fight": 198,
+     "player": "哪里贵啦",
+     "realm": "伊弗斯",
+     "reason": "wrong encounter or not a kill"
+    }
+   ],
+   "unverified": [],
+   "admitted_distinct_players": 2,
+   "minimum": 3,
+   "needs_followup": true,
+   "followup": "more-comparisons",
+   "reason": "2 admitted comparisons, fewer than 3"
+  },
+  {
+   "configuration": {
+    "class": "Druid",
+    "category": "Balance",
+    "metric": "hps",
+    "faction": "Horde"
+   },
+   "encounter_id": 51108,
+   "boss": "Gluth",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261031/76376122-2006-20261028T163059.zip",
+    "sha256": "392bf13fb1350ae468253631895b9be591d46516a40d020a00dcaa568fa1ef4f"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "T1qFB68ytNHW9d2f",
+     "fight": 158,
+     "player": "背带裤男神",
+     "realm": "伊弗斯"
+    },
+    {
+     "report": "ac3m8hvC1QMTpAkD",
+     "fight": 66,
+     "player": "Lovexd",
+     "realm": "伊弗斯"
+    },
+    {
+     "report": "fZkRgVDQ1hdwMtvb",
+     "fight": 35,
+     "player": "Hedera",
+     "realm": "Whitemane"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Druid",
+    "category": "Balance",
+    "metric": "hps",
+    "faction": "Horde"
+   },
+   "encounter_id": 51109,
+   "boss": "Gothik the Harvester",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261031/76376122-2006-20261028T163059.zip",
+    "sha256": "392bf13fb1350ae468253631895b9be591d46516a40d020a00dcaa568fa1ef4f"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "T1qFB68ytNHW9d2f",
+     "fight": 100,
+     "player": "背带裤男神",
+     "realm": "伊弗斯"
+    },
+    {
+     "report": "tQGj2DvLrKhZBdPc",
+     "fight": 159,
+     "player": "小噹噹",
+     "realm": "哈霍兰"
+    },
+    {
+     "report": "z6ByD7MvAfLQG4qF",
+     "fight": 273,
+     "player": "魂斗罗少女",
+     "realm": "哈霍兰"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Druid",
+    "category": "Balance",
+    "metric": "hps",
+    "faction": "Horde"
+   },
+   "encounter_id": 51110,
+   "boss": "Grand Widow Faerlina",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261031/76376122-2006-20261028T163059.zip",
+    "sha256": "392bf13fb1350ae468253631895b9be591d46516a40d020a00dcaa568fa1ef4f"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "A1VQc9K7GmFZMvfP",
+     "fight": 165,
+     "player": "酷酷猪",
+     "realm": "哈霍兰"
+    },
+    {
+     "report": "GW8hmpwrgDYP67XR",
+     "fight": 369,
+     "player": "江晚酌酒",
+     "realm": "哈霍兰"
+    }
+   ],
+   "refused": [
+    {
+     "report": "rkjLhvGgbW1KdwYM",
+     "fight": 281,
+     "player": "德壹",
+     "realm": "伊弗斯",
+     "reason": "wrong encounter or not a kill"
+    }
+   ],
+   "unverified": [],
+   "admitted_distinct_players": 2,
+   "minimum": 3,
+   "needs_followup": true,
+   "followup": "more-comparisons",
+   "reason": "2 admitted comparisons, fewer than 3"
+  },
+  {
+   "configuration": {
+    "class": "Druid",
+    "category": "Balance",
+    "metric": "hps",
+    "faction": "Horde"
+   },
+   "encounter_id": 51111,
+   "boss": "Grobbulus",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261031/76376122-2006-20261028T163059.zip",
+    "sha256": "392bf13fb1350ae468253631895b9be591d46516a40d020a00dcaa568fa1ef4f"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "6W8dnTAP2xhbjFtg",
+     "fight": 26,
+     "player": "Nikimaru",
+     "realm": "哈霍兰"
+    },
+    {
+     "report": "QWcCvpFGb12azYKm",
+     "fight": 23,
+     "player": "Kumpir",
+     "realm": "Earthshaker"
+    },
+    {
+     "report": "vRmh8HXbQwK2xCWk",
+     "fight": 73,
+     "player": "饥饿之寒喊",
+     "realm": "哈霍兰"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Druid",
+    "category": "Balance",
+    "metric": "hps",
+    "faction": "Horde"
+   },
+   "encounter_id": 51112,
+   "boss": "Heigan the Unclean",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261031/76376122-2006-20261028T163059.zip",
+    "sha256": "392bf13fb1350ae468253631895b9be591d46516a40d020a00dcaa568fa1ef4f"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "A82gLVQPthabKwjM",
+     "fight": 69,
+     "player": "Arzid",
+     "realm": "Whitemane"
+    },
+    {
+     "report": "DMTgYWA68N9dm2HF",
+     "fight": 28,
+     "player": "骑猪追狗打",
+     "realm": "厄运之槌"
+    },
+    {
+     "report": "mWaQvBFVcL89TwnJ",
+     "fight": 21,
+     "player": "Dragontry",
+     "realm": "Firemaw"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Druid",
+    "category": "Balance",
+    "metric": "hps",
+    "faction": "Horde"
+   },
+   "encounter_id": 51113,
+   "boss": "Instructor Razuvious",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261031/76376122-2006-20261028T163059.zip",
+    "sha256": "392bf13fb1350ae468253631895b9be591d46516a40d020a00dcaa568fa1ef4f"
+   },
+   "archive_depth": 3,
+   "admitted": [],
+   "refused": [
+    {
+     "report": "PKa27xj6TcwMpmnz",
+     "fight": 257,
+     "player": "野生奶德",
+     "realm": "哈霍兰",
+     "reason": "published HPS contradicts raw"
+    },
+    {
+     "report": "PMQ4y6THdLbjgcAq",
+     "fight": 69,
+     "player": "京房小百科",
+     "realm": "哈霍兰",
+     "reason": "published HPS contradicts raw"
+    },
+    {
+     "report": "crvABV7T43HfmYd9",
+     "fight": 352,
+     "player": "老表上精灵火",
+     "realm": "伊弗斯",
+     "reason": "wrong encounter or not a kill"
+    }
+   ],
+   "unverified": [],
+   "admitted_distinct_players": 0,
+   "minimum": 3,
+   "needs_followup": true,
+   "followup": "more-comparisons",
+   "reason": "0 admitted comparisons, fewer than 3"
+  },
+  {
+   "configuration": {
+    "class": "Druid",
+    "category": "Balance",
+    "metric": "hps",
+    "faction": "Horde"
+   },
+   "encounter_id": 51114,
+   "boss": "Kel'Thuzad",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261031/76376122-2006-20261028T163059.zip",
+    "sha256": "392bf13fb1350ae468253631895b9be591d46516a40d020a00dcaa568fa1ef4f"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "78YKbcJxfBQVrk3G",
+     "fight": 51,
+     "player": "毛毛兔斯基",
+     "realm": "法琳娜"
+    },
+    {
+     "report": "cZApBDaHKk8Qvzj9",
+     "fight": 73,
+     "player": "开局送人头",
+     "realm": "匕首岭"
+    },
+    {
+     "report": "dKqPRGXf7jnprMg8",
+     "fight": 66,
+     "player": "包包里有糖",
+     "realm": "哈霍兰"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Druid",
+    "category": "Balance",
+    "metric": "hps",
+    "faction": "Horde"
+   },
+   "encounter_id": 51115,
+   "boss": "Loatheb",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261031/76376122-2006-20261028T163059.zip",
+    "sha256": "392bf13fb1350ae468253631895b9be591d46516a40d020a00dcaa568fa1ef4f"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "c4CXTja8dzp1gqm7",
+     "fight": 68,
+     "player": "派大星没爪子",
+     "realm": "哈霍兰"
+    },
+    {
+     "report": "q1WwrXRpNd7DHBxV",
+     "fight": 49,
+     "player": "不知火幻",
+     "realm": "哈霍兰"
+    }
+   ],
+   "refused": [
+    {
+     "report": "d93nmHfGpxNXqWjD",
+     "fight": 21,
+     "player": "Baløø",
+     "realm": "Whitemane",
+     "reason": "\"There is no item named 'events/d93nmHfGpxNXqWjD/fight_21/player_15_Bal/pets.json' in the archive\""
+    }
+   ],
+   "unverified": [],
+   "admitted_distinct_players": 2,
+   "minimum": 3,
+   "needs_followup": true,
+   "followup": "more-comparisons",
+   "reason": "2 admitted comparisons, fewer than 3"
+  },
+  {
+   "configuration": {
+    "class": "Druid",
+    "category": "Balance",
+    "metric": "hps",
+    "faction": "Horde"
+   },
+   "encounter_id": 51116,
+   "boss": "Maexxna",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261031/76376122-2006-20261028T163059.zip",
+    "sha256": "392bf13fb1350ae468253631895b9be591d46516a40d020a00dcaa568fa1ef4f"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "HgBYztQX8W9qFJ7y",
+     "fight": 6,
+     "player": "Versyth",
+     "realm": "Whitemane"
+    },
+    {
+     "report": "vPQwkj7GqTMYxpCr",
+     "fight": 41,
+     "player": "野丶性大师",
+     "realm": "哈霍兰"
+    }
+   ],
+   "refused": [
+    {
+     "report": "QAdFvRM3HaKZTBry",
+     "fight": 205,
+     "player": "丶糖糖",
+     "realm": "伊弗斯",
+     "reason": "wrong encounter or not a kill"
+    }
+   ],
+   "unverified": [],
+   "admitted_distinct_players": 2,
+   "minimum": 3,
+   "needs_followup": true,
+   "followup": "more-comparisons",
+   "reason": "2 admitted comparisons, fewer than 3"
+  },
+  {
+   "configuration": {
+    "class": "Druid",
+    "category": "Balance",
+    "metric": "hps",
+    "faction": "Horde"
+   },
+   "encounter_id": 51117,
+   "boss": "Noth the Plaguebringer",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261031/76376122-2006-20261028T163059.zip",
+    "sha256": "392bf13fb1350ae468253631895b9be591d46516a40d020a00dcaa568fa1ef4f"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "38br4AWZFY1mqHnf",
+     "fight": 27,
+     "player": "Tares",
+     "realm": "Blaumeux"
+    },
+    {
+     "report": "8KJhjFznLbtYH6Pa",
+     "fight": 210,
+     "player": "张本",
+     "realm": "法琳娜"
+    },
+    {
+     "report": "j7CD9cFn8aYRvTZA",
+     "fight": 10,
+     "player": "道委王道长",
+     "realm": "哈霍兰"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Druid",
+    "category": "Balance",
+    "metric": "hps",
+    "faction": "Horde"
+   },
+   "encounter_id": 51118,
+   "boss": "Patchwerk",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261031/76376122-2006-20261028T163059.zip",
+    "sha256": "392bf13fb1350ae468253631895b9be591d46516a40d020a00dcaa568fa1ef4f"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "1yJFrtX4hg6VfGcZ",
+     "fight": 21,
+     "player": "部落神牛",
+     "realm": "伊弗斯"
+    },
+    {
+     "report": "PxWpYc4Q6BCAkFz1",
+     "fight": 25,
+     "player": "惡魔的回响",
+     "realm": "哈霍兰"
+    },
+    {
+     "report": "p4hPJmjL2VxtadGX",
+     "fight": 23,
+     "player": "呆呆康巴得",
+     "realm": "哈霍兰"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Druid",
+    "category": "Balance",
+    "metric": "hps",
+    "faction": "Horde"
+   },
+   "encounter_id": 51119,
+   "boss": "Sapphiron",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261031/76376122-2006-20261028T163059.zip",
+    "sha256": "392bf13fb1350ae468253631895b9be591d46516a40d020a00dcaa568fa1ef4f"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "P9d3tCvkG87yAFWZ",
+     "fight": 256,
+     "player": "不正经德",
+     "realm": "哈霍兰"
+    },
+    {
+     "report": "VJygf3YBMQq2xG4t",
+     "fight": 183,
+     "player": "礼拜二买卖淡",
+     "realm": "伊弗斯"
+    }
+   ],
+   "refused": [
+    {
+     "report": "crvABV7T43HfmYd9",
+     "fight": 368,
+     "player": "老表上精灵火",
+     "realm": "伊弗斯",
+     "reason": "wrong encounter or not a kill"
+    }
+   ],
+   "unverified": [],
+   "admitted_distinct_players": 2,
+   "minimum": 3,
+   "needs_followup": true,
+   "followup": "more-comparisons",
+   "reason": "2 admitted comparisons, fewer than 3"
+  },
+  {
+   "configuration": {
+    "class": "Druid",
+    "category": "Balance",
+    "metric": "hps",
+    "faction": "Horde"
+   },
+   "encounter_id": 51120,
+   "boss": "Thaddius",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261031/76376122-2006-20261028T163059.zip",
+    "sha256": "392bf13fb1350ae468253631895b9be591d46516a40d020a00dcaa568fa1ef4f"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "GW8hmpwrgDYP67XR",
+     "fight": 364,
+     "player": "灯丶盏糕",
+     "realm": "哈霍兰"
+    },
+    {
+     "report": "VJygf3YBMQq2xG4t",
+     "fight": 177,
+     "player": "礼拜二买卖淡",
+     "realm": "伊弗斯"
+    }
+   ],
+   "refused": [
+    {
+     "report": "x7ZmKwt2YFVDCydr",
+     "fight": 194,
+     "player": "哪里贵啦",
+     "realm": "伊弗斯",
+     "reason": "wrong encounter or not a kill"
+    }
+   ],
+   "unverified": [],
+   "admitted_distinct_players": 2,
+   "minimum": 3,
+   "needs_followup": true,
+   "followup": "more-comparisons",
+   "reason": "2 admitted comparisons, fewer than 3"
+  },
+  {
+   "configuration": {
+    "class": "Druid",
+    "category": "Balance",
+    "metric": "hps",
+    "faction": "Horde"
+   },
+   "encounter_id": 51121,
+   "boss": "The Four Horsemen",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261031/76376122-2006-20261028T163059.zip",
+    "sha256": "392bf13fb1350ae468253631895b9be591d46516a40d020a00dcaa568fa1ef4f"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "D9w8hPBCjb2TH43r",
+     "fight": 61,
+     "player": "魂斗罗少女",
+     "realm": "哈霍兰"
+    },
+    {
+     "report": "pBMkczKt9dG6PvmH",
+     "fight": 57,
+     "player": "释小信",
+     "realm": "哈霍兰"
+    }
+   ],
+   "refused": [
+    {
+     "report": "QAdFvRM3HaKZTBry",
+     "fight": 293,
+     "player": "丶糖糖",
+     "realm": "伊弗斯",
+     "reason": "wrong encounter or not a kill"
+    }
+   ],
+   "unverified": [],
+   "admitted_distinct_players": 2,
+   "minimum": 3,
+   "needs_followup": true,
+   "followup": "more-comparisons",
+   "reason": "2 admitted comparisons, fewer than 3"
   },
   {
    "configuration": {
@@ -3965,6 +5258,647 @@
   },
   {
    "configuration": {
+    "class": "Druid",
+    "category": "Restoration",
+    "metric": "hps",
+    "faction": "Alliance"
+   },
+   "encounter_id": 51107,
+   "boss": "Anub'Rekhan",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/60117765-2006-20261102T031646.zip",
+    "sha256": "5bb2468398c6b371d012ee717af46b5c52a4de0da78d7993f4b84dc2e8e50277"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "76qJd4VQmxXy3rjH",
+     "fight": 75,
+     "player": "Evandre",
+     "realm": "Westfall"
+    },
+    {
+     "report": "9zw2HpkXA7tgjMG1",
+     "fight": 3,
+     "player": "Mujo",
+     "realm": "Mankrik"
+    },
+    {
+     "report": "d63BHCnag2GJcAby",
+     "fight": 39,
+     "player": "小雨归来",
+     "realm": "伊弗斯"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Druid",
+    "category": "Restoration",
+    "metric": "hps",
+    "faction": "Alliance"
+   },
+   "encounter_id": 51108,
+   "boss": "Gluth",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/60117765-2006-20261102T031646.zip",
+    "sha256": "5bb2468398c6b371d012ee717af46b5c52a4de0da78d7993f4b84dc2e8e50277"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "7JvhPkRH6wbjc8gN",
+     "fight": 14,
+     "player": "Tatey",
+     "realm": "Ashkandi"
+    },
+    {
+     "report": "Z6BALyCb729gX1Ja",
+     "fight": 29,
+     "player": "山葵葵",
+     "realm": "哈霍兰"
+    },
+    {
+     "report": "mDXv3knt1MPHbFJp",
+     "fight": 21,
+     "player": "山葵",
+     "realm": "哈霍兰"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Druid",
+    "category": "Restoration",
+    "metric": "hps",
+    "faction": "Alliance"
+   },
+   "encounter_id": 51109,
+   "boss": "Gothik the Harvester",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/60117765-2006-20261102T031646.zip",
+    "sha256": "5bb2468398c6b371d012ee717af46b5c52a4de0da78d7993f4b84dc2e8e50277"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "KcytWpGagwFznr4x",
+     "fight": 34,
+     "player": "Tatey",
+     "realm": "Ashkandi"
+    },
+    {
+     "report": "MpGjWx3yDPJkTd7v",
+     "fight": 40,
+     "player": "Stay",
+     "realm": "Firemaw"
+    },
+    {
+     "report": "rgyBWhRYZ8jD2Gx6",
+     "fight": 25,
+     "player": "Consequence",
+     "realm": "Pagle"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Druid",
+    "category": "Restoration",
+    "metric": "hps",
+    "faction": "Alliance"
+   },
+   "encounter_id": 51110,
+   "boss": "Grand Widow Faerlina",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/60117765-2006-20261102T031646.zip",
+    "sha256": "5bb2468398c6b371d012ee717af46b5c52a4de0da78d7993f4b84dc2e8e50277"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "41f7WNyYvDaRmxkK",
+     "fight": 5,
+     "player": "Tatey",
+     "realm": "Ashkandi"
+    },
+    {
+     "report": "7vgnhRxy3AmfzCjG",
+     "fight": 21,
+     "player": "Silverpaws",
+     "realm": "Firemaw"
+    },
+    {
+     "report": "vm7Vf2GDgnZMWkr8",
+     "fight": 7,
+     "player": "Kriegtier",
+     "realm": "Westfall"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Druid",
+    "category": "Restoration",
+    "metric": "hps",
+    "faction": "Alliance"
+   },
+   "encounter_id": 51111,
+   "boss": "Grobbulus",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/60117765-2006-20261102T031646.zip",
+    "sha256": "5bb2468398c6b371d012ee717af46b5c52a4de0da78d7993f4b84dc2e8e50277"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "cxbHJNZrA6vypqR1",
+     "fight": 100,
+     "player": "Elefina",
+     "realm": "Pagle"
+    },
+    {
+     "report": "t7YNJrd6GQv9KFkh",
+     "fight": 93,
+     "player": "Miryä",
+     "realm": "Auberdine"
+    },
+    {
+     "report": "vKWcybQRDLamVwt1",
+     "fight": 17,
+     "player": "Calima",
+     "realm": "Firemaw"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Druid",
+    "category": "Restoration",
+    "metric": "hps",
+    "faction": "Alliance"
+   },
+   "encounter_id": 51112,
+   "boss": "Heigan the Unclean",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/60117765-2006-20261102T031646.zip",
+    "sha256": "5bb2468398c6b371d012ee717af46b5c52a4de0da78d7993f4b84dc2e8e50277"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "8G2P4Jwc6KvWxZrA",
+     "fight": 45,
+     "player": "Mavewind",
+     "realm": "Whitemane"
+    },
+    {
+     "report": "9PW7bCTHpmQrXDLd",
+     "fight": 2,
+     "player": "Tatey",
+     "realm": "Ashkandi"
+    },
+    {
+     "report": "wFJCY6pq9xazTdtk",
+     "fight": 13,
+     "player": "山葵",
+     "realm": "哈霍兰"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Druid",
+    "category": "Restoration",
+    "metric": "hps",
+    "faction": "Alliance"
+   },
+   "encounter_id": 51113,
+   "boss": "Instructor Razuvious",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/60117765-2006-20261102T031646.zip",
+    "sha256": "5bb2468398c6b371d012ee717af46b5c52a4de0da78d7993f4b84dc2e8e50277"
+   },
+   "archive_depth": 3,
+   "admitted": [],
+   "refused": [
+    {
+     "report": "CRjm6APy4dFzqhLW",
+     "fight": 17,
+     "player": "山葵",
+     "realm": "哈霍兰",
+     "reason": "published HPS contradicts raw"
+    },
+    {
+     "report": "ndVfbZD93P8LYvCB",
+     "fight": 29,
+     "player": "Mujo",
+     "realm": "Mankrik",
+     "reason": "published HPS contradicts raw"
+    },
+    {
+     "report": "xTJfqY4CGXB7N32d",
+     "fight": 37,
+     "player": "Laureen",
+     "realm": "Mankrik",
+     "reason": "published HPS contradicts raw"
+    }
+   ],
+   "unverified": [],
+   "admitted_distinct_players": 0,
+   "minimum": 3,
+   "needs_followup": true,
+   "followup": "more-comparisons",
+   "reason": "0 admitted comparisons, fewer than 3"
+  },
+  {
+   "configuration": {
+    "class": "Druid",
+    "category": "Restoration",
+    "metric": "hps",
+    "faction": "Alliance"
+   },
+   "encounter_id": 51114,
+   "boss": "Kel'Thuzad",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/60117765-2006-20261102T031646.zip",
+    "sha256": "5bb2468398c6b371d012ee717af46b5c52a4de0da78d7993f4b84dc2e8e50277"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "D4tagvWjfqNKYRhZ",
+     "fight": 34,
+     "player": "天生凉薄",
+     "realm": "哈霍兰"
+    },
+    {
+     "report": "aqGVyrnk6t8pfJPB",
+     "fight": 67,
+     "player": "Patunia",
+     "realm": "Pagle"
+    },
+    {
+     "report": "bg8KrnQf3zYCm2dT",
+     "fight": 56,
+     "player": "Healing",
+     "realm": "Golemagg"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Druid",
+    "category": "Restoration",
+    "metric": "hps",
+    "faction": "Alliance"
+   },
+   "encounter_id": 51115,
+   "boss": "Loatheb",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/60117765-2006-20261102T031646.zip",
+    "sha256": "5bb2468398c6b371d012ee717af46b5c52a4de0da78d7993f4b84dc2e8e50277"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "HxJDhB7rtfTQmZXp",
+     "fight": 17,
+     "player": "部落排名第一",
+     "realm": "哈霍兰"
+    }
+   ],
+   "refused": [
+    {
+     "report": "LHkzx2C3MY7Wpbf4",
+     "fight": 96,
+     "player": "尘舒舒",
+     "realm": "哈霍兰",
+     "reason": "\"There is no item named 'events/LHkzx2C3MY7Wpbf4/fight_96/player_18_x/pets.json' in the archive\""
+    },
+    {
+     "report": "VBkTCMFncz7hQRJw",
+     "fight": 39,
+     "player": "跳跳糖丶",
+     "realm": "哈霍兰",
+     "reason": "\"There is no item named 'events/VBkTCMFncz7hQRJw/fight_39/player_22_x/pets.json' in the archive\""
+    }
+   ],
+   "unverified": [],
+   "admitted_distinct_players": 1,
+   "minimum": 3,
+   "needs_followup": true,
+   "followup": "more-comparisons",
+   "reason": "1 admitted comparisons, fewer than 3"
+  },
+  {
+   "configuration": {
+    "class": "Druid",
+    "category": "Restoration",
+    "metric": "hps",
+    "faction": "Alliance"
+   },
+   "encounter_id": 51116,
+   "boss": "Maexxna",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/60117765-2006-20261102T031646.zip",
+    "sha256": "5bb2468398c6b371d012ee717af46b5c52a4de0da78d7993f4b84dc2e8e50277"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "29AgyDWXmpTkJar6",
+     "fight": 10,
+     "player": "Salamigarage",
+     "realm": "Whitemane"
+    },
+    {
+     "report": "WPnXjcA8mwaQCK3r",
+     "fight": 17,
+     "player": "Patunia",
+     "realm": "Pagle"
+    }
+   ],
+   "refused": [
+    {
+     "report": "WLvQbkAJhpdjZyG1",
+     "fight": 44,
+     "player": "Ilovoll",
+     "realm": "哈霍兰",
+     "reason": "\"There is no item named 'events/WLvQbkAJhpdjZyG1/fight_44/player_34_Ilovoll/pets.json' in the archive\""
+    }
+   ],
+   "unverified": [],
+   "admitted_distinct_players": 2,
+   "minimum": 3,
+   "needs_followup": true,
+   "followup": "more-comparisons",
+   "reason": "2 admitted comparisons, fewer than 3"
+  },
+  {
+   "configuration": {
+    "class": "Druid",
+    "category": "Restoration",
+    "metric": "hps",
+    "faction": "Alliance"
+   },
+   "encounter_id": 51117,
+   "boss": "Noth the Plaguebringer",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/60117765-2006-20261102T031646.zip",
+    "sha256": "5bb2468398c6b371d012ee717af46b5c52a4de0da78d7993f4b84dc2e8e50277"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "Z6BALyCb729gX1Ja",
+     "fight": 9,
+     "player": "山葵葵",
+     "realm": "哈霍兰"
+    },
+    {
+     "report": "c2XVjHG3Zz4v7dfB",
+     "fight": 20,
+     "player": "Silverpaws",
+     "realm": "Firemaw"
+    },
+    {
+     "report": "tbrDT7B4QhWYZn96",
+     "fight": 11,
+     "player": "Garfuzz",
+     "realm": "Mankrik"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Druid",
+    "category": "Restoration",
+    "metric": "hps",
+    "faction": "Alliance"
+   },
+   "encounter_id": 51118,
+   "boss": "Patchwerk",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/60117765-2006-20261102T031646.zip",
+    "sha256": "5bb2468398c6b371d012ee717af46b5c52a4de0da78d7993f4b84dc2e8e50277"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "bN6JmC1nr3vPqRh9",
+     "fight": 32,
+     "player": "Leanaria",
+     "realm": "Windseeker"
+    }
+   ],
+   "refused": [
+    {
+     "report": "GaF7z3TrWR2jQ8Vd",
+     "fight": 45,
+     "player": "Patunia",
+     "realm": "Pagle",
+     "reason": "\"There is no item named 'events/GaF7z3TrWR2jQ8Vd/fight_45/player_4_Patunia/pets.json' in the archive\""
+    },
+    {
+     "report": "vAtPfnr14XyQGHzj",
+     "fight": 19,
+     "player": "Mujo",
+     "realm": "Mankrik",
+     "reason": "\"There is no item named 'events/vAtPfnr14XyQGHzj/fight_19/player_19_Mujo/pets.json' in the archive\""
+    }
+   ],
+   "unverified": [],
+   "admitted_distinct_players": 1,
+   "minimum": 3,
+   "needs_followup": true,
+   "followup": "more-comparisons",
+   "reason": "1 admitted comparisons, fewer than 3"
+  },
+  {
+   "configuration": {
+    "class": "Druid",
+    "category": "Restoration",
+    "metric": "hps",
+    "faction": "Alliance"
+   },
+   "encounter_id": 51119,
+   "boss": "Sapphiron",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/60117765-2006-20261102T031646.zip",
+    "sha256": "5bb2468398c6b371d012ee717af46b5c52a4de0da78d7993f4b84dc2e8e50277"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "LKf861Wbp3RkhTMz",
+     "fight": 33,
+     "player": "天生凉薄",
+     "realm": "哈霍兰"
+    },
+    {
+     "report": "nqV7TZrKRBk89b6D",
+     "fight": 32,
+     "player": "山葵葵",
+     "realm": "哈霍兰"
+    },
+    {
+     "report": "zM18hVTcLw4jC2da",
+     "fight": 30,
+     "player": "山葵",
+     "realm": "哈霍兰"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Druid",
+    "category": "Restoration",
+    "metric": "hps",
+    "faction": "Alliance"
+   },
+   "encounter_id": 51120,
+   "boss": "Thaddius",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/60117765-2006-20261102T031646.zip",
+    "sha256": "5bb2468398c6b371d012ee717af46b5c52a4de0da78d7993f4b84dc2e8e50277"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "1jVp2G7gwZ3RcFqb",
+     "fight": 26,
+     "player": "Healing",
+     "realm": "Golemagg"
+    },
+    {
+     "report": "B8zckAF9RqYpvNG6",
+     "fight": 31,
+     "player": "Silverpaws",
+     "realm": "Firemaw"
+    },
+    {
+     "report": "cjYWVCHBxkK8AR9P",
+     "fight": 79,
+     "player": "Didu",
+     "realm": "Heartstriker"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Druid",
+    "category": "Restoration",
+    "metric": "hps",
+    "faction": "Alliance"
+   },
+   "encounter_id": 51121,
+   "boss": "The Four Horsemen",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/60117765-2006-20261102T031646.zip",
+    "sha256": "5bb2468398c6b371d012ee717af46b5c52a4de0da78d7993f4b84dc2e8e50277"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "kJ6PX9b8waTnQrxz",
+     "fight": 30,
+     "player": "Rejuvs",
+     "realm": "Ashkandi"
+    },
+    {
+     "report": "m6BbFJtWAY2p8qVx",
+     "fight": 26,
+     "player": "Tatey",
+     "realm": "Ashkandi"
+    },
+    {
+     "report": "pwZ3QWVMvFx9cNd7",
+     "fight": 24,
+     "player": "Eblis",
+     "realm": "Pagle"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
     "class": "Warrior",
     "category": "Protection",
     "metric": "dps",
@@ -5362,6 +7296,648 @@
      "report": "gazNjmGZYvc9fCM3",
      "fight": 25,
      "player": "Blindnotdead",
+     "realm": "Firemaw"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Shaman",
+    "category": "Restoration",
+    "metric": "hps",
+    "faction": "Horde"
+   },
+   "encounter_id": 51107,
+   "boss": "Anub'Rekhan",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/62259058-2006-20261109T151537.zip",
+    "sha256": "d6828c7a2256d1cbc284cd828a839d24c088cd11a5429aedc125819e2836756a"
+   },
+   "archive_depth": 3,
+   "admitted": [],
+   "refused": [
+    {
+     "report": "3f2GVmrKdvBjzcNL",
+     "fight": 5,
+     "player": "狂野征途",
+     "realm": "哈霍兰",
+     "reason": "\"There is no item named 'events/3f2GVmrKdvBjzcNL/fight_5/player_25_x/pets.json' in the archive\""
+    },
+    {
+     "report": "3f2GVmrKdvBjzcNL",
+     "fight": 5,
+     "player": "蓝色炫梦",
+     "realm": "哈霍兰",
+     "reason": "\"There is no item named 'events/3f2GVmrKdvBjzcNL/fight_5/player_59_x/pets.json' in the archive\""
+    },
+    {
+     "report": "3f2GVmrKdvBjzcNL",
+     "fight": 5,
+     "player": "不洗脚先生",
+     "realm": "哈霍兰",
+     "reason": "\"There is no item named 'events/3f2GVmrKdvBjzcNL/fight_5/player_43_x/pets.json' in the archive\""
+    }
+   ],
+   "unverified": [],
+   "admitted_distinct_players": 0,
+   "minimum": 3,
+   "needs_followup": true,
+   "followup": "more-comparisons",
+   "reason": "0 admitted comparisons, fewer than 3"
+  },
+  {
+   "configuration": {
+    "class": "Shaman",
+    "category": "Restoration",
+    "metric": "hps",
+    "faction": "Horde"
+   },
+   "encounter_id": 51108,
+   "boss": "Gluth",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/62259058-2006-20261109T151537.zip",
+    "sha256": "d6828c7a2256d1cbc284cd828a839d24c088cd11a5429aedc125819e2836756a"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "Bdh4Mqb3VPTcwXWr",
+     "fight": 30,
+     "player": "Tyleex",
+     "realm": "Whitemane"
+    },
+    {
+     "report": "CyzhwjkMpBYQ29cv",
+     "fight": 21,
+     "player": "踹瘸子好腿",
+     "realm": "伊弗斯"
+    },
+    {
+     "report": "LNzcyTrhCKG4jXM6",
+     "fight": 38,
+     "player": "Tyleez",
+     "realm": "Whitemane"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Shaman",
+    "category": "Restoration",
+    "metric": "hps",
+    "faction": "Horde"
+   },
+   "encounter_id": 51109,
+   "boss": "Gothik the Harvester",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/62259058-2006-20261109T151537.zip",
+    "sha256": "d6828c7a2256d1cbc284cd828a839d24c088cd11a5429aedc125819e2836756a"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "BVakQ3PGxK2R4ywM",
+     "fight": 19,
+     "player": "Blueranger",
+     "realm": "Whitemane"
+    },
+    {
+     "report": "KXRB1dJFfrDwzQM9",
+     "fight": 20,
+     "player": "Tyleez",
+     "realm": "Whitemane"
+    },
+    {
+     "report": "KhFZfCLYp7Azjbya",
+     "fight": 21,
+     "player": "Draghuk",
+     "realm": "Whitemane"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Shaman",
+    "category": "Restoration",
+    "metric": "hps",
+    "faction": "Horde"
+   },
+   "encounter_id": 51110,
+   "boss": "Grand Widow Faerlina",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/62259058-2006-20261109T151537.zip",
+    "sha256": "d6828c7a2256d1cbc284cd828a839d24c088cd11a5429aedc125819e2836756a"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "84A9drhqHPxfpDNK",
+     "fight": 6,
+     "player": "Blueranger",
+     "realm": "Whitemane"
+    },
+    {
+     "report": "wcyGAfX9WzajHmZY",
+     "fight": 49,
+     "player": "Tyleex",
+     "realm": "Whitemane"
+    },
+    {
+     "report": "yqdfXjQBxDpk2ATa",
+     "fight": 5,
+     "player": "Avaz",
+     "realm": "Kurinnaxx"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Shaman",
+    "category": "Restoration",
+    "metric": "hps",
+    "faction": "Horde"
+   },
+   "encounter_id": 51111,
+   "boss": "Grobbulus",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/62259058-2006-20261109T151537.zip",
+    "sha256": "d6828c7a2256d1cbc284cd828a839d24c088cd11a5429aedc125819e2836756a"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "4frghwVAqcb2zXKT",
+     "fight": 27,
+     "player": "Tyleex",
+     "realm": "Whitemane"
+    },
+    {
+     "report": "7NQjqLTpctkyZdWM",
+     "fight": 28,
+     "player": "Thunder",
+     "realm": "Whitemane"
+    },
+    {
+     "report": "t9YJagbnXvjLGWkF",
+     "fight": 25,
+     "player": "Englaivedlol",
+     "realm": "Whitemane"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Shaman",
+    "category": "Restoration",
+    "metric": "hps",
+    "faction": "Horde"
+   },
+   "encounter_id": 51112,
+   "boss": "Heigan the Unclean",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/62259058-2006-20261109T151537.zip",
+    "sha256": "d6828c7a2256d1cbc284cd828a839d24c088cd11a5429aedc125819e2836756a"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "WrkdwYjBFDXcNvH2",
+     "fight": 15,
+     "player": "Hayabusa",
+     "realm": "Whitemane"
+    },
+    {
+     "report": "vjVC9mPcqJfwahH2",
+     "fight": 13,
+     "player": "Tyleez",
+     "realm": "Whitemane"
+    },
+    {
+     "report": "zKqBTHpnkyPA2QZF",
+     "fight": 14,
+     "player": "Whopperjr",
+     "realm": "Mankrik"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Shaman",
+    "category": "Restoration",
+    "metric": "hps",
+    "faction": "Horde"
+   },
+   "encounter_id": 51113,
+   "boss": "Instructor Razuvious",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/62259058-2006-20261109T151537.zip",
+    "sha256": "d6828c7a2256d1cbc284cd828a839d24c088cd11a5429aedc125819e2836756a"
+   },
+   "archive_depth": 3,
+   "admitted": [],
+   "refused": [
+    {
+     "report": "6CVaH4gcxJK9Zdbh",
+     "fight": 24,
+     "player": "Blueranger",
+     "realm": "Whitemane",
+     "reason": "published HPS contradicts raw"
+    },
+    {
+     "report": "A1jhG8NmRzPL3V9k",
+     "fight": 28,
+     "player": "Tyleex",
+     "realm": "Whitemane",
+     "reason": "published HPS contradicts raw"
+    },
+    {
+     "report": "FzyPBHNdRWc9JvVK",
+     "fight": 15,
+     "player": "Tyleez",
+     "realm": "Whitemane",
+     "reason": "published HPS contradicts raw"
+    }
+   ],
+   "unverified": [],
+   "admitted_distinct_players": 0,
+   "minimum": 3,
+   "needs_followup": true,
+   "followup": "more-comparisons",
+   "reason": "0 admitted comparisons, fewer than 3"
+  },
+  {
+   "configuration": {
+    "class": "Shaman",
+    "category": "Restoration",
+    "metric": "hps",
+    "faction": "Horde"
+   },
+   "encounter_id": 51114,
+   "boss": "Kel'Thuzad",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/62259058-2006-20261109T151537.zip",
+    "sha256": "d6828c7a2256d1cbc284cd828a839d24c088cd11a5429aedc125819e2836756a"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "B69Cf7nzxqwcdryF",
+     "fight": 58,
+     "player": "漂亮的小脚丫",
+     "realm": "哈霍兰"
+    },
+    {
+     "report": "B69Cf7nzxqwcdryF",
+     "fight": 58,
+     "player": "福尔馬林",
+     "realm": "哈霍兰"
+    },
+    {
+     "report": "ZdBkXJcQTzaynLGb",
+     "fight": 36,
+     "player": "花牛婆",
+     "realm": "哈霍兰"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Shaman",
+    "category": "Restoration",
+    "metric": "hps",
+    "faction": "Horde"
+   },
+   "encounter_id": 51115,
+   "boss": "Loatheb",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/62259058-2006-20261109T151537.zip",
+    "sha256": "d6828c7a2256d1cbc284cd828a839d24c088cd11a5429aedc125819e2836756a"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "xRzYb2kXpvGFrjwy",
+     "fight": 32,
+     "player": "沧海月明",
+     "realm": "哈霍兰"
+    }
+   ],
+   "refused": [
+    {
+     "report": "JkaXv7BN41KD6jfV",
+     "fight": 10,
+     "player": "圣光永序",
+     "realm": "哈霍兰",
+     "reason": "\"There is no item named 'events/JkaXv7BN41KD6jfV/fight_10/player_36_x/pets.json' in the archive\""
+    },
+    {
+     "report": "qtCwZc7GnRpybkaP",
+     "fight": 14,
+     "player": "圣光永辉",
+     "realm": "哈霍兰",
+     "reason": "\"There is no item named 'events/qtCwZc7GnRpybkaP/fight_14/player_53_x/pets.json' in the archive\""
+    }
+   ],
+   "unverified": [],
+   "admitted_distinct_players": 1,
+   "minimum": 3,
+   "needs_followup": true,
+   "followup": "more-comparisons",
+   "reason": "1 admitted comparisons, fewer than 3"
+  },
+  {
+   "configuration": {
+    "class": "Shaman",
+    "category": "Restoration",
+    "metric": "hps",
+    "faction": "Horde"
+   },
+   "encounter_id": 51116,
+   "boss": "Maexxna",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/62259058-2006-20261109T151537.zip",
+    "sha256": "d6828c7a2256d1cbc284cd828a839d24c088cd11a5429aedc125819e2836756a"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "3j7CV9gmr86vDXyN",
+     "fight": 7,
+     "player": "Blueranger",
+     "realm": "Whitemane"
+    },
+    {
+     "report": "6vRPYmzHbFqV9ZJ2",
+     "fight": 5,
+     "player": "Englaivedlol",
+     "realm": "Whitemane"
+    },
+    {
+     "report": "ApHtDyTv8rbj46L2",
+     "fight": 6,
+     "player": "Canadianz",
+     "realm": "Whitemane"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Shaman",
+    "category": "Restoration",
+    "metric": "hps",
+    "faction": "Horde"
+   },
+   "encounter_id": 51117,
+   "boss": "Noth the Plaguebringer",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/62259058-2006-20261109T151537.zip",
+    "sha256": "d6828c7a2256d1cbc284cd828a839d24c088cd11a5429aedc125819e2836756a"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "T8wKPMGNRYnHBxcD",
+     "fight": 17,
+     "player": "Blueranger",
+     "realm": "Whitemane"
+    },
+    {
+     "report": "TCPAyRFx14mrakHh",
+     "fight": 10,
+     "player": "Avaz",
+     "realm": "Kurinnaxx"
+    },
+    {
+     "report": "yrjKd7L6mF1ZvxzR",
+     "fight": 10,
+     "player": "Dèniro",
+     "realm": "Firemaw"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Shaman",
+    "category": "Restoration",
+    "metric": "hps",
+    "faction": "Horde"
+   },
+   "encounter_id": 51118,
+   "boss": "Patchwerk",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/62259058-2006-20261109T151537.zip",
+    "sha256": "d6828c7a2256d1cbc284cd828a839d24c088cd11a5429aedc125819e2836756a"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "VFCf6AhGbwMcXHtB",
+     "fight": 28,
+     "player": "Nebzy",
+     "realm": "Firemaw"
+    }
+   ],
+   "refused": [
+    {
+     "report": "R6ApGkWFgMjm98x1",
+     "fight": 40,
+     "player": "汝能奈吾何也",
+     "realm": "哈霍兰",
+     "reason": "\"There is no item named 'events/R6ApGkWFgMjm98x1/fight_40/player_25_x/pets.json' in the archive\""
+    },
+    {
+     "report": "bWK87Q49F31JBtYp",
+     "fight": 16,
+     "player": "Skalarwelle",
+     "realm": "Skullflame",
+     "reason": "\"There is no item named 'events/bWK87Q49F31JBtYp/fight_16/player_44_Skalarwelle/pets.json' in the archive\""
+    }
+   ],
+   "unverified": [],
+   "admitted_distinct_players": 1,
+   "minimum": 3,
+   "needs_followup": true,
+   "followup": "more-comparisons",
+   "reason": "1 admitted comparisons, fewer than 3"
+  },
+  {
+   "configuration": {
+    "class": "Shaman",
+    "category": "Restoration",
+    "metric": "hps",
+    "faction": "Horde"
+   },
+   "encounter_id": 51119,
+   "boss": "Sapphiron",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/62259058-2006-20261109T151537.zip",
+    "sha256": "d6828c7a2256d1cbc284cd828a839d24c088cd11a5429aedc125819e2836756a"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "DjNfc2B3pyWVaAtC",
+     "fight": 39,
+     "player": "Yungelmo",
+     "realm": "Whitemane"
+    },
+    {
+     "report": "NQGjC3a8dHMv2cW9",
+     "fight": 29,
+     "player": "Englaivedlol",
+     "realm": "Whitemane"
+    },
+    {
+     "report": "vQ3cC2dzXnjYVNhZ",
+     "fight": 34,
+     "player": "Clarenceheal",
+     "realm": "Whitemane"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Shaman",
+    "category": "Restoration",
+    "metric": "hps",
+    "faction": "Horde"
+   },
+   "encounter_id": 51120,
+   "boss": "Thaddius",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/62259058-2006-20261109T151537.zip",
+    "sha256": "d6828c7a2256d1cbc284cd828a839d24c088cd11a5429aedc125819e2836756a"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "CBGkFDtqp3a8QMj6",
+     "fight": 56,
+     "player": "Wellstwo",
+     "realm": "Whitemane"
+    },
+    {
+     "report": "T8wKPMGNRYnHBxcD",
+     "fight": 40,
+     "player": "Blueranger",
+     "realm": "Whitemane"
+    },
+    {
+     "report": "wbtBYpZg3KRFzJAy",
+     "fight": 23,
+     "player": "Lunilah",
+     "realm": "Whitemane"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Shaman",
+    "category": "Restoration",
+    "metric": "hps",
+    "faction": "Horde"
+   },
+   "encounter_id": 51121,
+   "boss": "The Four Horsemen",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/62259058-2006-20261109T151537.zip",
+    "sha256": "d6828c7a2256d1cbc284cd828a839d24c088cd11a5429aedc125819e2836756a"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "GptVrg1hFMxXwCWd",
+     "fight": 20,
+     "player": "Blueranger",
+     "realm": "Whitemane"
+    },
+    {
+     "report": "bzK64yd3JcTfMGgB",
+     "fight": 22,
+     "player": "Draghuk",
+     "realm": "Whitemane"
+    },
+    {
+     "report": "yKJZgqNjpvkTB7PQ",
+     "fight": 24,
+     "player": "Dèniro",
      "realm": "Firemaw"
     }
    ],
@@ -15955,6 +18531,2558 @@
   },
   {
    "configuration": {
+    "class": "Paladin",
+    "category": "Holy",
+    "metric": "hps",
+    "faction": "Alliance"
+   },
+   "encounter_id": 51107,
+   "boss": "Anub'Rekhan",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77152471-2006-20261105T150116.zip",
+    "sha256": "566899fe83351370211b425ae94f48a0d367fbb9ecd0d26ca7d870df76838618"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "LtY6JrnjpvkaKdyV",
+     "fight": 5,
+     "player": "Stimorol",
+     "realm": "Firemaw"
+    },
+    {
+     "report": "kzQgqjGMC6YVA1rF",
+     "fight": 3,
+     "player": "Thayorn",
+     "realm": "Whitemane"
+    }
+   ],
+   "refused": [
+    {
+     "report": "b3gmV7TRhjpGyHXP",
+     "fight": 4,
+     "player": "贪婪的外乡人",
+     "realm": "哈霍兰",
+     "reason": "\"There is no item named 'events/b3gmV7TRhjpGyHXP/fight_4/player_9_x/pets.json' in the archive\""
+    }
+   ],
+   "unverified": [],
+   "admitted_distinct_players": 2,
+   "minimum": 3,
+   "needs_followup": true,
+   "followup": "more-comparisons",
+   "reason": "2 admitted comparisons, fewer than 3"
+  },
+  {
+   "configuration": {
+    "class": "Paladin",
+    "category": "Holy",
+    "metric": "hps",
+    "faction": "Alliance"
+   },
+   "encounter_id": 51108,
+   "boss": "Gluth",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77152471-2006-20261105T150116.zip",
+    "sha256": "566899fe83351370211b425ae94f48a0d367fbb9ecd0d26ca7d870df76838618"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "T9trCcjnwkxLFJfh",
+     "fight": 51,
+     "player": "Flekpul",
+     "realm": "Firemaw"
+    },
+    {
+     "report": "YfMBhHzQ17WTdApk",
+     "fight": 62,
+     "player": "Eqt",
+     "realm": "Mograine"
+    },
+    {
+     "report": "zRJZDy1NFKgwjAdV",
+     "fight": 47,
+     "player": "Glowork",
+     "realm": "Whitemane"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Paladin",
+    "category": "Holy",
+    "metric": "hps",
+    "faction": "Alliance"
+   },
+   "encounter_id": 51109,
+   "boss": "Gothik the Harvester",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77152471-2006-20261105T150116.zip",
+    "sha256": "566899fe83351370211b425ae94f48a0d367fbb9ecd0d26ca7d870df76838618"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "8Tg3n4WDZX1kyLam",
+     "fight": 18,
+     "player": "Atrew",
+     "realm": "Firemaw"
+    },
+    {
+     "report": "hM13WPT6kwnafgF9",
+     "fight": 19,
+     "player": "Stimorol",
+     "realm": "Firemaw"
+    },
+    {
+     "report": "yg8jb37GNPpBwXZV",
+     "fight": 16,
+     "player": "Lucker",
+     "realm": "Skullflame"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Paladin",
+    "category": "Holy",
+    "metric": "hps",
+    "faction": "Alliance"
+   },
+   "encounter_id": 51110,
+   "boss": "Grand Widow Faerlina",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77152471-2006-20261105T150116.zip",
+    "sha256": "566899fe83351370211b425ae94f48a0d367fbb9ecd0d26ca7d870df76838618"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "17xyW2qBgf4dbvmL",
+     "fight": 8,
+     "player": "Auraline",
+     "realm": "Firemaw"
+    },
+    {
+     "report": "NQ4bPmFZ2MjX9pDr",
+     "fight": 3,
+     "player": "Eqt",
+     "realm": "Mograine"
+    },
+    {
+     "report": "xrkTHMVXgczm4QAP",
+     "fight": 18,
+     "player": "Aribéth",
+     "realm": "Pagle"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Paladin",
+    "category": "Holy",
+    "metric": "hps",
+    "faction": "Alliance"
+   },
+   "encounter_id": 51111,
+   "boss": "Grobbulus",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77152471-2006-20261105T150116.zip",
+    "sha256": "566899fe83351370211b425ae94f48a0d367fbb9ecd0d26ca7d870df76838618"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "KPLztdkFhmBqgDXw",
+     "fight": 38,
+     "player": "Ppqq",
+     "realm": "Whitemane"
+    },
+    {
+     "report": "pQDyRh3z6nH1MX9C",
+     "fight": 75,
+     "player": "Qlimaxx",
+     "realm": "Firemaw"
+    },
+    {
+     "report": "tnwq4yzVQbPGWrN6",
+     "fight": 25,
+     "player": "Stimorol",
+     "realm": "Firemaw"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Paladin",
+    "category": "Holy",
+    "metric": "hps",
+    "faction": "Alliance"
+   },
+   "encounter_id": 51112,
+   "boss": "Heigan the Unclean",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77152471-2006-20261105T150116.zip",
+    "sha256": "566899fe83351370211b425ae94f48a0d367fbb9ecd0d26ca7d870df76838618"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "Yt79N8rxvyPT3q1V",
+     "fight": 10,
+     "player": "Tsirbulapala",
+     "realm": "Firemaw"
+    },
+    {
+     "report": "cDL2C3RPATntxfkj",
+     "fight": 18,
+     "player": "Rarlin",
+     "realm": "Mankrik"
+    },
+    {
+     "report": "kdB4GpKQjMc7Ar8n",
+     "fight": 16,
+     "player": "Chapo",
+     "realm": "Smolderweb"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Paladin",
+    "category": "Holy",
+    "metric": "hps",
+    "faction": "Alliance"
+   },
+   "encounter_id": 51113,
+   "boss": "Instructor Razuvious",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77152471-2006-20261105T150116.zip",
+    "sha256": "566899fe83351370211b425ae94f48a0d367fbb9ecd0d26ca7d870df76838618"
+   },
+   "archive_depth": 3,
+   "admitted": [],
+   "refused": [
+    {
+     "report": "ZB7r2KLqY9CTk3Hb",
+     "fight": 24,
+     "player": "Kephas",
+     "realm": "Ashkandi",
+     "reason": "published HPS contradicts raw"
+    },
+    {
+     "report": "mkJMfCt48jwYVaAQ",
+     "fight": 16,
+     "player": "Rarlin",
+     "realm": "Mankrik",
+     "reason": "published HPS contradicts raw"
+    },
+    {
+     "report": "nkhXfDHRKYCT396c",
+     "fight": 18,
+     "player": "Varrex",
+     "realm": "Mankrik",
+     "reason": "published HPS contradicts raw"
+    }
+   ],
+   "unverified": [],
+   "admitted_distinct_players": 0,
+   "minimum": 3,
+   "needs_followup": true,
+   "followup": "more-comparisons",
+   "reason": "0 admitted comparisons, fewer than 3"
+  },
+  {
+   "configuration": {
+    "class": "Paladin",
+    "category": "Holy",
+    "metric": "hps",
+    "faction": "Alliance"
+   },
+   "encounter_id": 51114,
+   "boss": "Kel'Thuzad",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77152471-2006-20261105T150116.zip",
+    "sha256": "566899fe83351370211b425ae94f48a0d367fbb9ecd0d26ca7d870df76838618"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "Yx8wBhLXWnjkafFv",
+     "fight": 50,
+     "player": "Macarzhu",
+     "realm": "厄运之槌"
+    },
+    {
+     "report": "kKLX3QCgJ7dzDqh8",
+     "fight": 61,
+     "player": "Caldesann",
+     "realm": "Whitemane"
+    },
+    {
+     "report": "rbajcgpHBMqDWLnY",
+     "fight": 74,
+     "player": "Bensalts",
+     "realm": "Pyrewood Village"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Paladin",
+    "category": "Holy",
+    "metric": "hps",
+    "faction": "Alliance"
+   },
+   "encounter_id": 51115,
+   "boss": "Loatheb",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77152471-2006-20261105T150116.zip",
+    "sha256": "566899fe83351370211b425ae94f48a0d367fbb9ecd0d26ca7d870df76838618"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "1mrpxRQg3qzV6NCw",
+     "fight": 34,
+     "player": "Anrylla",
+     "realm": "Mograine"
+    },
+    {
+     "report": "DgGqFHprfk2dtj1w",
+     "fight": 13,
+     "player": "让娜贞德",
+     "realm": "哈霍兰"
+    }
+   ],
+   "refused": [
+    {
+     "report": "fpx9GHjtCWwyzr8q",
+     "fight": 46,
+     "player": "Rukai",
+     "realm": "Whitemane",
+     "reason": "\"There is no item named 'events/fpx9GHjtCWwyzr8q/fight_46/player_26_Rukai/pets.json' in the archive\""
+    }
+   ],
+   "unverified": [],
+   "admitted_distinct_players": 2,
+   "minimum": 3,
+   "needs_followup": true,
+   "followup": "more-comparisons",
+   "reason": "2 admitted comparisons, fewer than 3"
+  },
+  {
+   "configuration": {
+    "class": "Paladin",
+    "category": "Holy",
+    "metric": "hps",
+    "faction": "Alliance"
+   },
+   "encounter_id": 51116,
+   "boss": "Maexxna",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77152471-2006-20261105T150116.zip",
+    "sha256": "566899fe83351370211b425ae94f48a0d367fbb9ecd0d26ca7d870df76838618"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "3BHfKwrC7ADTRbqj",
+     "fight": 9,
+     "player": "Thormina",
+     "realm": "Mankrik"
+    },
+    {
+     "report": "LtY6JrnjpvkaKdyV",
+     "fight": 17,
+     "player": "Stimorol",
+     "realm": "Firemaw"
+    },
+    {
+     "report": "fGcQCPZFr8zbmk2w",
+     "fight": 5,
+     "player": "Qlimaxx",
+     "realm": "Firemaw"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Paladin",
+    "category": "Holy",
+    "metric": "hps",
+    "faction": "Alliance"
+   },
+   "encounter_id": 51117,
+   "boss": "Noth the Plaguebringer",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77152471-2006-20261105T150116.zip",
+    "sha256": "566899fe83351370211b425ae94f48a0d367fbb9ecd0d26ca7d870df76838618"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "LzGX14f2RVDBCHxn",
+     "fight": 30,
+     "player": "Stimorol",
+     "realm": "Firemaw"
+    },
+    {
+     "report": "vPHg2WkpqxLDAKN7",
+     "fight": 20,
+     "player": "Tohuwabohu",
+     "realm": "Firemaw"
+    }
+   ],
+   "refused": [
+    {
+     "report": "3bwV4DYMGTA9FxHW",
+     "fight": 5,
+     "player": "Rarlin",
+     "realm": "Mankrik",
+     "reason": "\"There is no item named 'events/3bwV4DYMGTA9FxHW/fight_5/player_31_Rarlin/pets.json' in the archive\""
+    }
+   ],
+   "unverified": [],
+   "admitted_distinct_players": 2,
+   "minimum": 3,
+   "needs_followup": true,
+   "followup": "more-comparisons",
+   "reason": "2 admitted comparisons, fewer than 3"
+  },
+  {
+   "configuration": {
+    "class": "Paladin",
+    "category": "Holy",
+    "metric": "hps",
+    "faction": "Alliance"
+   },
+   "encounter_id": 51118,
+   "boss": "Patchwerk",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77152471-2006-20261105T150116.zip",
+    "sha256": "566899fe83351370211b425ae94f48a0d367fbb9ecd0d26ca7d870df76838618"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "YnxqZr64wBjJgTMD",
+     "fight": 36,
+     "player": "Bössanqt",
+     "realm": "Firemaw"
+    },
+    {
+     "report": "fVNkC6d39vg1hBHy",
+     "fight": 40,
+     "player": "Gwyar",
+     "realm": "Firemaw"
+    }
+   ],
+   "refused": [
+    {
+     "report": "6gjVyL8zvmJakXxd",
+     "fight": 37,
+     "player": "Stimorol",
+     "realm": "Firemaw",
+     "reason": "\"There is no item named 'events/6gjVyL8zvmJakXxd/fight_37/player_27_Stimorol/pets.json' in the archive\""
+    }
+   ],
+   "unverified": [],
+   "admitted_distinct_players": 2,
+   "minimum": 3,
+   "needs_followup": true,
+   "followup": "more-comparisons",
+   "reason": "2 admitted comparisons, fewer than 3"
+  },
+  {
+   "configuration": {
+    "class": "Paladin",
+    "category": "Holy",
+    "metric": "hps",
+    "faction": "Alliance"
+   },
+   "encounter_id": 51119,
+   "boss": "Sapphiron",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77152471-2006-20261105T150116.zip",
+    "sha256": "566899fe83351370211b425ae94f48a0d367fbb9ecd0d26ca7d870df76838618"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "4FmZM8BrbGzcCnW1",
+     "fight": 31,
+     "player": "冖六六冖",
+     "realm": "哈霍兰"
+    },
+    {
+     "report": "CRjm6APy4dFzqhLW",
+     "fight": 33,
+     "player": "晓枫残月丶",
+     "realm": "哈霍兰"
+    },
+    {
+     "report": "ZJ7YCVnBRd3b1fM8",
+     "fight": 36,
+     "player": "Divum",
+     "realm": "Whitemane"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Paladin",
+    "category": "Holy",
+    "metric": "hps",
+    "faction": "Alliance"
+   },
+   "encounter_id": 51120,
+   "boss": "Thaddius",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77152471-2006-20261105T150116.zip",
+    "sha256": "566899fe83351370211b425ae94f48a0d367fbb9ecd0d26ca7d870df76838618"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "PxYqQdvWBj7HZfFK",
+     "fight": 42,
+     "player": "Stimorol",
+     "realm": "Firemaw"
+    },
+    {
+     "report": "RpdgBAVyqt4XLJnZ",
+     "fight": 28,
+     "player": "Auraline",
+     "realm": "Firemaw"
+    },
+    {
+     "report": "wMYNjGna2xT3mz81",
+     "fight": 63,
+     "player": "Husar",
+     "realm": "Firemaw"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Paladin",
+    "category": "Holy",
+    "metric": "hps",
+    "faction": "Alliance"
+   },
+   "encounter_id": 51121,
+   "boss": "The Four Horsemen",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77152471-2006-20261105T150116.zip",
+    "sha256": "566899fe83351370211b425ae94f48a0d367fbb9ecd0d26ca7d870df76838618"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "Mn9W2jCpgtLhcFZf",
+     "fight": 46,
+     "player": "Stimorol",
+     "realm": "Firemaw"
+    },
+    {
+     "report": "k3FpY7vydmKbgZza",
+     "fight": 21,
+     "player": "晓枫残月丶",
+     "realm": "哈霍兰"
+    },
+    {
+     "report": "kPfJyA9ph4jW8XTF",
+     "fight": 39,
+     "player": "Helfdane",
+     "realm": "Firemaw"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Priest",
+    "category": "Holy",
+    "metric": "hps",
+    "faction": "Horde"
+   },
+   "encounter_id": 51107,
+   "boss": "Anub'Rekhan",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77516109-2006-20261107T143644.zip",
+    "sha256": "6261e9d695747c333065fa0655f610a7b7bd0be5015f47f70395edf7e7789eca"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "mQFPh71g4rRcDdGf",
+     "fight": 2,
+     "player": "Boneita",
+     "realm": "Firemaw"
+    },
+    {
+     "report": "wjM32vCPfknGa69g",
+     "fight": 12,
+     "player": "Smight",
+     "realm": "Whitemane"
+    },
+    {
+     "report": "yrjKd7L6mF1ZvxzR",
+     "fight": 2,
+     "player": "Tjejsarinnan",
+     "realm": "Ashbringer"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Priest",
+    "category": "Holy",
+    "metric": "hps",
+    "faction": "Horde"
+   },
+   "encounter_id": 51108,
+   "boss": "Gluth",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77516109-2006-20261107T143644.zip",
+    "sha256": "6261e9d695747c333065fa0655f610a7b7bd0be5015f47f70395edf7e7789eca"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "67RgatkqyGNPcM9K",
+     "fight": 29,
+     "player": "部落排名第二",
+     "realm": "哈霍兰"
+    },
+    {
+     "report": "DAhxcYG98nVP26Jq",
+     "fight": 35,
+     "player": "虚无的练习号",
+     "realm": "哈霍兰"
+    },
+    {
+     "report": "h9PgL4Vp3mWtynX2",
+     "fight": 33,
+     "player": "虚无的花",
+     "realm": "哈霍兰"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Priest",
+    "category": "Holy",
+    "metric": "hps",
+    "faction": "Horde"
+   },
+   "encounter_id": 51109,
+   "boss": "Gothik the Harvester",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77516109-2006-20261107T143644.zip",
+    "sha256": "6261e9d695747c333065fa0655f610a7b7bd0be5015f47f70395edf7e7789eca"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "Ch6d3Nn9xQArZXTb",
+     "fight": 12,
+     "player": "莫灬恋",
+     "realm": "哈霍兰"
+    },
+    {
+     "report": "Yvar2nLJHhA3mbTZ",
+     "fight": 25,
+     "player": "Playdead",
+     "realm": "Firemaw"
+    },
+    {
+     "report": "pxyJbw89Y1dnKNTQ",
+     "fight": 20,
+     "player": "Snohvit",
+     "realm": "Firemaw"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Priest",
+    "category": "Holy",
+    "metric": "hps",
+    "faction": "Horde"
+   },
+   "encounter_id": 51110,
+   "boss": "Grand Widow Faerlina",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77516109-2006-20261107T143644.zip",
+    "sha256": "6261e9d695747c333065fa0655f610a7b7bd0be5015f47f70395edf7e7789eca"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "FaCZ8HqfNB4hJmAX",
+     "fight": 10,
+     "player": "Scented",
+     "realm": "Firemaw"
+    },
+    {
+     "report": "H1GgPX8D2nzkvr7R",
+     "fight": 6,
+     "player": "Notjeff",
+     "realm": "Whitemane"
+    },
+    {
+     "report": "gjrdMJ8bvLR9kPVD",
+     "fight": 3,
+     "player": "Helena",
+     "realm": "Arcanite Reaper"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Priest",
+    "category": "Holy",
+    "metric": "hps",
+    "faction": "Horde"
+   },
+   "encounter_id": 51111,
+   "boss": "Grobbulus",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77516109-2006-20261107T143644.zip",
+    "sha256": "6261e9d695747c333065fa0655f610a7b7bd0be5015f47f70395edf7e7789eca"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "mCdvqpPFN2fGVtWH",
+     "fight": 79,
+     "player": "Marginal",
+     "realm": "Firemaw"
+    },
+    {
+     "report": "mpAyYw1Q9nbzZRxJ",
+     "fight": 57,
+     "player": "Bølta",
+     "realm": "Firemaw"
+    }
+   ],
+   "refused": [
+    {
+     "report": "Z7CXA6NWdM8Lh1xG",
+     "fight": 28,
+     "player": "Impossible",
+     "realm": "Firemaw",
+     "reason": "\"There is no item named 'events/Z7CXA6NWdM8Lh1xG/fight_28/player_10_Impossible/pets.json' in the archive\""
+    }
+   ],
+   "unverified": [],
+   "admitted_distinct_players": 2,
+   "minimum": 3,
+   "needs_followup": true,
+   "followup": "more-comparisons",
+   "reason": "2 admitted comparisons, fewer than 3"
+  },
+  {
+   "configuration": {
+    "class": "Priest",
+    "category": "Holy",
+    "metric": "hps",
+    "faction": "Horde"
+   },
+   "encounter_id": 51112,
+   "boss": "Heigan the Unclean",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77516109-2006-20261107T143644.zip",
+    "sha256": "6261e9d695747c333065fa0655f610a7b7bd0be5015f47f70395edf7e7789eca"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "VDRgpt7GjqP6xFBc",
+     "fight": 14,
+     "player": "Hylak",
+     "realm": "Whitemane"
+    },
+    {
+     "report": "YnqARGrpLtz8FN9J",
+     "fight": 10,
+     "player": "Thelema",
+     "realm": "Anathema"
+    },
+    {
+     "report": "Yvar2nLJHhA3mbTZ",
+     "fight": 32,
+     "player": "Playdead",
+     "realm": "Firemaw"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Priest",
+    "category": "Holy",
+    "metric": "hps",
+    "faction": "Horde"
+   },
+   "encounter_id": 51113,
+   "boss": "Instructor Razuvious",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77516109-2006-20261107T143644.zip",
+    "sha256": "6261e9d695747c333065fa0655f610a7b7bd0be5015f47f70395edf7e7789eca"
+   },
+   "archive_depth": 3,
+   "admitted": [],
+   "refused": [
+    {
+     "report": "hjR34dC9cnDVYJTw",
+     "fight": 17,
+     "player": "PlayerPFDMYP",
+     "realm": "Arcanite Reaper",
+     "reason": "published HPS contradicts raw"
+    },
+    {
+     "report": "jwWPFyYt39hfCnm6",
+     "fight": 17,
+     "player": "Wsg",
+     "realm": "Arcanite Reaper",
+     "reason": "published HPS contradicts raw"
+    },
+    {
+     "report": "tc7M6RJATyazNbd9",
+     "fight": 15,
+     "player": "Helena",
+     "realm": "Arcanite Reaper",
+     "reason": "published HPS contradicts raw"
+    }
+   ],
+   "unverified": [],
+   "admitted_distinct_players": 0,
+   "minimum": 3,
+   "needs_followup": true,
+   "followup": "more-comparisons",
+   "reason": "0 admitted comparisons, fewer than 3"
+  },
+  {
+   "configuration": {
+    "class": "Priest",
+    "category": "Holy",
+    "metric": "hps",
+    "faction": "Horde"
+   },
+   "encounter_id": 51114,
+   "boss": "Kel'Thuzad",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77516109-2006-20261107T143644.zip",
+    "sha256": "6261e9d695747c333065fa0655f610a7b7bd0be5015f47f70395edf7e7789eca"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "r2awzngH4BAmFf3Y",
+     "fight": 23,
+     "player": "梦中之梦",
+     "realm": "哈霍兰"
+    },
+    {
+     "report": "xGFptfny49BTMPrL",
+     "fight": 72,
+     "player": "小卷熊",
+     "realm": "哈霍兰"
+    },
+    {
+     "report": "zDAVbmGX1x3TpL6P",
+     "fight": 74,
+     "player": "何必离别",
+     "realm": "哈霍兰"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Priest",
+    "category": "Holy",
+    "metric": "hps",
+    "faction": "Horde"
+   },
+   "encounter_id": 51115,
+   "boss": "Loatheb",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77516109-2006-20261107T143644.zip",
+    "sha256": "6261e9d695747c333065fa0655f610a7b7bd0be5015f47f70395edf7e7789eca"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "KFPXptmj8Nr6fGha",
+     "fight": 97,
+     "player": "断线梓鸢",
+     "realm": "匕首岭"
+    },
+    {
+     "report": "tYkFgNKTjW97ZrHM",
+     "fight": 30,
+     "player": "奶油妹妹",
+     "realm": "哈霍兰"
+    },
+    {
+     "report": "xCh1NB3MFcaywXzZ",
+     "fight": 16,
+     "player": "镰仓",
+     "realm": "哈霍兰"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Priest",
+    "category": "Holy",
+    "metric": "hps",
+    "faction": "Horde"
+   },
+   "encounter_id": 51116,
+   "boss": "Maexxna",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77516109-2006-20261107T143644.zip",
+    "sha256": "6261e9d695747c333065fa0655f610a7b7bd0be5015f47f70395edf7e7789eca"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "GjXMLn4APDZ87k2F",
+     "fight": 7,
+     "player": "Shaqoheal",
+     "realm": "Earthshaker"
+    },
+    {
+     "report": "hVz3NcA98aKgHmqf",
+     "fight": 6,
+     "player": "虚无的训练号",
+     "realm": "哈霍兰"
+    },
+    {
+     "report": "hr1JZkMQfAtgxqC9",
+     "fight": 7,
+     "player": "醫林改錯",
+     "realm": "哈霍兰"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Priest",
+    "category": "Holy",
+    "metric": "hps",
+    "faction": "Horde"
+   },
+   "encounter_id": 51117,
+   "boss": "Noth the Plaguebringer",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77516109-2006-20261107T143644.zip",
+    "sha256": "6261e9d695747c333065fa0655f610a7b7bd0be5015f47f70395edf7e7789eca"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "LRrKtPBbAm69XW3Y",
+     "fight": 9,
+     "player": "Thelema",
+     "realm": "Anathema"
+    },
+    {
+     "report": "a2fcAQnqxbN86VGB",
+     "fight": 20,
+     "player": "Shadøwpriest",
+     "realm": "Firemaw"
+    },
+    {
+     "report": "nbTB6DQXZvj9fzgt",
+     "fight": 9,
+     "player": "虚无的花",
+     "realm": "哈霍兰"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Priest",
+    "category": "Holy",
+    "metric": "hps",
+    "faction": "Horde"
+   },
+   "encounter_id": 51118,
+   "boss": "Patchwerk",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77516109-2006-20261107T143644.zip",
+    "sha256": "6261e9d695747c333065fa0655f610a7b7bd0be5015f47f70395edf7e7789eca"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "16JKPtam9v4XBcMC",
+     "fight": 81,
+     "player": "Gorgish",
+     "realm": "Pyrewood Village"
+    },
+    {
+     "report": "AGpWTjbZwyRzmthB",
+     "fight": 63,
+     "player": "Mabious",
+     "realm": "Mirage Raceway"
+    }
+   ],
+   "refused": [
+    {
+     "report": "W31RFnXLqCApgG6P",
+     "fight": 44,
+     "player": "Chibbytwocap",
+     "realm": "Whitemane",
+     "reason": "\"There is no item named 'events/W31RFnXLqCApgG6P/fight_44/player_10_Chibbytwocap/pets.json' in the archive\""
+    }
+   ],
+   "unverified": [],
+   "admitted_distinct_players": 2,
+   "minimum": 3,
+   "needs_followup": true,
+   "followup": "more-comparisons",
+   "reason": "2 admitted comparisons, fewer than 3"
+  },
+  {
+   "configuration": {
+    "class": "Priest",
+    "category": "Holy",
+    "metric": "hps",
+    "faction": "Horde"
+   },
+   "encounter_id": 51119,
+   "boss": "Sapphiron",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77516109-2006-20261107T143644.zip",
+    "sha256": "6261e9d695747c333065fa0655f610a7b7bd0be5015f47f70395edf7e7789eca"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "9L38xjd7RYkCQtaT",
+     "fight": 37,
+     "player": "虚无的训练号",
+     "realm": "哈霍兰"
+    },
+    {
+     "report": "Nb7wz9YtQrvdBPgG",
+     "fight": 32,
+     "player": "部落排名第二",
+     "realm": "哈霍兰"
+    }
+   ],
+   "refused": [
+    {
+     "report": "cK6gCjHGZL9nP1ma",
+     "fight": 38,
+     "player": "虚无的花",
+     "realm": "哈霍兰",
+     "reason": "\"There is no item named 'events/cK6gCjHGZL9nP1ma/fight_38/player_11_x/pets.json' in the archive\""
+    }
+   ],
+   "unverified": [],
+   "admitted_distinct_players": 2,
+   "minimum": 3,
+   "needs_followup": true,
+   "followup": "more-comparisons",
+   "reason": "2 admitted comparisons, fewer than 3"
+  },
+  {
+   "configuration": {
+    "class": "Priest",
+    "category": "Holy",
+    "metric": "hps",
+    "faction": "Horde"
+   },
+   "encounter_id": 51120,
+   "boss": "Thaddius",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77516109-2006-20261107T143644.zip",
+    "sha256": "6261e9d695747c333065fa0655f610a7b7bd0be5015f47f70395edf7e7789eca"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "3BC7jqtfAQbPGK1H",
+     "fight": 107,
+     "player": "Chibbytwocap",
+     "realm": "Whitemane"
+    },
+    {
+     "report": "9qW4RFrzLCn7BvHf",
+     "fight": 18,
+     "player": "丨其徐如林丨",
+     "realm": "厄运之槌"
+    },
+    {
+     "report": "Pky8TVQmjAg9XhHp",
+     "fight": 22,
+     "player": "宙斯丶之翼",
+     "realm": "哈霍兰"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Priest",
+    "category": "Holy",
+    "metric": "hps",
+    "faction": "Horde"
+   },
+   "encounter_id": 51121,
+   "boss": "The Four Horsemen",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77516109-2006-20261107T143644.zip",
+    "sha256": "6261e9d695747c333065fa0655f610a7b7bd0be5015f47f70395edf7e7789eca"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "VjCX3AZx6DhtMLzJ",
+     "fight": 20,
+     "player": "虚无的花",
+     "realm": "哈霍兰"
+    },
+    {
+     "report": "kypwa8LNDh4Zvmzj",
+     "fight": 25,
+     "player": "莫灬伤",
+     "realm": "哈霍兰"
+    },
+    {
+     "report": "nDrtYAwkmF4VTXxR",
+     "fight": 23,
+     "player": "Bonnibel",
+     "realm": "Bigglesworth"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Priest",
+    "category": "Holy",
+    "metric": "hps",
+    "faction": "Alliance"
+   },
+   "encounter_id": 51107,
+   "boss": "Anub'Rekhan",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77573659-2006-20261106T154918.zip",
+    "sha256": "d292ee0e8a3db304a504e98ecc0528b70e43446dd74548afaf5788d8af9d8139"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "8R9wCAhn7vybBrqK",
+     "fight": 2,
+     "player": "Drhealth",
+     "realm": "Whitemane"
+    },
+    {
+     "report": "qXpKH28QT17RZaxG",
+     "fight": 3,
+     "player": "Kassio",
+     "realm": "Whitemane"
+    }
+   ],
+   "refused": [
+    {
+     "report": "khmJMWdRCyXLYw1c",
+     "fight": 4,
+     "player": "Zarzie",
+     "realm": "Whitemane",
+     "reason": "\"There is no item named 'events/khmJMWdRCyXLYw1c/fight_4/player_16_Zarzie/pets.json' in the archive\""
+    }
+   ],
+   "unverified": [],
+   "admitted_distinct_players": 2,
+   "minimum": 3,
+   "needs_followup": true,
+   "followup": "more-comparisons",
+   "reason": "2 admitted comparisons, fewer than 3"
+  },
+  {
+   "configuration": {
+    "class": "Priest",
+    "category": "Holy",
+    "metric": "hps",
+    "faction": "Alliance"
+   },
+   "encounter_id": 51108,
+   "boss": "Gluth",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77573659-2006-20261106T154918.zip",
+    "sha256": "d292ee0e8a3db304a504e98ecc0528b70e43446dd74548afaf5788d8af9d8139"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "9nrZFYWkpQaTDgvf",
+     "fight": 30,
+     "player": "Eyianne",
+     "realm": "Firemaw"
+    },
+    {
+     "report": "BN1xQ6pRnVXPwv9h",
+     "fight": 28,
+     "player": "Nacyy",
+     "realm": "哈霍兰"
+    },
+    {
+     "report": "FxLdcvz93Qjk7THD",
+     "fight": 27,
+     "player": "Maoainai",
+     "realm": "Whitemane"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Priest",
+    "category": "Holy",
+    "metric": "hps",
+    "faction": "Alliance"
+   },
+   "encounter_id": 51109,
+   "boss": "Gothik the Harvester",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77573659-2006-20261106T154918.zip",
+    "sha256": "d292ee0e8a3db304a504e98ecc0528b70e43446dd74548afaf5788d8af9d8139"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "JAbXhjr4L9tPCHqf",
+     "fight": 20,
+     "player": "Eckso",
+     "realm": "Whitemane"
+    },
+    {
+     "report": "Px7v1m4HFTQqX9Gr",
+     "fight": 17,
+     "player": "Exo",
+     "realm": "Whitemane"
+    },
+    {
+     "report": "WDnrZPbdMNTC2gfK",
+     "fight": 19,
+     "player": "Sifu",
+     "realm": "Whitemane"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Priest",
+    "category": "Holy",
+    "metric": "hps",
+    "faction": "Alliance"
+   },
+   "encounter_id": 51110,
+   "boss": "Grand Widow Faerlina",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77573659-2006-20261106T154918.zip",
+    "sha256": "d292ee0e8a3db304a504e98ecc0528b70e43446dd74548afaf5788d8af9d8139"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "A4NR9dyvXVkMK7wF",
+     "fight": 6,
+     "player": "Wwamb",
+     "realm": "Westfall"
+    },
+    {
+     "report": "QLCx9KDGFwnBmjAg",
+     "fight": 8,
+     "player": "Almsíví",
+     "realm": "Firemaw"
+    },
+    {
+     "report": "aVQgxmbRjpw12A3L",
+     "fight": 4,
+     "player": "Sifu",
+     "realm": "Whitemane"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Priest",
+    "category": "Holy",
+    "metric": "hps",
+    "faction": "Alliance"
+   },
+   "encounter_id": 51111,
+   "boss": "Grobbulus",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77573659-2006-20261106T154918.zip",
+    "sha256": "d292ee0e8a3db304a504e98ecc0528b70e43446dd74548afaf5788d8af9d8139"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "Cw6b9hkLpdmGtZ1v",
+     "fight": 21,
+     "player": "Immateriall",
+     "realm": "Whitemane"
+    },
+    {
+     "report": "XVphtJRPMdb3cBF2",
+     "fight": 30,
+     "player": "Sifu",
+     "realm": "Whitemane"
+    },
+    {
+     "report": "k1J6rKpVNfQgX7dW",
+     "fight": 39,
+     "player": "Almsíví",
+     "realm": "Firemaw"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Priest",
+    "category": "Holy",
+    "metric": "hps",
+    "faction": "Alliance"
+   },
+   "encounter_id": 51112,
+   "boss": "Heigan the Unclean",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77573659-2006-20261106T154918.zip",
+    "sha256": "d292ee0e8a3db304a504e98ecc0528b70e43446dd74548afaf5788d8af9d8139"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "WkaHNDg9jfJKGxr1",
+     "fight": 38,
+     "player": "Mathiheal",
+     "realm": "Whitemane"
+    },
+    {
+     "report": "XvChdHLFDB4TQ6k9",
+     "fight": 20,
+     "player": "Almsíví",
+     "realm": "Firemaw"
+    },
+    {
+     "report": "mn9zTYQAL4K1cpF2",
+     "fight": 26,
+     "player": "Rðn",
+     "realm": "Ashbringer"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Priest",
+    "category": "Holy",
+    "metric": "hps",
+    "faction": "Alliance"
+   },
+   "encounter_id": 51113,
+   "boss": "Instructor Razuvious",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77573659-2006-20261106T154918.zip",
+    "sha256": "d292ee0e8a3db304a504e98ecc0528b70e43446dd74548afaf5788d8af9d8139"
+   },
+   "archive_depth": 3,
+   "admitted": [],
+   "refused": [
+    {
+     "report": "JTmzKgYkZAV71MWL",
+     "fight": 16,
+     "player": "江湖丶郎中",
+     "realm": "哈霍兰",
+     "reason": "published HPS contradicts raw"
+    },
+    {
+     "report": "pMZVCNbXqmLng2yP",
+     "fight": 14,
+     "player": "Nacyy",
+     "realm": "哈霍兰",
+     "reason": "published HPS contradicts raw"
+    },
+    {
+     "report": "w9cf1bALFgXDYTNK",
+     "fight": 33,
+     "player": "Maoainai",
+     "realm": "Whitemane",
+     "reason": "published HPS contradicts raw"
+    }
+   ],
+   "unverified": [],
+   "admitted_distinct_players": 0,
+   "minimum": 3,
+   "needs_followup": true,
+   "followup": "more-comparisons",
+   "reason": "0 admitted comparisons, fewer than 3"
+  },
+  {
+   "configuration": {
+    "class": "Priest",
+    "category": "Holy",
+    "metric": "hps",
+    "faction": "Alliance"
+   },
+   "encounter_id": 51114,
+   "boss": "Kel'Thuzad",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77573659-2006-20261106T154918.zip",
+    "sha256": "d292ee0e8a3db304a504e98ecc0528b70e43446dd74548afaf5788d8af9d8139"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "MjYy6JTWHmQ8a7pP",
+     "fight": 33,
+     "player": "干城章嘉",
+     "realm": "哈霍兰"
+    },
+    {
+     "report": "W92fnJbcz41RhX7Y",
+     "fight": 78,
+     "player": "夜寒风雪",
+     "realm": "哈霍兰"
+    },
+    {
+     "report": "zwa7kRB6NtCZAXjH",
+     "fight": 36,
+     "player": "Nacyy",
+     "realm": "哈霍兰"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Priest",
+    "category": "Holy",
+    "metric": "hps",
+    "faction": "Alliance"
+   },
+   "encounter_id": 51115,
+   "boss": "Loatheb",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77573659-2006-20261106T154918.zip",
+    "sha256": "d292ee0e8a3db304a504e98ecc0528b70e43446dd74548afaf5788d8af9d8139"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "2wR7ZGavjBxhdqQt",
+     "fight": 54,
+     "player": "Sindoray",
+     "realm": "Whitemane"
+    },
+    {
+     "report": "b1a4HGqZcgvJKVr9",
+     "fight": 47,
+     "player": "Mishaka",
+     "realm": "哈霍兰"
+    }
+   ],
+   "refused": [
+    {
+     "report": "K21FHBDnQpztkfTL",
+     "fight": 35,
+     "player": "Letmehealyou",
+     "realm": "Firemaw",
+     "reason": "\"There is no item named 'events/K21FHBDnQpztkfTL/fight_35/player_17_Letmehealyou/pets.json' in the archive\""
+    }
+   ],
+   "unverified": [],
+   "admitted_distinct_players": 2,
+   "minimum": 3,
+   "needs_followup": true,
+   "followup": "more-comparisons",
+   "reason": "2 admitted comparisons, fewer than 3"
+  },
+  {
+   "configuration": {
+    "class": "Priest",
+    "category": "Holy",
+    "metric": "hps",
+    "faction": "Alliance"
+   },
+   "encounter_id": 51116,
+   "boss": "Maexxna",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77573659-2006-20261106T154918.zip",
+    "sha256": "d292ee0e8a3db304a504e98ecc0528b70e43446dd74548afaf5788d8af9d8139"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "L6hKXVafgzD3FmPn",
+     "fight": 5,
+     "player": "Minicutie",
+     "realm": "Firemaw"
+    },
+    {
+     "report": "mkcjNbq8GRBDfCHw",
+     "fight": 5,
+     "player": "Sakrize",
+     "realm": "Ashbringer"
+    },
+    {
+     "report": "nXPNZcY9fqWaB86G",
+     "fight": 5,
+     "player": "Immateriall",
+     "realm": "Whitemane"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Priest",
+    "category": "Holy",
+    "metric": "hps",
+    "faction": "Alliance"
+   },
+   "encounter_id": 51117,
+   "boss": "Noth the Plaguebringer",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77573659-2006-20261106T154918.zip",
+    "sha256": "d292ee0e8a3db304a504e98ecc0528b70e43446dd74548afaf5788d8af9d8139"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "9v6hPwaWmXG8fCRd",
+     "fight": 12,
+     "player": "Almsivi",
+     "realm": "Firemaw"
+    },
+    {
+     "report": "9v6hPwaWmXG8fCRd",
+     "fight": 12,
+     "player": "Sakrize",
+     "realm": "Ashbringer"
+    },
+    {
+     "report": "H8TJxZMhX62rnqmA",
+     "fight": 12,
+     "player": "Sindoray",
+     "realm": "Whitemane"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Priest",
+    "category": "Holy",
+    "metric": "hps",
+    "faction": "Alliance"
+   },
+   "encounter_id": 51118,
+   "boss": "Patchwerk",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77573659-2006-20261106T154918.zip",
+    "sha256": "d292ee0e8a3db304a504e98ecc0528b70e43446dd74548afaf5788d8af9d8139"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "2R8LXKT7fxzwQyrN",
+     "fight": 27,
+     "player": "Letmehealyou",
+     "realm": "Firemaw"
+    },
+    {
+     "report": "X38DFNCmWacLr9yk",
+     "fight": 25,
+     "player": "Maoainai",
+     "realm": "Whitemane"
+    }
+   ],
+   "refused": [
+    {
+     "report": "t9HvJMhjFx2V1n8W",
+     "fight": 30,
+     "player": "Prayforheals",
+     "realm": "Thunderfury",
+     "reason": "\"There is no item named 'events/t9HvJMhjFx2V1n8W/fight_30/player_26_Prayforheals/pets.json' in the archive\""
+    }
+   ],
+   "unverified": [],
+   "admitted_distinct_players": 2,
+   "minimum": 3,
+   "needs_followup": true,
+   "followup": "more-comparisons",
+   "reason": "2 admitted comparisons, fewer than 3"
+  },
+  {
+   "configuration": {
+    "class": "Priest",
+    "category": "Holy",
+    "metric": "hps",
+    "faction": "Alliance"
+   },
+   "encounter_id": 51119,
+   "boss": "Sapphiron",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77573659-2006-20261106T154918.zip",
+    "sha256": "d292ee0e8a3db304a504e98ecc0528b70e43446dd74548afaf5788d8af9d8139"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "KRMbXgGJApa26HZf",
+     "fight": 28,
+     "player": "医林",
+     "realm": "哈霍兰"
+    },
+    {
+     "report": "ZbqNGh1gJjKBRAwv",
+     "fight": 38,
+     "player": "Almsivi",
+     "realm": "Firemaw"
+    },
+    {
+     "report": "hA3tQMWw2XvcTYjy",
+     "fight": 30,
+     "player": "Shodeena",
+     "realm": "Whitemane"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Priest",
+    "category": "Holy",
+    "metric": "hps",
+    "faction": "Alliance"
+   },
+   "encounter_id": 51120,
+   "boss": "Thaddius",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77573659-2006-20261106T154918.zip",
+    "sha256": "d292ee0e8a3db304a504e98ecc0528b70e43446dd74548afaf5788d8af9d8139"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "3tQMVfRKchzwrXpD",
+     "fight": 33,
+     "player": "Sifu",
+     "realm": "Whitemane"
+    },
+    {
+     "report": "TzmpX7dPbLK4QwxA",
+     "fight": 44,
+     "player": "Gujur",
+     "realm": "Whitemane"
+    },
+    {
+     "report": "y7wV3DT6ZNABYGtF",
+     "fight": 29,
+     "player": "Maoainai",
+     "realm": "Whitemane"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Priest",
+    "category": "Holy",
+    "metric": "hps",
+    "faction": "Alliance"
+   },
+   "encounter_id": 51121,
+   "boss": "The Four Horsemen",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77573659-2006-20261106T154918.zip",
+    "sha256": "d292ee0e8a3db304a504e98ecc0528b70e43446dd74548afaf5788d8af9d8139"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "7GnKqRNFfH8Bw3v9",
+     "fight": 25,
+     "player": "圣洁天使",
+     "realm": "哈霍兰"
+    },
+    {
+     "report": "TPvAYLcfhrN43Jpj",
+     "fight": 23,
+     "player": "Sifu",
+     "realm": "Whitemane"
+    },
+    {
+     "report": "Ynh3Gv8DQFpVjTdt",
+     "fight": 19,
+     "player": "萌灬蔸",
+     "realm": "哈霍兰"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Druid",
+    "category": "Restoration",
+    "metric": "hps",
+    "faction": "Horde"
+   },
+   "encounter_id": 51107,
+   "boss": "Anub'Rekhan",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77577270-2006-20261103T040708.zip",
+    "sha256": "f2151316bf0531ee4187a54e5f234c18b29028f9418e3d7d513d83521c2a681d"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "BQRD6fC3pKan2XAF",
+     "fight": 2,
+     "player": "Karakorn",
+     "realm": "Firemaw"
+    },
+    {
+     "report": "bWy8pwKjdGQmha6A",
+     "fight": 2,
+     "player": "Thorisdottir",
+     "realm": "Whitemane"
+    },
+    {
+     "report": "t7zYvKMHAJ4VgmBp",
+     "fight": 2,
+     "player": "Bigblackkcow",
+     "realm": "Whitemane"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Druid",
+    "category": "Restoration",
+    "metric": "hps",
+    "faction": "Horde"
+   },
+   "encounter_id": 51108,
+   "boss": "Gluth",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77577270-2006-20261103T040708.zip",
+    "sha256": "f2151316bf0531ee4187a54e5f234c18b29028f9418e3d7d513d83521c2a681d"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "2FJHt4fdnTyawbQB",
+     "fight": 29,
+     "player": "Eñ",
+     "realm": "Whitemane"
+    },
+    {
+     "report": "DxzkR6hJQ3AbdXYa",
+     "fight": 29,
+     "player": "Hcistoohard",
+     "realm": "Mograine"
+    },
+    {
+     "report": "gKqmFjr963XBLwWJ",
+     "fight": 27,
+     "player": "Thorisdottir",
+     "realm": "Whitemane"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Druid",
+    "category": "Restoration",
+    "metric": "hps",
+    "faction": "Horde"
+   },
+   "encounter_id": 51109,
+   "boss": "Gothik the Harvester",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77577270-2006-20261103T040708.zip",
+    "sha256": "f2151316bf0531ee4187a54e5f234c18b29028f9418e3d7d513d83521c2a681d"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "CaYXGFhHqyDmbQ6f",
+     "fight": 16,
+     "player": "Cylak",
+     "realm": "Whitemane"
+    },
+    {
+     "report": "arbRL2tKA8wWyGDx",
+     "fight": 19,
+     "player": "Thorisdottir",
+     "realm": "Whitemane"
+    },
+    {
+     "report": "t9kYR6nCzhfg1rZD",
+     "fight": 30,
+     "player": "Chucktaurus",
+     "realm": "Fairbanks"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Druid",
+    "category": "Restoration",
+    "metric": "hps",
+    "faction": "Horde"
+   },
+   "encounter_id": 51110,
+   "boss": "Grand Widow Faerlina",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77577270-2006-20261103T040708.zip",
+    "sha256": "f2151316bf0531ee4187a54e5f234c18b29028f9418e3d7d513d83521c2a681d"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "CyaJzrxdptXYnqPN",
+     "fight": 5,
+     "player": "Thorisdottir",
+     "realm": "Whitemane"
+    },
+    {
+     "report": "M3LAfwzJ1NZpxndB",
+     "fight": 41,
+     "player": "Kopitar",
+     "realm": "Fairbanks"
+    },
+    {
+     "report": "z1bpX9rndQZV7kvx",
+     "fight": 7,
+     "player": "Karakorn",
+     "realm": "Firemaw"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Druid",
+    "category": "Restoration",
+    "metric": "hps",
+    "faction": "Horde"
+   },
+   "encounter_id": 51111,
+   "boss": "Grobbulus",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77577270-2006-20261103T040708.zip",
+    "sha256": "f2151316bf0531ee4187a54e5f234c18b29028f9418e3d7d513d83521c2a681d"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "CaYXGFhHqyDmbQ6f",
+     "fight": 25,
+     "player": "Cylak",
+     "realm": "Whitemane"
+    },
+    {
+     "report": "X4C86zavmyngQWP3",
+     "fight": 24,
+     "player": "Thorisdottir",
+     "realm": "Whitemane"
+    },
+    {
+     "report": "hMat9Ndj1fAPG4bm",
+     "fight": 46,
+     "player": "Bemep",
+     "realm": "Firemaw"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Druid",
+    "category": "Restoration",
+    "metric": "hps",
+    "faction": "Horde"
+   },
+   "encounter_id": 51112,
+   "boss": "Heigan the Unclean",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77577270-2006-20261103T040708.zip",
+    "sha256": "f2151316bf0531ee4187a54e5f234c18b29028f9418e3d7d513d83521c2a681d"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "1rCMHKwYJzgt34mf",
+     "fight": 14,
+     "player": "Thorisdottir",
+     "realm": "Whitemane"
+    },
+    {
+     "report": "KXFYGywgtDHAZLQ2",
+     "fight": 29,
+     "player": "Curly",
+     "realm": "Skullflame"
+    },
+    {
+     "report": "qyT7cAzFQL34bVXN",
+     "fight": 13,
+     "player": "Cylak",
+     "realm": "Whitemane"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Druid",
+    "category": "Restoration",
+    "metric": "hps",
+    "faction": "Horde"
+   },
+   "encounter_id": 51113,
+   "boss": "Instructor Razuvious",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77577270-2006-20261103T040708.zip",
+    "sha256": "f2151316bf0531ee4187a54e5f234c18b29028f9418e3d7d513d83521c2a681d"
+   },
+   "archive_depth": 3,
+   "admitted": [],
+   "refused": [
+    {
+     "report": "YkwdTAxqK9gZapzF",
+     "fight": 20,
+     "player": "Deriyon",
+     "realm": "Whitemane",
+     "reason": "published HPS contradicts raw"
+    },
+    {
+     "report": "gTVzmp9d2CPYLfJ4",
+     "fight": 17,
+     "player": "Thorisdottir",
+     "realm": "Whitemane",
+     "reason": "published HPS contradicts raw"
+    },
+    {
+     "report": "x4L8AjzFw3WpYV6B",
+     "fight": 20,
+     "player": "Curly",
+     "realm": "Skullflame",
+     "reason": "published HPS contradicts raw"
+    }
+   ],
+   "unverified": [],
+   "admitted_distinct_players": 0,
+   "minimum": 3,
+   "needs_followup": true,
+   "followup": "more-comparisons",
+   "reason": "0 admitted comparisons, fewer than 3"
+  },
+  {
+   "configuration": {
+    "class": "Druid",
+    "category": "Restoration",
+    "metric": "hps",
+    "faction": "Horde"
+   },
+   "encounter_id": 51114,
+   "boss": "Kel'Thuzad",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77577270-2006-20261103T040708.zip",
+    "sha256": "f2151316bf0531ee4187a54e5f234c18b29028f9418e3d7d513d83521c2a681d"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "PpF1T8GLJKvHVRCz",
+     "fight": 60,
+     "player": "牛貝貝",
+     "realm": "哈霍兰"
+    },
+    {
+     "report": "PpF1T8GLJKvHVRCz",
+     "fight": 60,
+     "player": "第三的德",
+     "realm": "哈霍兰"
+    },
+    {
+     "report": "vZ2H1aVTMxN9rbfD",
+     "fight": 35,
+     "player": "Thorisdottir",
+     "realm": "Whitemane"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Druid",
+    "category": "Restoration",
+    "metric": "hps",
+    "faction": "Horde"
+   },
+   "encounter_id": 51115,
+   "boss": "Loatheb",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77577270-2006-20261103T040708.zip",
+    "sha256": "f2151316bf0531ee4187a54e5f234c18b29028f9418e3d7d513d83521c2a681d"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "G9YarXpdvnJw27cR",
+     "fight": 30,
+     "player": "断线紫鸢",
+     "realm": "匕首岭"
+    },
+    {
+     "report": "K8tRvbk2Yzaj6y4G",
+     "fight": 29,
+     "player": "加谁倒谁",
+     "realm": "匕首岭"
+    },
+    {
+     "report": "y8DVGmd6atjAbWPJ",
+     "fight": 35,
+     "player": "莫灬悲",
+     "realm": "哈霍兰"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Druid",
+    "category": "Restoration",
+    "metric": "hps",
+    "faction": "Horde"
+   },
+   "encounter_id": 51116,
+   "boss": "Maexxna",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77577270-2006-20261103T040708.zip",
+    "sha256": "f2151316bf0531ee4187a54e5f234c18b29028f9418e3d7d513d83521c2a681d"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "2RXQ1YkAwztL8BDr",
+     "fight": 29,
+     "player": "夜文梧桐",
+     "realm": "哈霍兰"
+    },
+    {
+     "report": "GJbywBFKgrQxW47j",
+     "fight": 7,
+     "player": "Thorisdottir",
+     "realm": "Whitemane"
+    },
+    {
+     "report": "xVvYa4y71gRHjfpr",
+     "fight": 5,
+     "player": "Cylak",
+     "realm": "Whitemane"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Druid",
+    "category": "Restoration",
+    "metric": "hps",
+    "faction": "Horde"
+   },
+   "encounter_id": 51117,
+   "boss": "Noth the Plaguebringer",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77577270-2006-20261103T040708.zip",
+    "sha256": "f2151316bf0531ee4187a54e5f234c18b29028f9418e3d7d513d83521c2a681d"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "BcbTPFzNKtkYJWDG",
+     "fight": 12,
+     "player": "Karakorn",
+     "realm": "Firemaw"
+    },
+    {
+     "report": "T3W2CL9afBrvdm6t",
+     "fight": 9,
+     "player": "Thorisdottir",
+     "realm": "Whitemane"
+    },
+    {
+     "report": "f9VAyPJM1CHQ3Kkz",
+     "fight": 11,
+     "player": "Tilopa",
+     "realm": "Firemaw"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Druid",
+    "category": "Restoration",
+    "metric": "hps",
+    "faction": "Horde"
+   },
+   "encounter_id": 51118,
+   "boss": "Patchwerk",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77577270-2006-20261103T040708.zip",
+    "sha256": "f2151316bf0531ee4187a54e5f234c18b29028f9418e3d7d513d83521c2a681d"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "Q9F2pGKCLyXYjkP8",
+     "fight": 49,
+     "player": "Sa",
+     "realm": "Whitemane"
+    },
+    {
+     "report": "bZkvqFGD1myMPjJB",
+     "fight": 56,
+     "player": "Zeejimme",
+     "realm": "Noggenfogger"
+    },
+    {
+     "report": "r13LDMZvdJ4VcAB9",
+     "fight": 44,
+     "player": "Pyroc",
+     "realm": "Firemaw"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Druid",
+    "category": "Restoration",
+    "metric": "hps",
+    "faction": "Horde"
+   },
+   "encounter_id": 51119,
+   "boss": "Sapphiron",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77577270-2006-20261103T040708.zip",
+    "sha256": "f2151316bf0531ee4187a54e5f234c18b29028f9418e3d7d513d83521c2a681d"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "8zHCv3FYGcJhRabV",
+     "fight": 61,
+     "player": "Tilopa",
+     "realm": "Firemaw"
+    },
+    {
+     "report": "b1vNDBtARPcjCm4Z",
+     "fight": 26,
+     "player": "Thorisdottir",
+     "realm": "Whitemane"
+    },
+    {
+     "report": "vQ3cC2dzXnjYVNhZ",
+     "fight": 34,
+     "player": "Cylak",
+     "realm": "Whitemane"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Druid",
+    "category": "Restoration",
+    "metric": "hps",
+    "faction": "Horde"
+   },
+   "encounter_id": 51120,
+   "boss": "Thaddius",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77577270-2006-20261103T040708.zip",
+    "sha256": "f2151316bf0531ee4187a54e5f234c18b29028f9418e3d7d513d83521c2a681d"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "YH6gDx7vqmf3C98Z",
+     "fight": 27,
+     "player": "Kopitar",
+     "realm": "Fairbanks"
+    },
+    {
+     "report": "c7p2r6jgWYXT3aBv",
+     "fight": 43,
+     "player": "Kuhbärmann",
+     "realm": "Firemaw"
+    },
+    {
+     "report": "xhTK4nQc2YfNyw3A",
+     "fight": 90,
+     "player": "Prologue",
+     "realm": "Mankrik"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
+    "class": "Druid",
+    "category": "Restoration",
+    "metric": "hps",
+    "faction": "Horde"
+   },
+   "encounter_id": 51121,
+   "boss": "The Four Horsemen",
+   "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77577270-2006-20261103T040708.zip",
+    "sha256": "f2151316bf0531ee4187a54e5f234c18b29028f9418e3d7d513d83521c2a681d"
+   },
+   "archive_depth": 3,
+   "admitted": [
+    {
+     "report": "VQyZ2Mc39Lf4TmvR",
+     "fight": 25,
+     "player": "Karakorn",
+     "realm": "Firemaw"
+    },
+    {
+     "report": "bzK64yd3JcTfMGgB",
+     "fight": 22,
+     "player": "Thorisdottir",
+     "realm": "Whitemane"
+    },
+    {
+     "report": "vmWJta8BKNw9jQxh",
+     "fight": 28,
+     "player": "Eñ",
+     "realm": "Whitemane"
+    }
+   ],
+   "refused": [],
+   "unverified": [],
+   "admitted_distinct_players": 3,
+   "minimum": 3,
+   "needs_followup": false,
+   "followup": null,
+   "reason": null
+  },
+  {
+   "configuration": {
     "class": "Warlock",
     "category": "Destruction",
     "metric": "dps",
@@ -18755,7 +23883,7 @@
    "reason": null
   }
  ],
- "needs_followup": 157,
+ "needs_followup": 193,
  "limits": [
   "Meeting the minimum does not make a cell complete.",
   "Unverified comparisons are not counted as zero valid players.",
