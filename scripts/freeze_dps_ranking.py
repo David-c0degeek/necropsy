@@ -131,6 +131,18 @@ EFFECT_TYPES = {"dps": frozenset({"damage"}), "hps": frozenset({"heal", "absorbe
 MIND_CONTROL_AURAS = frozenset({28410})
 AURA_ON = frozenset({"applydebuff", "applybuff"})
 AURA_OFF = frozenset({"removedebuff", "removebuff"})
+
+
+def effect_amount(event: dict[str, Any], metric: str) -> int:
+    """D032: a damage event's ranked amount includes the damage a shield absorbed
+    (`absorbed`), as WCL damage done does; healing uses `amount` alone."""
+    amount: int = event["amount"]
+    if metric == "dps" and "absorbed" in event:
+        require(integer(event["absorbed"]), "absorbed amount noninteger/negative")
+        amount += event["absorbed"]
+    return amount
+
+
 """Counted event types. A heal event's amount excludes overheal."""
 ROLES = {
     "dps": frozenset({"balance-dps", "feral-dps", "feral-tank", "dps", "tank"}),
@@ -631,7 +643,7 @@ def compute(spec: dict[str, Any], base: Path, metric: str = "dps") -> dict[str, 
                     observations.setdefault(key, []).append({"member": name, "index": index})
                 merged |= counts
             source_totals[str(source)] = sum(
-                read_json(k.encode())["amount"] * n for k, n in merged.items()
+                effect_amount(read_json(k.encode()), metric) * n for k, n in merged.items()
             )
             combined.update(merged)
         for source in active:
@@ -654,7 +666,7 @@ def compute(spec: dict[str, Any], base: Path, metric: str = "dps") -> dict[str, 
                 counts[key] += 1
                 observations.setdefault(key, []).append({"member": name, "index": index})
             source_totals[str(source)] = sum(
-                read_json(k.encode())["amount"] * n for k, n in counts.items()
+                effect_amount(read_json(k.encode()), metric) * n for k, n in counts.items()
             )
             combined.update(counts)
 
@@ -696,8 +708,9 @@ def compute(spec: dict[str, Any], base: Path, metric: str = "dps") -> dict[str, 
                 disposition = "excluded"
             else:
                 disposition = "ranked"
-            totals["raw"] += event["amount"] * count
-            totals[disposition] = totals.get(disposition, 0) + event["amount"] * count
+            value = effect_amount(event, metric) * count
+            totals["raw"] += value
+            totals[disposition] = totals.get(disposition, 0) + value
             events.append(
                 {
                     "raw": event,

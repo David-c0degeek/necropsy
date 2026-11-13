@@ -127,3 +127,7 @@ reconstructs how published DPS credits Ignite. Each tick is split equally
 tick's target instance. This matches 78 of 85 Mage rows with Ignite; the
 logged-source rule the freezer uses matches 10. Fitted without a holdout, and
 not adopted yet.
+
+2026-11-13 · D032 absorbed damage · A damage event's `absorbed` amount counts
+as damage done. One register row depended on it. 276 DPS policies; golden
+re-proof 1,596 checks (C1 version-1 evidence checked without absorbed damage).

@@ -1,9 +1,9 @@
 {
   "kind": "Naxx cell-scoped DPS and HPS policy matrix; every register configuration",
   "inputs": {
-    "register_sha256": "5c68ad7aabc12d540713740c3a39984d27bcb3c031e993d9904f684114229bbd",
-    "builder_sha256": "df6a71af7bdeea210cc07db8d17e079580051157c24a555e68057adb7c4db6af",
-    "freezer_sha256": "333ca7fff4ba7c083f8749ca704ffad29037c31ab7a5cb5c9fff853c09fca02a"
+    "register_sha256": "cd3469b92198f174f53196f3842af82bc0b31c6904f5fc62379f551949b2de12",
+    "builder_sha256": "68c877e4652edb3a623834a9fbe8f4891a9706b2e1e5e9bf3925fc191617833e",
+    "freezer_sha256": "096d6ea5b01a07783eff7082de67b1f23991317ea8ef537a9572960c047164d0"
   },
   "minimum_admitted_players": 3,
   "cells": [
@@ -1466,12 +1466,13 @@
       },
       "boss": "Kel'Thuzad",
       "archive": "tests/golden/raids/raw/naxx-production-20261031/77548335-2006-20261030T095117.zip",
-      "admitted": 2,
-      "admitted_distinct_players": 2,
-      "refused": 1,
-      "contradictions": 1,
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
       "other_refusals": [],
-      "decision": "OPEN: 1 contradiction(s) retained"
+      "decision": "POLICY",
+      "rule": "naxx-kelthuzad-feral-druid-horde-dps-v1"
     },
     {
       "scope": {
@@ -4347,12 +4348,13 @@
       },
       "boss": "Kel'Thuzad",
       "archive": "tests/golden/raids/raw/naxx-production-20261111/67666001-2006-20261105T232014.zip",
-      "admitted": 2,
-      "admitted_distinct_players": 2,
-      "refused": 1,
-      "contradictions": 1,
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
       "other_refusals": [],
-      "decision": "OPEN: 1 contradiction(s) retained"
+      "decision": "POLICY",
+      "rule": "naxx-kelthuzad-protection-paladin-alliance-dps-v1"
     },
     {
       "scope": {
@@ -8957,7 +8959,7 @@
       "rule": "naxx-horsemen-frost-mage-alliance-dps-v1"
     }
   ],
-  "policies": 259,
+  "policies": 261,
   "limits": [
     "Raw-to-published arithmetic for exactly each cell scope; no engine emission, product score, grade or COMPLETE cell.",
     "Ownership refusals are unknown, never matches or contradictions.",

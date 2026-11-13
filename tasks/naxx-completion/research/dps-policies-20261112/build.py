@@ -273,7 +273,7 @@ def build() -> dict[Path, str]:
             n = len(rows) + len(refusals)
             dispositions = {"n": n, "k": len(rows), "r": len(refusals), "c": 0}
             evidence = {
-                "version": 1,
+                "version": 2,  # D032: totals count damage a shield absorbed
                 "rule": rule,
                 "scope": scope,
                 "method": METHOD,

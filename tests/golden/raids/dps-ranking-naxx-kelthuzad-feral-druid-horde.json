@@ -1,0 +1,200 @@
+{
+  "version": 2,
+  "rule": "naxx-kelthuzad-feral-druid-horde-dps-v1",
+  "scope": {
+    "encounter_id": 51114,
+    "class_id": 2,
+    "category": "Feral",
+    "metric": "dps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261031/77548335-2006-20261030T095117.zip",
+    "sha256": "4e39a080967408826e0ac36826f90cfb9094230407a7e5b4c5f437c8c7b7a82e"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "7c2Z3HY1MXCxRKwa-37-39",
+      "purpose": "policy-scope",
+      "report": "7c2Z3HY1MXCxRKwa",
+      "fight": 37,
+      "actor": 39,
+      "player": "Efc",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51114_Kel_Thuzad.json",
+      "page": 1,
+      "row": 20,
+      "owned_actor_ids": [],
+      "duration_ms": 120814,
+      "published": "963.241",
+      "totals": {
+        "raw": 117050,
+        "self": 677,
+        "excluded": 0,
+        "ranked": 116373
+      },
+      "residual": "913/60407000",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 282,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "e49a1215a1617e01209e9bbc47d3ff91fdc8ea834d155f516f2870c361829670",
+            "2b3fa80a6a4745768ea794253036116d9ada01dd82a7ffb3d77a4a4ee8686fad",
+            "b56a2248a2fc6d13ce66bac04103570caffd23db9c6479316037520c38a658fa"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ZJa4ztqpY6RQVC1x-55-14",
+      "purpose": "policy-scope",
+      "report": "ZJa4ztqpY6RQVC1x",
+      "fight": 55,
+      "actor": 14,
+      "player": "Rippy",
+      "realm": "Thunderfury",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51114_Kel_Thuzad.json",
+      "page": 1,
+      "row": 22,
+      "owned_actor_ids": [],
+      "duration_ms": 120989,
+      "published": "951.847",
+      "totals": {
+        "raw": 115163,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 115163
+      },
+      "residual": "-16683/120989000"
+    },
+    {
+      "id": "wzcXahM291TGQY47-53-36",
+      "purpose": "policy-scope",
+      "report": "wzcXahM291TGQY47",
+      "fight": 53,
+      "actor": 36,
+      "player": "Stankfaçe",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51114_Kel_Thuzad.json",
+      "page": 1,
+      "row": 25,
+      "owned_actor_ids": [],
+      "duration_ms": 124509,
+      "published": "930.383",
+      "totals": {
+        "raw": 120069,
+        "self": 969,
+        "excluded": 0,
+        "ranked": 115841,
+        "friendly": 3259
+      },
+      "residual": "-5177/11319000",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 104,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "e2e525726588b27171abd237efc243df6b5cab18791e735886ff36e254f6e056",
+            "058418d18392e99a924e3c33cf49438d8dfb0f20a332b2ef2cb62e501af3cf73",
+            "54e2d684052b18295b1af5a917486a005d144cb27cc7b6c80e5334f531741993"
+          ]
+        },
+        {
+          "pet": 192,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "e2e525726588b27171abd237efc243df6b5cab18791e735886ff36e254f6e056",
+            "058418d18392e99a924e3c33cf49438d8dfb0f20a332b2ef2cb62e501af3cf73",
+            "54e2d684052b18295b1af5a917486a005d144cb27cc7b6c80e5334f531741993"
+          ]
+        }
+      ],
+      "friendly_target_damage": {
+        "rule": "friendly-target-damage-v1",
+        "auras": [
+          28410
+        ],
+        "pages": [
+          "e2e525726588b27171abd237efc243df6b5cab18791e735886ff36e254f6e056",
+          "058418d18392e99a924e3c33cf49438d8dfb0f20a332b2ef2cb62e501af3cf73",
+          "54e2d684052b18295b1af5a917486a005d144cb27cc7b6c80e5334f531741993"
+        ],
+        "mind_controlled": {
+          "12": [
+            [
+              5922000,
+              5931994
+            ]
+          ],
+          "17": [
+            [
+              5832968,
+              5852981
+            ],
+            [
+              5921586,
+              5931994
+            ]
+          ],
+          "21": [
+            [
+              5832868,
+              5852870
+            ]
+          ],
+          "22": [
+            [
+              5832947,
+              5852938
+            ]
+          ],
+          "26": [
+            [
+              5921483,
+              5931994
+            ]
+          ],
+          "29": [
+            [
+              5832892,
+              5852895
+            ]
+          ],
+          "30": [
+            [
+              5833461,
+              5853456
+            ]
+          ],
+          "52": [
+            [
+              5921513,
+              5931994
+            ]
+          ]
+        }
+      }
+    }
+  ],
+  "refusals": []
+}

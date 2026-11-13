@@ -1,9 +1,9 @@
 # Remaining Naxx work — 2026-10-23
 
-Friendly-target damage, 2026-11-13 (D031): 274 DPS policies; 366 Naxx
-policies in all (274 DPS, 92 HPS) of 510 cells. DPS contradictions left: 73
-Fire Mage rows (Ignite), 2 Frost Mage rows at Faerlina (Ignite), and 4 single
-rows (an absorbed-damage row, a Detonate Mana row, two unexplained).
+Friendly-target and absorbed damage, 2026-11-13 (D031, D032): 276 DPS
+policies; 368 Naxx policies in all (276 DPS, 92 HPS) of 510 cells. DPS
+contradictions left: 73 Fire Mage rows (Ignite), 2 Frost Mage rows at Faerlina
+(Ignite), and 2 single rows (Smallduke at Kel'Thuzad, Behindya at Heigan).
 Ignite research (`research/ignite-attribution-20261113/`): a per-target equal
 split among contributing Fire-spec mages matches 78 of 85 Mage Ignite rows.
 It is not in the freezer yet.

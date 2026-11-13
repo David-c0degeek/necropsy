@@ -155,6 +155,7 @@ def _measure(
     row: dict[str, Any],
     excluded_ids: frozenset[int] = frozenset(),
     metric: str = "dps",
+    count_absorbed: bool = True,
 ) -> dict[str, Any]:
     effects = EFFECTS[metric]
     path = REPO / archive["path"]
@@ -255,16 +256,25 @@ def _measure(
     by_target: Counter[int] = Counter()
     by_source: Counter[int] = Counter()
     controlled = outside = 0
+
+    def worth(event: dict[str, Any]) -> int:
+        """D032: DPS counts damage a shield absorbed (`absorbed`) as damage done."""
+        if metric != "dps" or not count_absorbed:
+            return int(event["amount"])
+        absorbed = event.get("absorbed", 0)
+        assert type(absorbed) is int and absorbed >= 0
+        return int(event["amount"]) + absorbed
+
     for event, n in events:
-        by_source[event["sourceID"]] += event["amount"] * n
+        by_source[event["sourceID"]] += worth(event) * n
         if event["targetID"] in raiders and metric == "dps":
             hit = event["timestamp"]
             if any(a <= hit <= b for a, b in windows.get(event["targetID"], ())):
-                controlled += event["amount"] * n
+                controlled += worth(event) * n
             else:
-                outside += event["amount"] * n
+                outside += worth(event) * n
         elif event["targetID"] not in known:
-            by_target[actors[event["targetID"]].get("gameID")] += event["amount"] * n
+            by_target[actors[event["targetID"]].get("gameID")] += worth(event) * n
     raw = sum(by_source.values())
     marked = 0
     if metric == "hps":
@@ -364,7 +374,14 @@ def test_published_amount_matches_raw_owner_and_owned_unit_effects(
     assert {d["combatantInfo"]["factionID"] for d in m["details"]} <= faction
     assert {d["name"] for d in m["details"]} == {row["player"]}
     assert m["owned"] == row["owned_actor_ids"]
-    assert m["totals"] == row["totals"]
+    if _evidence(rule)["version"] == 1 and not hps:
+        # Frozen before D032 (C1): its totals leave out damage a shield absorbed.
+        # D032 must not move its ranked amount.
+        old = _measure(_evidence(rule)["archive"], row, listed, "dps", count_absorbed=False)
+        assert old["totals"] == row["totals"]
+        assert m["totals"]["ranked"] == row["totals"]["ranked"]
+    else:
+        assert m["totals"] == row["totals"]
     published = m["published"]
     assert (
         published["report"]["code"],

@@ -1065,6 +1065,28 @@ ranking_metric_policies:
   validated: 3 admitted of 3 in-scope Grobbulus Feral Druid Horde rows (3 distinct non-subject
     players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-grobbulus-feral-druid-horde.json
+- rule: naxx-kelthuzad-feral-druid-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51114
+    class_id: 2
+    category: Feral
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units, divided by the fight duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - encounter-has-no-production-ranking-exclusions
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Kel'Thuzad Feral Druid Horde rows (3 distinct non-subject
+    players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-kelthuzad-feral-druid-horde.json
 - rule: naxx-maexxna-feral-druid-horde-dps-v1
   basis: empirical
   scope:
@@ -2761,6 +2783,28 @@ ranking_metric_policies:
   validated: 3 admitted of 3 in-scope Grobbulus Protection Paladin Alliance rows (3 distinct
     non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-grobbulus-protection-paladin-alliance.json
+- rule: naxx-kelthuzad-protection-paladin-alliance-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51114
+    class_id: 6
+    category: Protection
+    metric: dps
+    faction: Alliance
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units, divided by the fight duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - encounter-has-no-production-ranking-exclusions
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Kel'Thuzad Protection Paladin Alliance rows (3 distinct
+    non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-kelthuzad-protection-paladin-alliance.json
 - rule: naxx-maexxna-protection-paladin-alliance-dps-v1
   basis: empirical
   scope:

@@ -1,0 +1,209 @@
+{
+  "version": 2,
+  "rule": "naxx-kelthuzad-protection-paladin-alliance-dps-v1",
+  "scope": {
+    "encounter_id": 51114,
+    "class_id": 6,
+    "category": "Protection",
+    "metric": "dps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/67666001-2006-20261105T232014.zip",
+    "sha256": "b768ff71aa948c5091eb22eafbc8baa9e3a36165c0304d39d9d48b113ec1b591"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "LWmGBr6fjXxdFgkC-19-7",
+      "purpose": "policy-scope",
+      "report": "LWmGBr6fjXxdFgkC",
+      "fight": 19,
+      "actor": 7,
+      "player": "Dossius",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51114_Kel_Thuzad.json",
+      "page": 1,
+      "row": 3,
+      "owned_actor_ids": [],
+      "duration_ms": 138744,
+      "published": "359.129",
+      "totals": {
+        "raw": 49827,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 49827
+      },
+      "residual": "251/5781000"
+    },
+    {
+      "id": "xAy9H6WMhDpJY4jQ-52-31",
+      "purpose": "policy-scope",
+      "report": "xAy9H6WMhDpJY4jQ",
+      "fight": 52,
+      "actor": 31,
+      "player": "Cisternina",
+      "realm": "Mankrik",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51114_Kel_Thuzad.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 146084,
+      "published": "400.201",
+      "totals": {
+        "raw": 58463,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 58463
+      },
+      "residual": "9279/36521000",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 68,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "86291515f051e32fc0618ada313b20c62d7bcce24f58ea1881e8b0df7e19864e",
+            "59b033e74e98ea2b1064c8525c09af4ea2b50f44592812450de4e9f305bbd513",
+            "70c93c42b93915b7bc290b6ad5c03baead23d39cfb00bac61c933611d2a00404"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "yVhZkgH6zprCxJ9a-71-5",
+      "purpose": "policy-scope",
+      "report": "yVhZkgH6zprCxJ9a",
+      "fight": 71,
+      "actor": 5,
+      "player": "玩儿个棒子",
+      "realm": "哈霍兰",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51114_Kel_Thuzad.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [
+        43,
+        167
+      ],
+      "duration_ms": 174450,
+      "published": "360.619",
+      "totals": {
+        "raw": 83601,
+        "self": 514,
+        "excluded": 0,
+        "ranked": 62910,
+        "friendly": 20177
+      },
+      "residual": "103/1163000",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 63,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "a7ddec6f454be604e5d749e201ad24b5a8752ea198b27e890c4723fc7a471883",
+            "dd619fcaef124ae1dbde4f886bab713a4380561c8818fb8ba1394ca622a18747",
+            "6d07fe2b630a524fad7c9ccd83ad0f800207566ac9aa0978094816fb172a1806"
+          ]
+        },
+        {
+          "pet": 87,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "a7ddec6f454be604e5d749e201ad24b5a8752ea198b27e890c4723fc7a471883",
+            "dd619fcaef124ae1dbde4f886bab713a4380561c8818fb8ba1394ca622a18747",
+            "6d07fe2b630a524fad7c9ccd83ad0f800207566ac9aa0978094816fb172a1806"
+          ]
+        }
+      ],
+      "friendly_target_damage": {
+        "rule": "friendly-target-damage-v1",
+        "auras": [
+          28410
+        ],
+        "pages": [
+          "a7ddec6f454be604e5d749e201ad24b5a8752ea198b27e890c4723fc7a471883",
+          "dd619fcaef124ae1dbde4f886bab713a4380561c8818fb8ba1394ca622a18747",
+          "6d07fe2b630a524fad7c9ccd83ad0f800207566ac9aa0978094816fb172a1806"
+        ],
+        "mind_controlled": {
+          "14": [
+            [
+              10124278,
+              10144286
+            ]
+          ],
+          "21": [
+            [
+              10049315,
+              10069324
+            ]
+          ],
+          "22": [
+            [
+              10123839,
+              10143834
+            ]
+          ],
+          "23": [
+            [
+              10049282,
+              10069284
+            ]
+          ],
+          "31": [
+            [
+              10123910,
+              10143917
+            ]
+          ],
+          "32": [
+            [
+              10123259,
+              10143265
+            ]
+          ],
+          "37": [
+            [
+              10050322,
+              10070313
+            ],
+            [
+              10124511,
+              10144506
+            ]
+          ],
+          "41": [
+            [
+              10049265,
+              10069282
+            ]
+          ],
+          "56": [
+            [
+              10049214,
+              10069214
+            ]
+          ]
+        }
+      }
+    }
+  ],
+  "refusals": []
+}

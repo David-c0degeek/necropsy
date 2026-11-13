@@ -87,6 +87,11 @@ def case(tmp_path: Path, mutation: str = "") -> dict[str, Any]:
         )
         fight["friendlyPlayers"].append(2)
         source_rows.append(event(1, 2, 70, 700))
+    if mutation in {"absorbed", "absorbed_float"}:
+        # 10 damage dealt plus 20 a shield absorbed: 30 more ranked (D032).
+        source_rows.append(event(1, 3, 10, 450) | {"absorbed": 20})
+        if mutation == "absorbed_float":
+            source_rows[-1]["absorbed"] = 20.0
     if mutation == "amount_missing":
         source_rows[0].pop("amount")
     if mutation == "amount_float":
@@ -207,6 +212,8 @@ def case(tmp_path: Path, mutation: str = "") -> dict[str, Any]:
         row["duration"] = 10001
     if mutation == "published_amount":
         row["amount"] = 25.0
+    if mutation in {"absorbed", "absorbed_float"}:
+        row["amount"] = 27.0
     if mutation == "friendly_controlled":
         row["amount"] = 31.0  # the raider was mind-controlled: 310 ranked
     if mutation in {"hps_mind_control", "hps_bad_flag"}:
@@ -283,6 +290,14 @@ def test_insufficient_or_wrong_evidence_is_refused(tmp_path: Path, mutation: str
     spec = case(tmp_path, mutation)
     with pytest.raises((ValueError, KeyError)):
         dps.compute(spec, tmp_path)
+
+
+def test_damage_a_shield_absorbed_is_ranked(tmp_path: Path) -> None:
+    result = dps.compute(case(tmp_path, "absorbed"), tmp_path)
+    assert result["totals"] == {"raw": 310, "self": 10, "excluded": 30, "ranked": 270}
+    (tmp_path / "bad").mkdir()
+    with pytest.raises(ValueError, match="absorbed amount"):
+        dps.compute(case(tmp_path / "bad", "absorbed_float"), tmp_path / "bad")
 
 
 def test_a_catalog_realm_without_spaces_is_the_same_realm(tmp_path: Path) -> None:
