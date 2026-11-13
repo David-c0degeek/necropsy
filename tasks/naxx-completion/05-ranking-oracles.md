@@ -120,3 +120,10 @@ only while Chains of Kel'Thuzad mind-controls it; Thaddius charge damage to
 raiders is not ranked. The freezer takes the Chains windows from the certified
 encounter-All pages. 7 of 13 non-Fire DPS contradictions resolved; 274 DPS
 policies; golden re-proof 1,588 checks.
+
+2026-11-13 · Ignite attribution research · `research/ignite-attribution-20261113/`
+reconstructs how published DPS credits Ignite. Each tick is split equally
+(floor, remainder to the owner) among Fire-spec mages with a fire crit on the
+tick's target instance. This matches 78 of 85 Mage rows with Ignite; the
+logged-source rule the freezer uses matches 10. Fitted without a holdout, and
+not adopted yet.

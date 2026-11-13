@@ -4,6 +4,9 @@ Friendly-target damage, 2026-11-13 (D031): 274 DPS policies; 366 Naxx
 policies in all (274 DPS, 92 HPS) of 510 cells. DPS contradictions left: 73
 Fire Mage rows (Ignite), 2 Frost Mage rows at Faerlina (Ignite), and 4 single
 rows (an absorbed-damage row, a Detonate Mana row, two unexplained).
+Ignite research (`research/ignite-attribution-20261113/`): a per-target equal
+split among contributing Fire-spec mages matches 78 of 85 Mage Ignite rows.
+It is not in the freezer yet.
 
 HPS, 2026-11-13 (D029, D030): the register admits the 8 HPS configurations
 (120 cells; 322 rows admitted, no contradiction) and 92 cell-scoped HPS
