@@ -1,9 +1,9 @@
 {
   "kind": "Naxx cell-scoped DPS and HPS policy matrix; every register configuration",
   "inputs": {
-    "register_sha256": "25c04454c76550661854ca84950129bd97b1bc227b2f2de0a3df8d56a94a03b9",
-    "builder_sha256": "37fe08e2d028fcce221d12e04cea86bed030c12c396f81920a82305c5428a1a0",
-    "freezer_sha256": "a950a921a4cffb086bb8852ea6f3bdeff645db135fb379bb353ab4ce4c400374"
+    "register_sha256": "d168c57be9df5778f874dc2c7b48d75ce2bb75d8df92151d794c35688af9b8c7",
+    "builder_sha256": "21a3e5d78a155dcb0cbda14bd9a4ccd01c07420dc00fbf87ecce989a627f53c1",
+    "freezer_sha256": "35de17ac813a9718cd425cfc1720dcabb7cf7920e8ee7ccdacb0ff76fb5b3c52"
   },
   "minimum_admitted_players": 3,
   "cells": [
@@ -590,12 +590,13 @@
       },
       "boss": "Grand Widow Faerlina",
       "archive": "tests/golden/raids/raw/naxx-production-20261031/65603754-2006-20261027T195031.zip",
-      "admitted": 2,
-      "admitted_distinct_players": 2,
-      "refused": 1,
-      "contradictions": 1,
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
       "other_refusals": [],
-      "decision": "OPEN: 1 contradiction(s) retained"
+      "decision": "POLICY",
+      "rule": "naxx-faerlina-balance-druid-alliance-hps-v1"
     },
     {
       "scope": {
@@ -643,12 +644,13 @@
       },
       "boss": "Instructor Razuvious",
       "archive": "tests/golden/raids/raw/naxx-production-20261031/65603754-2006-20261027T195031.zip",
-      "admitted": 1,
-      "admitted_distinct_players": 1,
-      "refused": 2,
-      "contradictions": 2,
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
       "other_refusals": [],
-      "decision": "OPEN: 2 contradiction(s) retained"
+      "decision": "POLICY",
+      "rule": "naxx-razuvious-balance-druid-alliance-hps-v1"
     },
     {
       "scope": {
@@ -1177,14 +1179,14 @@
       },
       "boss": "Instructor Razuvious",
       "archive": "tests/golden/raids/raw/naxx-production-20261031/76376122-2006-20261028T163059.zip",
-      "admitted": 0,
-      "admitted_distinct_players": 0,
-      "refused": 3,
-      "contradictions": 2,
+      "admitted": 2,
+      "admitted_distinct_players": 2,
+      "refused": 1,
+      "contradictions": 0,
       "other_refusals": [
         "wrong encounter or not a kill"
       ],
-      "decision": "OPEN: 2 contradiction(s) retained"
+      "decision": "OPEN: 1 non-ownership refusal(s) retained"
     },
     {
       "scope": {
@@ -1974,12 +1976,13 @@
       },
       "boss": "Instructor Razuvious",
       "archive": "tests/golden/raids/raw/naxx-production-20261111/60117765-2006-20261102T031646.zip",
-      "admitted": 0,
-      "admitted_distinct_players": 0,
-      "refused": 3,
-      "contradictions": 3,
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
       "other_refusals": [],
-      "decision": "OPEN: 3 contradiction(s) retained"
+      "decision": "POLICY",
+      "rule": "naxx-razuvious-restoration-druid-alliance-hps-v1"
     },
     {
       "scope": {
@@ -2764,12 +2767,13 @@
       },
       "boss": "Instructor Razuvious",
       "archive": "tests/golden/raids/raw/naxx-production-20261111/62259058-2006-20261109T151537.zip",
-      "admitted": 0,
-      "admitted_distinct_players": 0,
-      "refused": 3,
-      "contradictions": 3,
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
       "other_refusals": [],
-      "decision": "OPEN: 3 contradiction(s) retained"
+      "decision": "POLICY",
+      "rule": "naxx-razuvious-restoration-shaman-horde-hps-v1"
     },
     {
       "scope": {
@@ -6943,12 +6947,13 @@
       },
       "boss": "Instructor Razuvious",
       "archive": "tests/golden/raids/raw/naxx-production-20261111/77152471-2006-20261105T150116.zip",
-      "admitted": 0,
-      "admitted_distinct_players": 0,
-      "refused": 3,
-      "contradictions": 3,
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
       "other_refusals": [],
-      "decision": "OPEN: 3 contradiction(s) retained"
+      "decision": "POLICY",
+      "rule": "naxx-razuvious-holy-paladin-alliance-hps-v1"
     },
     {
       "scope": {
@@ -6965,7 +6970,8 @@
       "refused": 0,
       "contradictions": 0,
       "other_refusals": [],
-      "decision": "OPEN: 1 row(s) heal a non-friendly recipient"
+      "decision": "POLICY",
+      "rule": "naxx-kelthuzad-holy-paladin-alliance-hps-v1"
     },
     {
       "scope": {
@@ -7207,12 +7213,13 @@
       },
       "boss": "Instructor Razuvious",
       "archive": "tests/golden/raids/raw/naxx-production-20261111/77516109-2006-20261107T143644.zip",
-      "admitted": 0,
-      "admitted_distinct_players": 0,
-      "refused": 3,
-      "contradictions": 3,
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
       "other_refusals": [],
-      "decision": "OPEN: 3 contradiction(s) retained"
+      "decision": "POLICY",
+      "rule": "naxx-razuvious-holy-priest-horde-hps-v1"
     },
     {
       "scope": {
@@ -7473,12 +7480,13 @@
       },
       "boss": "Instructor Razuvious",
       "archive": "tests/golden/raids/raw/naxx-production-20261111/77573659-2006-20261106T154918.zip",
-      "admitted": 0,
-      "admitted_distinct_players": 0,
-      "refused": 3,
-      "contradictions": 3,
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
       "other_refusals": [],
-      "decision": "OPEN: 3 contradiction(s) retained"
+      "decision": "POLICY",
+      "rule": "naxx-razuvious-holy-priest-alliance-hps-v1"
     },
     {
       "scope": {
@@ -7740,12 +7748,13 @@
       },
       "boss": "Instructor Razuvious",
       "archive": "tests/golden/raids/raw/naxx-production-20261111/77577270-2006-20261103T040708.zip",
-      "admitted": 0,
-      "admitted_distinct_players": 0,
-      "refused": 3,
-      "contradictions": 3,
+      "admitted": 3,
+      "admitted_distinct_players": 3,
+      "refused": 0,
+      "contradictions": 0,
       "other_refusals": [],
-      "decision": "OPEN: 3 contradiction(s) retained"
+      "decision": "POLICY",
+      "rule": "naxx-razuvious-restoration-druid-horde-hps-v1"
     },
     {
       "scope": {
@@ -8942,7 +8951,7 @@
       "rule": "naxx-horsemen-frost-mage-alliance-dps-v1"
     }
   ],
-  "policies": 244,
+  "policies": 253,
   "limits": [
     "Raw-to-published arithmetic for exactly each cell scope; no engine emission, product score, grade or COMPLETE cell.",
     "Ownership refusals are unknown, never matches or contradictions.",

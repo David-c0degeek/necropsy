@@ -74,8 +74,10 @@ HPS_CONDITIONS = [
 ]
 HPS_FORMULA = (
     "WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed "
-    "events plus the same for its listed owned units, on friendly recipients, divided "
-    "by the fight duration. No target exclusions."
+    "events plus the same for its listed owned units, on friendly recipients (the "
+    "fight's friendly players and pets, or a unit the event marks targetIsFriendly, "
+    "such as a mind-controlled NPC), divided by the fight duration. No target "
+    "exclusions."
 )
 BOUND = (
     "Within one unit of the published last decimal place; the upstream rounding "
@@ -200,14 +202,6 @@ def build() -> dict[Path, str]:
         ]
         distinct = cell["admitted_distinct_players"]
         metric = config["metric"]
-        # HPS: an admitted row with healing on a non-friendly recipient is not explained.
-        stray = [
-            a
-            for a in cell["admitted"]
-            if captured[
-                (cell["archive"]["sha256"], a["report"], a["fight"], a["player"], a["realm"])
-            ]["totals"]["excluded"]
-        ]
         if metric == "dps" and exclusions[encounter]:
             decision = "OPEN: production ranking exclusions untested by policy evidence"
         elif key in existing:
@@ -216,8 +210,6 @@ def build() -> dict[Path, str]:
             decision = f"OPEN: {len(contradictions)} contradiction(s) retained"
         elif other:
             decision = f"OPEN: {len(other)} non-ownership refusal(s) retained"
-        elif metric == "hps" and stray:
-            decision = f"OPEN: {len(stray)} row(s) heal a non-friendly recipient"
         elif distinct < floor:
             decision = f"OPEN: {distinct} admitted players, fewer than {floor}"
         else:
@@ -245,8 +237,8 @@ def build() -> dict[Path, str]:
                     (cell["archive"]["sha256"], a["report"], a["fight"], a["player"], a["realm"])
                 ]
                 spec = result["spec"]
-                # DPS: no excluded damage; HPS: no effect on a non-friendly recipient.
-                require(result["totals"]["excluded"] == 0, f"{rule}: excluded amount")
+                if metric == "dps":
+                    require(result["totals"]["excluded"] == 0, f"{rule}: excluded damage")
                 row = {
                     "id": f"{a['report']}-{a['fight']}-{spec['actor']}",
                     "purpose": "policy-scope",

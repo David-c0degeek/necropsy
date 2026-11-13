@@ -73,6 +73,13 @@ def case(tmp_path: Path, mutation: str = "") -> dict[str, Any]:
         pet_rows = [event(6, 1, 40)]
         if mutation == "hps_damage_only":
             source_rows.append(event(1, 3, 5000, 500, "damage"))
+        if mutation in {"hps_mind_control", "hps_bad_flag"}:
+            # A heal on an NPC the event marks friendly (mind-controlled) counts.
+            controlled = event(1, 4, 20, 450) | {"targetIsFriendly": True}
+            if mutation == "hps_bad_flag":
+                controlled["targetIsFriendly"] = "yes"
+            source_rows.append(controlled)
+            source_rows[3] = source_rows[3] | {"targetIsFriendly": False}
     if mutation == "amount_missing":
         source_rows[0].pop("amount")
     if mutation == "amount_float":
@@ -193,6 +200,8 @@ def case(tmp_path: Path, mutation: str = "") -> dict[str, Any]:
         row["duration"] = 10001
     if mutation == "published_amount":
         row["amount"] = 25.0
+    if mutation in {"hps_mind_control", "hps_bad_flag"}:
+        row["amount"] = 27.0
     if mutation == "hps_wrong_amount":
         row["amount"] = 28.0  # the enemy heal counted
     write(
@@ -288,6 +297,16 @@ def test_hps_counts_heals_and_absorbs_on_friendly_units_only(tmp_path: Path) -> 
     assert dps.compute_hps(spec, tmp_path)["totals"] == result["totals"]
     kinds = {e["raw"]["type"] for e in result["events"]}
     assert kinds == {"heal", "absorbed"}
+
+
+def test_hps_counts_a_recipient_the_event_marks_friendly(tmp_path: Path) -> None:
+    spec = case(tmp_path, "hps_mind_control")
+    result = dps.compute(spec, tmp_path, metric="hps")
+    assert result["totals"] == {"raw": 300, "self": 0, "excluded": 30, "ranked": 270}
+    (tmp_path / "bad").mkdir()
+    bad = case(tmp_path / "bad", "hps_bad_flag")
+    with pytest.raises(ValueError, match="targetIsFriendly not boolean"):
+        dps.compute(bad, tmp_path / "bad", metric="hps")
 
 
 def test_hps_ignores_damage_events(tmp_path: Path) -> None:

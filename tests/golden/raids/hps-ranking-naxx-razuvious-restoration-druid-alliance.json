@@ -1,0 +1,103 @@
+{
+  "version": 1,
+  "rule": "naxx-razuvious-restoration-druid-alliance-hps-v1",
+  "scope": {
+    "encounter_id": 51113,
+    "class_id": 2,
+    "category": "Restoration",
+    "metric": "hps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/60117765-2006-20261102T031646.zip",
+    "sha256": "5bb2468398c6b371d012ee717af46b5c52a4de0da78d7993f4b84dc2e8e50277"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "CRjm6APy4dFzqhLW-17-1",
+      "purpose": "policy-scope",
+      "report": "CRjm6APy4dFzqhLW",
+      "fight": 17,
+      "actor": 1,
+      "player": "山葵",
+      "realm": "哈霍兰",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51113_Instructor_Razuvious.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 50019,
+      "published": "1443.29",
+      "totals": {
+        "raw": 72192,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 72192
+      },
+      "residual": "2583/1667300"
+    },
+    {
+      "id": "ndVfbZD93P8LYvCB-29-4",
+      "purpose": "policy-scope",
+      "report": "ndVfbZD93P8LYvCB",
+      "fight": 29,
+      "actor": 4,
+      "player": "Mujo",
+      "realm": "Mankrik",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51113_Instructor_Razuvious.json",
+      "page": 1,
+      "row": 3,
+      "owned_actor_ids": [],
+      "duration_ms": 53399,
+      "published": "1415.83",
+      "totals": {
+        "raw": 75604,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 75604
+      },
+      "residual": "9383/5339900"
+    },
+    {
+      "id": "xTJfqY4CGXB7N32d-37-5",
+      "purpose": "policy-scope",
+      "report": "xTJfqY4CGXB7N32d",
+      "fight": 37,
+      "actor": 5,
+      "player": "Laureen",
+      "realm": "Mankrik",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51113_Instructor_Razuvious.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 49202,
+      "published": "1527.68",
+      "totals": {
+        "raw": 75165,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 75165
+      },
+      "residual": "1108/615025"
+    }
+  ],
+  "refusals": []
+}

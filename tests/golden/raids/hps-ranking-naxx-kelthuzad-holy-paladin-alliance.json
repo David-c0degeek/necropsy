@@ -1,0 +1,114 @@
+{
+  "version": 1,
+  "rule": "naxx-kelthuzad-holy-paladin-alliance-hps-v1",
+  "scope": {
+    "encounter_id": 51114,
+    "class_id": 6,
+    "category": "Holy",
+    "metric": "hps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77152471-2006-20261105T150116.zip",
+    "sha256": "566899fe83351370211b425ae94f48a0d367fbb9ecd0d26ca7d870df76838618"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "Yx8wBhLXWnjkafFv-50-23",
+      "purpose": "policy-scope",
+      "report": "Yx8wBhLXWnjkafFv",
+      "fight": 50,
+      "actor": 23,
+      "player": "Macarzhu",
+      "realm": "厄运之槌",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51114_Kel_Thuzad.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 180351,
+      "published": "793.697",
+      "totals": {
+        "raw": 143144,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 143144
+      },
+      "residual": "-1643/6219000"
+    },
+    {
+      "id": "kKLX3QCgJ7dzDqh8-61-10",
+      "purpose": "policy-scope",
+      "report": "kKLX3QCgJ7dzDqh8",
+      "fight": 61,
+      "actor": 10,
+      "player": "Caldesann",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51114_Kel_Thuzad.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 200244,
+      "published": "755.249",
+      "totals": {
+        "raw": 151434,
+        "self": 0,
+        "excluded": 200,
+        "ranked": 151234
+      },
+      "residual": "-20189/50061000",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 99,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "280d802fafde209c12d4b24071af4c7b924ce4a3c09983df4045fe20457b5969",
+            "b31b0ea0b90bef958192bc9863e12e705e7bfac82615ec13e1b15526a7ee46f0",
+            "61ed5bfade9cddc46f9b21487d018ad1d210630c5fb40fe58b0fcb9832fbe84a"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rbajcgpHBMqDWLnY-74-14",
+      "purpose": "policy-scope",
+      "report": "rbajcgpHBMqDWLnY",
+      "fight": 74,
+      "actor": 14,
+      "player": "Bensalts",
+      "realm": "Pyrewood Village",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51114_Kel_Thuzad.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 128167,
+      "published": "747.54",
+      "totals": {
+        "raw": 95810,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 95810
+      },
+      "residual": "157/492950"
+    }
+  ],
+  "refusals": []
+}

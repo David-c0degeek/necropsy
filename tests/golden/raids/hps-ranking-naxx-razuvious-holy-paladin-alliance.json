@@ -1,0 +1,122 @@
+{
+  "version": 1,
+  "rule": "naxx-razuvious-holy-paladin-alliance-hps-v1",
+  "scope": {
+    "encounter_id": 51113,
+    "class_id": 6,
+    "category": "Holy",
+    "metric": "hps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77152471-2006-20261105T150116.zip",
+    "sha256": "566899fe83351370211b425ae94f48a0d367fbb9ecd0d26ca7d870df76838618"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "ZB7r2KLqY9CTk3Hb-24-6",
+      "purpose": "policy-scope",
+      "report": "ZB7r2KLqY9CTk3Hb",
+      "fight": 24,
+      "actor": 6,
+      "player": "Kephas",
+      "realm": "Ashkandi",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51113_Instructor_Razuvious.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 49203,
+      "published": "1389.45",
+      "totals": {
+        "raw": 68365,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 68365
+      },
+      "residual": "-197/89460",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 243,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "80eb926015decd3dc85c41e627250fb8c73a0d03aa718042ed9aaa2999a85789",
+            "939b5f8415c6dc892717983b03004d6f048c713a33504b36d6d7e78bb7ee219d"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mkJMfCt48jwYVaAQ-16-19",
+      "purpose": "policy-scope",
+      "report": "mkJMfCt48jwYVaAQ",
+      "fight": 16,
+      "actor": 19,
+      "player": "Rarlin",
+      "realm": "Mankrik",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51113_Instructor_Razuvious.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 45452,
+      "published": "1334.18",
+      "totals": {
+        "raw": 60641,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 60641
+      },
+      "residual": "-1867/568150"
+    },
+    {
+      "id": "nkhXfDHRKYCT396c-18-22",
+      "purpose": "policy-scope",
+      "report": "nkhXfDHRKYCT396c",
+      "fight": 18,
+      "actor": 22,
+      "player": "Varrex",
+      "realm": "Mankrik",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51113_Instructor_Razuvious.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 45531,
+      "published": "1324.02",
+      "totals": {
+        "raw": 60284,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 60284
+      },
+      "residual": "2269/2276550",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 204,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "666292bd40a5904ad59cd780207fc7d443423cb6ed9aaede0c655b1e3f31a7a2"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

@@ -107,3 +107,10 @@ recipients; no target exclusions). The register admits the 8 HPS
 configurations (120 cells, 299 rows) and `research/dps-policies-20261112/`
 adds 83 HPS policies at all bosses, exclusion bosses included. Golden re-proof
 of every row: 1,528 checks.
+
+2026-11-13 · D030 heals on mind-controlled NPCs · All 23 HPS contradictions
+(22 at Razuvious, 1 at Faerlina) were heals on Death Knight Understudies or
+Naxxramas Worshippers that the event marks `targetIsFriendly: true`. Counting
+those, and not the 70 events marked `false`, matches all 398 probed Naxx HPS
+kill rows. 92 HPS policies, no HPS contradiction left; golden re-proof 1,564
+checks.

@@ -1,0 +1,103 @@
+{
+  "version": 1,
+  "rule": "naxx-faerlina-balance-druid-alliance-hps-v1",
+  "scope": {
+    "encounter_id": 51110,
+    "class_id": 2,
+    "category": "Balance",
+    "metric": "hps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261031/65603754-2006-20261027T195031.zip",
+    "sha256": "f439dc7db47a18dcda8d5db7264be0990cd042124900315b93fff583bf2220be"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "6g39CxdHRMzcYbX8-133-4",
+      "purpose": "policy-scope",
+      "report": "6g39CxdHRMzcYbX8",
+      "fight": 133,
+      "actor": 4,
+      "player": "Outofshape",
+      "realm": "Golemagg",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51110_Grand_Widow_Faerlina.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 65170,
+      "published": "365.521",
+      "totals": {
+        "raw": 23821,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 23821
+      },
+      "residual": "-51/931000"
+    },
+    {
+      "id": "BxFCb6K4WNL3ADgM-154-4",
+      "purpose": "policy-scope",
+      "report": "BxFCb6K4WNL3ADgM",
+      "fight": 154,
+      "actor": 4,
+      "player": "山丶葵",
+      "realm": "伊弗斯",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51110_Grand_Widow_Faerlina.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 145134,
+      "published": "353.556",
+      "totals": {
+        "raw": 51313,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 51313
+      },
+      "residual": "437/18141750"
+    },
+    {
+      "id": "BxFCb6K4WNL3ADgM-154-17",
+      "purpose": "policy-scope",
+      "report": "BxFCb6K4WNL3ADgM",
+      "fight": 154,
+      "actor": 17,
+      "player": "可莉害了",
+      "realm": "伊弗斯",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51110_Grand_Widow_Faerlina.json",
+      "page": 1,
+      "row": 4,
+      "owned_actor_ids": [],
+      "duration_ms": 145134,
+      "published": "275.421",
+      "totals": {
+        "raw": 39973,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 39973
+      },
+      "residual": "24293/72567000"
+    }
+  ],
+  "refusals": []
+}

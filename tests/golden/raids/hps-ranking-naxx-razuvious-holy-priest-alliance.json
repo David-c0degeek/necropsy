@@ -1,0 +1,103 @@
+{
+  "version": 1,
+  "rule": "naxx-razuvious-holy-priest-alliance-hps-v1",
+  "scope": {
+    "encounter_id": 51113,
+    "class_id": 7,
+    "category": "Holy",
+    "metric": "hps",
+    "faction": "Alliance"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77573659-2006-20261106T154918.zip",
+    "sha256": "d292ee0e8a3db304a504e98ecc0528b70e43446dd74548afaf5788d8af9d8139"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "JTmzKgYkZAV71MWL-16-6",
+      "purpose": "policy-scope",
+      "report": "JTmzKgYkZAV71MWL",
+      "fight": 16,
+      "actor": 6,
+      "player": "江湖丶郎中",
+      "realm": "哈霍兰",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51113_Instructor_Razuvious.json",
+      "page": 1,
+      "row": 0,
+      "owned_actor_ids": [],
+      "duration_ms": 45078,
+      "published": "1684.9",
+      "totals": {
+        "raw": 76604,
+        "self": 0,
+        "excluded": 652,
+        "ranked": 75952
+      },
+      "residual": "389/225390"
+    },
+    {
+      "id": "pMZVCNbXqmLng2yP-14-4",
+      "purpose": "policy-scope",
+      "report": "pMZVCNbXqmLng2yP",
+      "fight": 14,
+      "actor": 4,
+      "player": "Nacyy",
+      "realm": "哈霍兰",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51113_Instructor_Razuvious.json",
+      "page": 1,
+      "row": 1,
+      "owned_actor_ids": [],
+      "duration_ms": 52834,
+      "published": "1639.15",
+      "totals": {
+        "raw": 87639,
+        "self": 0,
+        "excluded": 1036,
+        "ranked": 86603
+      },
+      "residual": "1489/528340"
+    },
+    {
+      "id": "w9cf1bALFgXDYTNK-33-4",
+      "purpose": "policy-scope",
+      "report": "w9cf1bALFgXDYTNK",
+      "fight": 33,
+      "actor": 4,
+      "player": "Maoainai",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Alliance",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51113_Instructor_Razuvious.json",
+      "page": 1,
+      "row": 2,
+      "owned_actor_ids": [],
+      "duration_ms": 55928,
+      "published": "1632.99",
+      "totals": {
+        "raw": 91330,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 91330
+      },
+      "residual": "1691/699100"
+    }
+  ],
+  "refusals": []
+}

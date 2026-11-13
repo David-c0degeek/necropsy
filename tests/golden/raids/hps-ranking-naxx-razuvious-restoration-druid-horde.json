@@ -1,0 +1,123 @@
+{
+  "version": 1,
+  "rule": "naxx-razuvious-restoration-druid-horde-hps-v1",
+  "scope": {
+    "encounter_id": 51113,
+    "class_id": 2,
+    "category": "Restoration",
+    "metric": "hps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77577270-2006-20261103T040708.zip",
+    "sha256": "f2151316bf0531ee4187a54e5f234c18b29028f9418e3d7d513d83521c2a681d"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "YkwdTAxqK9gZapzF-20-30",
+      "purpose": "policy-scope",
+      "report": "YkwdTAxqK9gZapzF",
+      "fight": 20,
+      "actor": 30,
+      "player": "Deriyon",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51113_Instructor_Razuvious.json",
+      "page": 1,
+      "row": 8,
+      "owned_actor_ids": [],
+      "duration_ms": 50016,
+      "published": "1332.77",
+      "totals": {
+        "raw": 66660,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 66660
+      },
+      "residual": "183/52100",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 249,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "3c94fab9a7e00d7059e15ba55c85474106c60e5f86671411fd5e946ab3722291",
+            "deca2d5b15b0801a968595d2ff9b57784dfe299d6a1b70453d36e5f09baba8cd"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gTVzmp9d2CPYLfJ4-17-23",
+      "purpose": "policy-scope",
+      "report": "gTVzmp9d2CPYLfJ4",
+      "fight": 17,
+      "actor": 23,
+      "player": "Thorisdottir",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51113_Instructor_Razuvious.json",
+      "page": 1,
+      "row": 4,
+      "owned_actor_ids": [],
+      "duration_ms": 45842,
+      "published": "1412.87",
+      "totals": {
+        "raw": 64769,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 64769
+      },
+      "residual": "10673/2292100",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 188,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "6ed3454261b98e74a5f47744947b692f7268b57b93c09a2caf49768bc7e2b7b6",
+            "b66d3f8178f1b70a30e157d4afd997b7498c049e4a7d74f2523af383682fa4db"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "x4L8AjzFw3WpYV6B-20-42",
+      "purpose": "policy-scope",
+      "report": "x4L8AjzFw3WpYV6B",
+      "fight": 20,
+      "actor": 42,
+      "player": "Curly",
+      "realm": "Skullflame",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51113_Instructor_Razuvious.json",
+      "page": 1,
+      "row": 11,
+      "owned_actor_ids": [],
+      "duration_ms": 47858,
+      "published": "1214.89",
+      "totals": {
+        "raw": 58142,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 58142
+      },
+      "residual": "-10281/2392900"
+    }
+  ],
+  "refusals": []
+}

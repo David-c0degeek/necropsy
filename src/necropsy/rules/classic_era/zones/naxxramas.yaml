@@ -462,8 +462,9 @@ ranking_metric_policies:
     metric: hps
     faction: Alliance
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -484,8 +485,9 @@ ranking_metric_policies:
     metric: hps
     faction: Alliance
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -497,6 +499,29 @@ ranking_metric_policies:
   validated: 3 admitted of 3 in-scope Gothik the Harvester Balance Druid Alliance rows (3
     distinct non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
   evidence: tests/golden/raids/hps-ranking-naxx-gothik-balance-druid-alliance.json
+- rule: naxx-faerlina-balance-druid-alliance-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51110
+    class_id: 2
+    category: Balance
+    metric: hps
+    faction: Alliance
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Grand Widow Faerlina Balance Druid Alliance rows (3
+    distinct non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-faerlina-balance-druid-alliance.json
 - rule: naxx-grobbulus-balance-druid-alliance-hps-v1
   basis: empirical
   scope:
@@ -506,8 +531,9 @@ ranking_metric_policies:
     metric: hps
     faction: Alliance
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -528,8 +554,9 @@ ranking_metric_policies:
     metric: hps
     faction: Alliance
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -541,6 +568,29 @@ ranking_metric_policies:
   validated: 3 admitted of 3 in-scope Heigan the Unclean Balance Druid Alliance rows (3 distinct
     non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
   evidence: tests/golden/raids/hps-ranking-naxx-heigan-balance-druid-alliance.json
+- rule: naxx-razuvious-balance-druid-alliance-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51113
+    class_id: 2
+    category: Balance
+    metric: hps
+    faction: Alliance
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Instructor Razuvious Balance Druid Alliance rows (3
+    distinct non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-razuvious-balance-druid-alliance.json
 - rule: naxx-kelthuzad-balance-druid-alliance-hps-v1
   basis: empirical
   scope:
@@ -550,8 +600,9 @@ ranking_metric_policies:
     metric: hps
     faction: Alliance
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -572,8 +623,9 @@ ranking_metric_policies:
     metric: hps
     faction: Alliance
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -594,8 +646,9 @@ ranking_metric_policies:
     metric: hps
     faction: Alliance
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -616,8 +669,9 @@ ranking_metric_policies:
     metric: hps
     faction: Alliance
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -638,8 +692,9 @@ ranking_metric_policies:
     metric: hps
     faction: Alliance
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -814,8 +869,9 @@ ranking_metric_policies:
     metric: hps
     faction: Horde
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -836,8 +892,9 @@ ranking_metric_policies:
     metric: hps
     faction: Horde
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -858,8 +915,9 @@ ranking_metric_policies:
     metric: hps
     faction: Horde
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -880,8 +938,9 @@ ranking_metric_policies:
     metric: hps
     faction: Horde
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -902,8 +961,9 @@ ranking_metric_policies:
     metric: hps
     faction: Horde
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -924,8 +984,9 @@ ranking_metric_policies:
     metric: hps
     faction: Horde
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -946,8 +1007,9 @@ ranking_metric_policies:
     metric: hps
     faction: Horde
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -1254,8 +1316,9 @@ ranking_metric_policies:
     metric: hps
     faction: Alliance
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -1276,8 +1339,9 @@ ranking_metric_policies:
     metric: hps
     faction: Alliance
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -1298,8 +1362,9 @@ ranking_metric_policies:
     metric: hps
     faction: Alliance
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -1320,8 +1385,9 @@ ranking_metric_policies:
     metric: hps
     faction: Alliance
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -1342,8 +1408,9 @@ ranking_metric_policies:
     metric: hps
     faction: Alliance
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -1364,8 +1431,9 @@ ranking_metric_policies:
     metric: hps
     faction: Alliance
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -1377,6 +1445,29 @@ ranking_metric_policies:
   validated: 3 admitted of 3 in-scope Heigan the Unclean Restoration Druid Alliance rows (3
     distinct non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
   evidence: tests/golden/raids/hps-ranking-naxx-heigan-restoration-druid-alliance.json
+- rule: naxx-razuvious-restoration-druid-alliance-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51113
+    class_id: 2
+    category: Restoration
+    metric: hps
+    faction: Alliance
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Instructor Razuvious Restoration Druid Alliance rows
+    (3 distinct non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-razuvious-restoration-druid-alliance.json
 - rule: naxx-kelthuzad-restoration-druid-alliance-hps-v1
   basis: empirical
   scope:
@@ -1386,8 +1477,9 @@ ranking_metric_policies:
     metric: hps
     faction: Alliance
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -1408,8 +1500,9 @@ ranking_metric_policies:
     metric: hps
     faction: Alliance
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -1430,8 +1523,9 @@ ranking_metric_policies:
     metric: hps
     faction: Alliance
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -1452,8 +1546,9 @@ ranking_metric_policies:
     metric: hps
     faction: Alliance
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -1474,8 +1569,9 @@ ranking_metric_policies:
     metric: hps
     faction: Alliance
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -1826,8 +1922,9 @@ ranking_metric_policies:
     metric: hps
     faction: Horde
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -1848,8 +1945,9 @@ ranking_metric_policies:
     metric: hps
     faction: Horde
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -1870,8 +1968,9 @@ ranking_metric_policies:
     metric: hps
     faction: Horde
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -1892,8 +1991,9 @@ ranking_metric_policies:
     metric: hps
     faction: Horde
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -1914,8 +2014,9 @@ ranking_metric_policies:
     metric: hps
     faction: Horde
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -1927,6 +2028,29 @@ ranking_metric_policies:
   validated: 3 admitted of 3 in-scope Heigan the Unclean Restoration Shaman Horde rows (3
     distinct non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
   evidence: tests/golden/raids/hps-ranking-naxx-heigan-restoration-shaman-horde.json
+- rule: naxx-razuvious-restoration-shaman-horde-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51113
+    class_id: 9
+    category: Restoration
+    metric: hps
+    faction: Horde
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Instructor Razuvious Restoration Shaman Horde rows (3
+    distinct non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-razuvious-restoration-shaman-horde.json
 - rule: naxx-kelthuzad-restoration-shaman-horde-hps-v1
   basis: empirical
   scope:
@@ -1936,8 +2060,9 @@ ranking_metric_policies:
     metric: hps
     faction: Horde
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -1958,8 +2083,9 @@ ranking_metric_policies:
     metric: hps
     faction: Horde
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -1980,8 +2106,9 @@ ranking_metric_policies:
     metric: hps
     faction: Horde
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -2002,8 +2129,9 @@ ranking_metric_policies:
     metric: hps
     faction: Horde
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -2024,8 +2152,9 @@ ranking_metric_policies:
     metric: hps
     faction: Horde
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -2046,8 +2175,9 @@ ranking_metric_policies:
     metric: hps
     faction: Horde
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -4006,8 +4136,9 @@ ranking_metric_policies:
     metric: hps
     faction: Alliance
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -4028,8 +4159,9 @@ ranking_metric_policies:
     metric: hps
     faction: Alliance
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -4050,8 +4182,9 @@ ranking_metric_policies:
     metric: hps
     faction: Alliance
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -4072,8 +4205,9 @@ ranking_metric_policies:
     metric: hps
     faction: Alliance
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -4094,8 +4228,9 @@ ranking_metric_policies:
     metric: hps
     faction: Alliance
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -4107,6 +4242,52 @@ ranking_metric_policies:
   validated: 3 admitted of 3 in-scope Heigan the Unclean Holy Paladin Alliance rows (3 distinct
     non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
   evidence: tests/golden/raids/hps-ranking-naxx-heigan-holy-paladin-alliance.json
+- rule: naxx-razuvious-holy-paladin-alliance-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51113
+    class_id: 6
+    category: Holy
+    metric: hps
+    faction: Alliance
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Instructor Razuvious Holy Paladin Alliance rows (3 distinct
+    non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-razuvious-holy-paladin-alliance.json
+- rule: naxx-kelthuzad-holy-paladin-alliance-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51114
+    class_id: 6
+    category: Holy
+    metric: hps
+    faction: Alliance
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Kel'Thuzad Holy Paladin Alliance rows (3 distinct non-subject
+    players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-kelthuzad-holy-paladin-alliance.json
 - rule: naxx-maexxna-holy-paladin-alliance-hps-v1
   basis: empirical
   scope:
@@ -4116,8 +4297,9 @@ ranking_metric_policies:
     metric: hps
     faction: Alliance
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -4138,8 +4320,9 @@ ranking_metric_policies:
     metric: hps
     faction: Alliance
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -4160,8 +4343,9 @@ ranking_metric_policies:
     metric: hps
     faction: Alliance
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -4182,8 +4366,9 @@ ranking_metric_policies:
     metric: hps
     faction: Alliance
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -4204,8 +4389,9 @@ ranking_metric_policies:
     metric: hps
     faction: Horde
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -4226,8 +4412,9 @@ ranking_metric_policies:
     metric: hps
     faction: Horde
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -4248,8 +4435,9 @@ ranking_metric_policies:
     metric: hps
     faction: Horde
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -4270,8 +4458,9 @@ ranking_metric_policies:
     metric: hps
     faction: Horde
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -4292,8 +4481,9 @@ ranking_metric_policies:
     metric: hps
     faction: Horde
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -4305,6 +4495,29 @@ ranking_metric_policies:
   validated: 3 admitted of 3 in-scope Heigan the Unclean Holy Priest Horde rows (3 distinct
     non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
   evidence: tests/golden/raids/hps-ranking-naxx-heigan-holy-priest-horde.json
+- rule: naxx-razuvious-holy-priest-horde-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51113
+    class_id: 7
+    category: Holy
+    metric: hps
+    faction: Horde
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Instructor Razuvious Holy Priest Horde rows (3 distinct
+    non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-razuvious-holy-priest-horde.json
 - rule: naxx-kelthuzad-holy-priest-horde-hps-v1
   basis: empirical
   scope:
@@ -4314,8 +4527,9 @@ ranking_metric_policies:
     metric: hps
     faction: Horde
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -4336,8 +4550,9 @@ ranking_metric_policies:
     metric: hps
     faction: Horde
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -4358,8 +4573,9 @@ ranking_metric_policies:
     metric: hps
     faction: Horde
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -4380,8 +4596,9 @@ ranking_metric_policies:
     metric: hps
     faction: Horde
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -4402,8 +4619,9 @@ ranking_metric_policies:
     metric: hps
     faction: Horde
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -4424,8 +4642,9 @@ ranking_metric_policies:
     metric: hps
     faction: Horde
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -4446,8 +4665,9 @@ ranking_metric_policies:
     metric: hps
     faction: Alliance
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -4468,8 +4688,9 @@ ranking_metric_policies:
     metric: hps
     faction: Alliance
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -4490,8 +4711,9 @@ ranking_metric_policies:
     metric: hps
     faction: Alliance
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -4512,8 +4734,9 @@ ranking_metric_policies:
     metric: hps
     faction: Alliance
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -4534,8 +4757,9 @@ ranking_metric_policies:
     metric: hps
     faction: Alliance
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -4547,6 +4771,29 @@ ranking_metric_policies:
   validated: 3 admitted of 3 in-scope Heigan the Unclean Holy Priest Alliance rows (3 distinct
     non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
   evidence: tests/golden/raids/hps-ranking-naxx-heigan-holy-priest-alliance.json
+- rule: naxx-razuvious-holy-priest-alliance-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51113
+    class_id: 7
+    category: Holy
+    metric: hps
+    faction: Alliance
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Instructor Razuvious Holy Priest Alliance rows (3 distinct
+    non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-razuvious-holy-priest-alliance.json
 - rule: naxx-kelthuzad-holy-priest-alliance-hps-v1
   basis: empirical
   scope:
@@ -4556,8 +4803,9 @@ ranking_metric_policies:
     metric: hps
     faction: Alliance
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -4578,8 +4826,9 @@ ranking_metric_policies:
     metric: hps
     faction: Alliance
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -4600,8 +4849,9 @@ ranking_metric_policies:
     metric: hps
     faction: Alliance
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -4622,8 +4872,9 @@ ranking_metric_policies:
     metric: hps
     faction: Alliance
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -4644,8 +4895,9 @@ ranking_metric_policies:
     metric: hps
     faction: Alliance
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -4666,8 +4918,9 @@ ranking_metric_policies:
     metric: hps
     faction: Alliance
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -4688,8 +4941,9 @@ ranking_metric_policies:
     metric: hps
     faction: Horde
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -4710,8 +4964,9 @@ ranking_metric_policies:
     metric: hps
     faction: Horde
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -4732,8 +4987,9 @@ ranking_metric_policies:
     metric: hps
     faction: Horde
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -4754,8 +5010,9 @@ ranking_metric_policies:
     metric: hps
     faction: Horde
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -4776,8 +5033,9 @@ ranking_metric_policies:
     metric: hps
     faction: Horde
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -4798,8 +5056,9 @@ ranking_metric_policies:
     metric: hps
     faction: Horde
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -4811,6 +5070,29 @@ ranking_metric_policies:
   validated: 3 admitted of 3 in-scope Heigan the Unclean Restoration Druid Horde rows (3 distinct
     non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
   evidence: tests/golden/raids/hps-ranking-naxx-heigan-restoration-druid-horde.json
+- rule: naxx-razuvious-restoration-druid-horde-hps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51113
+    class_id: 2
+    category: Restoration
+    metric: hps
+    faction: Horde
+  formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - friendly-recipients-only
+  - ranking-duration-equals-fight-duration
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Instructor Razuvious Restoration Druid Horde rows (3
+    distinct non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/hps-ranking-naxx-razuvious-restoration-druid-horde.json
 - rule: naxx-kelthuzad-restoration-druid-horde-hps-v1
   basis: empirical
   scope:
@@ -4820,8 +5102,9 @@ ranking_metric_policies:
     metric: hps
     faction: Horde
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -4842,8 +5125,9 @@ ranking_metric_policies:
     metric: hps
     faction: Horde
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -4864,8 +5148,9 @@ ranking_metric_policies:
     metric: hps
     faction: Horde
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -4886,8 +5171,9 @@ ranking_metric_policies:
     metric: hps
     faction: Horde
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -4908,8 +5194,9 @@ ranking_metric_policies:
     metric: hps
     faction: Horde
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -4930,8 +5217,9 @@ ranking_metric_policies:
     metric: hps
     faction: Horde
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -4952,8 +5240,9 @@ ranking_metric_policies:
     metric: hps
     faction: Horde
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams
@@ -4974,8 +5263,9 @@ ranking_metric_policies:
     metric: hps
     faction: Horde
   formula: WCL HPS equals the actor's heal amounts (overheal excluded) plus its absorbed events
-    plus the same for its listed owned units, on friendly recipients, divided by the fight
-    duration. No target exclusions.
+    plus the same for its listed owned units, on friendly recipients (the fight's friendly
+    players and pets, or a unit the event marks targetIsFriendly, such as a mind-controlled
+    NPC), divided by the fight duration. No target exclusions.
   conditions:
   - unique-name-realm-identity
   - complete-source-target-streams

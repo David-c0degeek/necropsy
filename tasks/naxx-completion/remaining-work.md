@@ -1,10 +1,11 @@
 # Remaining Naxx work — 2026-10-23
 
-HPS, 2026-11-12 (D029): the register admits the 8 HPS configurations (120
-cells; 299 rows admitted) and 83 cell-scoped HPS policies exist. Open HPS cells:
-18 below the minimum, 9 with contradictions, 9 with "wrong encounter or not a
-kill" refusals, 1 with healing on a non-friendly recipient. Totals: 351 Naxx
-policies (268 DPS, 83 HPS) of 510 cells.
+HPS, 2026-11-13 (D029, D030): the register admits the 8 HPS configurations
+(120 cells; 322 rows admitted, no contradiction) and 92 cell-scoped HPS
+policies exist. Open HPS cells: 18 below the minimum, 10 with "wrong encounter
+or not a kill" refusals (ranked fights the report marks as wipes; Balance HPS,
+one realm; none would reach 3 players). Totals: 360 Naxx policies (268 DPS,
+92 HPS) of 510 cells.
 
 Exclusion bosses and totems, 2026-11-12 (D027, D028): 268 Naxx DPS policies
 of 390 DPS cells. Still open: 84 DPS cells below the minimum (mostly ownerless

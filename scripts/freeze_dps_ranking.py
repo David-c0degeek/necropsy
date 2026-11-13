@@ -177,8 +177,11 @@ def validate_spec(spec: dict[str, Any], metric: str = "dps") -> None:
 
 def compute_hps(spec: dict[str, Any], base: Path) -> dict[str, Any]:
     """HPS: the owner's and its owned units' heal and absorbed amounts on friendly
-    recipients over the fight duration (overheal excluded). Recipients outside the
-    fight's friendly players and pets are recorded as excluded, never counted."""
+    recipients over the fight duration (overheal excluded). A recipient is friendly
+    when it is one of the fight's friendly players or pets, or one of the owner's
+    units, or when the event itself marks it `targetIsFriendly: true` (a
+    mind-controlled NPC such as a Death Knight Understudy, D030). Other recipients
+    are recorded as excluded, never counted."""
     return compute(spec, base, metric="hps")
 
 
@@ -632,7 +635,9 @@ def compute(spec: dict[str, Any], base: Path, metric: str = "dps") -> dict[str, 
             event = read_json(key.encode())
             target = event["targetID"]
             if metric == "hps":
-                disposition = "ranked" if target in friendly else "excluded"
+                marked = event.get("targetIsFriendly")
+                require(marked is None or type(marked) is bool, "targetIsFriendly not boolean")
+                disposition = "ranked" if target in friendly or marked is True else "excluded"
             else:
                 disposition = (
                     "self"

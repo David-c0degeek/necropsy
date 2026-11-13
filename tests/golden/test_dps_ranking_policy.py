@@ -237,11 +237,23 @@ def _measure(
         if event["targetID"] not in known:
             by_target[actors[event["targetID"]].get("gameID")] += event["amount"] * n
     raw = sum(by_source.values())
+    marked = 0
     if metric == "hps":
         # HPS: every effect on a friendly recipient, the actor itself included; no
         # target exclusions. Overheal is never in "amount".
         assert not excluded_ids
-        ranked = sum(e["amount"] * n for e, n in events if e["targetID"] in friendly)
+        # D030: a recipient the event marks friendly (a mind-controlled NPC) counts too.
+        assert all(type(e.get("targetIsFriendly", False)) is bool for e, _ in events)
+        ranked = sum(
+            e["amount"] * n
+            for e, n in events
+            if e["targetID"] in friendly or e.get("targetIsFriendly") is True
+        )
+        marked = sum(
+            e["amount"] * n
+            for e, n in events
+            if e["targetID"] not in friendly and e.get("targetIsFriendly") is True
+        )
         totals = {"raw": raw, "self": 0, "excluded": raw - ranked, "ranked": ranked}
     else:
         others = sum(by_target.values())
@@ -249,6 +261,7 @@ def _measure(
         ranked = others - excluded
         totals = {"raw": raw, "self": raw - others, "excluded": excluded, "ranked": ranked}
     return {
+        "marked_friendly": marked,
         "details": details,
         "owned": sorted(owned),
         "totals": totals,
@@ -338,7 +351,10 @@ def test_published_amount_matches_raw_owner_and_owned_unit_effects(
     if m["owned_damage"]:
         assert not _consistent(ranked - m["owned_damage"], duration, amount)
     if hps:
-        assert m["totals"]["excluded"] == 0, "healing on a non-friendly recipient"
+        if m["totals"]["excluded"]:
+            assert not _consistent(ranked + m["totals"]["excluded"], duration, amount)
+        if m["marked_friendly"]:
+            assert not _consistent(ranked - m["marked_friendly"], duration, amount)
         if m["overheal"]:
             assert not _consistent(ranked + m["overheal"], duration, amount)
         if m["absorbed"]:
@@ -400,6 +416,7 @@ def test_every_wrong_hps_policy_is_exercised_by_some_admitted_row() -> None:
     assert any(m["overheal"] for m in measured)
     assert any(m["absorbed"] for m in measured)
     assert any(m["owned_damage"] for m in measured)  # owned units' healing
+    assert any(m["marked_friendly"] for m in measured)  # D030 mind-controlled NPCs
 
 
 def _witness_inputs() -> tuple[Any, dict[str, Any], dict[int, dict[str, Any]], int]:

@@ -1,0 +1,133 @@
+{
+  "version": 1,
+  "rule": "naxx-razuvious-holy-priest-horde-hps-v1",
+  "scope": {
+    "encounter_id": 51113,
+    "class_id": 7,
+    "category": "Holy",
+    "metric": "hps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/77516109-2006-20261107T143644.zip",
+    "sha256": "6261e9d695747c333065fa0655f610a7b7bd0be5015f47f70395edf7e7789eca"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "hjR34dC9cnDVYJTw-17-4",
+      "purpose": "policy-scope",
+      "report": "hjR34dC9cnDVYJTw",
+      "fight": 17,
+      "actor": 4,
+      "player": "PlayerPFDMYP",
+      "realm": "Arcanite Reaper",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51113_Instructor_Razuvious.json",
+      "page": 1,
+      "row": 8,
+      "owned_actor_ids": [],
+      "duration_ms": 47129,
+      "published": "1472.79",
+      "totals": {
+        "raw": 69911,
+        "self": 0,
+        "excluded": 500,
+        "ranked": 69411
+      },
+      "residual": "-11991/4712900",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 257,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "aa6389f6ce6cba3527e6a7fa64f13989557b587965b74e664493a61df498dd7c",
+            "f372233c11f2e6a39cc7f04dad24188d8997a4fda1c37f27b19635b6d5c98ba6"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jwWPFyYt39hfCnm6-17-18",
+      "purpose": "policy-scope",
+      "report": "jwWPFyYt39hfCnm6",
+      "fight": 17,
+      "actor": 18,
+      "player": "Wsg",
+      "realm": "Arcanite Reaper",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51113_Instructor_Razuvious.json",
+      "page": 1,
+      "row": 5,
+      "owned_actor_ids": [],
+      "duration_ms": 45044,
+      "published": "1520.31",
+      "totals": {
+        "raw": 68481,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 68481
+      },
+      "residual": "3909/1126100",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 254,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "af040bf2bbe41437c129a8e959ef7a27372cc85336ee5fcb2c82176390f7267a",
+            "fc69bc7ca810277ee5766d59060b3cbcc170c284638a390462a62dca5d427e8d"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tc7M6RJATyazNbd9-15-7",
+      "purpose": "policy-scope",
+      "report": "tc7M6RJATyazNbd9",
+      "fight": 15,
+      "actor": 7,
+      "player": "Helena",
+      "realm": "Arcanite Reaper",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51113_Instructor_Razuvious.json",
+      "page": 1,
+      "row": 3,
+      "owned_actor_ids": [],
+      "duration_ms": 49521,
+      "published": "1631.39",
+      "totals": {
+        "raw": 81797,
+        "self": 0,
+        "excluded": 1009,
+        "ranked": 80788
+      },
+      "residual": "-6419/4952100",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 249,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "17cde0f41349960fc8b2eb3c2179f4ba5cba4d020985f9f0e762229a22b22491",
+            "6fd5c961b0109dbe4bc01e4f7c44b04c6b5745959bb9d28dd0b05342bd462ed8"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

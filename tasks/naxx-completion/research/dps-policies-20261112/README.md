@@ -58,22 +58,27 @@ The register now also admits the 8 HPS configurations (120 cells): the freezer's
 HPS mode counts heal and absorbed amounts (overheal is never in `amount`) by the
 actor and its owned units on friendly recipients, with no target exclusions.
 The production exclusion lists name damage targets only, so HPS cells are
-decided at every boss. The rule is the same as for DPS, plus one guard: an
-admitted row with healing on a non-friendly recipient keeps the cell OPEN.
+decided at every boss. The rule is the same as for DPS. A recipient counts as
+friendly when it is one of the fight's friendly players or pets, one of the
+actor's units, or when the event marks it `targetIsFriendly: true` (D030:
+mind-controlled Death Knight Understudies at Razuvious, Naxxramas Worshippers
+at Faerlina).
 Policies are `naxx-<boss>-<spec>-<class>-<faction>-hps-v1` with evidence
 `tests/golden/raids/hps-ranking-naxx-<...>.json`.
 
 | HPS decision | Cells |
 |---|---|
-| New policy | 83 |
+| New policy | 92 |
 | OPEN: fewer than 3 admitted players | 18 |
-| OPEN: contradiction retained ("published HPS contradicts raw") | 9 |
-| OPEN: other refusal retained ("wrong encounter or not a kill") | 9 |
-| OPEN: a row heals a non-friendly recipient | 1 |
+| OPEN: other refusal retained ("wrong encounter or not a kill") | 10 |
 
-299 HPS rows are admitted. The golden test re-proves every HPS row from raw
-pages and checks that adding overheal, dropping absorbs, dropping owned-unit
-healing or a wrong duration each fails on some row (1,528 checks in all).
+322 HPS rows are admitted and none contradicts. The "wrong encounter or not a
+kill" rows are Balance HPS comparisons on one realm whose leaderboard ranks a
+fight the report marks `kill: false`; none of those cells would reach 3
+players without them. The golden test re-proves every HPS row from raw pages
+and checks that adding overheal, dropping absorbs, dropping owned-unit healing,
+dropping heals on event-marked friendly NPCs, counting heals on hostile ones or
+a wrong duration each fails on some row (1,564 checks in all).
 
 ## Limits
 
