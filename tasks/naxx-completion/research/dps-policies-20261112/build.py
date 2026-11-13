@@ -264,6 +264,8 @@ def build() -> dict[Path, str]:
                     row["catalog_pets_out_of_scope"] = result["catalog_pets_out_of_scope"]
                 if result.get("fight_active_catalog_units"):
                     row["fight_active_catalog_units"] = result["fight_active_catalog_units"]
+                if result.get("friendly_target_damage"):
+                    row["friendly_target_damage"] = result["friendly_target_damage"]
                 rows.append(row)
             refusals = [
                 r | {"faction": config["faction"], "faction_status": "observed"} for r in refused

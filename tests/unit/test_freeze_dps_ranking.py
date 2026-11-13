@@ -25,7 +25,7 @@ def case(tmp_path: Path, mutation: str = "") -> dict[str, Any]:
     )
     me = actor(1, "Player", 101, name="Example", server=catalog_realm, subType="Druid")
     pet = actor(6, "Pet", 8836, petOwner=1)
-    fight = {
+    fight: dict[str, Any] = {
         "id": 7,
         "encounterID": 51118,
         "kill": True,
@@ -34,7 +34,7 @@ def case(tmp_path: Path, mutation: str = "") -> dict[str, Any]:
         "friendlyPlayers": [1],
         "friendlyPets": [pet],
     }
-    report = {
+    report: dict[str, Any] = {
         "code": "ABC",
         "visibility": "public",
         "revision": 1,
@@ -80,6 +80,13 @@ def case(tmp_path: Path, mutation: str = "") -> dict[str, Any]:
                 controlled["targetIsFriendly"] = "yes"
             source_rows.append(controlled)
             source_rows[3] = source_rows[3] | {"targetIsFriendly": False}
+    if mutation.startswith("friendly"):
+        # 70 damage to another raider (actor 2) at 700 ms (D031).
+        report["masterData"]["actors"].append(
+            actor(2, "Player", 102, name="Other", server=catalog_realm, subType="Mage")
+        )
+        fight["friendlyPlayers"].append(2)
+        source_rows.append(event(1, 2, 70, 700))
     if mutation == "amount_missing":
         source_rows[0].pop("amount")
     if mutation == "amount_float":
@@ -200,6 +207,8 @@ def case(tmp_path: Path, mutation: str = "") -> dict[str, Any]:
         row["duration"] = 10001
     if mutation == "published_amount":
         row["amount"] = 25.0
+    if mutation == "friendly_controlled":
+        row["amount"] = 31.0  # the raider was mind-controlled: 310 ranked
     if mutation in {"hps_mind_control", "hps_bad_flag"}:
         row["amount"] = 27.0
     if mutation == "hps_wrong_amount":
@@ -666,6 +675,95 @@ def catalog_case(tmp_path: Path, mutation: str = "") -> dict[str, Any]:
         for name, raw in files.items():
             z.writestr(name, raw)
     return spec | {"sha256": hashlib.sha256(path.read_bytes()).hexdigest()}
+
+
+def friendly_case(tmp_path: Path, mutation: str, auras: list[dict[str, Any]]) -> dict[str, Any]:
+    """Damage to another raider, with the fight's certified encounter-All pages."""
+    spec = case(tmp_path, mutation)
+    path = tmp_path / spec["archive"]
+    with zipfile.ZipFile(path) as z:
+        files = {n: z.read(n) for n in z.namelist()}
+    marker = json.loads(files["necropsy-snapshot.json"])
+    rows: list[dict[str, Any]] = [
+        *auras,
+        *json.loads(files["events/ABC/fight_7/player_1_Example/source_001.json"])["data"],
+    ]
+    rows.sort(key=lambda r: r["timestamp"])
+    whole = json.dumps({"data": rows, "nextPageTimestamp": None}).encode()
+    files["events/ABC/fight_7/encounter/all_001.json"] = whole
+    identity = {
+        **next(p for p in marker["streams"] if p["direction"] == "source")["identity"],
+        "actor_id": None,
+        "role": "encounter",
+        "direction": "all",
+    }
+    marker["encounter_streams"] = [
+        {
+            "report": "ABC",
+            "fight": 7,
+            "role": "encounter",
+            "actor_id": None,
+            "direction": "all",
+            "identity": identity,
+            "pages": [hashlib.sha256(whole).hexdigest()],
+        }
+    ]
+    files["necropsy-snapshot.json"] = json.dumps(marker).encode()
+    with zipfile.ZipFile(path, "w") as z:
+        for name, raw in files.items():
+            z.writestr(name, raw)
+    return spec | {"sha256": hashlib.sha256(path.read_bytes()).hexdigest()}
+
+
+def _chains(kind: str, stamp: int) -> dict[str, Any]:
+    return {
+        "type": kind,
+        "sourceID": 4,
+        "targetID": 2,
+        "abilityGameID": 28410,
+        "timestamp": stamp,
+        "fight": 7,
+    }
+
+
+def test_damage_to_another_raider_is_not_ranked(tmp_path: Path) -> None:
+    """D031: friendly damage outside mind control (e.g. Thaddius charges)."""
+    result = dps.compute(friendly_case(tmp_path, "friendly", []), tmp_path)
+    assert result["totals"] == {
+        "raw": 350,
+        "self": 10,
+        "excluded": 30,
+        "ranked": 240,
+        "friendly": 70,
+    }
+    assert result["friendly_target_damage"]["rule"] == "friendly-target-damage-v1"
+    assert result["friendly_target_damage"]["mind_controlled"] == {}
+
+
+def test_damage_to_a_mind_controlled_raider_is_ranked(tmp_path: Path) -> None:
+    auras = [_chains("applydebuff", 600), _chains("removedebuff", 800)]
+    result = dps.compute(friendly_case(tmp_path, "friendly_controlled", auras), tmp_path)
+    assert result["totals"] == {"raw": 350, "self": 10, "excluded": 30, "ranked": 310}
+    assert result["friendly_target_damage"]["mind_controlled"] == {"2": [[600, 800]]}
+
+
+@pytest.mark.parametrize(
+    ("auras", "error"),
+    [
+        ([_chains("applydebuff", 750)], "contradicts raw"),  # controlled only after the hit
+        ([_chains("removedebuff", 800)], "removal without an application"),
+    ],
+)
+def test_a_mind_control_window_must_cover_the_hit(
+    tmp_path: Path, auras: list[dict[str, Any]], error: str
+) -> None:
+    with pytest.raises(ValueError, match=error):
+        dps.compute(friendly_case(tmp_path, "friendly_controlled", auras), tmp_path)
+
+
+def test_friendly_damage_without_encounter_pages_is_refused(tmp_path: Path) -> None:
+    with pytest.raises(ValueError, match="encounter scope not unique"):
+        dps.compute(case(tmp_path, "friendly"), tmp_path)
 
 
 def test_agreeing_listings_keep_the_old_output_without_a_scope_record(tmp_path: Path) -> None:

@@ -1,0 +1,159 @@
+{
+  "version": 1,
+  "rule": "naxx-kelthuzad-frost-mage-horde-dps-v1",
+  "scope": {
+    "encounter_id": 51114,
+    "class_id": 4,
+    "category": "Frost",
+    "metric": "dps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/83910414-2006-20261105T054215.zip",
+    "sha256": "3ad2f7dba9a65ac121ccfd7b140d1d31e8c22574197285bb0f32d4a6fd222ac0"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "VNXtDTLbYH8v7K3J-13-34",
+      "purpose": "policy-scope",
+      "report": "VNXtDTLbYH8v7K3J",
+      "fight": 13,
+      "actor": 34,
+      "player": "哥灬轻点灬痛",
+      "realm": "哈霍兰",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51114_Kel_Thuzad.json",
+      "page": 1,
+      "row": 5,
+      "owned_actor_ids": [],
+      "duration_ms": 8130,
+      "published": "700.246",
+      "totals": {
+        "raw": 5693,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 5693
+      },
+      "residual": "1/406500"
+    },
+    {
+      "id": "ZQnbacXytm24Y6NC-41-19",
+      "purpose": "policy-scope",
+      "report": "ZQnbacXytm24Y6NC",
+      "fight": 41,
+      "actor": 19,
+      "player": "Vigos",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51114_Kel_Thuzad.json",
+      "page": 1,
+      "row": 30,
+      "owned_actor_ids": [],
+      "duration_ms": 99181,
+      "published": "533.479",
+      "totals": {
+        "raw": 57094,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 52911,
+        "friendly": 4183
+      },
+      "residual": "19301/99181000",
+      "friendly_target_damage": {
+        "rule": "friendly-target-damage-v1",
+        "auras": [
+          28410
+        ],
+        "pages": [
+          "ad38174a4e37f76f58d54fa5635fd6e77b0c56ea27d9d204cf937405c3280df5",
+          "170e1e6bb854461f7cf09ffa042d49ee443bd9e55c6624eb93243a9fc82bf941",
+          "20da36e0fa95b2295a7c961f86ab0804536895a5de640d6b6d3316c585d1b1ce"
+        ],
+        "mind_controlled": {
+          "13": [
+            [
+              4687575,
+              4699652
+            ]
+          ],
+          "26": [
+            [
+              4687541,
+              4699652
+            ]
+          ],
+          "36": [
+            [
+              4687566,
+              4699652
+            ]
+          ],
+          "37": [
+            [
+              4688077,
+              4699652
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "jgBwArCbp47FxK8t-34-14",
+      "purpose": "policy-scope",
+      "report": "jgBwArCbp47FxK8t",
+      "fight": 34,
+      "actor": 14,
+      "player": "Coffy",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51114_Kel_Thuzad.json",
+      "page": 1,
+      "row": 36,
+      "owned_actor_ids": [],
+      "duration_ms": 82973,
+      "published": "514.384",
+      "totals": {
+        "raw": 42680,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 42680
+      },
+      "residual": "186/942875",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 168,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "c07ed97ab3c6c66dcc493553209466aa01c3d27f5204cf5872c19bf7717df5ef",
+            "2a59e77e397932430470c9b5635296036d96c6f93698f97cae68a4c333e963dc"
+          ]
+        },
+        {
+          "pet": 272,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "c07ed97ab3c6c66dcc493553209466aa01c3d27f5204cf5872c19bf7717df5ef",
+            "2a59e77e397932430470c9b5635296036d96c6f93698f97cae68a4c333e963dc"
+          ]
+        }
+      ]
+    }
+  ],
+  "refusals": []
+}

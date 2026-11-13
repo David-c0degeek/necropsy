@@ -114,3 +114,9 @@ Naxxramas Worshippers that the event marks `targetIsFriendly: true`. Counting
 those, and not the 70 events marked `false`, matches all 398 probed Naxx HPS
 kill rows. 92 HPS policies, no HPS contradiction left; golden re-proof 1,564
 checks.
+
+2026-11-13 · D031 friendly-target damage · WCL ranks damage to another raider
+only while Chains of Kel'Thuzad mind-controls it; Thaddius charge damage to
+raiders is not ranked. The freezer takes the Chains windows from the certified
+encounter-All pages. 7 of 13 non-Fire DPS contradictions resolved; 274 DPS
+policies; golden re-proof 1,588 checks.

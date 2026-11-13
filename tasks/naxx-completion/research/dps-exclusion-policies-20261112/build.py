@@ -103,6 +103,8 @@ def row_of(cell: dict[str, Any], who: dict[str, Any], result: dict[str, Any]) ->
         row["catalog_pets_out_of_scope"] = result["catalog_pets_out_of_scope"]
     if result.get("fight_active_catalog_units"):
         row["fight_active_catalog_units"] = result["fight_active_catalog_units"]
+    if result.get("friendly_target_damage"):
+        row["friendly_target_damage"] = result["friendly_target_damage"]
     return row
 
 

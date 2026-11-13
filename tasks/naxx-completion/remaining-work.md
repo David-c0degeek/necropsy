@@ -1,5 +1,10 @@
 # Remaining Naxx work — 2026-10-23
 
+Friendly-target damage, 2026-11-13 (D031): 274 DPS policies; 366 Naxx
+policies in all (274 DPS, 92 HPS) of 510 cells. DPS contradictions left: 73
+Fire Mage rows (Ignite), 2 Frost Mage rows at Faerlina (Ignite), and 4 single
+rows (an absorbed-damage row, a Detonate Mana row, two unexplained).
+
 HPS, 2026-11-13 (D029, D030): the register admits the 8 HPS configurations
 (120 cells; 322 rows admitted, no contradiction) and 92 cell-scoped HPS
 policies exist. Open HPS cells: 18 below the minimum, 10 with "wrong encounter

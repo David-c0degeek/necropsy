@@ -52,6 +52,15 @@ No other refusal type occurred. Contradictions concentrate in Mage Fire. The
 first build (before D028) had 142 policies; the Shaman configurations then had
 none because every totem-owning comparison was refused.
 
+## Friendly-target damage (D031)
+
+Damage to another raider is ranked only while Chains of Kel'Thuzad (28410)
+mind-controls it; any other friendly-target damage (Thaddius charges) is
+`friendly` and never ranked. The windows come from the certified encounter-All
+pages and are recorded on each evidence row (`friendly_target_damage`). After
+D031 this builder has 167 new DPS policies (from 161) and 20 DPS cells with
+contradictions (from 26); the table above is the D028 state.
+
 ## HPS cells (D029)
 
 The register now also admits the 8 HPS configurations (120 cells): the freezer's

@@ -1131,6 +1131,28 @@ ranking_metric_policies:
   validated: 3 admitted of 3 in-scope Sapphiron Feral Druid Horde rows (3 distinct non-subject
     players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-sapphiron-feral-druid-horde.json
+- rule: naxx-thaddius-feral-druid-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51120
+    class_id: 2
+    category: Feral
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units, divided by the fight duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - encounter-has-no-production-ranking-exclusions
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Thaddius Feral Druid Horde rows (3 distinct non-subject
+    players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-thaddius-feral-druid-horde.json
 - rule: naxx-gothik-guardian-druid-alliance-dps-v1
   basis: empirical
   scope:
@@ -1737,6 +1759,28 @@ ranking_metric_policies:
   validated: 3 admitted of 3 in-scope Sapphiron Protection Warrior Horde rows (3 distinct
     non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-sapphiron-protection-warrior-horde.json
+- rule: naxx-thaddius-protection-warrior-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51120
+    class_id: 11
+    category: Protection
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units, divided by the fight duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - encounter-has-no-production-ranking-exclusions
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Thaddius Protection Warrior Horde rows (3 distinct non-subject
+    players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-thaddius-protection-warrior-horde.json
 - rule: naxx-horsemen-protection-warrior-horde-dps-v1
   basis: empirical
   scope:
@@ -2915,6 +2959,28 @@ ranking_metric_policies:
   validated: 3 admitted of 3 in-scope Maexxna Guardian Druid Horde rows (3 distinct non-subject
     players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-maexxna-guardian-druid-horde.json
+- rule: naxx-thaddius-guardian-druid-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51120
+    class_id: 2
+    category: Guardian
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units, divided by the fight duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - encounter-has-no-production-ranking-exclusions
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Thaddius Guardian Druid Horde rows (3 distinct non-subject
+    players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-thaddius-guardian-druid-horde.json
 - rule: naxx-horsemen-guardian-druid-horde-dps-v1
   basis: empirical
   scope:
@@ -3201,6 +3267,28 @@ ranking_metric_policies:
   validated: 3 admitted of 3 in-scope Sapphiron Fury Warrior Horde rows (3 distinct non-subject
     players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-sapphiron-fury-warrior-horde.json
+- rule: naxx-thaddius-fury-warrior-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51120
+    class_id: 11
+    category: Fury
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units, divided by the fight duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - encounter-has-no-production-ranking-exclusions
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Thaddius Fury Warrior Horde rows (3 distinct non-subject
+    players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-thaddius-fury-warrior-horde.json
 - rule: naxx-horsemen-fury-warrior-horde-dps-v1
   basis: empirical
   scope:
@@ -3620,6 +3708,28 @@ ranking_metric_policies:
   validated: 3 admitted of 3 in-scope Noth the Plaguebringer Fury Warrior Alliance rows (3
     distinct non-subject players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-noth-fury-warrior-alliance.json
+- rule: naxx-thaddius-fury-warrior-alliance-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51120
+    class_id: 11
+    category: Fury
+    metric: dps
+    faction: Alliance
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units, divided by the fight duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - encounter-has-no-production-ranking-exclusions
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Thaddius Fury Warrior Alliance rows (3 distinct non-subject
+    players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-thaddius-fury-warrior-alliance.json
 - rule: naxx-horsemen-fury-warrior-alliance-dps-v1
   basis: empirical
   scope:
@@ -5652,6 +5762,28 @@ ranking_metric_policies:
   validated: 3 admitted of 3 in-scope Grobbulus Frost Mage Horde rows (3 distinct non-subject
     players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
   evidence: tests/golden/raids/dps-ranking-naxx-grobbulus-frost-mage-horde.json
+- rule: naxx-kelthuzad-frost-mage-horde-dps-v1
+  basis: empirical
+  scope:
+    encounter_id: 51114
+    class_id: 4
+    category: Frost
+    metric: dps
+    faction: Horde
+  formula: WCL DPS equals the actor's damage plus its listed owned units' damage, less damage
+    to the actor or its owned units, divided by the fight duration. No target exclusions.
+  conditions:
+  - unique-name-realm-identity
+  - complete-source-target-streams
+  - owned-unit-listing-present
+  - owner-and-owned-unit-targets-subtracted
+  - ranking-duration-equals-fight-duration
+  - encounter-has-no-production-ranking-exclusions
+  bound: Within one unit of the published last decimal place; the upstream rounding mode is
+    not established.
+  validated: 3 admitted of 3 in-scope Kel'Thuzad Frost Mage Horde rows (3 distinct non-subject
+    players); 0 ownership refusals, unknown; 0 contradictions. policy-20261112.
+  evidence: tests/golden/raids/dps-ranking-naxx-kelthuzad-frost-mage-horde.json
 - rule: naxx-maexxna-frost-mage-horde-dps-v1
   basis: empirical
   scope:

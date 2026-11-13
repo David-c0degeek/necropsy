@@ -125,6 +125,12 @@ def consistent(amount: int, duration: int, published: str) -> bool:
 
 
 EFFECT_TYPES = {"dps": frozenset({"damage"}), "hps": frozenset({"heal", "absorbed"})}
+# D031: damage to another friendly unit is ranked only while that unit is under one
+# of these mind-control auras (Chains of Kel'Thuzad), taken from the fight's
+# certified encounter-All pages; otherwise it is "friendly" damage, never ranked.
+MIND_CONTROL_AURAS = frozenset({28410})
+AURA_ON = frozenset({"applydebuff", "applybuff"})
+AURA_OFF = frozenset({"removedebuff", "removebuff"})
 """Counted event types. A heal event's amount excludes overheal."""
 ROLES = {
     "dps": frozenset({"balance-dps", "feral-dps", "feral-tank", "dps", "tank"}),
@@ -173,6 +179,33 @@ def validate_spec(spec: dict[str, Any], metric: str = "dps") -> None:
     )
     # Production exclusion lists name damage targets; healing has none.
     require(metric == "dps" or not excluded, "HPS takes no target exclusions")
+
+
+def mind_control_intervals(
+    scope: list[tuple[dict[str, Any], str, int]], targets: set[int], end: int
+) -> dict[int, list[tuple[int, int]]]:
+    """Closed intervals during which each target holds a listed mind-control aura.
+
+    A repeated apply keeps the open interval; an aura still on at the end runs to
+    the fight's end. A removal with no open interval is unexplained and refused."""
+    opened: dict[int, int] = {}
+    intervals: dict[int, list[tuple[int, int]]] = {}
+    ordered = sorted(
+        (e for e, _, _ in scope if e.get("abilityGameID") in MIND_CONTROL_AURAS),
+        key=lambda e: e["timestamp"],
+    )
+    for event in ordered:
+        target, kind, stamp = event.get("targetID"), event.get("type"), event["timestamp"]
+        if target not in targets:
+            continue
+        if kind in AURA_ON:
+            opened.setdefault(target, stamp)
+        elif kind in AURA_OFF:
+            require(target in opened, "mind-control removal without an application")
+            intervals.setdefault(target, []).append((opened.pop(target), stamp))
+    for target, stamp in opened.items():
+        intervals.setdefault(target, []).append((stamp, end))
+    return intervals
 
 
 def compute_hps(spec: dict[str, Any], base: Path) -> dict[str, Any]:
@@ -630,6 +663,18 @@ def compute(spec: dict[str, Any], base: Path, metric: str = "dps") -> dict[str, 
             {x for x in fight["friendlyPlayers"]} | {p["id"] for p in fight["friendlyPets"]} | own
         )
         totals = {"raw": 0, "self": 0, "excluded": 0, "ranked": 0}
+        controlled: dict[int, list[tuple[int, int]]] = {}
+        friendly_record: dict[str, Any] | None = None
+        others = friendly - own
+        if metric == "dps" and any(read_json(k.encode())["targetID"] in others for k in combined):
+            if not scope:
+                scope, scope_pages = encounter_scope(code, fid, report["revision"], start, end)
+            controlled = mind_control_intervals(scope, others, end)
+            friendly_record = {
+                "rule": "friendly-target-damage-v1",
+                "auras": sorted(MIND_CONTROL_AURAS),
+                "pages": scope_pages,
+            }
         events = []
         for key, count in sorted(combined.items()):
             event = read_json(key.encode())
@@ -638,18 +683,21 @@ def compute(spec: dict[str, Any], base: Path, metric: str = "dps") -> dict[str, 
                 marked = event.get("targetIsFriendly")
                 require(marked is None or type(marked) is bool, "targetIsFriendly not boolean")
                 disposition = "ranked" if target in friendly or marked is True else "excluded"
-            else:
+            elif target in own:
+                disposition = "self"
+            elif target in others:
+                stamp = event["timestamp"]
                 disposition = (
-                    "self"
-                    if target in own
-                    else (
-                        "excluded"
-                        if actors[target]["gameID"] in spec["excluded_game_ids"]
-                        else "ranked"
-                    )
+                    "ranked"
+                    if any(a <= stamp <= b for a, b in controlled.get(target, ()))
+                    else "friendly"
                 )
+            elif actors[target]["gameID"] in spec["excluded_game_ids"]:
+                disposition = "excluded"
+            else:
+                disposition = "ranked"
             totals["raw"] += event["amount"] * count
-            totals[disposition] += event["amount"] * count
+            totals[disposition] = totals.get(disposition, 0) + event["amount"] * count
             events.append(
                 {
                     "raw": event,
@@ -726,6 +774,11 @@ def compute(spec: dict[str, Any], base: Path, metric: str = "dps") -> dict[str, 
         }
         if out_of_scope:
             result["catalog_pets_out_of_scope"] = out_of_scope
+        if friendly_record is not None:
+            friendly_record["mind_controlled"] = {
+                str(t): [list(i) for i in iv] for t, iv in sorted(controlled.items())
+            }
+            result["friendly_target_damage"] = friendly_record
         if active:
             result["fight_active_catalog_units"] = [
                 {"unit": unit, "rule": "catalog-unit-active-in-fight-v1"} for unit in active

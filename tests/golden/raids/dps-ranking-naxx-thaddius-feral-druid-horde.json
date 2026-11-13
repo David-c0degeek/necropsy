@@ -1,0 +1,147 @@
+{
+  "version": 1,
+  "rule": "naxx-thaddius-feral-druid-horde-dps-v1",
+  "scope": {
+    "encounter_id": 51120,
+    "class_id": 2,
+    "category": "Feral",
+    "metric": "dps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261031/77548335-2006-20261030T095117.zip",
+    "sha256": "4e39a080967408826e0ac36826f90cfb9094230407a7e5b4c5f437c8c7b7a82e"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "FD2ghbRKQX9jLafy-47-5",
+      "purpose": "policy-scope",
+      "report": "FD2ghbRKQX9jLafy",
+      "fight": 47,
+      "actor": 5,
+      "player": "Midinvaerne",
+      "realm": "Firemaw",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51120_Thaddius.json",
+      "page": 1,
+      "row": 17,
+      "owned_actor_ids": [],
+      "duration_ms": 130671,
+      "published": "1827.93",
+      "totals": {
+        "raw": 238858,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 238858
+      },
+      "residual": "55897/13067100"
+    },
+    {
+      "id": "PGtkq7RbNgzvjXK2-33-24",
+      "purpose": "policy-scope",
+      "report": "PGtkq7RbNgzvjXK2",
+      "fight": 33,
+      "actor": 24,
+      "player": "Efc",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51120_Thaddius.json",
+      "page": 1,
+      "row": 42,
+      "owned_actor_ids": [],
+      "duration_ms": 139370,
+      "published": "1640.27",
+      "totals": {
+        "raw": 228604,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 228604
+      },
+      "residual": "-4299/1393700",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 226,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "37dedb1002244dad54603a2a368d21015c9878311ca2490d9cd2f303257b61ca",
+            "dd2e11955d84e1622c29bdc905f3eb9a92952e099f730ef1ec2287566e79ef9b",
+            "1078f10c18861bac08410f5e783b924cb5f73d6dd4bb6e824d4291a22f05069c"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ykqbzHTR2ntBFVPv-46-56",
+      "purpose": "policy-scope",
+      "report": "ykqbzHTR2ntBFVPv",
+      "fight": 46,
+      "actor": 56,
+      "player": "Stankfaçe",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51120_Thaddius.json",
+      "page": 1,
+      "row": 35,
+      "owned_actor_ids": [],
+      "duration_ms": 143220,
+      "published": "1672.9",
+      "totals": {
+        "raw": 251034,
+        "self": 959,
+        "excluded": 0,
+        "ranked": 239593,
+        "friendly": 10482
+      },
+      "residual": "131/71610",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 116,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "7bbe15554a9edf42f579273a345f5c0dc75ed1ab6d74f6a12373cedcd658f6b9",
+            "46ef1cda1bc02910b03a0ca49e955e54bd602f2bfcee680622ddca2cd32cac08",
+            "3750234a2ed67381629a7247d4f0d05df7942f65abeb52c862a6e34e0e891aa9"
+          ]
+        },
+        {
+          "pet": 205,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "7bbe15554a9edf42f579273a345f5c0dc75ed1ab6d74f6a12373cedcd658f6b9",
+            "46ef1cda1bc02910b03a0ca49e955e54bd602f2bfcee680622ddca2cd32cac08",
+            "3750234a2ed67381629a7247d4f0d05df7942f65abeb52c862a6e34e0e891aa9"
+          ]
+        }
+      ],
+      "friendly_target_damage": {
+        "rule": "friendly-target-damage-v1",
+        "auras": [
+          28410
+        ],
+        "pages": [
+          "7bbe15554a9edf42f579273a345f5c0dc75ed1ab6d74f6a12373cedcd658f6b9",
+          "46ef1cda1bc02910b03a0ca49e955e54bd602f2bfcee680622ddca2cd32cac08",
+          "3750234a2ed67381629a7247d4f0d05df7942f65abeb52c862a6e34e0e891aa9"
+        ],
+        "mind_controlled": {}
+      }
+    }
+  ],
+  "refusals": []
+}

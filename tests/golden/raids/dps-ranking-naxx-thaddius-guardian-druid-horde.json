@@ -1,0 +1,127 @@
+{
+  "version": 1,
+  "rule": "naxx-thaddius-guardian-druid-horde-dps-v1",
+  "scope": {
+    "encounter_id": 51120,
+    "class_id": 2,
+    "category": "Guardian",
+    "metric": "dps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/70621233-2006-20261101T123113.zip",
+    "sha256": "2fc02829c6013cb5bac380868754ee7689bc531819d85265d5f84f809bbea947"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "PwvxmRMajGZnKWTd-62-41",
+      "purpose": "policy-scope",
+      "report": "PwvxmRMajGZnKWTd",
+      "fight": 62,
+      "actor": 41,
+      "player": "Rohme",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51120_Thaddius.json",
+      "page": 1,
+      "row": 4,
+      "owned_actor_ids": [],
+      "duration_ms": 149875,
+      "published": "1356.1",
+      "totals": {
+        "raw": 207446,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 203246,
+        "friendly": 4200
+      },
+      "residual": "41/11990",
+      "friendly_target_damage": {
+        "rule": "friendly-target-damage-v1",
+        "auras": [
+          28410
+        ],
+        "pages": [
+          "c455c36c4d64c2b9454042bf50f1cb566537403df6148af86a469c40e95d8761",
+          "457001c30d721c748c9d3d51b73560c30770b96df06fa50e56b2f0e85920efb3",
+          "0488cbfb8336fb1d5a5acbb318b662258bc895f8663b01ddc8a0ab9cb3990eb7"
+        ],
+        "mind_controlled": {}
+      }
+    },
+    {
+      "id": "VHmypgqGxaBbcNn4-35-9",
+      "purpose": "policy-scope",
+      "report": "VHmypgqGxaBbcNn4",
+      "fight": 35,
+      "actor": 9,
+      "player": "Clownform",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51120_Thaddius.json",
+      "page": 1,
+      "row": 10,
+      "owned_actor_ids": [],
+      "duration_ms": 134006,
+      "published": "1288.87",
+      "totals": {
+        "raw": 172716,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 172716
+      },
+      "residual": "-15661/6700300",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 145,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "fdf82abe0131e873e046929118a9e7f2878bbe6b3e23b77868965d8f18cf84b0",
+            "c316c72dd89430c33744c04c3af33ca09c3684672c067048e342b627a899e684",
+            "7fd256510491f05f9026fcd83b6e478dc8212914e2ff4915c78816ffcf9b4e96"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jtF8YKVDHPc2JXxq-18-18",
+      "purpose": "policy-scope",
+      "report": "jtF8YKVDHPc2JXxq",
+      "fight": 18,
+      "actor": 18,
+      "player": "Kiiza",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51120_Thaddius.json",
+      "page": 1,
+      "row": 6,
+      "owned_actor_ids": [],
+      "duration_ms": 139977,
+      "published": "1332.15",
+      "totals": {
+        "raw": 186471,
+        "self": 0,
+        "excluded": 0,
+        "ranked": 186471
+      },
+      "residual": "1421/311060"
+    }
+  ],
+  "refusals": []
+}

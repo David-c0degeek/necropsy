@@ -230,11 +230,40 @@ def _measure(
         page = next(p for p in board["pages"] if p["page"] == row["page"])
         published = page["characterRankings"]["rankings"][row["row"]]
         friendly = set(fight["friendlyPlayers"]) | {p["id"] for p in fight["friendlyPets"]} | known
+        raiders = friendly - known
+        windows: dict[int, list[tuple[int, int]]] = {}
+        if metric == "dps" and any(e["targetID"] in raiders for e, _ in events):
+            # D031: damage to another raider counts only while Chains of Kel'Thuzad
+            # (28410) mind-controls it, per the fight's encounter-All pages.
+            if not scope_events:
+                prefix = f"events/{row['report']}/fight_{row['fight']}/encounter/"
+                for name in sorted(n for n in z.namelist() if n.startswith(prefix)):
+                    scope_events.extend(_read(z, name)["data"])
+            assert scope_events
+            started: dict[int, int] = {}
+            for e in sorted(scope_events, key=lambda e: e["timestamp"]):
+                if e.get("abilityGameID") != 28410 or e.get("targetID") not in raiders:
+                    continue
+                if e["type"] in ("applydebuff", "applybuff"):
+                    started.setdefault(e["targetID"], e["timestamp"])
+                elif e["type"] in ("removedebuff", "removebuff"):
+                    windows.setdefault(e["targetID"], []).append(
+                        (started.pop(e["targetID"]), e["timestamp"])
+                    )
+            for t, begin in started.items():
+                windows.setdefault(t, []).append((begin, fight["endTime"]))
     by_target: Counter[int] = Counter()
     by_source: Counter[int] = Counter()
+    controlled = outside = 0
     for event, n in events:
         by_source[event["sourceID"]] += event["amount"] * n
-        if event["targetID"] not in known:
+        if event["targetID"] in raiders and metric == "dps":
+            hit = event["timestamp"]
+            if any(a <= hit <= b for a, b in windows.get(event["targetID"], ())):
+                controlled += event["amount"] * n
+            else:
+                outside += event["amount"] * n
+        elif event["targetID"] not in known:
             by_target[actors[event["targetID"]].get("gameID")] += event["amount"] * n
     raw = sum(by_source.values())
     marked = 0
@@ -258,10 +287,15 @@ def _measure(
     else:
         others = sum(by_target.values())
         excluded = sum(v for g, v in by_target.items() if g in excluded_ids)
-        ranked = others - excluded
-        totals = {"raw": raw, "self": raw - others, "excluded": excluded, "ranked": ranked}
+        ranked = others - excluded + controlled
+        self_damage = raw - others - controlled - outside
+        totals = {"raw": raw, "self": self_damage, "excluded": excluded, "ranked": ranked}
+        if outside:
+            totals["friendly"] = outside
     return {
         "marked_friendly": marked,
+        "controlled": controlled,
+        "outside": outside,
         "details": details,
         "owned": sorted(owned),
         "totals": totals,
@@ -364,6 +398,10 @@ def test_published_amount_matches_raw_owner_and_owned_unit_effects(
         assert not _consistent(m["totals"]["raw"], duration, amount)
     if m["totals"]["excluded"]:
         assert not _consistent(ranked + m["totals"]["excluded"], duration, amount)
+    if m["outside"]:  # D031: friendly damage outside mind control is never ranked
+        assert not _consistent(ranked + m["outside"], duration, amount)
+    if m["controlled"]:
+        assert not _consistent(ranked - m["controlled"], duration, amount)
     bosses = set(_encounter(policy["scope"]["encounter_id"])["boss_game_ids"])
     others = {g: v for g, v in m["by_target"].items() if g not in bosses and v}
     if others:

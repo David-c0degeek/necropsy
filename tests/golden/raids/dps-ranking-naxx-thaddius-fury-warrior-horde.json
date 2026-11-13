@@ -1,0 +1,156 @@
+{
+  "version": 1,
+  "rule": "naxx-thaddius-fury-warrior-horde-dps-v1",
+  "scope": {
+    "encounter_id": 51120,
+    "class_id": 11,
+    "category": "Fury",
+    "metric": "dps",
+    "faction": "Horde"
+  },
+  "method": "Freezer admission (scripts/freeze_dps_ranking.py) through the comparison follow-up register; the golden test re-enumerates every row from raw pages without freezer, analyzer or metric code. A row is consistent when |ranked * 1000 / duration - published| < 10^-(published decimals) and the ranking duration equals the fight duration.",
+  "archive": {
+    "path": "tests/golden/raids/raw/naxx-production-20261111/75322236-2006-20261110T150026.zip",
+    "sha256": "3750625e922916fb4f3a6cf7243311216149d77b3b09eeebffcdcd43558f76dd"
+  },
+  "dispositions": {
+    "n": 3,
+    "k": 3,
+    "r": 0,
+    "c": 0
+  },
+  "rows": [
+    {
+      "id": "VxpgCX3zGWc6mH9h-32-19",
+      "purpose": "policy-scope",
+      "report": "VxpgCX3zGWc6mH9h",
+      "fight": 32,
+      "actor": 19,
+      "player": "Solmeast",
+      "realm": "Whitemane",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51120_Thaddius.json",
+      "page": 1,
+      "row": 20,
+      "owned_actor_ids": [],
+      "duration_ms": 133700,
+      "published": "3733.66",
+      "totals": {
+        "raw": 503162,
+        "self": 1972,
+        "excluded": 0,
+        "ranked": 499190,
+        "friendly": 2000
+      },
+      "residual": "-171/66850",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 138,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "384bda5eefa73c18526fcc85d038e5635c95dcb680dcdfd93d7254b4515de025",
+            "4e26f517e811a2795c65034761def024d9a049a69e6233ab15893c9cdb00f712",
+            "a92d649e5b5e2b1016a946e6e821970a6a4cd81f704292e0d6c7072c36e6c22c"
+          ]
+        }
+      ],
+      "friendly_target_damage": {
+        "rule": "friendly-target-damage-v1",
+        "auras": [
+          28410
+        ],
+        "pages": [
+          "384bda5eefa73c18526fcc85d038e5635c95dcb680dcdfd93d7254b4515de025",
+          "4e26f517e811a2795c65034761def024d9a049a69e6233ab15893c9cdb00f712",
+          "a92d649e5b5e2b1016a946e6e821970a6a4cd81f704292e0d6c7072c36e6c22c"
+        ],
+        "mind_controlled": {}
+      }
+    },
+    {
+      "id": "d9MB4vjWwQxL27Gf-42-36",
+      "purpose": "policy-scope",
+      "report": "d9MB4vjWwQxL27Gf",
+      "fight": 42,
+      "actor": 36,
+      "player": "Shredz",
+      "realm": "Smolderweb",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51120_Thaddius.json",
+      "page": 1,
+      "row": 36,
+      "owned_actor_ids": [],
+      "duration_ms": 136745,
+      "published": "3674.49",
+      "totals": {
+        "raw": 503509,
+        "self": 1041,
+        "excluded": 0,
+        "ranked": 502468
+      },
+      "residual": "-2701/2734900",
+      "catalog_pets_out_of_scope": [
+        {
+          "pet": 73,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "6c3beb0035921cf8939c85398754e9554aa54c2cb69fe424728df9716987a48b",
+            "6fd2bb38e52586de744f7112dc99f3be62fdd78d1e25ea161407824e631c2463",
+            "d748ebab6856f6b03b0da3f70821bb24179d7b9926f572ce2f3f69c2bd1b80d0"
+          ]
+        },
+        {
+          "pet": 152,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "6c3beb0035921cf8939c85398754e9554aa54c2cb69fe424728df9716987a48b",
+            "6fd2bb38e52586de744f7112dc99f3be62fdd78d1e25ea161407824e631c2463",
+            "d748ebab6856f6b03b0da3f70821bb24179d7b9926f572ce2f3f69c2bd1b80d0"
+          ]
+        },
+        {
+          "pet": 154,
+          "rule": "catalog-pet-absent-from-fight-v1",
+          "pages": [
+            "6c3beb0035921cf8939c85398754e9554aa54c2cb69fe424728df9716987a48b",
+            "6fd2bb38e52586de744f7112dc99f3be62fdd78d1e25ea161407824e631c2463",
+            "d748ebab6856f6b03b0da3f70821bb24179d7b9926f572ce2f3f69c2bd1b80d0"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tFXa2VcHvK9pdAfb-33-36",
+      "purpose": "policy-scope",
+      "report": "tFXa2VcHvK9pdAfb",
+      "fight": 33,
+      "actor": 36,
+      "player": "Gèórgé",
+      "realm": "Bigglesworth",
+      "kind": "cohort",
+      "faction": "Horde",
+      "faction_status": "observed",
+      "status": "arithmetic-match",
+      "leaderboard_member": "leaderboards/51120_Thaddius.json",
+      "page": 1,
+      "row": 38,
+      "owned_actor_ids": [],
+      "duration_ms": 123983,
+      "published": "3672.06",
+      "totals": {
+        "raw": 456885,
+        "self": 1612,
+        "excluded": 0,
+        "ranked": 455273
+      },
+      "residual": "-749/6199150"
+    }
+  ],
+  "refusals": []
+}
